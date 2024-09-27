@@ -1,0 +1,75 @@
+<table
+  x-data="table($store.tableDefinition)"
+  class="table-auto border-collapse text-left w-full text-[0.9rem]"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label" class="whitespace-nowrap"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            class="border-t border-gray-300 px-2 py-2 dark:border-neutral-700"
+            >
+            <span x-text="row[col.key]"></span>
+            <template x-if="col.key === 'status'">
+              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-checkbox-outline" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-green-600 mx-auto">
+                <path d="M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,5V19H5V5H19M10,17L6,13L7.41,11.58L10,14.17L16.59,7.58L18,9" />
+              </svg>
+            </template>
+            <template x-if="col.key === 'edit'">
+              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-account-edit" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mx-auto">
+                <path d="M21.7,13.35L20.7,14.35L18.65,12.3L19.65,11.3C19.86,11.09 20.21,11.09 20.42,11.3L21.7,12.58C21.91,12.79 21.91,13.14 21.7,13.35M12,18.94L18.06,12.88L20.11,14.93L14.06,21H12V18.94M12,14C7.58,14 4,15.79 4,18V20H10V18.11L14,14.11C13.34,14.03 12.67,14 12,14M12,4A4,4 0 0,0 8,8A4,4 0 0,0 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4Z" />
+              </svg>
+            </template>
+          </td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>

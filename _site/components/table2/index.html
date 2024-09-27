@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/output.css" rel="stylesheet">
+    <script defer src="/alpine-components/table/table.js"></script>
+    <script defer src="/alpine-components/pagination/pagination.js"></script>
+    <script defer src="/alpine-components/datepicker/datepicker.js"></script>
+    <script defer src="/alpine-components/progress/progress.js"></script>
+    <script defer src="/alpine-components/input/input.js"></script>
+    <script defer type="module" src="/alpine-components/dropdown-context/dropdown-context.js"></script>
+    <script defer type="module" src="/alpine-components/dropdown/dropdown.js"></script>
+    <script defer src="/alpine-components/tabs/tabs.js"></script>
+    <script defer type="module" src="/alpine-components/floating.js"></script>
+    <script defer src="/alpine-components/transition-plugin.js"></script>
+    <script defer src="/alpine-components/table/table-store.js"></script>
+    <script defer src="/alpine-components/table/table-filter-pagination-store.js"></script>
+    <script defer src="/alpine-components/table/table-definition-store.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/oceanicnext.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <nav class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white">
+      <span class="font-semibold">
+        Alpine Components
+      </span>
+    </nav>
+    <div class="mt-16 text-text-800 dark:bg-[#191919] dark:text-[#c9cbd0] flex flex-col mx-auto">
+  <div class="justify-center flex flex-row flex-wrap w-auto">
+    <div class="hidden basis-auto lg:block xl:px-6 flex-[0_0_0%] min-w-0">
+      <div class="sticky top-16 ml-auto overflow-auto border-r px-10 pt-2 text-[0.9em] font-semibold text-text-600 dark:border-dark-700 dark:text-text-300/70">
+        <ul>
+
+  <li>
+    <a href="/components/table/" class="">Table</a>
+  </li>
+
+  <li>
+    <a href="/components/pagination/" class="">Pagination</a>
+  </li>
+
+  <li>
+    <a href="/components/datepicker/" class="">Datepicker</a>
+  </li>
+
+  <li>
+    <a href="/components/dropdown-context/" class="">Dropdown context</a>
+  </li>
+
+  <li>
+    <a href="/components/dropdown/" class="">Dropdown</a>
+  </li>
+
+  <li>
+    <a href="/components/input/" class="">Input</a>
+  </li>
+
+  <li>
+    <a href="/components/modal/" class="">Modal</a>
+  </li>
+
+  <li>
+    <a href="/components/progress/" class="">Progress</a>
+  </li>
+
+  <li>
+    <a href="/components/tabs/" class="">Tabs</a>
+  </li>
+
+  <li>
+    <a href="/components/table2/" class="text-violet-400">Table</a>
+  </li>
+
+</ul>
+
+      </div>
+    </div>
+    <div class="mt-12 max-w-screen-lg grow px-4 py-3 lg:px-6 xl:px-28 flex-[0_0_0%] min-w-0">
+      ## Table
+
+<div class="example">
+  <table
+  x-data="table($store.table)"
+  class="table-fixed border-collapse text-left"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            x-text="row[col.key]"
+            class="border-t border-t border-gray-300 px-2 py-2 transition-colors duration-200 dark:border-neutral-700"
+          ></td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+
+</div>
+
+<div
+  x-data="tabs('template', {
+    content: { 
+      'x-alt-transition': {
+        enter: ['opacity-0', 'transition ease-out duration-100 delay-100', 'opacity-100'],
+        leave: ['opacity-100', 'transition ease-in duration-100 absolute top-0', 'opacity-0'],
+    }
+    }})"
+>
+  <ul
+    x-bind="tabBar"
+    class="flex flex-auto items-center border-b pl-2 dark:border-neutral-600"
+  ><li>
+      <button
+        data-tab="template"
+        x-bind="label"
+        class="-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-gray-300 bg-gray-100 p-2 px-4 transition-all duration-200 hover:bg-gray-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-gray-300/80 dark:hover:bg-neutral-800"
+        class:selected="border-b-transparent bg-white shadow-none hover:bg-white dark:border-neutral-600 dark:border-b-transparent dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-800"
+      >
+        template
+      </button>
+    </li><li>
+      <button
+        data-tab="store"
+        x-bind="label"
+        class="-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-gray-300 bg-gray-100 p-2 px-4 transition-all duration-200 hover:bg-gray-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-gray-300/80 dark:hover:bg-neutral-800"
+        class:selected="border-b-transparent bg-white shadow-none hover:bg-white dark:border-neutral-600 dark:border-b-transparent dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-800"
+      >
+        store
+      </button>
+    </li></ul>
+  <div class="p-4">
+    <div class="relative">
+      
+        <div data-tab="template" x-bind="content" class="w-full">
+```html
+<table
+  x-data="table($store.table)"
+  class="table-fixed border-collapse text-left"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            x-text="row[col.key]"
+            class="border-t border-t border-gray-300 px-2 py-2 transition-colors duration-200 dark:border-neutral-700"
+          ></td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+
+```
+        </div>
+      
+        <div data-tab="store" x-bind="content" class="w-full">
+```javascript
+document.addEventListener('alpine:init', () => {
+  Alpine.store('table', {
+    data: [
+      {"id":1,"first_name":"Anthony","last_name":"Linbohm","city":"Makui","department":"Business Development","title":"Quality Engineer"},
+      {"id":2,"first_name":"Richard","last_name":"Moult","city":"Xihu","department":"Legal","title":"Budget/Accounting Analyst IV"},
+      {"id":3,"first_name":"Chance","last_name":"Dallas","city":"Moncton","department":"Support","title":"Product Engineer"},
+      {"id":4,"first_name":"Rozamond","last_name":"Abbatucci","city":"Chico","department":"Legal","title":"Software Consultant"},
+      {"id":5,"first_name":"Ashely","last_name":"Petrozzi","city":"Lafia","department":"Services","title":"Staff Accountant III"},
+      {"id":6,"first_name":"Bron","last_name":"Siuda","city":"Mora","department":"Accounting","title":"Marketing Manager"},
+      {"id":7,"first_name":"Marena","last_name":"Geraldi","city":"Karanganyar","department":"Support","title":"Compensation Analyst"},
+      {"id":8,"first_name":"Tomas","last_name":"Donneely","city":"Meirinhas","department":"Services","title":"Research Associate"},
+    ],
+    primaryKey: 'id',
+  })
+})
+
+```
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+### Definition
+
+Table definition is an optional `array` of `objects` that defines columns of the table. Each object has one required, unique `key` property and number of optional properties. The `key` defines which property of the record object will be rendered in the column. For new keys empty column is added and its content can be set in the template.
+
+If definition is not provided component makes one using the first record of the data. All additional properties are set to default values. This may be enough for simple tables however to use features like sorting, filtering etc you need to provide definition array.
+
+<div class="example">
+  <table
+  x-data="table($store.tableDefinition)"
+  class="table-fixed border-collapse text-left"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label" class="whitespace-nowrap"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            class="border-t border-t border-gray-300 px-2 py-2 transition-colors duration-200 dark:border-neutral-700"
+            >
+            <span x-text="row[col.key]"></span>
+            <template x-if="col.key === 'status'">
+              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-checkbox-outline" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-green-600 mx-auto">
+                <path d="M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,5V19H5V5H19M10,17L6,13L7.41,11.58L10,14.17L16.59,7.58L18,9" />
+              </svg>
+            </template>
+            <template x-if="col.key === 'edit'">
+              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-account-edit" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mx-auto">
+                <path d="M21.7,13.35L20.7,14.35L18.65,12.3L19.65,11.3C19.86,11.09 20.21,11.09 20.42,11.3L21.7,12.58C21.91,12.79 21.91,13.14 21.7,13.35M12,18.94L18.06,12.88L20.11,14.93L14.06,21H12V18.94M12,14C7.58,14 4,15.79 4,18V20H10V18.11L14,14.11C13.34,14.03 12.67,14 12,14M12,4A4,4 0 0,0 8,8A4,4 0 0,0 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4Z" />
+              </svg>
+            </template>
+          </td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+
+</div>
+
+```html
+<table
+  x-data="table($store.tableDefinition)"
+  class="table-fixed border-collapse text-left"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label" class="whitespace-nowrap"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            class="border-t border-t border-gray-300 px-2 py-2 transition-colors duration-200 dark:border-neutral-700"
+            >
+            <span x-text="row[col.key]"></span>
+            <template x-if="col.key === 'status'">
+              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-checkbox-outline" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-green-600 mx-auto">
+                <path d="M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,5V19H5V5H19M10,17L6,13L7.41,11.58L10,14.17L16.59,7.58L18,9" />
+              </svg>
+            </template>
+            <template x-if="col.key === 'edit'">
+              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-account-edit" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mx-auto">
+                <path d="M21.7,13.35L20.7,14.35L18.65,12.3L19.65,11.3C19.86,11.09 20.21,11.09 20.42,11.3L21.7,12.58C21.91,12.79 21.91,13.14 21.7,13.35M12,18.94L18.06,12.88L20.11,14.93L14.06,21H12V18.94M12,14C7.58,14 4,15.79 4,18V20H10V18.11L14,14.11C13.34,14.03 12.67,14 12,14M12,4A4,4 0 0,0 8,8A4,4 0 0,0 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4Z" />
+              </svg>
+            </template>
+          </td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+
+```
+```javascript
+document.addEventListener('alpine:init', () => {
+  Alpine.store('tableDefinition', {
+    data: [
+      {"id":1,"first_name":"Anthony","last_name":"Linbohm","city":"Makui","department":"Business Development","title":"Quality Engineer"},
+      {"id":2,"first_name":"Richard","last_name":"Moult","city":"Xihu","department":"Legal","title":"Budget/Accounting Analyst IV"},
+      {"id":3,"first_name":"Chance","last_name":"Dallas","city":"Moncton","department":"Support","title":"Product Engineer"},
+      {"id":4,"first_name":"Rozamond","last_name":"Abbatucci","city":"Chico","department":"Legal","title":"Software Consultant"},
+      {"id":5,"first_name":"Ashely","last_name":"Petrozzi","city":"Lafia","department":"Services","title":"Staff Accountant III"},
+      {"id":6,"first_name":"Bron","last_name":"Siuda","city":"Mora","department":"Accounting","title":"Marketing Manager"},
+      {"id":7,"first_name":"Marena","last_name":"Geraldi","city":"Karanganyar","department":"Support","title":"Compensation Analyst"},
+      {"id":8,"first_name":"Tomas","last_name":"Donneely","city":"Meirinhas","department":"Services","title":"Research Associate"},
+      {"id":9,"first_name":"Umberto","last_name":"Cohalan","city":"Cuamba","department":"Research and Development","title":"Chemical Engineer"},
+      {"id":10,"first_name":"Nicola","last_name":"Flippelli","city":"Faqīrwāli","department":"Human Resources","title":"VP Quality Control"},
+    ],
+    primaryKey: 'id',
+    definition: [
+      {
+        key: 'status',
+        label: 'Status',
+      },
+      {
+        key: 'first_name',
+        label: 'First name',
+        sortable: true,
+      },
+      {
+        key: 'last_name',
+        label: 'Last name',
+        sortable: true,
+      },
+      {
+        key: 'title',
+        sortable: true,
+      },
+      {
+        key: 'department',
+        sortable: true,
+      },
+      {
+        key: 'edit',
+        label: 'Edit',
+      }
+    ]
+  })
+})
+
+```
+
+### Pagination and filtering
+
+<div class="example">
+  <div
+  x-data="input"
+  x-model="$store.tableFilterPagination.filter"
+  class="flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300"
+>
+  <div class="mr-2"></div>
+  <div class="mr-2"></div>
+  <div class="flex flex-1 flex-wrap">
+    <input
+      x-bind="input"
+      type="text"
+      class="min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none"
+    />
+  </div>
+  <div class="ml-2"></div>
+  <div class="flex items-center">
+    <div class="mr-2">
+      <svg viewBox="25 25 50 50" fill="none" class="spinner-svg h-5 w-5">
+        <circle
+          cx="50"
+          cy="50"
+          r="20"
+          stroke-width="4"
+          stroke-miterlimit="10"
+        />
+      </svg>
+    </div>
+    <div>
+      <button @click="clear()" class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="h-5 w-5 opacity-70"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<table
+  x-data="table($store.tableFilterPagination)"
+  class="table-fixed border-collapse text-left mt-4 mb-6"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            x-text="row[col.key]"
+            class="border-t border-t border-gray-300 px-2 py-2 transition-colors duration-200 dark:border-neutral-700"
+          ></td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+
+<nav x-data="pagination({
+      itemsCount: () => $store.tableFilterPagination.filteredItemsCount,
+      itemsPerPage: 10,
+      maxPages: 7,
+    })" 
+    x-model="$store.tableFilterPagination.page"
+    class="relative z-0 flex w-auto">
+  <a
+    x-bind="prevButton"
+    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-left"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+      />
+    </svg>
+  </a>
+  <template x-for="page in getPages">
+    <a
+      x-bind="pageButton"
+      x-text="page"
+      class="dark:border-neutral-70 z-10 mx-0.5 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded border border-gray-300 text-sm font-semibold transition-shadow hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-700"
+      class:selected="ring-2 font-semibold text-white bg-violet-500 hover:bg-violet-400 dark:bg-violet-500 dark:hover:bg-violet-300 border-violet-200 ring-violet-200 dark:text-gray-100 dark:border-violet-500 dark:ring-violet-100"
+    >
+    </a>
+  </template>
+  <a
+    x-bind="nextButton"
+    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-right"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+      />
+    </svg>
+  </a>
+</nav>
+
+</div>
+
+```html
+<div
+  x-data="input"
+  x-model="$store.tableFilterPagination.filter"
+  class="flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300"
+>
+  <div class="mr-2"></div>
+  <div class="mr-2"></div>
+  <div class="flex flex-1 flex-wrap">
+    <input
+      x-bind="input"
+      type="text"
+      class="min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none"
+    />
+  </div>
+  <div class="ml-2"></div>
+  <div class="flex items-center">
+    <div class="mr-2">
+      <svg viewBox="25 25 50 50" fill="none" class="spinner-svg h-5 w-5">
+        <circle
+          cx="50"
+          cy="50"
+          r="20"
+          stroke-width="4"
+          stroke-miterlimit="10"
+        />
+      </svg>
+    </div>
+    <div>
+      <button @click="clear()" class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="h-5 w-5 opacity-70"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<table
+  x-data="table($store.tableFilterPagination)"
+  class="table-fixed border-collapse text-left mt-4 mb-6"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            x-text="row[col.key]"
+            class="border-t border-t border-gray-300 px-2 py-2 transition-colors duration-200 dark:border-neutral-700"
+          ></td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+
+<nav x-data="pagination({
+      itemsCount: () => $store.tableFilterPagination.filteredItemsCount,
+      itemsPerPage: 10,
+      maxPages: 7,
+    })" 
+    x-model="$store.tableFilterPagination.page"
+    class="relative z-0 flex w-auto">
+  <a
+    x-bind="prevButton"
+    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-left"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+      />
+    </svg>
+  </a>
+  <template x-for="page in getPages">
+    <a
+      x-bind="pageButton"
+      x-text="page"
+      class="dark:border-neutral-70 z-10 mx-0.5 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded border border-gray-300 text-sm font-semibold transition-shadow hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-700"
+      class:selected="ring-2 font-semibold text-white bg-violet-500 hover:bg-violet-400 dark:bg-violet-500 dark:hover:bg-violet-300 border-violet-200 ring-violet-200 dark:text-gray-100 dark:border-violet-500 dark:ring-violet-100"
+    >
+    </a>
+  </template>
+  <a
+    x-bind="nextButton"
+    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-right"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+      />
+    </svg>
+  </a>
+</nav>
+
+```
+
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

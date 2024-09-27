@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/output.css" rel="stylesheet">
+    <script defer src="/alpine-components/table/table.js"></script>
+    <script defer src="/alpine-components/pagination/pagination.js"></script>
+    <script defer src="/alpine-components/datepicker/datepicker.js"></script>
+    <script defer src="/alpine-components/progress/progress.js"></script>
+    <script defer src="/alpine-components/input/input.js"></script>
+    <script defer type="module" src="/alpine-components/dropdown-context/dropdown-context.js"></script>
+    <script defer type="module" src="/alpine-components/dropdown/dropdown.js"></script>
+    <script defer src="/alpine-components/tabs/tabs.js"></script>
+    <script defer type="module" src="/alpine-components/floating.js"></script>
+    <script defer src="/alpine-components/transition-plugin.js"></script>
+    <script defer src="/alpine-components/table/table-store.js"></script>
+    <script defer src="/alpine-components/table/table-filter-pagination-store.js"></script>
+    <script defer src="/alpine-components/table/table-definition-store.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/googlecode.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <nav class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white">
+      <span class="font-semibold">
+        Alpine Components
+      </span>
+    </nav>
+    <div class="mt-16 text-text-800 dark:bg-[#191919] dark:text-[#c9cbd0] flex flex-col mx-auto">
+  <div class="justify-center flex flex-row flex-wrap w-auto">
+    <div class="hidden basis-2/12 lg:block xl:px-6 flex-[0_0_0%] min-w-0">
+      <div class="sticky top-16 ml-auto overflow-auto border-r px-10 pt-2 text-[0.9em] font-semibold text-text-600 dark:border-dark-700 dark:text-text-300/70">
+        <ul>
+
+  <li class="my-2">
+    <a href="/components/table/" class="text-violet-400">Table</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/pagination/" class="">Pagination</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/datepicker/" class="">Datepicker</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/dropdown-context/" class="">Dropdown context</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/dropdown/" class="">Dropdown</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/input/" class="">Input</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/modal/" class="">Modal</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/progress/" class="">Progress</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/tabs/" class="">Tabs</a>
+  </li>
+
+</ul>
+
+      </div>
+    </div>
+    <div class="mt-12 max-w-screen-lg grow px-4 py-3 lg:px-6 xl:px-20 flex-[0_0_0%] min-w-0">
+      <div class="markdown-container">
+        <h2>Table</h2>
+<p>The table component is used to generate tables from arrays. Tables can be static or include features like filtering, sorting, pagination, reordering and others.</p>
+<div class="example">
+  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300">
+    Example
+  </div>
+  <div class="p-6">
+    <table
+  x-data="table($store.table)"
+  class="table-auto border-collapse text-left w-full text-[0.9rem]"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            x-text="row[col.key]"
+            class="border-t border-gray-300 px-2 py-2 dark:border-neutral-700"
+          ></td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+  </div>
+  <div x-data="{ isOpen: false }">
+  <div
+    x-data="tabs('Template', {
+      content: { 
+        'x-alt-transition': {
+          enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
+          leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
+      }
+      }})"
+      x-show="isOpen"
+      x-collapse.min.400px
+  >
+    <ul
+      x-bind="tabBar"
+      class="flex flex-auto items-center pl-2"
+    ><li>
+        <button
+          data-tab="Template"
+          x-bind="label"
+          class="p-2 px-6 bg-white rounded-t-xl hover:bg-neutral-50/90"
+          class:selected="!bg-neutral-100 font-semibold"
+        >
+          Template
+        </button>
+      </li><li>
+        <button
+          data-tab="Store"
+          x-bind="label"
+          class="p-2 px-6 bg-white rounded-t-xl hover:bg-neutral-50/90"
+          class:selected="!bg-neutral-100 font-semibold"
+        >
+          Store
+        </button>
+      </li></ul>
+      <div class="relative">
+  <div data-tab="Template" x-bind="content" class="w-full">
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>
+  <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;table($store.table)&quot;</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table-auto border-collapse text-left w-full text-[0.9rem]&quot;</span>
+&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
+          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;header&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;col.label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortable() &amp;&amp; !isSorted()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-30&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedAsc()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedDesc()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;row in getDataPaginated&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;row[primaryKey]&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
+            <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;row[col.key]&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-gray-300 px-2 py-2 dark:border-neutral-700&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+</code></pre>
+  </div>
+  <div data-tab="Store" x-bind="content" class="w-full">
+<pre><code class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;alpine:init&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title class_">Alpine</span>.<span class="hljs-title function_">store</span>(<span class="hljs-string">&#x27;table&#x27;</span>, {
+    <span class="hljs-attr">data</span>: [
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">1</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Anthony&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Linbohm&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Makui&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Business Development&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Quality Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">2</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Richard&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Moult&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Xihu&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Legal&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Budget/Accounting Analyst IV&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">3</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Chance&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Dallas&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Moncton&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Support&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Product Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">4</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Rozamond&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Abbatucci&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Chico&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Legal&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Software Consultant&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">5</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Ashely&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Petrozzi&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Lafia&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Services&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Staff Accountant III&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">6</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Bron&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Siuda&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Mora&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Accounting&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Marketing Manager&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">7</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Marena&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Geraldi&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Karanganyar&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Support&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Compensation Analyst&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">8</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Tomas&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Donneely&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Meirinhas&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Services&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Research Associate&quot;</span>},
+    ],
+    <span class="hljs-attr">primaryKey</span>: <span class="hljs-string">&#x27;id&#x27;</span>,
+  })
+})
+
+</code></pre>
+  </div></div>
+  </div>
+  <div class="flex bg-neutral-100">
+    <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4">
+      <span class="grow">
+        Expand
+      </span>
+      <template x-if="!isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+      </template>
+      <template x-if="isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+      </template>
+    </button>
+  </div>
+</div>
+</div>
+<h3>Usage</h3>
+<p>To use this component simply copy and paste minimal template or any template from the examples below.</p>
+<p>The data and props for the component are provided by the <code>table</code> function in the <code>x-data</code> directive. This function takes single <code>object</code> as argument.</p>
+<p>Because of a lot of shared state (filter, pagination etc) it is recomended to set this object as a separate store and then pass with the $store magic.</p>
+<pre><code class="language-javascript"><span class="hljs-title function_">table</span>({
+    <span class="hljs-attr">data</span>: <span class="hljs-title class_">Array</span>,
+    <span class="hljs-attr">primaryKey</span>: <span class="hljs-title class_">String</span>,
+    <span class="hljs-attr">definition</span>: <span class="hljs-title class_">Array</span>,
+    <span class="hljs-attr">filter</span>: <span class="hljs-title class_">String</span>,
+    <span class="hljs-attr">page</span>: <span class="hljs-title class_">Number</span>,
+    <span class="hljs-attr">itemsPerPage</span>: <span class="hljs-title class_">Number</span>,
+    <span class="hljs-attr">onFilter</span>: <span class="hljs-title class_">Function</span>,
+})
+</code></pre>
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md"><div class="py-2">
+      <div class="flex">
+        <code class="text-base ml-4">
+          data
+        </code>
+        <code class="text-red-600 ml-auto font-semibold">
+          []
+        </code>
+        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+          Array
+        </code>
+      </div>
+<div class="ml-[200px] my-1">
+<p>Data to display in the table.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+primaryKey
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+empty string
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+String
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>This prop should be the name of the property that is unique for every record.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+definition
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+[]
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+Array
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Table definition is an optional <code>array</code> of <code>objects</code> that defines columns of the table. See the detailed explanation below.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+filter
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+empty string
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+String
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>String used to filter items.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+page
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+1
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+Number
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Current page number.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+itemsPerPage
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+0
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+Number
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Number of records (rows) on the single page. Setting it to the <code>0</code> disables pagination.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+onFilter
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+undefined
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+Function
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Function called after filtering. This can be useful, for example to update pagination component. See the example below.</p>
+</div>
+    </div>
+    </div>
+<h3>Definition</h3>
+<p>Table definition is an optional <code>array</code> of <code>objects</code> that defines columns of the table. Each object has one required, unique <code>key</code> property and number of optional properties. The <code>key</code> defines which property of the record object will be rendered in the column. If key is not found empty column is added.</p>
+<p>If definition is not provided component makes one using the first record of the data. All additional properties are set to default values. This may be enough for simple tables however to use features like sorting, filtering etc you need to provide definition array.</p>
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md"><div class="py-2">
+      <div class="flex">
+        <code class="text-base ml-4">
+          key
+        </code>
+        <code class="text-red-600 ml-auto font-semibold">
+          empty string
+        </code>
+        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+          String
+        </code>
+      </div>
+<div class="ml-[200px] my-1">
+<p>The <code>key</code> defines which property of the record object will be rendered in the column.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+sortable
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+false
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+Boolean
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Enables sorting of the column.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+filterable
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+true
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+Boolean
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Enables filtering of the column.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+label
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+undefined
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+String
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Sets header for this column. If not provided header is the same as key converted to Header Case.</p>
+</div>
+    </div>
+    </div>
+<div class="example">
+  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300">
+    Example
+  </div>
+  <div class="p-6">
+    <table
+  x-data="table($store.tableDefinition)"
+  class="table-auto border-collapse text-left w-full text-[0.9rem]"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label" class="whitespace-nowrap"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            class="border-t border-gray-300 px-2 py-2 dark:border-neutral-700"
+            >
+            <span x-text="row[col.key]"></span>
+            <template x-if="col.key === 'status'">
+              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-checkbox-outline" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-green-600 mx-auto">
+                <path d="M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,5V19H5V5H19M10,17L6,13L7.41,11.58L10,14.17L16.59,7.58L18,9" />
+              </svg>
+            </template>
+            <template x-if="col.key === 'edit'">
+              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-account-edit" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mx-auto">
+                <path d="M21.7,13.35L20.7,14.35L18.65,12.3L19.65,11.3C19.86,11.09 20.21,11.09 20.42,11.3L21.7,12.58C21.91,12.79 21.91,13.14 21.7,13.35M12,18.94L18.06,12.88L20.11,14.93L14.06,21H12V18.94M12,14C7.58,14 4,15.79 4,18V20H10V18.11L14,14.11C13.34,14.03 12.67,14 12,14M12,4A4,4 0 0,0 8,8A4,4 0 0,0 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4Z" />
+              </svg>
+            </template>
+          </td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+  </div>
+  <div x-data="{ isOpen: false }">
+  <div
+    x-data="tabs('Template', {
+      content: { 
+        'x-alt-transition': {
+          enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
+          leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
+      }
+      }})"
+      x-show="isOpen"
+      x-collapse.min.400px
+  >
+    <ul
+      x-bind="tabBar"
+      class="flex flex-auto items-center pl-2"
+    ><li>
+        <button
+          data-tab="Template"
+          x-bind="label"
+          class="p-2 px-6 bg-white rounded-t-xl hover:bg-neutral-50/90"
+          class:selected="!bg-neutral-100 font-semibold"
+        >
+          Template
+        </button>
+      </li><li>
+        <button
+          data-tab="Store"
+          x-bind="label"
+          class="p-2 px-6 bg-white rounded-t-xl hover:bg-neutral-50/90"
+          class:selected="!bg-neutral-100 font-semibold"
+        >
+          Store
+        </button>
+      </li></ul>
+      <div class="relative">
+  <div data-tab="Template" x-bind="content" class="w-full">
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>
+  <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;table($store.tableDefinition)&quot;</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table-auto border-collapse text-left w-full text-[0.9rem]&quot;</span>
+&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
+          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;header&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;col.label&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;whitespace-nowrap&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortable() &amp;&amp; !isSorted()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-30&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedAsc()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedDesc()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;row in getDataPaginated&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;row[primaryKey]&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-gray-300 px-2 py-2 dark:border-neutral-700&quot;</span>
+            &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;row[col.key]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;col.key === &#x27;status&#x27;&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mdi-checkbox-outline&quot;</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 24 24&quot;</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-5 h-5 text-green-600 mx-auto&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,5V19H5V5H19M10,17L6,13L7.41,11.58L10,14.17L16.59,7.58L18,9&quot;</span> /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;col.key === &#x27;edit&#x27;&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mdi-account-edit&quot;</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 24 24&quot;</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-5 h-5 mx-auto&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M21.7,13.35L20.7,14.35L18.65,12.3L19.65,11.3C19.86,11.09 20.21,11.09 20.42,11.3L21.7,12.58C21.91,12.79 21.91,13.14 21.7,13.35M12,18.94L18.06,12.88L20.11,14.93L14.06,21H12V18.94M12,14C7.58,14 4,15.79 4,18V20H10V18.11L14,14.11C13.34,14.03 12.67,14 12,14M12,4A4,4 0 0,0 8,8A4,4 0 0,0 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4Z&quot;</span> /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+</code></pre>
+  </div>
+  <div data-tab="Store" x-bind="content" class="w-full">
+<pre><code class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;alpine:init&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title class_">Alpine</span>.<span class="hljs-title function_">store</span>(<span class="hljs-string">&#x27;tableDefinition&#x27;</span>, {
+    <span class="hljs-attr">data</span>: [
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">1</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Anthony&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Linbohm&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Makui&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Business Development&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Quality Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">2</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Richard&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Moult&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Xihu&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Legal&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Budget/Accounting Analyst IV&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">3</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Chance&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Dallas&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Moncton&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Support&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Product Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">4</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Rozamond&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Abbatucci&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Chico&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Legal&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Software Consultant&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">5</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Ashely&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Petrozzi&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Lafia&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Services&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Staff Accountant III&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">6</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Bron&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Siuda&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Mora&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Accounting&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Marketing Manager&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">7</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Marena&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Geraldi&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Karanganyar&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Support&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Compensation Analyst&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">8</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Tomas&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Donneely&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Meirinhas&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Services&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Research Associate&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">9</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Umberto&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Cohalan&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Cuamba&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Research and Development&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Chemical Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">10</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Nicola&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Flippelli&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Faqīrwāli&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Human Resources&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;VP Quality Control&quot;</span>},
+    ],
+    <span class="hljs-attr">primaryKey</span>: <span class="hljs-string">&#x27;id&#x27;</span>,
+    <span class="hljs-attr">definition</span>: [
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;status&#x27;</span>,
+        <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Status&#x27;</span>,
+      },
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;first_name&#x27;</span>,
+        <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;First name&#x27;</span>,
+        <span class="hljs-attr">sortable</span>: <span class="hljs-literal">true</span>,
+      },
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;last_name&#x27;</span>,
+        <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Last name&#x27;</span>,
+        <span class="hljs-attr">sortable</span>: <span class="hljs-literal">true</span>,
+      },
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;title&#x27;</span>,
+        <span class="hljs-attr">sortable</span>: <span class="hljs-literal">true</span>,
+      },
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;department&#x27;</span>,
+        <span class="hljs-attr">sortable</span>: <span class="hljs-literal">true</span>,
+      },
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;edit&#x27;</span>,
+        <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;Edit&#x27;</span>,
+      }
+    ]
+  })
+})
+
+</code></pre>
+  </div></div>
+  </div>
+  <div class="flex bg-neutral-100">
+    <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4">
+      <span class="grow">
+        Expand
+      </span>
+      <template x-if="!isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+      </template>
+      <template x-if="isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+      </template>
+    </button>
+  </div>
+</div>
+</div>
+<h3>Pagination and filtering</h3>
+<p>To enable pagination set <code>itemsPerPage</code> to any number greater than <code>0</code>.</p>
+<div class="example">
+  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300">
+    Example
+  </div>
+  <div class="p-6">
+    <div
+  x-data="input({
+    placeholder: 'Filter',
+  })"
+  x-model="$store.tableFilterPagination.filter"
+  class="flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300"
+>
+  <div class="flex flex-1 flex-wrap">
+    <input
+      x-bind="input"
+      type="text"
+      class="min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none"
+    />
+  </div>
+  <div class="flex items-center">
+    <div>
+      <button @click="clear()" class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="h-5 w-5 opacity-70"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+<table
+  x-data="table($store.tableFilterPagination)"
+  class="table-auto border-collapse text-left mt-4 mb-6 w-full text-[0.9rem]"
+>
+  <thead>
+    <tr>
+      <template x-for="col in definition">
+        <td
+          x-bind="header"
+          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+        >
+          <div class="flex items-center">
+            <span x-text="col.label"></span>
+            <template x-if="isSortable() && !isSorted()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-30"
+              >
+                <path
+                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedAsc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                />
+              </svg>
+            </template>
+            <template x-if="isSortedDesc()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="ml-3 h-4 w-4 opacity-70"
+              >
+                <path
+                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                />
+              </svg>
+            </template>
+          </div>
+        </td>
+      </template>
+    </tr>
+  </thead>
+  <tbody>
+    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+      <tr>
+        <template x-for="col in definition">
+          <td
+            x-text="row[col.key]"
+            class="border-t border-gray-300 px-2 py-2 dark:border-neutral-700"
+          ></td>
+        </template>
+      </tr>
+    </template>
+  </tbody>
+</table>
+<nav x-data="pagination({
+      itemsCount: () => $store.tableFilterPagination.filteredItemsCount,
+      itemsPerPage: () => $store.tableFilterPagination.itemsPerPage,
+      maxPages: 7,
+    })" 
+    x-model="$store.tableFilterPagination.page"
+    class="relative z-0 flex w-auto"
+>
+  <a
+    x-bind="prevButton"
+    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded-md border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700 mr-0.5"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-left"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+      />
+    </svg>
+  </a>
+  <template x-for="page in getPages">
+    <a
+      x-bind="pageButton"
+      x-text="page"
+      class="dark:border-neutral-70 z-10 mx-0.5 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded-md border border-gray-300 text-sm font-semibold transition-shadow hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-700"
+      class:selected="ring-2 font-semibold text-white bg-violet-500 hover:bg-violet-400 dark:bg-violet-500 dark:hover:bg-violet-300 border-violet-200 ring-violet-200 dark:text-gray-100 dark:border-violet-500 dark:ring-violet-100"
+    >
+    </a>
+  </template>
+  <a
+    x-bind="nextButton"
+    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded-md border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700 ml-0.5"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-right"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+      />
+    </svg>
+  </a>
+</nav>
+  </div>
+  <div x-data="{ isOpen: false }">
+  <div
+    x-data="tabs('Template', {
+      content: { 
+        'x-alt-transition': {
+          enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
+          leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
+      }
+      }})"
+      x-show="isOpen"
+      x-collapse.min.400px
+  >
+    <ul
+      x-bind="tabBar"
+      class="flex flex-auto items-center pl-2"
+    ><li>
+        <button
+          data-tab="Template"
+          x-bind="label"
+          class="p-2 px-6 bg-white rounded-t-xl hover:bg-neutral-50/90"
+          class:selected="!bg-neutral-100 font-semibold"
+        >
+          Template
+        </button>
+      </li><li>
+        <button
+          data-tab="Store"
+          x-bind="label"
+          class="p-2 px-6 bg-white rounded-t-xl hover:bg-neutral-50/90"
+          class:selected="!bg-neutral-100 font-semibold"
+        >
+          Store
+        </button>
+      </li></ul>
+      <div class="relative">
+  <div data-tab="Template" x-bind="content" class="w-full">
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+  <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;input({
+    placeholder: &#x27;Filter&#x27;,
+  })&quot;</span>
+  <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;$store.tableFilterPagination.filter&quot;</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300&quot;</span>
+&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 flex-wrap&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;input&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none&quot;</span>
+    /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clear()&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+          <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+          <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+          <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+          <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h-5 w-5 opacity-70&quot;</span>
+          <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+            <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z&quot;</span>
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span>
+  <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;table($store.tableFilterPagination)&quot;</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table-auto border-collapse text-left mt-4 mb-6 w-full text-[0.9rem]&quot;</span>
+&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
+          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;header&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;col.label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortable() &amp;&amp; !isSorted()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-30&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedAsc()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedDesc()&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z&quot;</span>
+                /&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;row in getDataPaginated&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;row[primaryKey]&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
+            <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;row[col.key]&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-gray-300 px-2 py-2 dark:border-neutral-700&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;pagination({
+      itemsCount: () =&gt; $store.tableFilterPagination.filteredItemsCount,
+      itemsPerPage: () =&gt; $store.tableFilterPagination.itemsPerPage,
+      maxPages: 7,
+    })&quot;</span> 
+    <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;$store.tableFilterPagination.page&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative z-0 flex w-auto&quot;</span>
+&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+    <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevButton&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-12 cursor-pointer flex-col items-center justify-center rounded-md border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700 mr-0.5&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+      <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+      <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+      <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+      <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-left&quot;</span>
+      <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+        <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+        <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+      /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;page in getPages&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;pageButton&quot;</span>
+      <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;page&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dark:border-neutral-70 z-10 mx-0.5 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded-md border border-gray-300 text-sm font-semibold transition-shadow hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-700&quot;</span>
+      <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;ring-2 font-semibold text-white bg-violet-500 hover:bg-violet-400 dark:bg-violet-500 dark:hover:bg-violet-300 border-violet-200 ring-violet-200 dark:text-gray-100 dark:border-violet-500 dark:ring-violet-100&quot;</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+    <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextButton&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-12 cursor-pointer flex-col items-center justify-center rounded-md border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700 ml-0.5&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+      <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+      <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+      <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+      <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-right&quot;</span>
+      <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+        <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+        <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+      /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+
+</code></pre>
+  </div>
+  <div data-tab="Store" x-bind="content" class="w-full">
+<pre><code class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;alpine:init&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title class_">Alpine</span>.<span class="hljs-title function_">store</span>(<span class="hljs-string">&#x27;tableFilterPagination&#x27;</span>, {
+    <span class="hljs-attr">data</span>: [
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">1</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Anthony&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Linbohm&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Makui&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Business Development&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Quality Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">2</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Richard&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Moult&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Xihu&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Legal&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Budget/Accounting Analyst IV&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">3</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Chance&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Dallas&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Moncton&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Support&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Product Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">4</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Rozamond&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Abbatucci&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Chico&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Legal&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Software Consultant&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">5</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Ashely&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Petrozzi&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Lafia&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Services&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Staff Accountant III&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">6</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Bron&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Siuda&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Mora&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Accounting&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Marketing Manager&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">7</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Marena&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Geraldi&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Karanganyar&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Support&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Compensation Analyst&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">8</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Tomas&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Donneely&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Meirinhas&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Services&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Research Associate&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">9</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Umberto&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Cohalan&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Cuamba&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Research and Development&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Chemical Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">10</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Nicola&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Flippelli&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Faqīrwāli&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Human Resources&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;VP Quality Control&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">11</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Jemie&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;McLafferty&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Lagoa de Albufeira&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Human Resources&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Junior Executive&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">12</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Glen&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Edinborough&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Chicago&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Accounting&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Associate Professor&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">13</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Malachi&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Broadbridge&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Az Zaytūnīyah&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Human Resources&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Paralegal&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">14</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Yale&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Milnes&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Shuangjie&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Accounting&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Account Representative III&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">15</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Galvin&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Morrill&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Gaocun&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Engineering&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Account Representative II&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">16</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Cesar&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Pinnegar&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Drahichyn&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Marketing&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;VP Sales&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">17</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Harlan&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Aldin&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Hulan&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Legal&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Paralegal&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Thadeus&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Tressler&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Indaial&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Services&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Product Engineer&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">19</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Marjie&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Agiolfinger&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Tatarbunary&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Marketing&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Environmental Specialist&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">20</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Amie&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Dupoy&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Thị Trấn Mường Khến&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Accounting&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Legal Assistant&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">21</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Marylinda&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Kidson&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Ondoy&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Business Development&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Community Outreach Specialist&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">22</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Karlen&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Capun&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Buda-Kashalyova&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Engineering&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Assistant Media Planner&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">23</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Horatius&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Giovanizio&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Kham Sakae Saeng&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Marketing&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Director of Sales&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">24</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Eleni&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Tale&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Montpellier&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Engineering&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Tax Accountant&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">25</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Chester&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Theuss&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Panshan&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Legal&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Account Executive&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">26</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Morey&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Demangel&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Stoney Ground&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Support&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Human Resources Manager&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">27</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Tedda&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Rawlin&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Erfangping&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Sales&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Editor&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">28</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Rennie&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Finnan&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Tuusula&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Human Resources&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Paralegal&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">29</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Merry&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Wisedale&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Renxian&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Services&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Systems Administrator IV&quot;</span>},
+      {<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">30</span>,<span class="hljs-string">&quot;first_name&quot;</span>:<span class="hljs-string">&quot;Melodie&quot;</span>,<span class="hljs-string">&quot;last_name&quot;</span>:<span class="hljs-string">&quot;Hayzer&quot;</span>,<span class="hljs-string">&quot;city&quot;</span>:<span class="hljs-string">&quot;Hưng Nguyên&quot;</span>,<span class="hljs-string">&quot;department&quot;</span>:<span class="hljs-string">&quot;Support&quot;</span>,<span class="hljs-string">&quot;title&quot;</span>:<span class="hljs-string">&quot;Media Manager I&quot;</span>},
+    ],
+    <span class="hljs-attr">filter</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+    <span class="hljs-attr">page</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">itemsPerPage</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">primaryKey</span>: <span class="hljs-string">&#x27;id&#x27;</span>,
+    <span class="hljs-attr">filteredItemsCount</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-title function_">onFilter</span>(<span class="hljs-params">filteredData</span>) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">filteredItemsCount</span> = filteredData.<span class="hljs-property">length</span>
+    }
+  })
+})
+
+</code></pre>
+  </div></div>
+  </div>
+  <div class="flex bg-neutral-100">
+    <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4">
+      <span class="grow">
+        Expand
+      </span>
+      <template x-if="!isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+      </template>
+      <template x-if="isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+      </template>
+    </button>
+  </div>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="hidden basis-2/12 xl:block">
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

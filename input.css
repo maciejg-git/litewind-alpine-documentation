@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .example {
+    @apply rounded-md border dark:border-neutral-700 dark:bg-[#171717] overflow-auto mt-6 mb-2
+  }
+}
+
+@layer base {
+  h2 {
+    @apply text-3xl font-semibold mb-10
+  }
+  h3 {
+    @apply text-2xl font-semibold mb-4 mt-10
+  }
+  h4 {
+    @apply text-lg font-semibold my-6
+  }
+  .markdown-container > p {
+    @apply my-4
+  }
+  pre code {
+    @apply rounded-b-md !bg-neutral-100 block p-4 overflow-auto
+  }
+  code {
+    @apply text-sm
+  }
+  p code {
+    @apply text-red-600 dark:text-yellow-600 font-semibold text-sm
+  }
+}

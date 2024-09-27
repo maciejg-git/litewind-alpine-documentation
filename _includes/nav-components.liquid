@@ -1,0 +1,7 @@
+<ul>
+{% for component in collections.component %}
+  <li class="my-2">
+    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-400{% endif %}">{{ component.data.name }}</a>
+  </li>
+{% endfor%}
+</ul>

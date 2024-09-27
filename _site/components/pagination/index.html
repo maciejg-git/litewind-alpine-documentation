@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/output.css" rel="stylesheet">
+    <script defer src="/alpine-components/table/table.js"></script>
+    <script defer src="/alpine-components/pagination/pagination.js"></script>
+    <script defer src="/alpine-components/datepicker/datepicker.js"></script>
+    <script defer src="/alpine-components/progress/progress.js"></script>
+    <script defer src="/alpine-components/input/input.js"></script>
+    <script defer type="module" src="/alpine-components/dropdown-context/dropdown-context.js"></script>
+    <script defer type="module" src="/alpine-components/dropdown/dropdown.js"></script>
+    <script defer src="/alpine-components/tabs/tabs.js"></script>
+    <script defer type="module" src="/alpine-components/floating.js"></script>
+    <script defer src="/alpine-components/transition-plugin.js"></script>
+    <script defer src="/alpine-components/table/table-store.js"></script>
+    <script defer src="/alpine-components/table/table-filter-pagination-store.js"></script>
+    <script defer src="/alpine-components/table/table-definition-store.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/googlecode.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <nav class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white">
+      <span class="font-semibold">
+        Alpine Components
+      </span>
+    </nav>
+    <div class="mt-16 text-text-800 dark:bg-[#191919] dark:text-[#c9cbd0] flex flex-col mx-auto">
+  <div class="justify-center flex flex-row flex-wrap w-auto">
+    <div class="hidden basis-2/12 lg:block xl:px-6 flex-[0_0_0%] min-w-0">
+      <div class="sticky top-16 ml-auto overflow-auto border-r px-10 pt-2 text-[0.9em] font-semibold text-text-600 dark:border-dark-700 dark:text-text-300/70">
+        <ul>
+
+  <li class="my-2">
+    <a href="/components/table/" class="">Table</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/pagination/" class="text-violet-400">Pagination</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/datepicker/" class="">Datepicker</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/dropdown-context/" class="">Dropdown context</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/dropdown/" class="">Dropdown</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/input/" class="">Input</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/modal/" class="">Modal</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/progress/" class="">Progress</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/tabs/" class="">Tabs</a>
+  </li>
+
+</ul>
+
+      </div>
+    </div>
+    <div class="mt-12 max-w-screen-lg grow px-4 py-3 lg:px-6 xl:px-20 flex-[0_0_0%] min-w-0">
+      <div class="markdown-container">
+        <h2>Pagination</h2>
+<div class="example">
+  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300">
+    Example
+  </div>
+  <div class="p-6">
+    <nav x-data="pagination({
+    itemsCount: 70,
+    maxPages: 7,
+    itemsPerPage: 8,
+  })" class="relative z-0 flex w-auto">
+  <a
+    x-bind="prevButton"
+    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-left"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+      />
+    </svg>
+  </a>
+  <template x-for="page in getPages">
+    <a
+      x-bind="pageButton"
+      x-text="page"
+      class="dark:border-neutral-70 z-10 mx-0.5 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded border border-gray-300 text-sm font-semibold transition-shadow hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-700"
+      class:selected="ring-2 font-semibold text-white bg-violet-500 hover:bg-violet-400 dark:bg-violet-500 dark:hover:bg-violet-300 border-violet-200 ring-violet-200 dark:text-gray-100 dark:border-violet-500 dark:ring-violet-100"
+    >
+    </a>
+  </template>
+  <a
+    x-bind="nextButton"
+    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-right"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+      />
+    </svg>
+  </a>
+</nav>
+  </div>
+  <div x-data="{ isOpen: false }">
+  <div
+    x-data="tabs('', {
+      content: { 
+        'x-alt-transition': {
+          enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
+          leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
+      }
+      }})"
+      x-show="isOpen"
+      x-collapse.min.400px
+  >
+    <ul
+      x-bind="tabBar"
+      class="flex flex-auto items-center pl-2"
+    ></ul>
+      <div class="relative">
+  </div>
+  </div>
+  <div class="flex bg-neutral-100">
+    <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4">
+      <span class="grow">
+        Expand
+      </span>
+      <template x-if="!isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+      </template>
+      <template x-if="isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+      </template>
+    </button>
+  </div>
+</div>
+</div>
+<div x-data="{ isOpen: false }">
+  <div
+    x-data="tabs('Template', {
+      content: { 
+        'x-alt-transition': {
+          enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
+          leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
+      }
+      }})"
+      x-show="isOpen"
+      x-collapse.min.400px
+  >
+    <ul
+      x-bind="tabBar"
+      class="flex flex-auto items-center pl-2"
+    ><li>
+        <button
+          data-tab="Template"
+          x-bind="label"
+          class="p-2 px-6 bg-white rounded-t-xl hover:bg-neutral-50/90"
+          class:selected="!bg-neutral-100 font-semibold"
+        >
+          Template
+        </button>
+      </li></ul>
+      <div class="relative">
+  <div data-tab="Template" x-bind="content" class="w-full">
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;pagination({
+    itemsCount: 70,
+    maxPages: 7,
+    itemsPerPage: 8,
+  })&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative z-0 flex w-auto&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+    <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevButton&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+      <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+      <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+      <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+      <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-left&quot;</span>
+      <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+        <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+        <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+      /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;page in getPages&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;pageButton&quot;</span>
+      <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;page&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dark:border-neutral-70 z-10 mx-0.5 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded border border-gray-300 text-sm font-semibold transition-shadow hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-700&quot;</span>
+      <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;ring-2 font-semibold text-white bg-violet-500 hover:bg-violet-400 dark:bg-violet-500 dark:hover:bg-violet-300 border-violet-200 ring-violet-200 dark:text-gray-100 dark:border-violet-500 dark:ring-violet-100&quot;</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+    <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextButton&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+      <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+      <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+      <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+      <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-right&quot;</span>
+      <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+        <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+        <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+      /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+
+</code></pre>
+  </div></div>
+  </div>
+  <div class="flex bg-neutral-100">
+    <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4">
+      <span class="grow">
+        Expand
+      </span>
+      <template x-if="!isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+      </template>
+      <template x-if="isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+      </template>
+    </button>
+  </div>
+</div>
+
+      </div>
+    </div>
+    <div class="hidden basis-2/12 xl:block">
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

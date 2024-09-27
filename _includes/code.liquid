@@ -1,0 +1,55 @@
+<div x-data="{ isOpen: false }">
+  <div
+    x-data="tabs('{{ tabs[0].label }}', {
+      content: { 
+        'x-alt-transition': {
+          enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
+          leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
+      }
+      }})"
+      x-show="isOpen"
+      x-collapse.min.400px
+  >
+    <ul
+      x-bind="tabBar"
+      class="flex flex-auto items-center pl-2"
+    >
+    {%- for tab in tabs -%}
+      <li>
+        <button
+          data-tab="{{ tab.label }}"
+          x-bind="label"
+          class="p-2 px-6 bg-white rounded-t-xl hover:bg-neutral-50/90"
+          class:selected="!bg-neutral-100 font-semibold"
+        >
+          {{ tab.label }}
+        </button>
+      </li>
+    {%- endfor -%}
+    </ul>
+      <div class="relative">
+  {% for tab in tabs %}
+  <div data-tab="{{ tab.label }}" x-bind="content" class="w-full">
+  
+```{{ tab.language }}
+{% render tab.file %}
+```
+  
+  </div>
+  {%- endfor -%}
+      </div>
+  </div>
+  <div class="flex bg-neutral-100">
+    <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4">
+      <span class="grow">
+        Expand
+      </span>
+      <template x-if="!isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+      </template>
+      <template x-if="isOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+      </template>
+    </button>
+  </div>
+</div>
