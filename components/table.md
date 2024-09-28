@@ -123,8 +123,6 @@ To use this component simply copy and paste minimal template or any template fro
 
 The data and props for the component are provided by the `table` function in the `x-data` directive. This function takes single `object` as argument.
 
-Because of a lot of shared state (filter, pagination etc) it is recomended to set this object as a separate store and then pass with the $store magic.
-
 ```javascript
 table({
     data: Array,
@@ -139,6 +137,8 @@ table({
 
 {% render "reference.liquid" props: props %}
 
+Because of a lot of shared state (filter, pagination etc) it is recomended to set this object as a separate store and then pass it to the table with the $store magic.
+
 ### Definition
 
 Table definition is an optional `array` of `objects` that defines columns of the table. Each object has one required, unique `key` property and number of optional properties. The `key` defines which property of the record object will be rendered in the column. If key is not found empty column is added.
@@ -151,6 +151,8 @@ If definition is not provided component makes one using the first record of the 
 
 ### Pagination and filtering
 
-To enable pagination set `itemsPerPage` to any number greater than `0`.
+To enable pagination set `itemsPerPage` to any number greater than `0`. Current page can be changed with the `page` prop. In the following example current page of the table is controlled by the pagination component.
+
+Filtering is enabled by default for all columns. Data is filtered depending on the `string` in the `filter` prop. Every time data is filtered `onFilter` callback is also called. You can use it to update number of pages in the pagination component.
 
 {% render "example.liquid" example: "examples/table-filter-pagination.liquid", tabs: examples.tableFilterPagination %}

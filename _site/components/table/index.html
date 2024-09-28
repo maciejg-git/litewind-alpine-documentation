@@ -37,24 +37,17 @@
       <div class="sticky top-16 ml-auto overflow-auto border-r px-10 pt-2 text-[0.9em] font-semibold text-text-600 dark:border-dark-700 dark:text-text-300/70">
         <ul>
 
-  <li class="my-2">
-    <a href="/components/table/" class="text-violet-400">Table</a>
-  </li>
-
-  <li class="my-2">
-    <a href="/components/pagination/" class="">Pagination</a>
-  </li>
 
   <li class="my-2">
     <a href="/components/datepicker/" class="">Datepicker</a>
   </li>
 
   <li class="my-2">
-    <a href="/components/dropdown-context/" class="">Dropdown context</a>
+    <a href="/components/dropdown/" class="">Dropdown</a>
   </li>
 
   <li class="my-2">
-    <a href="/components/dropdown/" class="">Dropdown</a>
+    <a href="/components/dropdown-context/" class="">Dropdown context</a>
   </li>
 
   <li class="my-2">
@@ -66,7 +59,15 @@
   </li>
 
   <li class="my-2">
+    <a href="/components/pagination/" class="">Pagination</a>
+  </li>
+
+  <li class="my-2">
     <a href="/components/progress/" class="">Progress</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/components/table/" class="text-violet-400">Table</a>
   </li>
 
   <li class="my-2">
@@ -292,7 +293,6 @@
 <h3>Usage</h3>
 <p>To use this component simply copy and paste minimal template or any template from the examples below.</p>
 <p>The data and props for the component are provided by the <code>table</code> function in the <code>x-data</code> directive. This function takes single <code>object</code> as argument.</p>
-<p>Because of a lot of shared state (filter, pagination etc) it is recomended to set this object as a separate store and then pass with the $store magic.</p>
 <pre><code class="language-javascript"><span class="hljs-title function_">table</span>({
     <span class="hljs-attr">data</span>: <span class="hljs-title class_">Array</span>,
     <span class="hljs-attr">primaryKey</span>: <span class="hljs-title class_">String</span>,
@@ -422,6 +422,7 @@ Function
 </div>
     </div>
     </div>
+<p>Because of a lot of shared state (filter, pagination etc) it is recomended to set this object as a separate store and then pass it to the table with the $store magic.</p>
 <h3>Definition</h3>
 <p>Table definition is an optional <code>array</code> of <code>objects</code> that defines columns of the table. Each object has one required, unique <code>key</code> property and number of optional properties. The <code>key</code> defines which property of the record object will be rendered in the column. If key is not found empty column is added.</p>
 <p>If definition is not provided component makes one using the first record of the data. All additional properties are set to default values. This may be enough for simple tables however to use features like sorting, filtering etc you need to provide definition array.</p>
@@ -754,7 +755,8 @@ String
 </div>
 </div>
 <h3>Pagination and filtering</h3>
-<p>To enable pagination set <code>itemsPerPage</code> to any number greater than <code>0</code>.</p>
+<p>To enable pagination set <code>itemsPerPage</code> to any number greater than <code>0</code>. Current page can be changed with the <code>page</code> prop. In the following example current page of the table is controlled by the pagination component.</p>
+<p>Filtering is enabled by default for all columns. Data is filtered depending on the <code>string</code> in the <code>filter</code> prop. Every time data is filtered <code>onFilter</code> callback is also called. You can use it to update number of pages in the pagination component.</p>
 <div class="example">
   <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300">
     Example

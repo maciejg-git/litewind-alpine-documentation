@@ -14,5 +14,4 @@ examples: {
 ---
 ## Pagination
 
-{% render "example.liquid" example: "examples/pagination-simple.liquid" %}
-{% render "code.liquid" tabs: examples.paginationSimple %}
+{% render "example.liquid" example: "examples/pagination-simple.liquid", tabs: examples.paginationSimple %}
