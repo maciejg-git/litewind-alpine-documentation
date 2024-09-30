@@ -1,4 +1,4 @@
-<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md">
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md dark:bg-[#1e1e1e]">
   {%- for prop in props -%}
     <div class="py-2">
       <div class="flex">
@@ -8,7 +8,7 @@
         <code class="text-red-600 ml-auto font-semibold">
           {{ prop.default }}
         </code>
-        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
           {{ prop.type }}
         </code>
       </div>
@@ -19,7 +19,7 @@
 </div>
     </div>
     {% if forloop.last == false %}
-      <hr class="border-neutral-200">
+      <hr class="border-neutral-200 dark:border-neutral-700">
     {% endif %}
   {%- endfor -%}
 </div>

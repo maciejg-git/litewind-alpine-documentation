@@ -1,8 +1,6 @@
-<div x-data="{ model: '', range: true }" class="flex gap-x-10 justify-stretch">
+<div x-data="{ model: '' }" class="flex gap-x-10 px-6 justify-stretch">
   <div
-    x-data="datepicker({
-      range: () => range,
-    })"
+    x-data="datepicker"
     x-model="model"
     class="overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300 w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md"
   >
@@ -123,13 +121,7 @@
     ></div>
   </div>
 
-  <div>
-    <div>
-      x-model: <span x-text="JSON.stringify(model)"></span>
-    </div>
-    <div class="my-4">
-      <input x-model="range" type="checkbox">
-      <label for="" class="ml-1">Range mode</label>
-    </div>
+  <div class="font-mono text-lg">
+    x-model: <span x-text="JSON.stringify(model)"></span>
   </div>
 </div>

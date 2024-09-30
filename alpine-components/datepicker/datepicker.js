@@ -38,7 +38,7 @@ document.addEventListener("alpine:init", () => {
       locale: "en-GB",
       mondayFirstWeekday: true,
       adjacentMonthsDays: true,
-      range: true,
+      range: false,
       _model: null,
       selectedSingle: null,
       selectedRange: [],

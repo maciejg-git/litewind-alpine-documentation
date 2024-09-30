@@ -86,11 +86,9 @@
     Example
   </div>
   <div class="p-6">
-    <div x-data="{ model: '', range: true }" class="flex gap-x-10 justify-stretch">
+    <div x-data="{ model: '' }" class="flex gap-x-10 px-6 justify-stretch">
   <div
-    x-data="datepicker({
-      range: () => range,
-    })"
+    x-data="datepicker"
     x-model="model"
     class="overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300 w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md"
   >
@@ -207,14 +205,8 @@
       class="bg-gray-100 py-1 text-sm font-semibold dark:bg-neutral-700 dark:text-gray-300"
     ></div></p>
   </div>
-  <div>
-    <div>
-      x-model: <span x-text="JSON.stringify(model)"></span>
-    </div>
-    <div class="my-4">
-      <input x-model="range" type="checkbox">
-      <label for="" class="ml-1">Range mode</label>
-    </div>
+  <div class="font-mono text-lg">
+    x-model: <span x-text="JSON.stringify(model)"></span>
   </div>
 </div>
   </div>
@@ -245,11 +237,9 @@
       </li></ul>
       <div class="relative">
   <div data-tab="Template" x-bind="content" class="w-full">
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ model: &#x27;&#x27;, range: true }&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex gap-x-10 justify-stretch&quot;</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ model: &#x27;&#x27; }&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex gap-x-10 px-6 justify-stretch&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-    <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;datepicker({
-      range: () =&gt; range,
-    })&quot;</span>
+    <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;datepicker&quot;</span>
     <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;model&quot;</span>
     <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300 w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md&quot;</span>
   &gt;</span>
@@ -370,14 +360,8 @@
     &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-      x-model: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;JSON.stringify(model)&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-4&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;range&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-1&quot;</span>&gt;</span>Range mode<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;font-mono text-lg&quot;</span>&gt;</span>
+    x-model: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;JSON.stringify(model)&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
@@ -399,6 +383,84 @@
   </div>
 </div>
 </div>
+<h3>Usage</h3>
+<p>To use this component simply copy and paste minimal template or any template from the examples below.</p>
+<p>The props for the component are provided by the <code>datepicker</code> function in the <code>x-data</code> directive. This function takes single <code>object</code> as argument.</p>
+<pre><code class="language-javascript"><span class="hljs-title function_">datepicker</span>({
+    <span class="hljs-attr">range</span>: <span class="hljs-title class_">Boolean</span>,
+    <span class="hljs-attr">mondayFirstWeekday</span>: <span class="hljs-title class_">Boolean</span>,
+    <span class="hljs-attr">adjacentMonths</span>: <span class="hljs-title class_">Boolean</span>,
+    <span class="hljs-attr">locale</span>: <span class="hljs-title class_">String</span>,
+})
+</code></pre>
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md dark:bg-[#1e1e1e]"><div class="py-2">
+      <div class="flex">
+        <code class="text-base ml-4">
+          range
+        </code>
+        <code class="text-red-600 ml-auto font-semibold">
+          false
+        </code>
+        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+          Boolean
+        </code>
+      </div>
+<div class="ml-[200px] my-1">
+<p>Allows selection of date ranges. Changing this prop resets component.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+mondayFirstWeekday
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+true
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+Boolean
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Week starts on Monday</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+adjacentMonths
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+true
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+Boolean
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>If true days from previous and next month are displayed. Classes for these days can be modified in the <code>class:adjacent</code> attribute in the template.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+locale
+</code>
+<code class="text-red-600 ml-auto font-semibold">
+en-GB
+</code>
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+String
+</code>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>This prop is only used to display names of the months and weekdays and to format date in the components footer. It does not modify format of the <code>x-model</code> date which is always <code>YYYY-MM-DD</code>.</p>
+</div>
+    </div>
+    </div>
 
       </div>
     </div>

@@ -303,7 +303,7 @@
     <span class="hljs-attr">onFilter</span>: <span class="hljs-title class_">Function</span>,
 })
 </code></pre>
-<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md"><div class="py-2">
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md dark:bg-[#1e1e1e]"><div class="py-2">
       <div class="flex">
         <code class="text-base ml-4">
           data
@@ -311,7 +311,7 @@
         <code class="text-red-600 ml-auto font-semibold">
           []
         </code>
-        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
           Array
         </code>
       </div>
@@ -319,7 +319,7 @@
 <p>Data to display in the table.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -328,7 +328,7 @@ primaryKey
 <code class="text-red-600 ml-auto font-semibold">
 empty string
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 String
 </code>
 </div></p>
@@ -336,7 +336,7 @@ String
 <p>This prop should be the name of the property that is unique for every record.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -345,7 +345,7 @@ definition
 <code class="text-red-600 ml-auto font-semibold">
 []
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 Array
 </code>
 </div></p>
@@ -353,7 +353,7 @@ Array
 <p>Table definition is an optional <code>array</code> of <code>objects</code> that defines columns of the table. See the detailed explanation below.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -362,7 +362,7 @@ filter
 <code class="text-red-600 ml-auto font-semibold">
 empty string
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 String
 </code>
 </div></p>
@@ -370,7 +370,7 @@ String
 <p>String used to filter items.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -379,7 +379,7 @@ page
 <code class="text-red-600 ml-auto font-semibold">
 1
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 Number
 </code>
 </div></p>
@@ -387,7 +387,7 @@ Number
 <p>Current page number.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -396,7 +396,7 @@ itemsPerPage
 <code class="text-red-600 ml-auto font-semibold">
 0
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 Number
 </code>
 </div></p>
@@ -404,7 +404,7 @@ Number
 <p>Number of records (rows) on the single page. Setting it to the <code>0</code> disables pagination.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -413,7 +413,7 @@ onFilter
 <code class="text-red-600 ml-auto font-semibold">
 undefined
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 Function
 </code>
 </div></p>
@@ -426,7 +426,7 @@ Function
 <h3>Definition</h3>
 <p>Table definition is an optional <code>array</code> of <code>objects</code> that defines columns of the table. Each object has one required, unique <code>key</code> property and number of optional properties. The <code>key</code> defines which property of the record object will be rendered in the column. If key is not found empty column is added.</p>
 <p>If definition is not provided component makes one using the first record of the data. All additional properties are set to default values. This may be enough for simple tables however to use features like sorting, filtering etc you need to provide definition array.</p>
-<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md"><div class="py-2">
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md dark:bg-[#1e1e1e]"><div class="py-2">
       <div class="flex">
         <code class="text-base ml-4">
           key
@@ -434,7 +434,7 @@ Function
         <code class="text-red-600 ml-auto font-semibold">
           empty string
         </code>
-        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
           String
         </code>
       </div>
@@ -442,7 +442,7 @@ Function
 <p>The <code>key</code> defines which property of the record object will be rendered in the column.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -451,7 +451,7 @@ sortable
 <code class="text-red-600 ml-auto font-semibold">
 false
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 Boolean
 </code>
 </div></p>
@@ -459,7 +459,7 @@ Boolean
 <p>Enables sorting of the column.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -468,7 +468,7 @@ filterable
 <code class="text-red-600 ml-auto font-semibold">
 true
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 Boolean
 </code>
 </div></p>
@@ -476,7 +476,7 @@ Boolean
 <p>Enables filtering of the column.</p>
 </div>
     </div>
-<p><hr class="border-neutral-200">
+<p><hr class="border-neutral-200 dark:border-neutral-700">
 <div class="py-2">
 <div class="flex">
 <code class="text-base ml-4">
@@ -485,7 +485,7 @@ label
 <code class="text-red-600 ml-auto font-semibold">
 undefined
 </code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center">
+<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
 String
 </code>
 </div></p>

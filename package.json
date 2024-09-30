@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./input.css -o ./output.css --watch",
+    "dev": "npx @11ty/eleventy --serve --port=8081"
+  },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.5.0",
     "prettier": "^3.3.3",
