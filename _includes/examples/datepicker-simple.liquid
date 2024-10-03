@@ -1,8 +1,8 @@
-<div x-data="{ model: '' }" class="flex gap-x-10 px-6 justify-stretch">
+<div x-data="{ model: '' }" class="px-6 justify-stretch">
   <div
     x-data="datepicker"
     x-model="model"
-    class="overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300 w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md"
+    class="overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300 w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md dark:border-neutral-700 mx-auto"
   >
     <div class="my-4 grid grid-flow-col grid-cols-6">
       <button
@@ -121,7 +121,7 @@
     ></div>
   </div>
 
-  <div class="font-mono text-lg">
+  <div class="font-mono text-lg mx-auto w-max mt-4">
     x-model: <span x-text="JSON.stringify(model)"></span>
   </div>
 </div>

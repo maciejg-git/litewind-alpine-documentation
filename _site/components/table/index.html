@@ -26,7 +26,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
-    <nav class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white">
+    <nav class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800">
       <span class="font-semibold">
         Alpine Components
       </span>
@@ -83,7 +83,7 @@
         <h2>Table</h2>
 <p>The table component is used to generate tables from arrays. Tables can be static or include features like filtering, sorting, pagination, reordering and others.</p>
 <div class="example">
-  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300">
+  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300 dark:bg-neutral-800 dark:border-neutral-700">
     Example
   </div>
   <div class="p-6">
@@ -308,12 +308,11 @@
         <code class="text-base ml-4">
           data
         </code>
-        <code class="text-red-600 ml-auto font-semibold">
-          []
-        </code>
-        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
-          Array
-        </code>
+        <div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+            []
+          </code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+            Array
+          </code></div>
       </div>
 <div class="ml-[200px] my-1">
 <p>Data to display in the table.</p>
@@ -325,12 +324,11 @@
 <code class="text-base ml-4">
 primaryKey
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 empty string
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 String
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>This prop should be the name of the property that is unique for every record.</p>
@@ -342,12 +340,11 @@ String
 <code class="text-base ml-4">
 definition
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 []
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 Array
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>Table definition is an optional <code>array</code> of <code>objects</code> that defines columns of the table. See the detailed explanation below.</p>
@@ -359,12 +356,11 @@ Array
 <code class="text-base ml-4">
 filter
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 empty string
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 String
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>String used to filter items.</p>
@@ -376,12 +372,11 @@ String
 <code class="text-base ml-4">
 page
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 1
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 Number
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>Current page number.</p>
@@ -393,12 +388,11 @@ Number
 <code class="text-base ml-4">
 itemsPerPage
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 0
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 Number
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>Number of records (rows) on the single page. Setting it to the <code>0</code> disables pagination.</p>
@@ -410,12 +404,11 @@ Number
 <code class="text-base ml-4">
 onFilter
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 undefined
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 Function
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>Function called after filtering. This can be useful, for example to update pagination component. See the example below.</p>
@@ -431,12 +424,11 @@ Function
         <code class="text-base ml-4">
           key
         </code>
-        <code class="text-red-600 ml-auto font-semibold">
-          empty string
-        </code>
-        <code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
-          String
-        </code>
+        <div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+            empty string
+          </code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+            String
+          </code></div>
       </div>
 <div class="ml-[200px] my-1">
 <p>The <code>key</code> defines which property of the record object will be rendered in the column.</p>
@@ -448,12 +440,11 @@ Function
 <code class="text-base ml-4">
 sortable
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 false
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 Boolean
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>Enables sorting of the column.</p>
@@ -465,12 +456,11 @@ Boolean
 <code class="text-base ml-4">
 filterable
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 true
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 Boolean
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>Enables filtering of the column.</p>
@@ -482,12 +472,11 @@ Boolean
 <code class="text-base ml-4">
 label
 </code>
-<code class="text-red-600 ml-auto font-semibold">
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
 undefined
-</code>
-<code class="bg-red-300 rounded-md px-2 mx-1 ml-4 self-center dark:bg-red-500 dark:text-neutral-100">
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
 String
-</code>
+</code></div>
 </div></p>
 <div class="ml-[200px] my-1">
 <p>Sets header for this column. If not provided header is the same as key converted to Header Case.</p>
@@ -495,7 +484,7 @@ String
     </div>
     </div>
 <div class="example">
-  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300">
+  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300 dark:bg-neutral-800 dark:border-neutral-700">
     Example
   </div>
   <div class="p-6">
@@ -758,7 +747,7 @@ String
 <p>To enable pagination set <code>itemsPerPage</code> to any number greater than <code>0</code>. Current page can be changed with the <code>page</code> prop. In the following example current page of the table is controlled by the pagination component.</p>
 <p>Filtering is enabled by default for all columns. Data is filtered depending on the <code>string</code> in the <code>filter</code> prop. Every time data is filtered <code>onFilter</code> callback is also called. You can use it to update number of pages in the pagination component.</p>
 <div class="example">
-  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300">
+  <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300 dark:bg-neutral-800 dark:border-neutral-700">
     Example
   </div>
   <div class="p-6">
