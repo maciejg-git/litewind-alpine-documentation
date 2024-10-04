@@ -1,0 +1,183 @@
+<div x-data="{ date: '' }">
+  <div x-data="dropdown">
+    <div
+      x-data="input"
+      x-model="date"
+      x-bind="trigger"
+      class="flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300"
+    >
+      <div class="mr-2"></div>
+      <div class="mr-2"></div>
+      <div class="flex flex-1 flex-wrap">
+        <input
+          x-bind="input"
+          type="text"
+          class="min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none"
+        />
+      </div>
+      <div class="ml-2"></div>
+      <div class="flex items-center">
+        <div class="mr-2">
+          <svg viewBox="25 25 50 50" fill="none" class="spinner-svg h-5 w-5">
+            <circle
+              cx="50"
+              cy="50"
+              r="20"
+              stroke-width="4"
+              stroke-miterlimit="10"
+            />
+          </svg>
+        </div>
+        <div>
+          <button @click="clear()" class="flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="h-5 w-5 opacity-70"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      x-bind="menu"
+      x-cloak
+      x-alt-transition="{
+            enter: ['opacity-0 scale-y-[0.5]', 'transition ease-out duration-100 origin-top', 'opacity-100'],
+            leave: ['opacity-100', 'transition ease-in duration-100 origin-top', 'opacity-0 scale-y-[0.5]'],
+          }"
+      class="z-10"
+    >
+      <div class="w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md">
+        <div
+          x-data="datepicker"
+          x-model="date"
+          class="overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300"
+        >
+          <div class="my-4 grid grid-flow-col grid-cols-6">
+            <button
+              x-bind="prevYearButton"
+              class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-double-left"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                />
+              </svg>
+            </button>
+            <button
+              x-bind="prevMonthButton"
+              class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-left"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                />
+              </svg>
+            </button>
+            <div
+              x-text="currentDate"
+              class="col-span-2 inline-block font-bold"
+            ></div>
+            <button
+              x-bind="nextMonthButton"
+              class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </button>
+            <button
+              x-bind="nextYearButton"
+              class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-double-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </button>
+          </div>
+        
+          <div class="mb-2 grid grid-cols-7">
+            <template x-for="weekday in weekdays">
+              <div
+                x-text="weekday"
+                class="text-sm font-semibold dark:text-gray-300"
+              ></div>
+            </template>
+          </div>
+        
+          <div class="relative mb-2 grid grid-cols-7">
+            <template x-for="d in days" :key="d.toISOString()">
+              <button
+                x-bind="day"
+                x-text="d.getDate()"
+                class="mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold hover:bg-neutral-200"
+                class:today="!font-bold text-violet-400 dark:text-violet-400 border border-violet-400"
+                class:adjacent="text-gray-800/20 dark:text-gray-200/10"
+                class:selected="!text-white dark:text-gray-200 bg-violet-400 dark:bg-violet-500 hover:!bg-violet-600 dark:hover:bg-violet-700"
+                class:selected-range="!text-white dark:text-gray-200 bg-violet-400 dark:bg-neutral-600 hover:!bg-violet-600 dark:hover:bg-neutral-500"
+                class:partially-selected="text-gray-800 dark:text-gray-300 bg-gray-300 dark:bg-neutral-700"
+              ></button>
+            </template>
+          </div>
+        
+          <div
+            x-text="todayFormatted"
+            class="bg-gray-100 py-1 text-sm font-semibold dark:bg-neutral-700 dark:text-gray-300"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

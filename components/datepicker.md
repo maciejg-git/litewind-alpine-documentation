@@ -17,6 +17,13 @@ examples: {
             language: "html",
         }
     ],
+    datepickerDropdown: [
+        {
+            label: "Template",
+            file: "examples/datepicker-dropdown.liquid",
+            language: "html",
+        }
+    ],
 }
 props: [
     {
@@ -82,3 +89,7 @@ datepicker({
 Datepicker allows selection of date ranges when `range` prop is enabled. In range mode instead of single date `string` component emits `array` of two `strings`.
 
 {% render "example.liquid" example: "examples/datepicker-range.liquid", tabs: examples.datepickerRange %}
+
+### Datepicker in dropdown
+
+{% render "example.liquid" example: "examples/datepicker-dropdown.liquid", tabs: examples.datepickerDropdown %}
