@@ -1,12 +1,11 @@
-<div x-data="{ model: 1 }">
-  x-model: <span x-text="model"></span>
+<div x-data="{ model: 1 }" class="flex flex-col">
   <nav x-data="pagination({
         itemsCount: 70,
         maxPages: 7,
         itemsPerPage: 8,
       })" 
       x-model="model"
-      class="relative z-0 flex w-auto mt-4"
+      class="relative z-0 flex w-auto mt-4 mx-auto"
   >
     <a
       x-bind="prevButton"
@@ -54,4 +53,7 @@
       </svg>
     </a>
   </nav>
+  <div class="font-mono text-lg mx-auto w-max mt-4">
+    x-model: <span x-text="model"></span>
+  </div>
 </div>

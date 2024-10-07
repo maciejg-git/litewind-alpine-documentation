@@ -95,13 +95,13 @@
   </div>
   <div class="p-6">
     <div x-data="{ languages: ['english', 'swedish', 'korean', 'german', 'icelandic', 'japanese']}" class="flex justify-center my-6">
-  <template x-for="language in languages">
-    <div x-text="language" @contextmenu.prevent="$dispatch('open-contextmenu', {id: 'context', data: { language, languages }, $event })" class="mr-4 cursor-pointer border p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700">
+  <template x-for="(language, index) in languages">
+    <div x-text="language" @contextmenu.prevent="$dispatch('open-contextmenu', {id: 'context', data: { index, language, languages }, $event })" class="mr-4 cursor-pointer border p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700">
     </div>
   </template>
 </div>
 <div x-data="dropdownContext" id="context">
-  <div x-bind="menu" x-cloak class="z-10">
+  <div x-bind="menu" x-cloak class="z-10 shadow-md rounded-md">
     <div
       class="w-[320px] rounded-md border border-gray-200 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-300"
     >
@@ -116,7 +116,7 @@
           </a>
         </li>
         <li>
-        <a x-text="'Remove ' + contextData?.language" @click="contextData.languages.splice(contextData.languages.indexOf(contextData.language), 1)" href="#" class="my-1 w-full px-6 py-3 pr-4 text-left text-sm text-gray-800 hover:bg-gray-100 focus:bg-violet-500 focus:text-white focus:outline-none dark:text-gray-300 dark:hover:bg-neutral-700 dark:focus:bg-violet-500 dark:focus:text-white block"></a>
+        <a x-text="'Remove ' + contextData?.language" @click="contextData.languages.splice(contextData.index, 1)" href="#" class="my-1 w-full px-6 py-3 pr-4 text-left text-sm text-gray-800 hover:bg-gray-100 focus:bg-violet-500 focus:text-white focus:outline-none dark:text-gray-300 dark:hover:bg-neutral-700 dark:focus:bg-violet-500 dark:focus:text-white block"></a>
         </li>
       </ul>
     </div>
@@ -151,14 +151,14 @@
       <div class="relative">
   <div data-tab="Template" x-bind="content" class="w-full">
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ languages: [&#x27;english&#x27;, &#x27;swedish&#x27;, &#x27;korean&#x27;, &#x27;german&#x27;, &#x27;icelandic&#x27;, &#x27;japanese&#x27;]}&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex justify-center my-6&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;language in languages&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;language&quot;</span> @<span class="hljs-attr">contextmenu.prevent</span>=<span class="hljs-string">&quot;$dispatch(&#x27;open-contextmenu&#x27;, {id: &#x27;context&#x27;, data: { language, languages }, $event })&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-4 cursor-pointer border p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;(language, index) in languages&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;language&quot;</span> @<span class="hljs-attr">contextmenu.prevent</span>=<span class="hljs-string">&quot;$dispatch(&#x27;open-contextmenu&#x27;, {id: &#x27;context&#x27;, data: { index, language, languages }, $event })&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-4 cursor-pointer border p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;dropdownContext&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;context&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">x-cloak</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;z-10&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">x-cloak</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;z-10 shadow-md rounded-md&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
       <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-[320px] rounded-md border border-gray-200 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-300&quot;</span>
     &gt;</span>
@@ -173,7 +173,7 @@
           <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;&#x27;Remove &#x27; + contextData?.language&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;contextData.languages.splice(contextData.languages.indexOf(contextData.language), 1)&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-1 w-full px-6 py-3 pr-4 text-left text-sm text-gray-800 hover:bg-gray-100 focus:bg-violet-500 focus:text-white focus:outline-none dark:text-gray-300 dark:hover:bg-neutral-700 dark:focus:bg-violet-500 dark:focus:text-white block&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;&#x27;Remove &#x27; + contextData?.language&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;contextData.languages.splice(contextData.index, 1)&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-1 w-full px-6 py-3 pr-4 text-left text-sm text-gray-800 hover:bg-gray-100 focus:bg-violet-500 focus:text-white focus:outline-none dark:text-gray-300 dark:hover:bg-neutral-700 dark:focus:bg-violet-500 dark:focus:text-white block&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>

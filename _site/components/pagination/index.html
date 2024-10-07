@@ -94,15 +94,14 @@
     Example
   </div>
   <div class="p-6">
-    <div x-data="{ model: 1 }">
-  x-model: <span x-text="model"></span>
+    <div x-data="{ model: 1 }" class="flex flex-col">
   <nav x-data="pagination({
         itemsCount: 70,
         maxPages: 7,
         itemsPerPage: 8,
       })" 
       x-model="model"
-      class="relative z-0 flex w-auto mt-4"
+      class="relative z-0 flex w-auto mt-4 mx-auto"
   >
     <a
       x-bind="prevButton"
@@ -150,6 +149,9 @@
       </svg>
     </a>
   </nav>
+  <div class="font-mono text-lg mx-auto w-max mt-4">
+    x-model: <span x-text="model"></span>
+  </div>
 </div>
   </div>
   <div x-data="{ isOpen: false }">
@@ -179,15 +181,14 @@
       </li></ul>
       <div class="relative">
   <div data-tab="Template" x-bind="content" class="w-full">
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ model: 1 }&quot;</span>&gt;</span>
-  x-model: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;model&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ model: 1 }&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-col&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;pagination({
         itemsCount: 70,
         maxPages: 7,
         itemsPerPage: 8,
       })&quot;</span> 
       <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;model&quot;</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative z-0 flex w-auto mt-4&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative z-0 flex w-auto mt-4 mx-auto&quot;</span>
   &gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
       <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevButton&quot;</span>
@@ -235,6 +236,9 @@
       <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;font-mono text-lg mx-auto w-max mt-4&quot;</span>&gt;</span>
+    x-model: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;model&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 </code></pre>
