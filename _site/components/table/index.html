@@ -13,15 +13,21 @@
     <script defer type="module" src="/alpine-components/dropdown-context/dropdown-context.js"></script>
     <script defer type="module" src="/alpine-components/dropdown/dropdown.js"></script>
     <script defer src="/alpine-components/tabs/tabs.js"></script>
+    <script defer src="/alpine-components/modal/modal.js"></script>
     <script defer type="module" src="/alpine-components/floating.js"></script>
     <script defer src="/alpine-components/transition-plugin.js"></script>
     <script defer src="/alpine-components/table/table-store.js"></script>
     <script defer src="/alpine-components/table/table-filter-pagination-store.js"></script>
     <script defer src="/alpine-components/table/table-definition-store.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/googlecode.min.css">
+    <link href="/styles/googlecode.css" rel="stylesheet">
+    <link href="/styles/oceanicnext.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"
+    ></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
@@ -45,6 +51,10 @@
       <div class="sticky top-16 ml-auto overflow-auto border-r px-10 pt-2 text-[0.9em] font-semibold text-text-600 dark:border-dark-700 dark:text-text-300/70">
         <ul>
 
+
+  <li class="my-2">
+    <a href="/components/checkbox/" class="">Checkbox</a>
+  </li>
 
   <li class="my-2">
     <a href="/components/datepicker/" class="">Datepicker</a>
@@ -168,10 +178,8 @@
           enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
           leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
       }
-      }})"
-      x-show="isOpen"
-      x-collapse.min.400px
-  >
+      }})"x-show="isOpen"
+      x-collapse.min.400px>
     <ul
       x-bind="tabBar"
       class="flex flex-auto items-center pl-2"
@@ -580,10 +588,8 @@ String
           enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
           leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
       }
-      }})"
-      x-show="isOpen"
-      x-collapse.min.400px
-  >
+      }})"x-show="isOpen"
+      x-collapse.min.400px>
     <ul
       x-bind="tabBar"
       class="flex flex-auto items-center pl-2"
@@ -919,10 +925,8 @@ String
           enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
           leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
       }
-      }})"
-      x-show="isOpen"
-      x-collapse.min.400px
-  >
+      }})"x-show="isOpen"
+      x-collapse.min.400px>
     <ul
       x-bind="tabBar"
       class="flex flex-auto items-center pl-2"

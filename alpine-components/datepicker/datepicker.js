@@ -44,6 +44,7 @@ document.addEventListener("alpine:init", () => {
       selectedRange: [],
       rangeState: 0,
       mouseOverDate: null,
+      modelSeparator: "-",
 
       init() {
         this.month = this.today.getMonth();
@@ -70,10 +71,11 @@ document.addEventListener("alpine:init", () => {
           this.range = isFunction(props.range)
             ? props.range()
             : props.range ?? this.range;
+          this.reset()
         });
 
         Alpine.effect(() => {
-          let dateRegexp = /^\d\d\d\d-\d\d-\d\d$/;
+          let dateRegexp = /^\d{4}-\d{2}-\d{2}$/;
 
           if (this.range && this._model?.length === 2) {
             if (this._model.every((d) => dateRegexp.test(d))) {
@@ -237,6 +239,10 @@ document.addEventListener("alpine:init", () => {
         }
         this.selectedSingle = this.d;
         this._model = this.dateToModel(this.selectedSingle);
+
+        if (!this.range || this.rangeState === rangeSelectionStates.TO_SELECTED) {
+          this.$dispatch("datepicker-selection-complete")
+        }
       },
       prevMonthButton: {
         ["@click"]() {

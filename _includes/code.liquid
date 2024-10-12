@@ -7,8 +7,10 @@
           leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
       }
       }})"
+      {%- if collapse | default: true, allow_false: true -%}
       x-show="isOpen"
       x-collapse.min.400px
+      {%- endif -%}
   >
     <ul
       x-bind="tabBar"
@@ -39,6 +41,7 @@
   {%- endfor -%}
       </div>
   </div>
+  {% if collapse | default: true, allow_false: true %}
   <div class="flex bg-neutral-100">
     <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4">
       <span class="grow">
@@ -52,4 +55,5 @@
       </template>
     </button>
   </div>
+{% endif %}
 </div>

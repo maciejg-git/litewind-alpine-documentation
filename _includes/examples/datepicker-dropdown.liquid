@@ -1,5 +1,5 @@
 <div x-data="{ date: '' }">
-  <div x-data="dropdown">
+  <div x-data="dropdown" @datepicker-selection-complete="close()">
     <div
       x-data="input"
       x-model="date"

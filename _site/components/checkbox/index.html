@@ -53,7 +53,7 @@
 
 
   <li class="my-2">
-    <a href="/components/checkbox/" class="">Checkbox</a>
+    <a href="/components/checkbox/" class="text-violet-400">Checkbox</a>
   </li>
 
   <li class="my-2">
@@ -81,7 +81,7 @@
   </li>
 
   <li class="my-2">
-    <a href="/components/progress/" class="text-violet-400">Progress</a>
+    <a href="/components/progress/" class="">Progress</a>
   </li>
 
   <li class="my-2">
@@ -98,18 +98,23 @@
     </div>
     <div class="mt-12 max-w-screen-lg grow px-4 py-3 lg:px-6 xl:px-20 flex-[0_0_0%] min-w-0">
       <div class="markdown-container">
-        <h2>Progress</h2>
+        <h2>Checkbox</h2>
 <div class="example">
   <div class="bg-neutral-50 p-2 px-6 font-semibold border-b border-neutral-300 dark:bg-neutral-800 dark:border-neutral-700">
     Example
   </div>
   <div class="p-6">
-    <div x-data="progress" class="flex h-4 rounded-full bg-gray-100">
-  <div
-    x-bind="progressBar"
-    class="flex h-full items-center justify-center rounded-full bg-green-400"
-  ></div>
-</div>
+    <label>
+  <div class="relative cursor-pointer flex items-center">
+    <input x-model="range" type="checkbox" class="sr-only peer">
+    <div class="rounded-full bg-neutral-200 w-11 h-6 peer-checked:bg-violet-400 peer-focus:ring-4 ring-violet-200">
+    </div>
+    <div class="absolute rounded-full bg-white w-5 h-5 left-0.5 top-0.5 border border-neutral-300 peer-checked:translate-x-full peer-checked:border-0 transition-all shadow"></div>
+    <span class="ml-2">
+      Toggle checkbox
+    </span>
+  </div>
+</label>
   </div>
   <div x-data="{ isOpen: false }">
   <div
@@ -119,8 +124,7 @@
           enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
           leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
       }
-      }})"x-show="isOpen"
-      x-collapse.min.400px>
+      }})">
     <ul
       x-bind="tabBar"
       class="flex flex-auto items-center pl-2"
@@ -136,28 +140,20 @@
       </li></ul>
       <div class="relative">
   <div data-tab="Template" x-bind="content" class="w-full">
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;progress&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex h-4 rounded-full bg-gray-100&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-    <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;progressBar&quot;</span>
-    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex h-full items-center justify-center rounded-full bg-green-400&quot;</span>
-  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative cursor-pointer flex items-center&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;range&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only peer&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;rounded-full bg-neutral-200 w-11 h-6 peer-checked:bg-violet-400 peer-focus:ring-4 ring-violet-200&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;absolute rounded-full bg-white w-5 h-5 left-0.5 top-0.5 border border-neutral-300 peer-checked:translate-x-full peer-checked:border-0 transition-all shadow&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-2&quot;</span>&gt;</span>
+      Toggle checkbox
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 
 </code></pre>
   </div></div>
-  </div>
-  <div class="flex bg-neutral-100">
-    <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4">
-      <span class="grow">
-        Expand
-      </span>
-      <template x-if="!isOpen">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-      </template>
-      <template x-if="isOpen">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 ml-auto"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
-      </template>
-    </button>
   </div>
 </div>
 </div>

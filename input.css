@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] { display: none !important; }
+
 @layer components {
   .example {
     @apply rounded-md border dark:border-neutral-700 dark:bg-[#171717] overflow-auto mt-6 mb-2
@@ -22,7 +24,7 @@
     @apply my-4
   }
   pre code {
-    @apply rounded-b-md !bg-neutral-100 block p-4 overflow-auto
+    @apply rounded-md bg-neutral-100 block p-4 overflow-auto dark:bg-[#242424]
   }
   code {
     @apply text-sm

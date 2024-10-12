@@ -4,6 +4,7 @@ const hljs = require('highlight.js');
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("output.css")
   eleventyConfig.addPassthroughCopy("alpine-components/**/*.js");
+  eleventyConfig.addPassthroughCopy("styles/**/*.css");
 
   let options = {
 		html: true,
