@@ -32,7 +32,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="dark:bg-[#191919]">
-    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800">
+    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800 z-10">
       <span class="font-semibold">
         Alpine Components
       </span>
@@ -106,11 +106,10 @@
   <div class="p-6">
     <div
   x-data="input"
-  x-model="model"
-  class="flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300"
+  class="flex flex-1 items-center rounded border border-gray-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300 gap-x-2"
 >
-  <div class="mr-2"></div>
-  <div class="mr-2"></div>
+  <div></div>
+  <div></div>
   <div class="flex flex-1 flex-wrap">
     <input
       x-bind="input"
@@ -118,9 +117,9 @@
       class="min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none"
     />
   </div>
-  <div class="ml-2"></div>
-  <div class="flex items-center">
-    <div class="mr-2">
+  <div></div>
+  <div class="flex items-center gap-x-2 mr-2">
+    <div x-bind="loader">
       <svg viewBox="25 25 50 50" fill="none" class="spinner-svg h-5 w-5">
         <circle
           cx="50"
@@ -131,8 +130,7 @@
         />
       </svg>
     </div>
-    <div>
-      <button @click="clear()" class="flex items-center">
+      <button x-bind="clearButton" @click="clear()" class="flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -146,7 +144,6 @@
           />
         </svg>
       </button>
-    </div>
   </div>
 </div>
   </div>
@@ -177,11 +174,10 @@
   <div data-tab="Template" x-bind="content" class="w-full">
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
   <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;input&quot;</span>
-  <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;model&quot;</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300&quot;</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 items-center rounded border border-gray-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300 gap-x-2&quot;</span>
 &gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 flex-wrap&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
       <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;input&quot;</span>
@@ -189,9 +185,9 @@
       <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none&quot;</span>
     /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-2&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center gap-x-2 mr-2&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;loader&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;25 25 50 50&quot;</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;spinner-svg h-5 w-5&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">circle</span>
           <span class="hljs-attr">cx</span>=<span class="hljs-string">&quot;50&quot;</span>
@@ -202,8 +198,7 @@
         /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clear()&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;clearButton&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clear()&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
           <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
           <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
@@ -217,7 +212,6 @@
           /&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
@@ -239,6 +233,80 @@
   </div>
 </div>
 </div>
+<h3>Usage</h3>
+<p>To use this component simply copy and paste minimal template or any template from the examples below.</p>
+<p>The data for the component is provided by the <code>input</code> function in the <code>x-data</code> directive. This function takes single <code>object</code> as argument.</p>
+<pre><code class="language-javascript"><span class="hljs-title function_">input</span>({
+    <span class="hljs-attr">clearable</span>: <span class="hljs-title class_">Boolean</span>,
+    <span class="hljs-attr">useLoader</span>: <span class="hljs-title class_">Boolean</span>,
+    <span class="hljs-attr">isLoading</span>: <span class="hljs-title class_">Boolean</span>,
+    <span class="hljs-attr">placeholder</span>: <span class="hljs-title class_">String</span>,
+})
+</code></pre>
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md dark:bg-[#1e1e1e]"><div class="py-2">
+      <div class="flex">
+        <code class="text-base ml-4">
+          clearable
+        </code>
+        <div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+            false
+          </code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+            Boolean
+          </code></div>
+      </div>
+<div class="ml-[200px] my-1">
+<p>Adds an X button that resets model to the default value.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+useLoader
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+false
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Boolean
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Enable or disable the spinner in the input.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+isLoading
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+false
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Boolean
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>If <code>true</code> displays a spinner in the input. Spinner should be first enabled in the <code>useLoader</code> prop.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+placeholder
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+empty string
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+String
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Sets the placeholder of the input element.</p>
+</div>
+    </div>
+    </div>
 
       </div>
     </div>

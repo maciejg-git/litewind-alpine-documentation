@@ -32,7 +32,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="dark:bg-[#191919]">
-    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800">
+    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800 z-10">
       <span class="font-semibold">
         Alpine Components
       </span>
@@ -267,6 +267,63 @@
   </div>
 </div>
 </div>
+<h3>Usage</h3>
+<p>To use this component simply copy and paste minimal template or any template from the examples below.</p>
+<p>The data for the component is provided by the <code>pagination</code> function in the <code>x-data</code> directive. This function takes single <code>object</code> as argument.</p>
+<pre><code class="language-javascript"><span class="hljs-title function_">pagination</span>({
+    <span class="hljs-attr">itemsCount</span>: <span class="hljs-title class_">Number</span>,
+    <span class="hljs-attr">itemsPerPage</span>: <span class="hljs-title class_">Number</span>,
+    <span class="hljs-attr">maxPages</span>: <span class="hljs-title class_">Number</span>,
+})
+</code></pre>
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md dark:bg-[#1e1e1e]"><div class="py-2">
+      <div class="flex">
+        <code class="text-base ml-4">
+          itemsCount
+        </code>
+        <div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+            0
+          </code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+            Number
+          </code></div>
+      </div>
+<div class="ml-[200px] my-1">
+<p>Total number of items. Pagination uses this value to compute the number of pages to render. It is usually provided by another component that uses pagination for navigation.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+itemsPerPage
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+10
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Number
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Number of items per page. Pagination uses this value to compute the number of pages to render. It is usually provided by another component that uses pagination for navigation. <code>0</code> disables pagination (displays only 1 page).</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+maxPages
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+7
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Number
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Maximum number of pages to display. This prop must have value of 3 or more.</p>
+</div>
+    </div>
+    </div>
 
       </div>
     </div>

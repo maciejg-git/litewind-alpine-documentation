@@ -32,7 +32,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="dark:bg-[#191919]">
-    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800">
+    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800 z-10">
       <span class="font-semibold">
         Alpine Components
       </span>
@@ -104,8 +104,18 @@
     Example
   </div>
   <div class="p-6">
-    <button x-data @click="$dispatch('open-modal', { id: 'modal' })">
-  open modal
+    <button x-data @click="$dispatch('open-modal', { id: 'modal' })" class="px-4
+  py-2
+  rounded-md
+  font-medium
+  text-gray-100
+        bg-violet-500
+        dark:bg-violet-500
+        hover:bg-violet-600
+        dark:hover:bg-violet-600
+        border-violet-700
+        focus:ring-violet-200">
+  Open modal
 </button>
 <div x-data="modal" id="modal" x-cloak>
   <div
@@ -193,8 +203,18 @@
       </li></ul>
       <div class="relative">
   <div data-tab="Template" x-bind="content" class="w-full">
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">x-data</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;$dispatch(&#x27;open-modal&#x27;, { id: &#x27;modal&#x27; })&quot;</span>&gt;</span>
-  open modal
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">x-data</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;$dispatch(&#x27;open-modal&#x27;, { id: &#x27;modal&#x27; })&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;px-4
+  py-2
+  rounded-md
+  font-medium
+  text-gray-100
+        bg-violet-500
+        dark:bg-violet-500
+        hover:bg-violet-600
+        dark:hover:bg-violet-600
+        border-violet-700
+        focus:ring-violet-200&quot;</span>&gt;</span>
+  Open modal
 <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;modal&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;modal&quot;</span> <span class="hljs-attr">x-cloak</span>&gt;</span>

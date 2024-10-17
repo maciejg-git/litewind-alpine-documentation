@@ -32,7 +32,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="dark:bg-[#191919]">
-    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800">
+    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800 z-10">
       <span class="font-semibold">
         Alpine Components
       </span>
@@ -104,14 +104,14 @@
     Example
   </div>
   <div class="p-6">
-    <div x-data="{ languages: ['english', 'swedish', 'korean', 'german', 'icelandic', 'japanese']}" class="flex justify-center my-6">
+    <div x-data="{ languages: ['english', 'swedish', 'korean', 'german', 'icelandic', 'japanese']}" class="flex justify-center">
   <template x-for="(language, index) in languages">
     <div x-text="language" @contextmenu.prevent="$dispatch('open-contextmenu', {id: 'context', data: { index, language, languages }, $event })" class="mr-4 cursor-pointer border p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700">
     </div>
   </template>
 </div>
 <div x-data="dropdownContext" id="context">
-  <div x-bind="menu" x-cloak class="z-10 shadow-md rounded-md">
+  <div x-bind="menu" x-cloak class="z-20 shadow-md rounded-md">
     <div
       class="w-[320px] rounded-md border border-gray-200 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-300"
     >
@@ -158,7 +158,7 @@
       </li></ul>
       <div class="relative">
   <div data-tab="Template" x-bind="content" class="w-full">
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ languages: [&#x27;english&#x27;, &#x27;swedish&#x27;, &#x27;korean&#x27;, &#x27;german&#x27;, &#x27;icelandic&#x27;, &#x27;japanese&#x27;]}&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex justify-center my-6&quot;</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ languages: [&#x27;english&#x27;, &#x27;swedish&#x27;, &#x27;korean&#x27;, &#x27;german&#x27;, &#x27;icelandic&#x27;, &#x27;japanese&#x27;]}&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex justify-center&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;(language, index) in languages&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;language&quot;</span> @<span class="hljs-attr">contextmenu.prevent</span>=<span class="hljs-string">&quot;$dispatch(&#x27;open-contextmenu&#x27;, {id: &#x27;context&#x27;, data: { index, language, languages }, $event })&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-4 cursor-pointer border p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -166,7 +166,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;dropdownContext&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;context&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">x-cloak</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;z-10 shadow-md rounded-md&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">x-cloak</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;z-20 shadow-md rounded-md&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
       <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-[320px] rounded-md border border-gray-200 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-300&quot;</span>
     &gt;</span>
@@ -206,6 +206,138 @@
   </div>
 </div>
 </div>
+<h3>Usage</h3>
+<p>To use this component simply copy and paste minimal template or any template from the examples below.</p>
+<p>The data for the component is provided by the <code>dropdownContext</code> function in the <code>x-data</code> directive. This function takes two <code>object</code> arguments: the props and floatingUI options.</p>
+<pre><code class="language-javascript"><span class="hljs-title function_">dropdownContext</span>({
+    <span class="hljs-attr">autoClose</span>: <span class="hljs-title class_">Boolean</span>,
+},
+{
+    <span class="hljs-attr">placement</span>: <span class="hljs-title class_">String</span>,
+    <span class="hljs-attr">offsetX</span>: <span class="hljs-title class_">Number</span>,
+    <span class="hljs-attr">offsetY</span>: <span class="hljs-title class_">Number</span>,
+    <span class="hljs-attr">flip</span>: <span class="hljs-title class_">Boolean</span>,
+    <span class="hljs-attr">autoPlacement</span>: <span class="hljs-title class_">Boolean</span>,
+    <span class="hljs-attr">inline</span>: <span class="hljs-title class_">Boolean</span>,
+})
+</code></pre>
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md dark:bg-[#1e1e1e]"><div class="py-2">
+      <div class="flex">
+        <code class="text-base ml-4">
+          autoClose
+        </code>
+        <div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+            true
+          </code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+            Boolean
+          </code></div>
+      </div>
+<div class="ml-[200px] my-1">
+<p>If <code>true</code> menu is closed after click on any element inside.</p>
+</div>
+    </div>
+    </div>
+<div class="bg-neutral-100 mt-6 px-4 py-2 rounded-md dark:bg-[#1e1e1e]"><div class="py-2">
+      <div class="flex">
+        <code class="text-base ml-4">
+          placement
+        </code>
+        <div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+            bottom-start
+          </code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+            String
+          </code></div>
+      </div>
+<div class="ml-[200px] my-1">
+<p>Initial placement of dropdown content. See floatingUI documentation for valid values.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+offsetX
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+0
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Number
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Offset of dropdown relative to reference element.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+offsetY
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+0
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Number
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Offset of dropdown relative to reference element.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+flip
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+false
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Boolean
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Allows fliping of the dropdown to the opposite placement if outside of current view.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+autoPlacement
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+false
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Boolean
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+<p>Automatically calculates best placement for the floating element.</p>
+</div>
+    </div>
+<p><hr class="border-neutral-200 dark:border-neutral-700">
+<div class="py-2">
+<div class="flex">
+<code class="text-base ml-4">
+inline
+</code>
+<div class="ml-auto flex"><code class="text-red-600 font-semibold mr-4">
+false
+</code><code class="bg-red-300 rounded-md px-2 mr-1 self-center dark:bg-red-500 dark:text-neutral-100">
+Boolean
+</code></div>
+</div></p>
+<div class="ml-[200px] my-1">
+</div>
+    </div>
+    </div>
+<p>To show context menu simply dispatch open-contextmenu event. The data in the event should be an object with following properties:</p>
+<ul>
+<li>id of the context menu to show</li>
+<li>context data</li>
+<li>event to calculate position of the context menu</li>
+</ul>
 
       </div>
     </div>

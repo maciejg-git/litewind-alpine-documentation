@@ -1,5 +1,15 @@
-<button x-data @click="$dispatch('open-modal', { id: 'modal' })">
-  open modal
+<button x-data @click="$dispatch('open-modal', { id: 'modal' })" class="px-4
+  py-2
+  rounded-md
+  font-medium
+  text-gray-100
+        bg-violet-500
+        dark:bg-violet-500
+        hover:bg-violet-600
+        dark:hover:bg-violet-600
+        border-violet-700
+        focus:ring-violet-200">
+  Open modal
 </button>
 
 <div x-data="modal" id="modal" x-cloak>

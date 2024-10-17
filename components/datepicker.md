@@ -67,7 +67,7 @@ xModel: [
 
 To use this component simply copy and paste minimal template or any template from the examples below.
 
-The props for the component are provided by the `datepicker` function in the `x-data` directive. This function takes single `object` as argument.
+The data for the component is provided by the `datepicker` function in the `x-data` directive. This function takes single `object` as argument.
 
 ```javascript
 datepicker({

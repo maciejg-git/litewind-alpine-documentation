@@ -121,7 +121,7 @@ The table component is used to generate tables from arrays. Tables can be static
 
 To use this component simply copy and paste minimal template or any template from the examples below.
 
-The data and props for the component are provided by the `table` function in the `x-data` directive. This function takes single `object` as argument.
+The data for the component is provided by the `table` function in the `x-data` directive. This function takes single `object` as argument.
 
 ```javascript
 table({

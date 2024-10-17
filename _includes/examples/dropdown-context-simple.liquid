@@ -1,4 +1,4 @@
-<div x-data="{ languages: ['english', 'swedish', 'korean', 'german', 'icelandic', 'japanese']}" class="flex justify-center my-6">
+<div x-data="{ languages: ['english', 'swedish', 'korean', 'german', 'icelandic', 'japanese']}" class="flex justify-center">
   <template x-for="(language, index) in languages">
     <div x-text="language" @contextmenu.prevent="$dispatch('open-contextmenu', {id: 'context', data: { index, language, languages }, $event })" class="mr-4 cursor-pointer border p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700">
     </div>
@@ -6,7 +6,7 @@
 </div>
 
 <div x-data="dropdownContext" id="context">
-  <div x-bind="menu" x-cloak class="z-10 shadow-md rounded-md">
+  <div x-bind="menu" x-cloak class="z-20 shadow-md rounded-md">
     <div
       class="w-[320px] rounded-md border border-gray-200 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-300"
     >

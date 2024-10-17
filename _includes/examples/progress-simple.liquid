@@ -1,6 +1,8 @@
-<div x-data="progress" class="flex h-4 rounded-full bg-gray-100">
-  <div
-    x-bind="progressBar"
-    class="flex h-full items-center justify-center rounded-full bg-green-400"
-  ></div>
+<div x-data="{ model: 20 }">
+  <div x-data="progress" x-model="model" class="flex h-4 rounded-full bg-gray-100">
+    <div
+      x-bind="progressBar"
+      class="flex h-full items-center justify-center rounded-full bg-green-400"
+    ></div>
+  </div>
 </div>

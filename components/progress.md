@@ -14,4 +14,4 @@ examples: {
 ---
 ## Progress
 
-{% render "example.liquid" example: "examples/progress-simple.liquid", tabs: examples.progressSimple %}
+{% render "example.liquid" example: "examples/progress-simple.liquid", tabs: examples.progressSimple, collapse: false %}

@@ -32,7 +32,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="dark:bg-[#191919]">
-    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800">
+    <nav x-data="{darkMode: false}" class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-white dark:bg-neutral-800 z-10">
       <span class="font-semibold">
         Alpine Components
       </span>
@@ -401,7 +401,7 @@
 </div>
 <h3>Usage</h3>
 <p>To use this component simply copy and paste minimal template or any template from the examples below.</p>
-<p>The props for the component are provided by the <code>datepicker</code> function in the <code>x-data</code> directive. This function takes single <code>object</code> as argument.</p>
+<p>The data for the component is provided by the <code>datepicker</code> function in the <code>x-data</code> directive. This function takes single <code>object</code> as argument.</p>
 <pre><code class="language-javascript"><span class="hljs-title function_">datepicker</span>({
     <span class="hljs-attr">range</span>: <span class="hljs-title class_">Boolean</span>,
     <span class="hljs-attr">mondayFirstWeekday</span>: <span class="hljs-title class_">Boolean</span>,
