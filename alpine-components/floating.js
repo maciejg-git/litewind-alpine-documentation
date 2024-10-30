@@ -8,11 +8,12 @@ export let useFloating = (reference, floating, opts) => {
     flip: opts.flip ?? false,
     autoPlacement: opts.autoPlacement ?? false,
     inline: opts.inline ?? false,
+    resize: opts.resize ?? false,
   };
 
   let defaultStyle = {
     position: "absolute",
-    width: "min-content",
+    // width: "min-content",
     top: 0,
     left: 0,
   };
@@ -59,7 +60,7 @@ export let useFloating = (reference, floating, opts) => {
           options.resize &&
             size({
               apply({ rects }) {
-                Object.assign(floating.value.style, {
+                Object.assign(floating.style, {
                   width: `${rects.reference.width}px`,
                 });
               },
