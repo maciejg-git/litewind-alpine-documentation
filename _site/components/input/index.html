@@ -108,7 +108,8 @@
   <div class="p-6">
     <div
   x-data="input"
-  class="flex flex-1 items-center rounded border border-gray-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300 gap-x-2"
+  x-model="model"
+  class="flex flex-1 items-center gap-x-2 rounded border border-gray-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300"
 >
   <div></div>
   <div></div>
@@ -120,7 +121,7 @@
     />
   </div>
   <div></div>
-  <div class="flex items-center gap-x-2 mr-2">
+  <div class="mr-2 flex items-center gap-x-2">
     <div x-bind="loader">
       <svg viewBox="25 25 50 50" fill="none" class="spinner-svg h-5 w-5">
         <circle
@@ -132,20 +133,24 @@
         />
       </svg>
     </div>
-      <button x-bind="clearButton" @click="clear()" class="flex items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="h-5 w-5 opacity-70"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
-          />
-        </svg>
-      </button>
+    <button
+      x-bind="clearButton"
+      @click="clear()"
+      class="flex items-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="h-5 w-5 opacity-70"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+        />
+      </svg>
+    </button>
   </div>
 </div>
   </div>
@@ -167,7 +172,7 @@
           data-tab="Template"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Template
         </button>
@@ -176,7 +181,8 @@
   <div data-tab="Template" x-bind="content" class="w-full">
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
   <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;input&quot;</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 items-center rounded border border-gray-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300 gap-x-2&quot;</span>
+  <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;model&quot;</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 items-center gap-x-2 rounded border border-gray-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300&quot;</span>
 &gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -188,7 +194,7 @@
     /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center gap-x-2 mr-2&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-2 flex items-center gap-x-2&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;loader&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;25 25 50 50&quot;</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;spinner-svg h-5 w-5&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">circle</span>
@@ -200,20 +206,24 @@
         /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;clearButton&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clear()&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-          <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-          <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h-5 w-5 opacity-70&quot;</span>
-          <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-            <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z&quot;</span>
-          /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;clearButton&quot;</span>
+      @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clear()&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+        <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+        <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+        <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+        <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h-5 w-5 opacity-70&quot;</span>
+        <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+          <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z&quot;</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 

@@ -108,122 +108,127 @@
   <div class="p-6">
     <div x-data="{ model: '' }" class="px-6">
   <div
-    x-data="datepicker"
-    x-model="model"
-    class="overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300 w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md dark:border-neutral-700 mx-auto"
+    class="w-[320px] overflow-hidden rounded-md border border-dark-300 shadow-md dark:border-dark-700 mx-auto"
   >
-    <div class="my-4 grid grid-flow-col grid-cols-6">
-      <button
-        x-bind="prevYearButton"
-        class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-chevron-double-left"
-          viewBox="0 0 16 16"
+    <div
+      x-data="datepicker"
+      x-model="model"
+      class="overflow-hidden bg-white text-center text-text-800 dark:bg-dark-800 dark:text-text-300"
+    >
+      <div class="my-4 grid grid-flow-col grid-cols-6">
+        <button
+          x-bind="prevYearButton"
+          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
         >
-          <path
-            fill-rule="evenodd"
-            d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-          />
-          <path
-            fill-rule="evenodd"
-            d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-          />
-        </svg>
-      </button>
-      <button
-        x-bind="prevMonthButton"
-        class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-chevron-left"
-          viewBox="0 0 16 16"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-double-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+            />
+          </svg>
+        </button>
+        <button
+          x-bind="prevMonthButton"
+          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
         >
-          <path
-            fill-rule="evenodd"
-            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-          />
-        </svg>
-      </button>
-      <div
-        x-text="currentDate"
-        class="col-span-2 inline-block font-bold"
-      ></div>
-      <button
-        x-bind="nextMonthButton"
-        class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-chevron-right"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
-          />
-        </svg>
-      </button>
-      <button
-        x-bind="nextYearButton"
-        class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-chevron-double-right"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
-          />
-          <path
-            fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
-          />
-        </svg>
-      </button>
-    </div>
-<p><div class="mb-2 grid grid-cols-7">
-<template x-for="weekday in weekdays">
-<div
-          x-text="weekday"
-          class="text-sm font-semibold dark:text-gray-300"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+            />
+          </svg>
+        </button>
+        <div
+          x-text="currentDate"
+          class="col-span-2 inline-block font-bold"
         ></div>
-</template>
-</div></p>
-<p><div class="relative mb-2 grid grid-cols-7">
-<template x-for="d in days" :key="d.toISOString()">
-<button
-          x-bind="day"
-          x-text="d.getDate()"
-          class="mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold hover:bg-neutral-200"
-          class:today="!font-bold text-violet-400 dark:text-violet-400 border border-violet-400"
-          class:adjacent="text-gray-800/20 dark:text-gray-200/10"
-          class:selected="!text-white dark:text-gray-200 bg-violet-400 dark:bg-violet-500 hover:!bg-violet-600 dark:hover:bg-violet-700"
-          class:selected-range="!text-white dark:text-gray-200 bg-violet-400 dark:bg-neutral-600 hover:!bg-violet-600 dark:hover:bg-neutral-500"
-          class:partially-selected="text-gray-800 dark:text-gray-300 bg-gray-300 dark:bg-neutral-700"
-        ></button>
-</template>
-</div></p>
-<p><div
-      x-text="todayFormatted"
-      class="bg-gray-100 py-1 text-sm font-semibold dark:bg-neutral-700 dark:text-gray-300"
-    ></div></p>
+        <button
+          x-bind="nextMonthButton"
+          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </button>
+        <button
+          x-bind="nextYearButton"
+          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-double-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="mb-2 grid grid-cols-7">
+        <template x-for="weekday in weekdays">
+          <div
+            x-text="weekday"
+            class="text-sm font-semibold dark:text-text-300"
+          ></div>
+        </template>
+      </div>
+      <div class="relative mb-2 grid grid-cols-7">
+        <template x-for="d in days" :key="d.toISOString()">
+          <button
+            x-bind="day"
+            x-text="d.getDate()"
+            class="mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold"
+            class-default="hover:bg-secondary-200 dark:hover:bg-dark-700"
+            class-today="border border-primary-400 !font-bold text-primary-400 dark:text-primary-400"
+            class-adjacent="text-text-800/20 dark:text-text-200/10"
+            class-selected="bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700"
+            class-selected-range="bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700"
+            class-partially-selected="bg-secondary-300 text-text-800 dark:bg-dark-700 dark:text-text-300"
+          ></button>
+        </template>
+      </div>
+      <div
+        x-text="todayFormatted"
+        class="bg-gray-100 py-1 text-sm font-semibold dark:bg-dark-700 dark:text-text-300"
+      ></div>
+    </div>
   </div>
   <div class="font-mono text-lg mx-auto w-max mt-4">
     x-model: <span x-text="JSON.stringify(model)"></span>
@@ -248,7 +253,7 @@
           data-tab="Template"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Template
         </button>
@@ -257,127 +262,128 @@
   <div data-tab="Template" x-bind="content" class="w-full">
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ model: &#x27;&#x27; }&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;px-6&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-    <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;datepicker&quot;</span>
-    <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;model&quot;</span>
-    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300 w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md dark:border-neutral-700 mx-auto&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-[320px] overflow-hidden rounded-md border border-dark-300 shadow-md dark:border-dark-700 mx-auto&quot;</span>
   &gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-4 grid grid-flow-col grid-cols-6&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevYearButton&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
-      &gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-          <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-          <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-double-left&quot;</span>
-          <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-            <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-            <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
-          /&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-            <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-            <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
-          /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevMonthButton&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
-      &gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-          <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-          <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-left&quot;</span>
-          <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-            <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-            <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
-          /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-        <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;currentDate&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-span-2 inline-block font-bold&quot;</span>
-      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextMonthButton&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
-      &gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-          <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-          <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-right&quot;</span>
-          <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-            <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-            <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
-          /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextYearButton&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
-      &gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-          <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-          <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-          <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-double-right&quot;</span>
-          <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-            <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-            <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
-          /&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-            <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-            <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
-          /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mb-2 grid grid-cols-7&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;weekday in weekdays&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-          <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;weekday&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-sm font-semibold dark:text-gray-300&quot;</span>
-        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative mb-2 grid grid-cols-7&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;d in days&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;d.toISOString()&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;day&quot;</span>
-          <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;d.getDate()&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold hover:bg-neutral-200&quot;</span>
-          <span class="hljs-attr">class:today</span>=<span class="hljs-string">&quot;!font-bold text-violet-400 dark:text-violet-400 border border-violet-400&quot;</span>
-          <span class="hljs-attr">class:adjacent</span>=<span class="hljs-string">&quot;text-gray-800/20 dark:text-gray-200/10&quot;</span>
-          <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;!text-white dark:text-gray-200 bg-violet-400 dark:bg-violet-500 hover:!bg-violet-600 dark:hover:bg-violet-700&quot;</span>
-          <span class="hljs-attr">class:selected-range</span>=<span class="hljs-string">&quot;!text-white dark:text-gray-200 bg-violet-400 dark:bg-neutral-600 hover:!bg-violet-600 dark:hover:bg-neutral-500&quot;</span>
-          <span class="hljs-attr">class:partially-selected</span>=<span class="hljs-string">&quot;text-gray-800 dark:text-gray-300 bg-gray-300 dark:bg-neutral-700&quot;</span>
-        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-      <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;todayFormatted&quot;</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bg-gray-100 py-1 text-sm font-semibold dark:bg-neutral-700 dark:text-gray-300&quot;</span>
-    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;datepicker&quot;</span>
+      <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;model&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overflow-hidden bg-white text-center text-text-800 dark:bg-dark-800 dark:text-text-300&quot;</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-4 grid grid-flow-col grid-cols-6&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevYearButton&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+            <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+            <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+            <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+            <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-double-left&quot;</span>
+            <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+              <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+              <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+            /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+              <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+              <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevMonthButton&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+            <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+            <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+            <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+            <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-left&quot;</span>
+            <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+              <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+              <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+          <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;currentDate&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-span-2 inline-block font-bold&quot;</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextMonthButton&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+            <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+            <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+            <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+            <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-right&quot;</span>
+            <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+              <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+              <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextYearButton&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+            <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+            <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+            <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+            <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-double-right&quot;</span>
+            <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+              <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+              <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+            /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+              <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+              <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mb-2 grid grid-cols-7&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;weekday in weekdays&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+            <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;weekday&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-sm font-semibold dark:text-text-300&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative mb-2 grid grid-cols-7&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;d in days&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;d.toISOString()&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+            <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;day&quot;</span>
+            <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;d.getDate()&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold&quot;</span>
+            <span class="hljs-attr">class-default</span>=<span class="hljs-string">&quot;hover:bg-secondary-200 dark:hover:bg-dark-700&quot;</span>
+            <span class="hljs-attr">class-today</span>=<span class="hljs-string">&quot;border border-primary-400 !font-bold text-primary-400 dark:text-primary-400&quot;</span>
+            <span class="hljs-attr">class-adjacent</span>=<span class="hljs-string">&quot;text-text-800/20 dark:text-text-200/10&quot;</span>
+            <span class="hljs-attr">class-selected</span>=<span class="hljs-string">&quot;bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700&quot;</span>
+            <span class="hljs-attr">class-selected-range</span>=<span class="hljs-string">&quot;bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700&quot;</span>
+            <span class="hljs-attr">class-partially-selected</span>=<span class="hljs-string">&quot;bg-secondary-300 text-text-800 dark:bg-dark-700 dark:text-text-300&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+        <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;todayFormatted&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bg-gray-100 py-1 text-sm font-semibold dark:bg-dark-700 dark:text-text-300&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;font-mono text-lg mx-auto w-max mt-4&quot;</span>&gt;</span>
     x-model: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;JSON.stringify(model)&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -501,19 +507,17 @@ String
   <div class="p-6">
     <div x-data="{ model: [] }" class="px-6">
   <div
-    class="w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md dark:border-neutral-700 mx-auto"
+    class="w-[320px] overflow-hidden rounded-md border border-dark-300 shadow-md dark:border-dark-700 mx-auto"
   >
     <div
-      x-data="datepicker({
-        range: true,
-      })"
+      x-data="datepicker({ range: true })"
       x-model="model"
-      class="overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300"
+      class="overflow-hidden bg-white text-center text-text-800 dark:bg-dark-800 dark:text-text-300"
     >
       <div class="my-4 grid grid-flow-col grid-cols-6">
         <button
           x-bind="prevYearButton"
-          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -535,7 +539,7 @@ String
         </button>
         <button
           x-bind="prevMonthButton"
-          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -557,7 +561,7 @@ String
         ></div>
         <button
           x-bind="nextMonthButton"
-          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -575,7 +579,7 @@ String
         </button>
         <button
           x-bind="nextYearButton"
-          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+          class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -596,33 +600,34 @@ String
           </svg>
         </button>
       </div>
-<p><div class="mb-2 grid grid-cols-7">
-<template x-for="weekday in weekdays">
-<div
+      <div class="mb-2 grid grid-cols-7">
+        <template x-for="weekday in weekdays">
+          <div
             x-text="weekday"
-            class="text-sm font-semibold dark:text-gray-300"
+            class="text-sm font-semibold dark:text-text-300"
           ></div>
-</template>
-</div></p>
-<p><div class="relative mb-2 grid grid-cols-7">
-<template x-for="d in days" :key="d.toISOString()">
-<button
+        </template>
+      </div>
+      <div class="relative mb-2 grid grid-cols-7">
+        <template x-for="d in days" :key="d.toISOString()">
+          <button
             x-bind="day"
             x-text="d.getDate()"
-            class="mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold hover:bg-neutral-200"
-            class:today="!font-bold text-violet-400 dark:text-violet-400 border border-violet-400"
-            class:adjacent="text-gray-800/20 dark:text-gray-200/10"
-            class:selected="!text-white dark:text-gray-200 bg-violet-400 dark:bg-violet-500 hover:!bg-violet-600 dark:hover:bg-violet-700"
-            class:selected-range="!text-white dark:text-gray-200 bg-violet-400 dark:bg-neutral-600 hover:!bg-violet-600 dark:hover:bg-neutral-500"
-            class:partially-selected="text-gray-800 dark:text-gray-300 bg-gray-300 dark:bg-neutral-700"
+            class="mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold"
+            class-default="hover:bg-secondary-200 dark:hover:bg-dark-700"
+            class-today="border border-primary-400 !font-bold text-primary-400 dark:text-primary-400"
+            class-adjacent="text-text-800/20 dark:text-text-200/10"
+            class-selected="bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700"
+            class-selected-range="bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700"
+            class-partially-selected="bg-secondary-300 text-text-800 dark:bg-dark-700 dark:text-text-300"
           ></button>
-</template>
-</div></p>
-<p><div
+        </template>
+      </div>
+      <div
         x-text="todayFormatted"
-        class="bg-gray-100 py-1 text-sm font-semibold dark:bg-neutral-700 dark:text-gray-300"
+        class="bg-gray-100 py-1 text-sm font-semibold dark:bg-dark-700 dark:text-text-300"
       ></div>
-</div></p>
+    </div>
   </div>
   <div class="font-mono text-lg mx-auto w-max mt-4">
     x-model: <span x-text="JSON.stringify(model)"></span>
@@ -647,7 +652,7 @@ String
           data-tab="Template"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Template
         </button>
@@ -656,19 +661,17 @@ String
   <div data-tab="Template" x-bind="content" class="w-full">
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;{ model: [] }&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;px-6&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-[320px] overflow-hidden rounded-md border border-neutral-300 shadow-md dark:border-neutral-700 mx-auto&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-[320px] overflow-hidden rounded-md border border-dark-300 shadow-md dark:border-dark-700 mx-auto&quot;</span>
   &gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-      <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;datepicker({
-        range: true,
-      })&quot;</span>
+      <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;datepicker({ range: true })&quot;</span>
       <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;model&quot;</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overflow-hidden bg-white text-center text-text-800 dark:bg-dark-800 dark:text-text-300&quot;</span>
     &gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-4 grid grid-flow-col grid-cols-6&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
           <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevYearButton&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
         &gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
             <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
@@ -690,7 +693,7 @@ String
         <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
           <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevMonthButton&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
         &gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
             <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
@@ -712,7 +715,7 @@ String
         &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
           <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextMonthButton&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
         &gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
             <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
@@ -730,7 +733,7 @@ String
         <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
           <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextYearButton&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
         &gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
             <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
@@ -751,38 +754,35 @@ String
           <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mb-2 grid grid-cols-7&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;weekday in weekdays&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
             <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;weekday&quot;</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-sm font-semibold dark:text-gray-300&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-sm font-semibold dark:text-text-300&quot;</span>
           &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative mb-2 grid grid-cols-7&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;d in days&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;d.toISOString()&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
             <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;day&quot;</span>
             <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;d.getDate()&quot;</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold hover:bg-neutral-200&quot;</span>
-            <span class="hljs-attr">class:today</span>=<span class="hljs-string">&quot;!font-bold text-violet-400 dark:text-violet-400 border border-violet-400&quot;</span>
-            <span class="hljs-attr">class:adjacent</span>=<span class="hljs-string">&quot;text-gray-800/20 dark:text-gray-200/10&quot;</span>
-            <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;!text-white dark:text-gray-200 bg-violet-400 dark:bg-violet-500 hover:!bg-violet-600 dark:hover:bg-violet-700&quot;</span>
-            <span class="hljs-attr">class:selected-range</span>=<span class="hljs-string">&quot;!text-white dark:text-gray-200 bg-violet-400 dark:bg-neutral-600 hover:!bg-violet-600 dark:hover:bg-neutral-500&quot;</span>
-            <span class="hljs-attr">class:partially-selected</span>=<span class="hljs-string">&quot;text-gray-800 dark:text-gray-300 bg-gray-300 dark:bg-neutral-700&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold&quot;</span>
+            <span class="hljs-attr">class-default</span>=<span class="hljs-string">&quot;hover:bg-secondary-200 dark:hover:bg-dark-700&quot;</span>
+            <span class="hljs-attr">class-today</span>=<span class="hljs-string">&quot;border border-primary-400 !font-bold text-primary-400 dark:text-primary-400&quot;</span>
+            <span class="hljs-attr">class-adjacent</span>=<span class="hljs-string">&quot;text-text-800/20 dark:text-text-200/10&quot;</span>
+            <span class="hljs-attr">class-selected</span>=<span class="hljs-string">&quot;bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700&quot;</span>
+            <span class="hljs-attr">class-selected-range</span>=<span class="hljs-string">&quot;bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700&quot;</span>
+            <span class="hljs-attr">class-partially-selected</span>=<span class="hljs-string">&quot;bg-secondary-300 text-text-800 dark:bg-dark-700 dark:text-text-300&quot;</span>
           &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
         <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;todayFormatted&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bg-gray-100 py-1 text-sm font-semibold dark:bg-neutral-700 dark:text-gray-300&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bg-gray-100 py-1 text-sm font-semibold dark:bg-dark-700 dark:text-text-300&quot;</span>
       &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;font-mono text-lg mx-auto w-max mt-4&quot;</span>&gt;</span>
     x-model: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;JSON.stringify(model)&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -869,125 +869,126 @@ String
           }"
       class="z-20 w-[320px] rounded-md border border-gray-200 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-300"
     >
-        <div
-          x-data="datepicker"
-          x-model="date"
-          class="overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300"
-        >
-          <div class="my-4 grid grid-flow-col grid-cols-6">
-            <button
-              x-bind="prevYearButton"
-              class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+      <div
+        x-data="datepicker"
+        x-model="date"
+        class="overflow-hidden bg-white text-center text-text-800 dark:bg-dark-800 dark:text-text-300"
+      >
+        <div class="my-4 grid grid-flow-col grid-cols-6">
+          <button
+            x-bind="prevYearButton"
+            class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-double-left"
+              viewBox="0 0 16 16"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-chevron-double-left"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-                />
-              </svg>
-            </button>
-            <button
-              x-bind="prevMonthButton"
-              class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
+              <path
+                fill-rule="evenodd"
+                d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+              />
+            </svg>
+          </button>
+          <button
+            x-bind="prevMonthButton"
+            class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-left"
+              viewBox="0 0 16 16"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-chevron-left"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-                />
-              </svg>
-            </button>
-            <div
-              x-text="currentDate"
-              class="col-span-2 inline-block font-bold"
-            ></div>
-            <button
-              x-bind="nextMonthButton"
-              class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-chevron-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
-                />
-              </svg>
-            </button>
-            <button
-              x-bind="nextYearButton"
-              class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-chevron-double-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
-                />
-              </svg>
-            </button>
-          </div>
-<p><div class="mb-2 grid grid-cols-7">
-<template x-for="weekday in weekdays">
-<div
-                x-text="weekday"
-                class="text-sm font-semibold dark:text-gray-300"
-              ></div>
-</template>
-</div></p>
-<p><div class="relative mb-2 grid grid-cols-7">
-<template x-for="d in days" :key="d.toISOString()">
-<button
-                x-bind="day"
-                x-text="d.getDate()"
-                class="mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold hover:bg-neutral-200"
-                class:today="!font-bold text-violet-400 dark:text-violet-400 border border-violet-400"
-                class:adjacent="text-gray-800/20 dark:text-gray-200/10"
-                class:selected="!text-white dark:text-gray-200 bg-violet-400 dark:bg-violet-500 hover:!bg-violet-600 dark:hover:bg-violet-700"
-                class:selected-range="!text-white dark:text-gray-200 bg-violet-400 dark:bg-neutral-600 hover:!bg-violet-600 dark:hover:bg-neutral-500"
-                class:partially-selected="text-gray-800 dark:text-gray-300 bg-gray-300 dark:bg-neutral-700"
-              ></button>
-</template>
-</div></p>
-<p><div
-            x-text="todayFormatted"
-            class="bg-gray-100 py-1 text-sm font-semibold dark:bg-neutral-700 dark:text-gray-300"
+              <path
+                fill-rule="evenodd"
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+              />
+            </svg>
+          </button>
+          <div
+            x-text="currentDate"
+            class="col-span-2 inline-block font-bold"
           ></div>
-</div>
-</div></p>
+          <button
+            x-bind="nextMonthButton"
+            class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+              />
+            </svg>
+          </button>
+          <button
+            x-bind="nextYearButton"
+            class="mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-double-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="mb-2 grid grid-cols-7">
+          <template x-for="weekday in weekdays">
+            <div
+              x-text="weekday"
+              class="text-sm font-semibold dark:text-text-300"
+            ></div>
+          </template>
+        </div>
+        <div class="relative mb-2 grid grid-cols-7">
+          <template x-for="d in days" :key="d.toISOString()">
+            <button
+              x-bind="day"
+              x-text="d.getDate()"
+              class="mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold"
+              class-default="hover:bg-secondary-200 dark:hover:bg-dark-700"
+              class-today="border border-primary-400 !font-bold text-primary-400 dark:text-primary-400"
+              class-adjacent="text-text-800/20 dark:text-text-200/10"
+              class-selected="bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700"
+              class-selected-range="bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700"
+              class-partially-selected="bg-secondary-300 text-text-800 dark:bg-dark-700 dark:text-text-300"
+            ></button>
+          </template>
+        </div>
+        <div
+          x-text="todayFormatted"
+          class="bg-gray-100 py-1 text-sm font-semibold dark:bg-dark-700 dark:text-text-300"
+        ></div>
+      </div>
+    </div>
   </div>
 </div>
   </div>
@@ -1009,7 +1010,7 @@ String
           data-tab="Template"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Template
         </button>
@@ -1073,126 +1074,124 @@ String
           }&quot;</span>
       <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;z-20 w-[320px] rounded-md border border-gray-200 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-300&quot;</span>
     &gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-          <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;datepicker&quot;</span>
-          <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;date&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overflow-hidden bg-white text-center text-gray-800 dark:bg-neutral-800 dark:text-gray-300&quot;</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-4 grid grid-flow-col grid-cols-6&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-              <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevYearButton&quot;</span>
-              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+        <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;datepicker&quot;</span>
+        <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;date&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overflow-hidden bg-white text-center text-text-800 dark:bg-dark-800 dark:text-text-300&quot;</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-4 grid grid-flow-col grid-cols-6&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+            <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevYearButton&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+              <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+              <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+              <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+              <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-double-left&quot;</span>
+              <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
             &gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-                <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-                <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-double-left&quot;</span>
-                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-              &gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
-                /&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
-                /&gt;</span>
-              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-              <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevMonthButton&quot;</span>
-              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+                <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+              /&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+                <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+              /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+            <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevMonthButton&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+              <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+              <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+              <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+              <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-left&quot;</span>
+              <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
             &gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-                <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-                <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-left&quot;</span>
-                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-              &gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
-                /&gt;</span>
-              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-              <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;currentDate&quot;</span>
-              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-span-2 inline-block font-bold&quot;</span>
-            &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-              <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextMonthButton&quot;</span>
-              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
-            &gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-                <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-                <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-right&quot;</span>
-                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-              &gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
-                /&gt;</span>
-              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-              <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextYearButton&quot;</span>
-              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-400&quot;</span>
-            &gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-                <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-                <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-double-right&quot;</span>
-                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-              &gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
-                /&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
-                /&gt;</span>
-              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mb-2 grid grid-cols-7&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;weekday in weekdays&quot;</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-                <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;weekday&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-sm font-semibold dark:text-gray-300&quot;</span>
-              &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative mb-2 grid grid-cols-7&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;d in days&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;d.toISOString()&quot;</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-                <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;day&quot;</span>
-                <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;d.getDate()&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold hover:bg-neutral-200&quot;</span>
-                <span class="hljs-attr">class:today</span>=<span class="hljs-string">&quot;!font-bold text-violet-400 dark:text-violet-400 border border-violet-400&quot;</span>
-                <span class="hljs-attr">class:adjacent</span>=<span class="hljs-string">&quot;text-gray-800/20 dark:text-gray-200/10&quot;</span>
-                <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;!text-white dark:text-gray-200 bg-violet-400 dark:bg-violet-500 hover:!bg-violet-600 dark:hover:bg-violet-700&quot;</span>
-                <span class="hljs-attr">class:selected-range</span>=<span class="hljs-string">&quot;!text-white dark:text-gray-200 bg-violet-400 dark:bg-neutral-600 hover:!bg-violet-600 dark:hover:bg-neutral-500&quot;</span>
-                <span class="hljs-attr">class:partially-selected</span>=<span class="hljs-string">&quot;text-gray-800 dark:text-gray-300 bg-gray-300 dark:bg-neutral-700&quot;</span>
-              &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        
+              <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+                <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+              /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-            <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;todayFormatted&quot;</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bg-gray-100 py-1 text-sm font-semibold dark:bg-neutral-700 dark:text-gray-300&quot;</span>
+            <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;currentDate&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-span-2 inline-block font-bold&quot;</span>
           &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+            <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextMonthButton&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+              <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+              <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+              <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+              <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-right&quot;</span>
+              <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+            &gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+                <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+              /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+            <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextYearButton&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto flex flex-col justify-center rounded px-2 py-1 leading-none focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-400&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+              <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+              <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+              <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+              <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-double-right&quot;</span>
+              <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+            &gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+                <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+              /&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+                <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+              /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mb-2 grid grid-cols-7&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;weekday in weekdays&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+              <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;weekday&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-sm font-semibold dark:text-text-300&quot;</span>
+            &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative mb-2 grid grid-cols-7&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;d in days&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;d.toISOString()&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+              <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;day&quot;</span>
+              <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;d.getDate()&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-1 my-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full py-1 text-sm font-semibold&quot;</span>
+              <span class="hljs-attr">class-default</span>=<span class="hljs-string">&quot;hover:bg-secondary-200 dark:hover:bg-dark-700&quot;</span>
+              <span class="hljs-attr">class-today</span>=<span class="hljs-string">&quot;border border-primary-400 !font-bold text-primary-400 dark:text-primary-400&quot;</span>
+              <span class="hljs-attr">class-adjacent</span>=<span class="hljs-string">&quot;text-text-800/20 dark:text-text-200/10&quot;</span>
+              <span class="hljs-attr">class-selected</span>=<span class="hljs-string">&quot;bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700&quot;</span>
+              <span class="hljs-attr">class-selected-range</span>=<span class="hljs-string">&quot;bg-primary-400 text-white hover:bg-primary-600 dark:bg-primary-500 dark:text-text-200 dark:hover:bg-primary-700&quot;</span>
+              <span class="hljs-attr">class-partially-selected</span>=<span class="hljs-string">&quot;bg-secondary-300 text-text-800 dark:bg-dark-700 dark:text-text-300&quot;</span>
+            &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+          <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;todayFormatted&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bg-gray-100 py-1 text-sm font-semibold dark:bg-dark-700 dark:text-text-300&quot;</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>

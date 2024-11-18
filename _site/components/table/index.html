@@ -109,14 +109,14 @@
   <div class="p-6">
     <table
   x-data="table($store.table)"
-  class="table-auto border-collapse text-left w-full text-[0.9rem]"
+  class="w-full table-auto border-collapse text-left text-[0.9rem]"
 >
   <thead>
     <tr>
       <template x-for="col in definition">
         <td
           x-bind="header"
-          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+          class="border-b border-secondary-300 px-2 py-2 font-semibold text-text-800 dark:border-dark-600 dark:text-text-300"
         >
           <div class="flex items-center">
             <span x-text="col.label"></span>
@@ -124,6 +124,7 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
+                fill="currentColor"
                 class="ml-3 h-4 w-4 opacity-30"
               >
                 <path
@@ -135,6 +136,7 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
+                fill="currentColor"
                 class="ml-3 h-4 w-4 opacity-70"
               >
                 <path
@@ -146,6 +148,7 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
+                fill="currentColor"
                 class="ml-3 h-4 w-4 opacity-70"
               >
                 <path
@@ -164,7 +167,7 @@
         <template x-for="col in definition">
           <td
             x-text="row[col.key]"
-            class="border-t border-gray-300 px-2 py-2 dark:border-neutral-700"
+            class="border-t border-secondary-300 px-2 py-2 text-text-800 transition-colors duration-200 dark:border-dark-600 dark:text-text-300"
           ></td>
         </template>
       </tr>
@@ -190,7 +193,7 @@
           data-tab="Template"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Template
         </button>
@@ -199,7 +202,7 @@
           data-tab="Store"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Store
         </button>
@@ -208,14 +211,14 @@
   <div data-tab="Template" x-bind="content" class="w-full">
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>
   <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;table($store.table)&quot;</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table-auto border-collapse text-left w-full text-[0.9rem]&quot;</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-full table-auto border-collapse text-left text-[0.9rem]&quot;</span>
 &gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
           <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;header&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-secondary-300 px-2 py-2 font-semibold text-text-800 dark:border-dark-600 dark:text-text-300&quot;</span>
         &gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;col.label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -223,6 +226,7 @@
               <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
                 <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
                 <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
                 <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-30&quot;</span>
               &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
@@ -234,6 +238,7 @@
               <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
                 <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
                 <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
                 <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
               &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
@@ -245,6 +250,7 @@
               <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
                 <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
                 <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
                 <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
               &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
@@ -263,7 +269,7 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
             <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;row[col.key]&quot;</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-gray-300 px-2 py-2 dark:border-neutral-700&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-secondary-300 px-2 py-2 text-text-800 transition-colors duration-200 dark:border-dark-600 dark:text-text-300&quot;</span>
           &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
@@ -508,21 +514,22 @@ String
   <div class="p-6">
     <table
   x-data="table($store.tableDefinition)"
-  class="table-auto border-collapse text-left w-full text-[0.9rem]"
+  class="w-full table-auto border-collapse text-left text-[0.9rem]"
 >
   <thead>
     <tr>
       <template x-for="col in definition">
         <td
           x-bind="header"
-          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
+          class="border-b border-secondary-300 px-2 py-2 font-semibold text-text-800 dark:border-dark-600 dark:text-text-300"
         >
           <div class="flex items-center">
-            <span x-text="col.label" class="whitespace-nowrap"></span>
+            <span x-text="col.label"></span>
             <template x-if="isSortable() && !isSorted()">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
+                fill="currentColor"
                 class="ml-3 h-4 w-4 opacity-30"
               >
                 <path
@@ -534,6 +541,7 @@ String
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
+                fill="currentColor"
                 class="ml-3 h-4 w-4 opacity-70"
               >
                 <path
@@ -545,6 +553,7 @@ String
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
+                fill="currentColor"
                 class="ml-3 h-4 w-4 opacity-70"
               >
                 <path
@@ -562,16 +571,28 @@ String
       <tr>
         <template x-for="col in definition">
           <td
-            class="border-t border-gray-300 px-2 py-2 dark:border-neutral-700"
-            >
+            class="border-t border-secondary-300 px-2 py-2 text-text-800 transition-colors duration-200 dark:border-dark-600 dark:text-text-300"
+          >
             <span x-text="row[col.key]"></span>
             <template x-if="col.key === 'status'">
-              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-checkbox-outline" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-green-600 mx-auto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="mdi-checkbox-outline"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="mx-auto h-5 w-5 text-green-600"
+              >
                 <path d="M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,5V19H5V5H19M10,17L6,13L7.41,11.58L10,14.17L16.59,7.58L18,9" />
               </svg>
             </template>
             <template x-if="col.key === 'edit'">
-              <svg xmlns="http://www.w3.org/2000/svg" id="mdi-account-edit" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mx-auto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="mdi-account-edit"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="mx-auto h-5 w-5"
+              >
                 <path d="M21.7,13.35L20.7,14.35L18.65,12.3L19.65,11.3C19.86,11.09 20.21,11.09 20.42,11.3L21.7,12.58C21.91,12.79 21.91,13.14 21.7,13.35M12,18.94L18.06,12.88L20.11,14.93L14.06,21H12V18.94M12,14C7.58,14 4,15.79 4,18V20H10V18.11L14,14.11C13.34,14.03 12.67,14 12,14M12,4A4,4 0 0,0 8,8A4,4 0 0,0 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4Z" />
               </svg>
             </template>
@@ -600,7 +621,7 @@ String
           data-tab="Template"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Template
         </button>
@@ -609,7 +630,7 @@ String
           data-tab="Store"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Store
         </button>
@@ -618,21 +639,22 @@ String
   <div data-tab="Template" x-bind="content" class="w-full">
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>
   <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;table($store.tableDefinition)&quot;</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table-auto border-collapse text-left w-full text-[0.9rem]&quot;</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-full table-auto border-collapse text-left text-[0.9rem]&quot;</span>
 &gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
           <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;header&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-secondary-300 px-2 py-2 font-semibold text-text-800 dark:border-dark-600 dark:text-text-300&quot;</span>
         &gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;col.label&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;whitespace-nowrap&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;col.label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortable() &amp;&amp; !isSorted()&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
                 <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
                 <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
                 <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-30&quot;</span>
               &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
@@ -644,6 +666,7 @@ String
               <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
                 <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
                 <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
                 <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
               &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
@@ -655,6 +678,7 @@ String
               <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
                 <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
                 <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
                 <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
               &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
@@ -672,16 +696,28 @@ String
       <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-gray-300 px-2 py-2 dark:border-neutral-700&quot;</span>
-            &gt;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-secondary-300 px-2 py-2 text-text-800 transition-colors duration-200 dark:border-dark-600 dark:text-text-300&quot;</span>
+          &gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;row[col.key]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;col.key === &#x27;status&#x27;&quot;</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mdi-checkbox-outline&quot;</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 24 24&quot;</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-5 h-5 text-green-600 mx-auto&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mdi-checkbox-outline&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 24 24&quot;</span>
+                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto h-5 w-5 text-green-600&quot;</span>
+              &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,5V19H5V5H19M10,17L6,13L7.41,11.58L10,14.17L16.59,7.58L18,9&quot;</span> /&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;col.key === &#x27;edit&#x27;&quot;</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mdi-account-edit&quot;</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 24 24&quot;</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-5 h-5 mx-auto&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mdi-account-edit&quot;</span>
+                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 24 24&quot;</span>
+                <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mx-auto h-5 w-5&quot;</span>
+              &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M21.7,13.35L20.7,14.35L18.65,12.3L19.65,11.3C19.86,11.09 20.21,11.09 20.42,11.3L21.7,12.58C21.91,12.79 21.91,13.14 21.7,13.35M12,18.94L18.06,12.88L20.11,14.93L14.06,21H12V18.94M12,14C7.58,14 4,15.79 4,18V20H10V18.11L14,14.11C13.34,14.03 12.67,14 12,14M12,4A4,4 0 0,0 8,8A4,4 0 0,0 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4Z&quot;</span> /&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
@@ -767,23 +803,43 @@ String
     Example
   </div>
   <div class="p-6">
-    <div
-  x-data="input({
-    placeholder: 'Filter',
-  })"
-  x-model="$store.tableFilterPagination.filter"
-  class="flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300"
->
-  <div class="flex flex-1 flex-wrap">
-    <input
-      x-bind="input"
-      type="text"
-      class="min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none"
-    />
-  </div>
-  <div class="flex items-center">
-    <div>
-      <button @click="clear()" class="flex items-center">
+    <div class="flex flex-col gap-y-4">
+  <div
+    x-data="
+      input({
+        placeholder: 'Filter'
+      })
+    "
+    x-model="$store.tableFilterPagination.filter"
+    class="flex flex-1 items-center gap-x-2 rounded border border-gray-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300"
+  >
+    <div></div>
+    <div></div>
+    <div class="flex flex-1 flex-wrap">
+      <input
+        x-bind="input"
+        type="text"
+        class="min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none"
+      >
+    </div>
+    <div></div>
+    <div class="mr-2 flex items-center gap-x-2">
+      <div x-bind="loader">
+        <svg viewBox="25 25 50 50" fill="none" class="spinner-svg h-5 w-5">
+          <circle
+            cx="50"
+            cy="50"
+            r="20"
+            stroke-width="4"
+            stroke-miterlimit="10"
+          />
+        </svg>
+      </div>
+      <button
+        x-bind="clearButton"
+        @click="clear()"
+        class="flex items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -799,125 +855,132 @@ String
       </button>
     </div>
   </div>
-</div>
-<table
-  x-data="table($store.tableFilterPagination)"
-  class="table-auto border-collapse text-left mt-4 mb-6 w-full text-[0.9rem]"
->
-  <thead>
-    <tr>
-      <template x-for="col in definition">
-        <td
-          x-bind="header"
-          class="border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200"
-        >
-          <div class="flex items-center">
-            <span x-text="col.label"></span>
-            <template x-if="isSortable() && !isSorted()">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
-                class="ml-3 h-4 w-4 opacity-30"
-              >
-                <path
-                  d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
-                />
-              </svg>
-            </template>
-            <template x-if="isSortedAsc()">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
-                class="ml-3 h-4 w-4 opacity-70"
-              >
-                <path
-                  d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
-                />
-              </svg>
-            </template>
-            <template x-if="isSortedDesc()">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
-                class="ml-3 h-4 w-4 opacity-70"
-              >
-                <path
-                  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
-                />
-              </svg>
-            </template>
-          </div>
-        </td>
-      </template>
-    </tr>
-  </thead>
-  <tbody>
-    <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+  <table
+    x-data="table($store.tableFilterPagination)"
+    class="w-full table-auto border-collapse text-left text-[0.9rem]"
+  >
+    <thead>
       <tr>
         <template x-for="col in definition">
           <td
-            x-text="row[col.key]"
-            class="border-t border-gray-300 px-2 py-2 dark:border-neutral-700"
-          ></td>
+            x-bind="header"
+            class="border-b border-secondary-300 px-2 py-2 font-semibold text-text-800 dark:border-dark-600 dark:text-text-300"
+          >
+            <div class="flex items-center">
+              <span x-text="col.label"></span>
+              <template x-if="isSortable() && !isSorted()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  fill="currentColor"
+                  class="ml-3 h-4 w-4 opacity-30"
+                >
+                  <path
+                    d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"
+                  />
+                </svg>
+              </template>
+              <template x-if="isSortedAsc()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  fill="currentColor"
+                  class="ml-3 h-4 w-4 opacity-70"
+                >
+                  <path
+                    d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                  />
+                </svg>
+              </template>
+              <template x-if="isSortedDesc()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  fill="currentColor"
+                  class="ml-3 h-4 w-4 opacity-70"
+                >
+                  <path
+                    d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                  />
+                </svg>
+              </template>
+            </div>
+          </td>
         </template>
       </tr>
-    </template>
-  </tbody>
-</table>
-<nav x-data="pagination({
-      itemsCount: () => $store.tableFilterPagination.filteredItemsCount,
-      itemsPerPage: () => $store.tableFilterPagination.itemsPerPage,
-      maxPages: 7,
-    })" 
+    </thead>
+    <tbody>
+      <template x-for="row in getDataPaginated" :key="row[primaryKey]">
+        <tr>
+          <template x-for="col in definition">
+            <td
+              x-text="row[col.key]"
+              class="border-t border-secondary-300 px-2 py-2 text-text-800 transition-colors duration-200 dark:border-dark-600 dark:text-text-300"
+            ></td>
+          </template>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+  <nav
+    x-data="
+      pagination({
+        itemsCount: () => $store.tableFilterPagination.filteredItemsCount,
+        itemsPerPage: () => $store.tableFilterPagination.itemsPerPage,
+        maxPages: 7,
+      })
+    "
     x-model="$store.tableFilterPagination.page"
-    class="relative z-0 flex w-auto"
->
-  <a
-    x-bind="prevButton"
-    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded-md border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700 mr-0.5"
+    class="flex w-auto gap-x-3 ml-auto"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-chevron-left"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-      />
-    </svg>
-  </a>
-  <template x-for="page in getPages">
     <a
-      x-bind="pageButton"
-      x-text="page"
-      class="dark:border-neutral-70 z-10 mx-0.5 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded-md border border-gray-300 text-sm font-semibold transition-shadow hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-700"
-      class:selected="ring-2 font-semibold text-white bg-violet-500 hover:bg-violet-400 dark:bg-violet-500 dark:hover:bg-violet-300 border-violet-200 ring-violet-200 dark:text-gray-100 dark:border-violet-500 dark:ring-violet-100"
+      x-bind="prevButton"
+      class="flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-secondary-300 p-2 text-sm font-medium hover:bg-secondary-50 dark:border-dark-600 dark:text-text-300 dark:hover:bg-dark-700"
     >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-chevron-left"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+        />
+      </svg>
     </a>
-  </template>
-  <a
-    x-bind="nextButton"
-    class="flex w-12 cursor-pointer flex-col items-center justify-center rounded-md border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700 ml-0.5"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-chevron-right"
-      viewBox="0 0 16 16"
+    <template x-for="page in getPages">
+      <a
+        x-bind="pageButton"
+        x-text="page"
+        class="z-10 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded border text-sm font-semibold transition-shadow"
+        class-default="border-secondary-300 hover:bg-secondary-50 dark:border-dark-600 dark:text-text-300 dark:hover:bg-dark-800"
+        class-selected="border-primary-200 bg-primary-500 font-semibold text-white ring-2 ring-primary-200 hover:bg-primary-400 dark:border-primary-300 dark:bg-primary-500 dark:text-text-100 dark:ring-primary-300 dark:hover:bg-primary-400"
+      >
+      </a>
+    </template>
+    <a
+      x-bind="nextButton"
+      class="flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-secondary-300 p-2 text-sm font-medium hover:bg-secondary-50 dark:border-dark-600 dark:text-text-300 dark:hover:bg-dark-700"
     >
-      <path
-        fill-rule="evenodd"
-        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
-      />
-    </svg>
-  </a>
-</nav>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-chevron-right"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+        />
+      </svg>
+    </a>
+  </nav>
+</div>
   </div>
   <div x-data="{ isOpen: false }">
   <div
@@ -937,7 +1000,7 @@ String
           data-tab="Template"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Template
         </button>
@@ -946,30 +1009,50 @@ String
           data-tab="Store"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Store
         </button>
       </li></ul>
       <div class="relative">
   <div data-tab="Template" x-bind="content" class="w-full">
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-  <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;input({
-    placeholder: &#x27;Filter&#x27;,
-  })&quot;</span>
-  <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;$store.tableFilterPagination.filter&quot;</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 items-center rounded border border-gray-300 bg-white px-3 py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300&quot;</span>
-&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 flex-wrap&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;input&quot;</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none&quot;</span>
-    /&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clear()&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-col gap-y-4&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;
+      input({
+        placeholder: &#x27;Filter&#x27;
+      })
+    &quot;</span>
+    <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;$store.tableFilterPagination.filter&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 items-center gap-x-2 rounded border border-gray-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-gray-400 focus-within:ring focus-within:ring-violet-200 focus:outline-none dark:border-neutral-600 dark:bg-neutral-800 dark:text-gray-300 dark:focus-within:ring-violet-300&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-1 flex-wrap&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;input&quot;</span>
+        <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;min-w-0 flex-1 border-0 bg-transparent p-0 outline-none focus:min-w-[64px] focus:outline-none&quot;</span>
+      &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-2 flex items-center gap-x-2&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;loader&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;25 25 50 50&quot;</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;spinner-svg h-5 w-5&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">circle</span>
+            <span class="hljs-attr">cx</span>=<span class="hljs-string">&quot;50&quot;</span>
+            <span class="hljs-attr">cy</span>=<span class="hljs-string">&quot;50&quot;</span>
+            <span class="hljs-attr">r</span>=<span class="hljs-string">&quot;20&quot;</span>
+            <span class="hljs-attr">stroke-width</span>=<span class="hljs-string">&quot;4&quot;</span>
+            <span class="hljs-attr">stroke-miterlimit</span>=<span class="hljs-string">&quot;10&quot;</span>
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;clearButton&quot;</span>
+        @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clear()&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>
+      &gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
           <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
           <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
@@ -985,127 +1068,134 @@ String
       <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">table</span>
-  <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;table($store.tableFilterPagination)&quot;</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table-auto border-collapse text-left mt-4 mb-6 w-full text-[0.9rem]&quot;</span>
-&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
-          <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;header&quot;</span>
-          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-gray-300 px-2 py-2 font-semibold dark:border-neutral-700 dark:text-gray-200&quot;</span>
-        &gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;col.label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortable() &amp;&amp; !isSorted()&quot;</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-30&quot;</span>
-              &gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z&quot;</span>
-                /&gt;</span>
-              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedAsc()&quot;</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
-              &gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z&quot;</span>
-                /&gt;</span>
-              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedDesc()&quot;</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-                <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-                <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
-              &gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-                  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z&quot;</span>
-                /&gt;</span>
-              <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;row in getDataPaginated&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;row[primaryKey]&quot;</span>&gt;</span>
+  
+  <span class="hljs-tag">&lt;<span class="hljs-name">table</span>
+    <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;table($store.tableFilterPagination)&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w-full table-auto border-collapse text-left text-[0.9rem]&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
-            <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;row[col.key]&quot;</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-gray-300 px-2 py-2 dark:border-neutral-700&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;header&quot;</span>
+            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-b border-secondary-300 px-2 py-2 font-semibold text-text-800 dark:border-dark-600 dark:text-text-300&quot;</span>
+          &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex items-center&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;col.label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortable() &amp;&amp; !isSorted()&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                  <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                  <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                  <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+                  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-30&quot;</span>
+                &gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                    <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z&quot;</span>
+                  /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedAsc()&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                  <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                  <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                  <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+                  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
+                &gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                    <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z&quot;</span>
+                  /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-if</span>=<span class="hljs-string">&quot;isSortedDesc()&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+                  <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+                  <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 320 512&quot;</span>
+                  <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+                  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ml-3 h-4 w-4 opacity-70&quot;</span>
+                &gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+                    <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z&quot;</span>
+                  /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;pagination({
-      itemsCount: () =&gt; $store.tableFilterPagination.filteredItemsCount,
-      itemsPerPage: () =&gt; $store.tableFilterPagination.itemsPerPage,
-      maxPages: 7,
-    })&quot;</span> 
+    <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;row in getDataPaginated&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;row[primaryKey]&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;col in definition&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
+              <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;row[col.key]&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;border-t border-secondary-300 px-2 py-2 text-text-800 transition-colors duration-200 dark:border-dark-600 dark:text-text-300&quot;</span>
+            &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+  
+  <span class="hljs-tag">&lt;<span class="hljs-name">nav</span>
+    <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;
+      pagination({
+        itemsCount: () =&gt; $store.tableFilterPagination.filteredItemsCount,
+        itemsPerPage: () =&gt; $store.tableFilterPagination.itemsPerPage,
+        maxPages: 7,
+      })
+    &quot;</span>
     <span class="hljs-attr">x-model</span>=<span class="hljs-string">&quot;$store.tableFilterPagination.page&quot;</span>
-    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative z-0 flex w-auto&quot;</span>
-&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
-    <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevButton&quot;</span>
-    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-12 cursor-pointer flex-col items-center justify-center rounded-md border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700 mr-0.5&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-auto gap-x-3 ml-auto&quot;</span>
   &gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-      <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-      <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-      <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-      <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-left&quot;</span>
-      <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
-    &gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-        <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-        <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
-      /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;page in getPages&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
-      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;pageButton&quot;</span>
-      <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;page&quot;</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dark:border-neutral-70 z-10 mx-0.5 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded-md border border-gray-300 text-sm font-semibold transition-shadow hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-700&quot;</span>
-      <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;ring-2 font-semibold text-white bg-violet-500 hover:bg-violet-400 dark:bg-violet-500 dark:hover:bg-violet-300 border-violet-200 ring-violet-200 dark:text-gray-100 dark:border-violet-500 dark:ring-violet-100&quot;</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;prevButton&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-secondary-300 p-2 text-sm font-medium hover:bg-secondary-50 dark:border-dark-600 dark:text-text-300 dark:hover:bg-dark-700&quot;</span>
     &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+        <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+        <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+        <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+        <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-left&quot;</span>
+        <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+          <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+          <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
-    <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextButton&quot;</span>
-    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-12 cursor-pointer flex-col items-center justify-center rounded-md border border-gray-300 p-2 text-sm font-medium hover:bg-gray-50 dark:border-neutral-700 dark:text-gray-300 dark:hover:bg-neutral-700 ml-0.5&quot;</span>
-  &gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-      <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
-      <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
-      <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
-      <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-right&quot;</span>
-      <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">&quot;page in getPages&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;pageButton&quot;</span>
+        <span class="hljs-attr">x-text</span>=<span class="hljs-string">&quot;page&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;z-10 flex h-10 w-12 flex-none cursor-pointer items-center justify-center rounded border text-sm font-semibold transition-shadow&quot;</span>
+        <span class="hljs-attr">class-default</span>=<span class="hljs-string">&quot;border-secondary-300 hover:bg-secondary-50 dark:border-dark-600 dark:text-text-300 dark:hover:bg-dark-800&quot;</span>
+        <span class="hljs-attr">class-selected</span>=<span class="hljs-string">&quot;border-primary-200 bg-primary-500 font-semibold text-white ring-2 ring-primary-200 hover:bg-primary-400 dark:border-primary-300 dark:bg-primary-500 dark:text-text-100 dark:ring-primary-300 dark:hover:bg-primary-400&quot;</span>
+      &gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;nextButton&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex w-12 cursor-pointer flex-col items-center justify-center rounded border border-secondary-300 p-2 text-sm font-medium hover:bg-secondary-50 dark:border-dark-600 dark:text-text-300 dark:hover:bg-dark-700&quot;</span>
     &gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-        <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
-        <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
-      /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+        <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>
+        <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;16&quot;</span>
+        <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;16&quot;</span>
+        <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;currentColor&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bi bi-chevron-right&quot;</span>
+        <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 16 16&quot;</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+          <span class="hljs-attr">fill-rule</span>=<span class="hljs-string">&quot;evenodd&quot;</span>
+          <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 </code></pre>
   </div>

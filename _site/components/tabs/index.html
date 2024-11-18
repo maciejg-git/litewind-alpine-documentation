@@ -107,86 +107,65 @@
   </div>
   <div class="p-6">
     <div
-  x-data="tabs('tab', {
-    content: { 
+  x-data="
+    tabs('tab', {
+    content: {
       'x-alt-transition': {
         enter: ['opacity-0', 'transition ease-out duration-100 delay-100', 'opacity-100'],
         leave: ['opacity-100', 'transition ease-in duration-100 absolute top-0', 'opacity-0'],
     }
-    }})"
+    }})
+  "
 >
-  <ul
+  <div
     x-bind="tabBar"
-    class="flex flex-auto items-center border-b pl-2 dark:border-neutral-600"
+    class="flex flex-auto items-center border-b border-secondary-300 pl-2 dark:border-dark-600"
   >
-    <li>
-      <button
-        data-tab="tab"
-        x-bind="label"
-        class="-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-gray-300 bg-gray-100 p-2 px-4 transition-all duration-200 hover:bg-gray-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-gray-300/80 dark:hover:bg-neutral-800"
-        class:selected="border-b-transparent bg-white shadow-none hover:bg-white dark:border-neutral-600 dark:border-b-transparent dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-800"
-      >
-        tab
-      </button>
-    </li>
-    <li>
-      <button
-        data-tab="tab 2"
-        x-bind="label"
-        class="-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-gray-300 bg-gray-100 p-2 px-4 transition-all duration-200 hover:bg-gray-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-gray-300/80 dark:hover:bg-neutral-800"
-        class:selected="border-b-transparent bg-white shadow-none hover:bg-white dark:border-neutral-600 dark:border-b-transparent dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-800"
-      >
-        tab 2
-      </button>
-    </li>
-    <li>
-      <button
-        data-tab="tab 3"
-        x-bind="label"
-        class="-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-gray-300 bg-gray-100 p-2 px-4 transition-all duration-200 hover:bg-gray-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-gray-300/80 dark:hover:bg-neutral-800"
-        class:selected="border-b-transparent bg-white shadow-none hover:bg-white dark:border-neutral-600 dark:border-b-transparent dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-800"
-      >
-        tab 3
-      </button>
-    </li>
-  </ul>
+    <button
+      data-tab="tab"
+      x-bind="label"
+      class="-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-secondary-300 p-2 px-4 transition-all duration-200 dark:border-dark-600"
+      class-default="bg-secondary-100 hover:bg-secondary-50 dark:bg-dark-900 dark:text-text-300/80 dark:hover:bg-dark-800"
+      class-selected="border-b-transparent bg-white shadow-none hover:bg-white dark:border-dark-600 dark:border-b-transparent dark:bg-dark-800 dark:text-text-300 dark:hover:bg-dark-800"
+    >
+      tab
+    </button>
+    <button
+      data-tab="tab 2"
+      x-bind="label"
+      class="-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-secondary-300 p-2 px-4 transition-all duration-200 dark:border-dark-600"
+      class-default="bg-secondary-100 hover:bg-secondary-50 dark:bg-dark-900 dark:text-text-300/80 dark:hover:bg-dark-800"
+      class-selected="border-b-transparent bg-white shadow-none hover:bg-white dark:border-dark-600 dark:border-b-transparent dark:bg-dark-800 dark:text-text-300 dark:hover:bg-dark-800"
+    >
+      tab 2
+    </button>
+    <button
+      data-tab="tab 3"
+      x-bind="label"
+      class="-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-secondary-300 p-2 px-4 transition-all duration-200 dark:border-dark-600"
+      class-default="bg-secondary-100 hover:bg-secondary-50 dark:bg-dark-900 dark:text-text-300/80 dark:hover:bg-dark-800"
+      class-selected="border-b-transparent bg-white shadow-none hover:bg-white dark:border-dark-600 dark:border-b-transparent dark:bg-dark-800 dark:text-text-300 dark:hover:bg-dark-800"
+    >
+      tab 3
+    </button>
+  </div>
   <div class="p-4">
     <div class="relative">
-      <div data-tab="tab" x-bind="content" x-cloak>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown printer took a galley of type and scrambled it to
-      make a type specimen book. It has survived not only five centuries, but
-      also the leap into electronic typesetting, remaining essentially
-      unchanged. It was popularised in the 1960s with the release of Letraset
-      sheets containing Lorem Ipsum passages, and more recently with desktop
-      publishing software like Aldus PageMaker including versions of Lorem
-      Ipsum.</div>
-      <div data-tab="tab 2" x-bind="content" x-cloak>It is a long established fact that a reader will be distracted by the
-      readable content of a page when looking at its layout. The point of using
-      Lorem Ipsum is that it has a more-or-less normal distribution of letters,
-      as opposed to using 'Content here, content here', making it look like
-      readable English. Many desktop publishing packages and web page editors
-      now use Lorem Ipsum as their default model text, and a search for 'lorem
-      ipsum' will uncover many web sites still in their infancy. Various
-      versions have evolved over the years, sometimes by accident, sometimes on
-      purpose (injected humour and the like).</div>
-      <div data-tab="tab 3" x-bind="content" x-cloak>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-      roots in a piece of classical Latin literature from 45 BC, making it over
-      2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-      College in Virginia, looked up one of the more obscure Latin words,
-      consectetur, from a Lorem Ipsum passage, and going through the cites of
-      the word in classical literature, discovered the undoubtable source. Lorem
-      Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-      Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
-      book is a treatise on the theory of ethics, very popular during the
-      Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-      amet..", comes from a line in section 1.10.32.
-<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below
-for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus
-Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original
-form, accompanied by English versions from the 1914 translation by H.
-Rackham.</div>
-</div></p>
+      <div data-tab="tab" x-bind="content" x-cloak>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book.
+      </div>
+      <div data-tab="tab 2" x-bind="content" x-cloak>
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+        its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like readable English.
+      </div>
+      <div data-tab="tab 3" x-bind="content" x-cloak>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old.
+      </div>
+    </div>
   </div>
 </div>
   </div>
@@ -208,7 +187,7 @@ Rackham.</div>
           data-tab="Template"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class:selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
         >
           Template
         </button>
@@ -216,86 +195,64 @@ Rackham.</div>
       <div class="relative">
   <div data-tab="Template" x-bind="content" class="w-full">
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-  <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;tabs(&#x27;tab&#x27;, {
-    content: { 
+  <span class="hljs-attr">x-data</span>=<span class="hljs-string">&quot;
+    tabs(&#x27;tab&#x27;, {
+    content: {
       &#x27;x-alt-transition&#x27;: {
         enter: [&#x27;opacity-0&#x27;, &#x27;transition ease-out duration-100 delay-100&#x27;, &#x27;opacity-100&#x27;],
         leave: [&#x27;opacity-100&#x27;, &#x27;transition ease-in duration-100 absolute top-0&#x27;, &#x27;opacity-0&#x27;],
     }
-    }})&quot;</span>
+    }})
+  &quot;</span>
 &gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
     <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;tabBar&quot;</span>
-    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-auto items-center border-b pl-2 dark:border-neutral-600&quot;</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex flex-auto items-center border-b border-secondary-300 pl-2 dark:border-dark-600&quot;</span>
   &gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-        <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab&quot;</span>
-        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;label&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-gray-300 bg-gray-100 p-2 px-4 transition-all duration-200 hover:bg-gray-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-gray-300/80 dark:hover:bg-neutral-800&quot;</span>
-        <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;border-b-transparent bg-white shadow-none hover:bg-white dark:border-neutral-600 dark:border-b-transparent dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-800&quot;</span>
-      &gt;</span>
-        tab
-      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-        <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab 2&quot;</span>
-        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;label&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-gray-300 bg-gray-100 p-2 px-4 transition-all duration-200 hover:bg-gray-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-gray-300/80 dark:hover:bg-neutral-800&quot;</span>
-        <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;border-b-transparent bg-white shadow-none hover:bg-white dark:border-neutral-600 dark:border-b-transparent dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-800&quot;</span>
-      &gt;</span>
-        tab 2
-      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-        <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab 3&quot;</span>
-        <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;label&quot;</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-gray-300 bg-gray-100 p-2 px-4 transition-all duration-200 hover:bg-gray-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-gray-300/80 dark:hover:bg-neutral-800&quot;</span>
-        <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;border-b-transparent bg-white shadow-none hover:bg-white dark:border-neutral-600 dark:border-b-transparent dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-800&quot;</span>
-      &gt;</span>
-        tab 3
-      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+      <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab&quot;</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;label&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-secondary-300 p-2 px-4 transition-all duration-200 dark:border-dark-600&quot;</span>
+      <span class="hljs-attr">class-default</span>=<span class="hljs-string">&quot;bg-secondary-100 hover:bg-secondary-50 dark:bg-dark-900 dark:text-text-300/80 dark:hover:bg-dark-800&quot;</span>
+      <span class="hljs-attr">class-selected</span>=<span class="hljs-string">&quot;border-b-transparent bg-white shadow-none hover:bg-white dark:border-dark-600 dark:border-b-transparent dark:bg-dark-800 dark:text-text-300 dark:hover:bg-dark-800&quot;</span>
+    &gt;</span>
+      tab
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+      <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab 2&quot;</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;label&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-secondary-300 p-2 px-4 transition-all duration-200 dark:border-dark-600&quot;</span>
+      <span class="hljs-attr">class-default</span>=<span class="hljs-string">&quot;bg-secondary-100 hover:bg-secondary-50 dark:bg-dark-900 dark:text-text-300/80 dark:hover:bg-dark-800&quot;</span>
+      <span class="hljs-attr">class-selected</span>=<span class="hljs-string">&quot;border-b-transparent bg-white shadow-none hover:bg-white dark:border-dark-600 dark:border-b-transparent dark:bg-dark-800 dark:text-text-300 dark:hover:bg-dark-800&quot;</span>
+    &gt;</span>
+      tab 2
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+      <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab 3&quot;</span>
+      <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;label&quot;</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;-mb-px -ml-px block overflow-ellipsis whitespace-nowrap rounded-t-md border border-secondary-300 p-2 px-4 transition-all duration-200 dark:border-dark-600&quot;</span>
+      <span class="hljs-attr">class-default</span>=<span class="hljs-string">&quot;bg-secondary-100 hover:bg-secondary-50 dark:bg-dark-900 dark:text-text-300/80 dark:hover:bg-dark-800&quot;</span>
+      <span class="hljs-attr">class-selected</span>=<span class="hljs-string">&quot;border-b-transparent bg-white shadow-none hover:bg-white dark:border-dark-600 dark:border-b-transparent dark:bg-dark-800 dark:text-text-300 dark:hover:bg-dark-800&quot;</span>
+    &gt;</span>
+      tab 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;p-4&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;relative&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab&quot;</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">x-cloak</span>&gt;</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry&#x27;s standard dummy text ever since the
-      1500s, when an unknown printer took a galley of type and scrambled it to
-      make a type specimen book. It has survived not only five centuries, but
-      also the leap into electronic typesetting, remaining essentially
-      unchanged. It was popularised in the 1960s with the release of Letraset
-      sheets containing Lorem Ipsum passages, and more recently with desktop
-      publishing software like Aldus PageMaker including versions of Lorem
-      Ipsum.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab 2&quot;</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">x-cloak</span>&gt;</span>It is a long established fact that a reader will be distracted by the
-      readable content of a page when looking at its layout. The point of using
-      Lorem Ipsum is that it has a more-or-less normal distribution of letters,
-      as opposed to using &#x27;Content here, content here&#x27;, making it look like
-      readable English. Many desktop publishing packages and web page editors
-      now use Lorem Ipsum as their default model text, and a search for &#x27;lorem
-      ipsum&#x27; will uncover many web sites still in their infancy. Various
-      versions have evolved over the years, sometimes by accident, sometimes on
-      purpose (injected humour and the like).<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab 3&quot;</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">x-cloak</span>&gt;</span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-      roots in a piece of classical Latin literature from 45 BC, making it over
-      2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-      College in Virginia, looked up one of the more obscure Latin words,
-      consectetur, from a Lorem Ipsum passage, and going through the cites of
-      the word in classical literature, discovered the undoubtable source. Lorem
-      Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et
-      Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
-      book is a treatise on the theory of ethics, very popular during the
-      Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit
-      amet..&quot;, comes from a line in section 1.10.32.
-
-      The standard chunk of Lorem Ipsum used since the 1500s is reproduced below
-      for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus
-      Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original
-      form, accompanied by English versions from the 1914 translation by H.
-      Rackham.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab&quot;</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">x-cloak</span>&gt;</span>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x27;s
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book.
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab 2&quot;</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">x-cloak</span>&gt;</span>
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+        its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using &#x27;Content here, content here&#x27;, making it look like readable English.
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-tab</span>=<span class="hljs-string">&quot;tab 3&quot;</span> <span class="hljs-attr">x-bind</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">x-cloak</span>&gt;</span>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old.
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
