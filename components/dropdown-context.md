@@ -85,7 +85,7 @@ dropdownContext({
 {% render "reference.liquid" props: props %}
 {% render "reference.liquid" props: floatingOptions %}
 
-To show context menu simply dispatch open-contextmenu event. The data in the event should be an object with following properties:
-- id of the context menu to show
+To show context menu simply dispatch `open-contextmenu` event. The data in the dispathed event should be an `object` with following properties:
+- `id` of the context menu to show
 - context data
-- event to calculate position of the context menu
+- `$event` magic to access native event properties
