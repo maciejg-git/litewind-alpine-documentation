@@ -1,5 +1,18 @@
+<div class="text-lg mb-6">Components</div>
+
 <ul>
 {% assign components = collections.component | sort: "data.name" %}
+{% for component in components %}
+  <li class="my-2">
+    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-400{% endif %}">{{ component.data.name }}</a>
+  </li>
+{% endfor%}
+</ul>
+
+<div class="text-lg my-6">Form</div>
+
+<ul>
+{% assign components = collections.form | sort: "data.name" %}
 {% for component in components %}
   <li class="my-2">
     <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-400{% endif %}">{{ component.data.name }}</a>
