@@ -23,13 +23,16 @@
   .markdown-container > p {
     @apply my-4
   }
+  .markdown-container > ul {
+    @apply list-disc list-inside
+  }
   pre code {
     @apply rounded-md bg-neutral-100 block p-4 overflow-auto dark:bg-[#242424]
   }
   code {
     @apply text-sm
   }
-  p code {
+  p code, li code {
     @apply text-red-600 dark:text-yellow-600 font-semibold text-sm
   }
 }
