@@ -88,6 +88,10 @@ dropdown({
     inline: Boolean,
 })
 ```
+Props:
 
 {% render "reference.liquid" props: props %}
+
+FloatingUI options:
+
 {% render "reference.liquid" props: floatingOptions %}

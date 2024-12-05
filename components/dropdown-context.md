@@ -81,8 +81,12 @@ dropdownContext({
     inline: Boolean,
 })
 ```
+Props:
 
 {% render "reference.liquid" props: props %}
+
+FloatingUI options:
+
 {% render "reference.liquid" props: floatingOptions %}
 
 To show context menu simply dispatch `open-contextmenu` event. The data in the dispathed event should be an `object` with following properties:

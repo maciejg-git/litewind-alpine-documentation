@@ -77,6 +77,7 @@ datepicker({
     locale: String,
 })
 ```
+Props:
 
 {% render "reference.liquid" props: props %}
 

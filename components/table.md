@@ -121,7 +121,7 @@ The table component is used to generate tables from arrays. Tables can be static
 
 To use this component simply copy and paste minimal template or any template from the examples below.
 
-The data for the component is provided by the `table` function in the `x-data` directive. This function takes single `object` as argument.
+The data for the component is provided by the `table` function in the `x-data` directive. This function takes single `object` as argument. Because of a lot of shared state (filter, pagination etc) it is recomended to set this object as a separate store and then pass it to the table with the `$store` magic.
 
 ```javascript
 table({
@@ -134,10 +134,9 @@ table({
     onFilter: Function,
 })
 ```
+Props:
 
 {% render "reference.liquid" props: props %}
-
-Because of a lot of shared state (filter, pagination etc) it is recomended to set this object as a separate store and then pass it to the table with the $store magic.
 
 ### Definition
 
