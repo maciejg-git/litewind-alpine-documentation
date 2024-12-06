@@ -44,9 +44,7 @@ props: [
 
 ### Usage
 
-To use this component simply copy and paste minimal template or any template from the examples below.
-
-The data for the component is provided by the `input` function in the `x-data` directive. This function takes single `object` as argument.
+The data for the component is provided by the `input` function in the `x-data` directive.
 
 ```javascript
 input({
@@ -56,5 +54,6 @@ input({
     placeholder: String,
 })
 ```
+Props:
 
 {% render "reference.liquid" props: props %}

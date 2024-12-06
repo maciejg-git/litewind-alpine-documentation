@@ -64,9 +64,7 @@ floatingOptions: [
 
 ### Usage
 
-To use this component simply copy and paste minimal template or any template from the examples below.
-
-The data for the component is provided by the `dropdownContext` function in the `x-data` directive. This function takes two `object` arguments: the props and floatingUI options.
+The data for the component is provided by the `dropdownContext` function in the `x-data` directive.
 
 ```javascript
 dropdownContext({
@@ -89,7 +87,9 @@ FloatingUI options:
 
 {% render "reference.liquid" props: floatingOptions %}
 
-To show context menu simply dispatch `open-contextmenu` event. The data in the dispathed event should be an `object` with following properties:
+### Opening menu
+
+To show context menu simply dispatch `open-contextmenu` event anywhere in your application. The data in the dispacthed event is an `object` with following properties:
 - `id` of the context menu to show
-- context data
-- `$event` magic to access native event properties
+- context `data`
+- `$event` magic containg native `contextmenu` event to calculate menu position

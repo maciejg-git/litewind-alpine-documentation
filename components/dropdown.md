@@ -70,9 +70,15 @@ floatingOptions: [
 
 ### Usage
 
-To use this component simply copy and paste minimal template or any template from the examples below.
+Dropdown uses FloatingUI to position menu relative to triggering element.
 
-The data for the component is provided by the `dropdown` function in the `x-data` directive. This function takes two `object` arguments: the props and floatingUI options.
+```html
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.8"></script>
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.12"></script>
+<script defer type="module" src="/scripts/use-floating.js"></script>
+```
+
+The data for the component is provided by the `dropdown` function in the `x-data` directive.
 
 ```javascript
 dropdown({

@@ -38,9 +38,7 @@ props: [
 
 ### Usage
 
-To use this component simply copy and paste minimal template or any template from the examples below.
-
-The data for the component is provided by the `pagination` function in the `x-data` directive. This function takes single `object` as argument.
+The data for the component is provided by the `pagination` function in the `x-data` directive.
 
 ```javascript
 pagination({
@@ -49,5 +47,6 @@ pagination({
     maxPages: Number,
 })
 ```
+Props:
 
 {% render "reference.liquid" props: props %}
