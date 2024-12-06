@@ -1,5 +1,3 @@
-import { useFloating } from "../floating.js"
-
 document.addEventListener('alpine:init', () => {
   Alpine.data('select', (props = {}, opts = {}) => {
     let isFunction = (f) => typeof f === "function";
