@@ -1,12 +1,12 @@
 <button
   x-data
   @click="$dispatch('open-modal', { id: 'modal' })"
-  class="rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
+  class="mx-auto block rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
 >
   Open modal
 </button>
 
-<div x-data="modal" id="modal" x-cloak>
+<div x-data="modal()" id="modal" x-cloak>
   <div
     x-bind="backdrop"
     x-alt-transition="
@@ -26,7 +26,7 @@
         x-alt-transition="
           {
             enter: ['opacity-0', 'transition ease-out duration-200', 'opacity-100'],
-            leave: ['opacity-100', 'transition ease-in duration-200 absolute top-0', 'opacity-0'],
+            leave: ['opacity-100', 'transition ease-in duration-200', 'opacity-0'],
           }
         "
         x-trap="isOpen"
