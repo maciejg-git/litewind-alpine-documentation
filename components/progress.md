@@ -11,7 +11,22 @@ examples: {
         },
     ],
 }
+xModel: [
+    {
+        name: "x-model",
+        type: ["String", "Array"],
+        description: "Current progress in percent.",
+    },
+]
 ---
 ## Progress
 
 {% render "example.liquid" example: "examples/progress-simple.liquid", tabs: examples.progressSimple, collapse: false %}
+
+### Usage
+
+The data for the component is provided by the `progress` function in the `x-data` directive.
+
+#### x-model
+
+{% render "reference.liquid" props: xModel %}

@@ -42,7 +42,7 @@ props: [
         name: "adjacentMonths",
         type: ["Boolean"],
         default: "true",
-        description: "If true days from previous and next month are displayed. Classes for these days can be modified in the `class:adjacent` attribute in the template.",
+        description: "If true days from previous and next month are displayed. Classes for these days can be modified in the `class-adjacent` attribute in the template.",
     },
     {
         name: "locale",
@@ -90,5 +90,7 @@ Datepicker allows selection of date ranges when `range` prop is enabled. In rang
 {% render "example.liquid" example: "examples/datepicker-range.liquid", tabs: examples.datepickerRange %}
 
 ### Datepicker in dropdown
+
+By default datepicker is a standalone component. You can easy turn it into standard expandable picker for inputs by putting it inside dropdown component menu. The dropdown should have `autoClose` prop disabled. To close menu after selection `@datepicker-selection-complete` event can be used.
 
 {% render "example.liquid" example: "examples/datepicker-dropdown.liquid", tabs: examples.datepickerDropdown %}

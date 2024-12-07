@@ -10,6 +10,13 @@ examples: {
             language: "html",
         },
     ],
+    dropdownHover: [
+        {
+            label: "Template",
+            file: "examples/dropdown-hover.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -22,7 +29,7 @@ props: [
         name: "autoClose",
         type: ["Boolean"],
         default: "true",
-        description: "If `true` menu is closed after click on any element inside.",
+        description: "If `true` menu is closed after clicking on any element inside.",
     },
 ]
 floatingOptions: [
@@ -70,7 +77,7 @@ floatingOptions: [
 
 ### Usage
 
-Dropdown uses FloatingUI to position menu relative to triggering element.
+Dropdown uses FloatingUI to position menu relative to triggering element. Before setting up dropdown make sure you have following scripts in your page.
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.8"></script>
@@ -101,3 +108,7 @@ Props:
 FloatingUI options:
 
 {% render "reference.liquid" props: floatingOptions %}
+
+### Dropdown on hover
+
+{% render "example.liquid" example: "examples/dropdown-hover.liquid", tabs: examples.dropdownHover %}
