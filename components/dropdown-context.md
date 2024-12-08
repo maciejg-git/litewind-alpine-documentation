@@ -10,6 +10,13 @@ examples: {
             language: "html",
         },
     ],
+    dropdownContextOpen: [
+        {
+            label: "Template",
+            file: "examples/dropdown-context-open.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -101,3 +108,5 @@ To show context menu simply dispatch `open-contextmenu` event anywhere in your a
 - `id` of the context menu to show
 - context `data`
 - `$event` magic containg native `contextmenu` event to calculate menu position
+
+{% render "example.liquid" example: "examples/dropdown-context-open.liquid", tabs: examples.dropdownContextOpen %}
