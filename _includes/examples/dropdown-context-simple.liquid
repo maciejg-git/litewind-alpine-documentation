@@ -5,13 +5,13 @@
   <template x-for="(language, index) in languages">
     <div
       x-text="language"
-      @contextmenu.prevent="$dispatch('open-contextmenu', {id: 'context', data: { index, language, languages }, $event })"
+      @contextmenu.prevent="$dispatch('open-contextmenu', {id: 'contextMenuLanguages', data: { index, language, languages }, $event })"
       class="mr-4 cursor-pointer border p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700"
     ></div>
   </template>
 </div>
 
-<div x-data="dropdownContext" id="context">
+<div x-data="dropdownContext" id="contextMenuLanguages">
   <div
     x-bind="menu"
     x-cloak
