@@ -104,7 +104,7 @@ FloatingUI options:
 
 ### Opening menu
 
-To show context menu simply dispatch `open-contextmenu` event anywhere in your application. The data in the dispacthed event is an `object` with following properties:
+To show context menu simply dispatch `open-contextmenu` event anywhere in your application. The data in the dispatched event is an `object` with following properties:
 - `id` of the context menu to show
 - context `data`
 - `$event` magic containg native `contextmenu` event to calculate menu position

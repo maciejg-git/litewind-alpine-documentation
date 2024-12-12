@@ -10,13 +10,39 @@ examples: {
             language: "html",
         },
     ],
+    notifyNewNotification: [
+        {
+            label: "Template",
+            file: "examples/notify-new-notification.liquid",
+            language: "html",
+        },
+    ],
+    notifyStacked: [
+        {
+            label: "Template",
+            file: "examples/notify-stacked.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
         name: "order",
         type: ["String"],
-        default: "new-on-bottom",
-        description: "Order of the notifications. Valid values are: `new-on-bottom` or `new-on-top`.",
+        default: "default",
+        description: "Order of the notifications. Valid values are: `default` or `reversed`.",
+    },
+    {
+        name: "stickyAt",
+        type: ["String"],
+        default: "end",
+        description: "Where to put sticky notifications. Valid values are: `start` for the start of the notification array or `end` for the end for the notification array.",
+    },
+    {
+        name: "maxNotifications",
+        type: ["Number"],
+        default: "0",
+        description: "Maximum number of displayed notifications. Notification above this number will be buffered.",
     },
     {
         name: "delay",
@@ -83,9 +109,9 @@ Notify container does not have any classes by default apart from `fixed` positio
 
 For example `bottom-4 md:right-10 w-full md:w-[350px] space-y-4` classes will make notifications appear in the bottom right corner of the screen (centered on small screens), notifications will be 350px wide (full width on small screens) and seperated with 1rem of space. 
 
-### Adding new notifications
+### Showing new notifications
 
-To add new notification simply dispatch `add-notify` anywhere in your application. The text and all additional options of the notification is set in the data of the dispatched event.
+To show new notification simply dispatch `show-notify` anywhere in your application. The text and all additional options of the notification is set in the data of the dispatched event.
 
 ```javascript
 $dispatch(
@@ -97,6 +123,7 @@ $dispatch(
         delay: Number,
         dismissable: Boolean,
         static: Boolean,
+        sticky: Boolean,
         variant: String,
         options: Object,
     }
@@ -107,5 +134,14 @@ Notification properties:
 - `id` - defines container to display notification. `id` is optional when there is only one container in the page,
 - `header` and `text` - set content of the notification,
 - `delay`, `dismissable` and `static` - override respective props of the container for this notification,
+- `sticky` - sticky notifications are always displayed below or above normal notifications and ignore number set in `maxNotifications` prop. Position depends on `order` and `stickyAt` props.
 - `variant` - sets the variant of the notification,
 - `options` - additional custom options that can be referenced in the template.
+
+{% render "example.liquid" example: "examples/notify-new-notification.liquid", tabs: examples.notifyNewNotification %}
+
+### Stacked notifications
+
+You can turn notification list into stacked notifications by adding `absolute` class to `li` element. The `transform` property can be used to add stacking effect.
+
+{% render "example.liquid" example: "examples/notify-stacked.liquid", tabs: examples.notifyStacked %}
