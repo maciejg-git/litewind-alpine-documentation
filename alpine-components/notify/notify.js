@@ -10,11 +10,15 @@ document.addEventListener("alpine:init", () => {
     return {
       notifications: [],
       notifyId: 1000,
-      order: props?.order ?? "new-on-bottom",
+      order: props?.order ?? "default",
+      maxNotifications: props?.maxNotifications ?? 0,
+      stickyAt: props?.stickyAt ?? "end",
+      buffer: [],
+      notificationsSticky: [],
 
       init() {
         Alpine.bind(this.$el, {
-          '@add-notify.window'() {
+          '@show-notify.window'() {
             let id = this.$event.detail.id || null
             let rootId = this.$root.id || null
             if (id === null && rootId === null || id === rootId) {
@@ -24,16 +28,31 @@ document.addEventListener("alpine:init", () => {
         })
       },
       getNotifications() {
-        if (this.order === "new-on-bottom") {
-          return this.notifications
+        if (this.order === "default" && this.stickyAt === "end") {
+          return [...this.notifications, ...this.notificationsSticky]
         }
-        if (this.order === "new-on-top") {
-          return this.notifications.toReversed()
+        if (this.order === "reversed" && this.stickyAt === "end") {
+          return [...this.notifications.toReversed(), ...this.notificationsSticky.toReversed()]
+        }
+        if (this.order === "default" && this.stickyAt === "start") {
+          return [...this.notificationsSticky, ...this.notifications]
+        }
+        if (this.order === "reversed" && this.stickyAt === "start") {
+          return [...this.notificationsSticky.toReversed(), ...this.notifications.toReversed()]
         }
       },
       removeById(id) {
         let index = this.notifications.findIndex((i) => id === i.notifyId)
         this.notifications.splice(index, 1)
+        if (this.buffer.length) {
+          let notify = this.buffer.shift()
+          notify.restartTimer()
+          this.notifications.push(notify)
+        }
+      },
+      removeStickyById(id) {
+        let index = this.notificationsSticky.findIndex((i) => id === i.notifyId)
+        this.notificationsSticky.splice(index, 1)
       },
       close() {
         this.removeById(this.notify.notifyId)
@@ -47,6 +66,7 @@ document.addEventListener("alpine:init", () => {
           delay: notify?.delay ?? props.delay ?? defaultOptions.delay,
           dismissable: notify?.dismissable ?? props.dismissable ?? defaultOptions.dismissable,
           static: notify?.static ?? props.static ?? defaultOptions.static,
+          sticky: notify?.sticky ?? false,
           variant: notify?.variant ?? props.variant ?? defaultOptions.variant,
           options: notify?.options ?? props.options ?? null,
           notifyId: this.notifyId,
@@ -55,12 +75,27 @@ document.addEventListener("alpine:init", () => {
 
         newNotify.restartTimer = function() {
           if (this.static) return null
-          this.timer = setTimeout(() => container.removeById(this.notifyId), this.delay)
+          if (newNotify.sticky) {
+            this.timer = setTimeout(() => container.removeStickyById(this.notifyId), this.delay)
+          } else {
+            this.timer = setTimeout(() => container.removeById(this.notifyId), this.delay)
+          }
+        }
+
+        this.notifyId++
+
+        if (newNotify.sticky) {
+          newNotify.restartTimer()
+          this.notificationsSticky.push(newNotify)
+          return
+        }
+
+        if (this.maxNotifications > 0 && this.notifications.length >= this.maxNotifications) {
+          this.buffer.push(newNotify)
+          return
         }
 
         newNotify.restartTimer()
-
-        this.notifyId++
 
         this.notifications.push(newNotify)
       }
