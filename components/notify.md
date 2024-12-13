@@ -30,13 +30,13 @@ props: [
         name: "order",
         type: ["String"],
         default: "default",
-        description: "Order of the notifications. Valid values are: `default` or `reversed`.",
+        description: "Order of the notifications. Valid values are: `default` or `reversed`. This prop can be useful when setting container position with the `top-*` or `bottom-*` classes.",
     },
     {
         name: "stickyAt",
         type: ["String"],
         default: "end",
-        description: "Where to put sticky notifications. Valid values are: `start` for the start of the notification array or `end` for the end for the notification array.",
+        description: "Where to put sticky notifications. Valid values are: `start` for the start of the notification array or `end` for the end for the notification array. This props can be useful when setting container position with the `top-*` or `bottom-*` classes.",
     },
     {
         name: "maxNotifications",
