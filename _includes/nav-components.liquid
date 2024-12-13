@@ -1,4 +1,4 @@
-<div class="text-lg mb-6">Introduction</div>
+<div class="mb-6 font-semibold dark:text-text-300">Introduction</div>
 
 <ul>
 {% assign components = collections.introduction | sort: "data.name" %}
@@ -9,7 +9,7 @@
 {% endfor%}
 </ul>
 
-<div class="text-lg my-6">Components</div>
+<div class="my-6 font-semibold dark:text-text-300">Components</div>
 
 <ul>
 {% assign components = collections.component | sort: "data.name" %}
@@ -20,7 +20,7 @@
 {% endfor%}
 </ul>
 
-<div class="text-lg my-6">Form</div>
+<div class="my-6 font-semibold dark:text-text-300">Form</div>
 
 <ul>
 {% assign components = collections.form | sort: "data.name" %}
