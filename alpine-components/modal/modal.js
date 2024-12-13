@@ -51,6 +51,7 @@ document.addEventListener("alpine:init", () => {
           this.close();
         },
       },
+      positioner: {},
       content: {
         "x-show"() {
           return this.isOpen;
