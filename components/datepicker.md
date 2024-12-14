@@ -58,6 +58,13 @@ xModel: [
         description: "The type of the x-model is a string in single mode and an array of two strings in range mode. Strings are always in th YYYY-MM-DD format.",
     },
 ]
+events: [
+    {
+        name: "datepicker-selection-complete",
+        type: [],
+        description: "Event dispatched after selection has been completed.",
+    },
+]
 ---
 ## Datepicker
 
@@ -82,6 +89,10 @@ Props:
 #### x-model
 
 {% render "reference.liquid" props: xModel %}
+
+#### Events
+
+{% render "reference.liquid" props: events %}
 
 ### Range mode
 

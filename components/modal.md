@@ -17,6 +17,13 @@ examples: {
             language: "html",
         },
     ],
+    modalImage: [
+        {
+            label: "Template",
+            file: "examples/modal-image.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -70,3 +77,7 @@ The modal uses focus plugin (`x-trap` directive) to trap focus inside modal wind
 ```html
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
 ```
+
+### Modal image viewer
+
+{% render "example.liquid" example: "examples/modal-image.liquid", tabs: examples.modalImage %}

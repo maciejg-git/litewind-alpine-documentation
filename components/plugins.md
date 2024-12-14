@@ -6,9 +6,13 @@ name: Plugins
 
 ## Plugins
 
-#### Transition plugin
+### Transition plugin
 
-The transition plugin add two directives x-alt-transition and x-vue-transition. Both directives add another way to define transitions.
+The transition plugin add two directives x-alt-transition and x-vue-transition. Both directives add another way to define transitions that are transformed into native Alpine transition directives.
+
+#### x-alt-transition
+
+This directive adds more timeline like way of defining transitions.
 
 ```html
 <div x-alt-transition="{
@@ -16,4 +20,12 @@ The transition plugin add two directives x-alt-transition and x-vue-transition. 
   leave: ['opacity-100', 'transition ease-in duration-100 origin-top', 'opacity-0 scale-y-50'],
 }"
 ></div>
+```
+
+#### x-vue-transition
+
+This directive allows defining Vue like transitions:
+
+```html
+<div x-vue-transition="fade"></div>
 ```
