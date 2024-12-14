@@ -6,6 +6,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("alpine-components/**/*.js");
   eleventyConfig.addPassthroughCopy("styles/**/*.css");
   eleventyConfig.addPassthroughCopy("stores/**/*.js");
+  eleventyConfig.addPassthroughCopy("images/**/*.jpg")
 
   let options = {
 		html: true,
