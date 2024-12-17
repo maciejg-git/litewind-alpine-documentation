@@ -16,12 +16,12 @@
           leave: ['opacity-100', 'transition ease-in duration-200', 'opacity-0'],
         }
       "
-      class="fixed inset-0 z-20 overflow-y-auto bg-black/50"
+      class="fixed inset-0 z-20 overflow-y-auto bg-black/70 dark:bg-black/70"
     ></div>
     <div x-bind="container" class="fixed inset-0 z-20 overflow-y-auto">
       <div
         v-bind="positioner"
-        class="relative mx-auto flex min-h-full items-center px-6 py-6 md:w-max md:max-w-[80%] md:px-0"
+        class="relative mx-auto flex min-h-full w-max items-center md:px-0"
       >
         <div
           x-bind="content"
@@ -35,7 +35,11 @@
           class="flex-1 overflow-auto rounded-md bg-white text-text-800 shadow-lg dark:bg-dark-800 dark:text-text-300"
         >
           <main class="group relative">
-            <img :src="'/images/' + images[currentImage]" alt="" class="max-h-[90vh]">
+            <img :src="'/images/' + images[currentImage]" alt="" class="max-h-[92vh] max-w-[90vw]">
+            <div
+              x-text="`${currentImage + 1}/${images.length}`"
+              class="font-sembold absolute left-1/2 top-4 -translate-x-1/2 rounded-lg bg-black/60 px-4 py-2 text-xl text-text-300 opacity-0 transition-opacity group-hover:opacity-100"
+            ></div>
             <button @click="close()" class="absolute right-6 top-6 h-6 w-6 text-white/80">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
