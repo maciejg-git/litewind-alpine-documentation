@@ -21,10 +21,13 @@
     @apply text-lg font-semibold my-6
   }
   .markdown-container > p {
-    @apply my-4
+    @apply my-6
   }
   .markdown-container > ul {
     @apply list-disc list-inside
+  }
+  .markdown-container > p a {
+    @apply text-blue-400 underline
   }
   pre code {
     @apply rounded-md bg-neutral-100 block p-4 overflow-auto dark:bg-[#242424]
