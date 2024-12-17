@@ -25,37 +25,35 @@ props: [
         default: "true",
         description: "If `true` menu is closed after click on any element inside.",
     },
-]
-floatingOptions: [
     {
         name: "placement",
         type: ["String"],
         default: "bottom-start",
-        description: "Initial placement of dropdown content. See floatingUI documentation for valid values.",
+        description: "Initial placement of dropdown content. FloatingUI option, see documentation for examples and usage.",
     },
     {
         name: "offsetX",
         type: ["Number"],
         default: "0",
-        description: "Offset of dropdown relative to reference element.",
+        description: "Offset of dropdown relative to reference element. FloatingUI option, see documentation for examples and usage.",
     },
     {
         name: "offsetY",
         type: ["Number"],
         default: "0",
-        description: "Offset of dropdown relative to reference element.",
+        description: "Offset of dropdown relative to reference element. FloatingUI option, see documentation for examples and usage.",
     },
     {
         name: "flip",
         type: ["Boolean"],
         default: "false",
-        description: "Allows fliping of the dropdown to the opposite placement if outside of current view.",
+        description: "Allows fliping of the dropdown to the opposite placement if outside of current view. FloatingUI option, see documentation for examples and usage.",
     },
     {
         name: "autoPlacement",
         type: ["Boolean"],
         default: "false",
-        description: "Automatically calculates best placement for the floating element.",
+        description: "Automatically calculates best placement for the floating element. FloatingUI option, see documentation for examples and usage.",
     },
     {
         name: "inline",
@@ -84,8 +82,6 @@ The data for the component is provided by the `dropdownContext` function in the 
 ```javascript
 dropdownContext({
     autoClose: Boolean,
-},
-{
     placement: String,
     offsetX: Number,
     offsetY: Number,
@@ -97,10 +93,6 @@ dropdownContext({
 Props:
 
 {% render "reference.liquid" props: props %}
-
-FloatingUI options:
-
-{% render "reference.liquid" props: floatingOptions %}
 
 ### Opening menu
 

@@ -54,13 +54,13 @@ props: [
         name: "dismissable",
         type: ["Boolean"],
         default: "true",
-        description: "Displays close button and allows users to close notifications.",
+        description: "Makes all notifications in this container dismissable by default. Dismissable notifications display close button and allows users to close them.",
     },
     {
         name: "static",
         type: ["Boolean"],
         default: "false",
-        description: "Static notifications must be dismissed manually by the user.",
+        description: "Makes all notifications in this container static by default. Static notifications must be dismissed manually by the user.",
     },
     {
         name: "variant",
@@ -87,6 +87,7 @@ The data for the component is provided by the `notify` function in the `x-data` 
 ```javascript
 notify({
     order: String,
+    stickyAt: String,
     delay: Number,
     dismissable: Boolean,
     static: Boolean,
@@ -111,7 +112,7 @@ For example `bottom-4 md:right-10 w-full md:w-[350px] space-y-4` classes will ma
 
 ### Showing new notifications
 
-To show new notification simply dispatch `show-notify` anywhere in your application. The text and all additional options of the notification is set in the data of the dispatched event.
+To show new notification simply dispatch `show-notify` anywhere in your application. The text and all additional options of the notification is set in the data of the dispatched event. For the properties that are not included in the event data the defaults of the container are used.
 
 ```javascript
 $dispatch(
@@ -136,9 +137,13 @@ Notification properties:
 - `delay`, `dismissable` and `static` - override respective props of the container for this notification,
 - `sticky` - sticky notifications are always displayed below or above normal notifications and ignore number set in `maxNotifications` prop. Position depends on `order` and `stickyAt` props.
 - `variant` - sets the variant of the notification,
-- `options` - additional custom options that can be referenced in the template.
+- `options` - additional custom options that can be referenced in the template. This is useful for creating customized notifications.
 
 {% render "example.liquid" example: "examples/notify-new-notification.liquid", tabs: examples.notifyNewNotification %}
+
+### Pause timers on hover
+
+By default hovering over container pauses all timers and restarts them after pointer leaves element.
 
 ### Stacked notifications
 
