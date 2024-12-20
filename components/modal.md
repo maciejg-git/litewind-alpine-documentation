@@ -2,6 +2,16 @@
 layout: "layouts/container.liquid"
 tags: component
 name: Modal
+requires: [
+    {
+        name: "Alpine",
+        optional: false,
+    },
+    {
+        name: "Focus Plugin",
+        optional: false,
+    },
+]
 examples: {
     modalSimple: [
         {
@@ -21,6 +31,13 @@ examples: {
         {
             label: "Template",
             file: "examples/modal-image.liquid",
+            language: "html",
+        },
+    ],
+    modalDialog: [
+        {
+            label: "Template",
+            file: "examples/modal-dialog.liquid",
             language: "html",
         },
     ],
@@ -80,6 +97,10 @@ The modal uses focus plugin (`x-trap` directive) to trap focus inside modal wind
 ```
 
 Check the offical plugin [documentation](https://alpinejs.dev/plugins/focus) for additional install options and features.
+
+### Modal dialogs
+
+{% render "example.liquid" example: "examples/modal-dialog.liquid", tabs: examples.modalDialog %}
 
 ### Modal image viewer
 

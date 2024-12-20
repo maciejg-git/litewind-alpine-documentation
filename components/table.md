@@ -8,11 +8,13 @@ examples: {
             label: "Template",
             file: "examples/table-simple.liquid",
             language: "html",
+            name: "tableSimple",
         },
         {
             label: "Store",
             file: "../alpine-components/table/table-store.js",
             language: "javascript",
+            name: "tableSimple",
         },
     ],
     tableDefinition: [
@@ -20,11 +22,13 @@ examples: {
             label: "Template",
             file: "examples/table-definition.liquid",
             language: "html",
+            name: "tableDefinition",
         },
         {
             label: "Store",
             file: "../alpine-components/table/table-definition-store.js",
             language: "javascript",
+            name: "tableDefinition",
         },
     ],
     tableFilterPagination: [
@@ -32,11 +36,13 @@ examples: {
             label: "Template",
             file: "examples/table-filter-pagination.liquid",
             language: "html",
+            name: "tableDefinition",
         },
         {
             label: "Store",
             file: "../alpine-components/table/table-filter-pagination-store.js",
             language: "javascript",
+            name: "tableDefinition",
         },
     ],
 }
