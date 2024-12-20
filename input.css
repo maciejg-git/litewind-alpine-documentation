@@ -26,7 +26,7 @@
   .markdown-container > ul {
     @apply list-disc list-inside
   }
-  .markdown-container > p a {
+  .markdown-container p a {
     @apply text-blue-400 underline
   }
   pre code {
