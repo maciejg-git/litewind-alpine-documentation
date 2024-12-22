@@ -37,11 +37,6 @@
           <main class="group relative">
             <!-- image -->
             <img :src="'/images/' + images[currentImage]" alt="" class="max-h-[92vh] max-w-[90vw]">
-            <!-- current image number -->
-            <div
-              x-text="`${currentImage + 1}/${images.length}`"
-              class="font-sembold absolute left-1/2 top-4 -translate-x-1/2 rounded-lg bg-black/60 px-4 py-2 text-xl text-text-300 opacity-0 transition-opacity group-hover:opacity-100"
-            ></div>
             <!-- close button -->
             <button @click="close()" class="absolute right-6 top-6 h-6 w-6 text-white/80">
               <svg

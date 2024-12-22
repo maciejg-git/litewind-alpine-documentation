@@ -1,10 +1,26 @@
-<button
-  x-data
-  @click="$dispatch('open-modal', { id: 'modalDialog', options: { header: 'Delete file', text: 'Delete file?', variant: 'danger', callback: (res) => console.log(res) } })"
-  class="mx-auto block rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
->
-  Open dialog modal
-</button>
+<div class="flex flex-col gap-y-4">
+  <button
+    x-data
+    @click="$dispatch('open-modal', { id: 'modalDialog', options: { header: 'Delete file', text: 'Delete file?', variant: 'danger', resolve: (res) => console.log(res) } })"
+    class="mx-auto block rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
+  >
+    Open modal dialog
+  </button>
+  <button
+    x-data
+    @click="async () => {
+      let file = 'file'
+      let confirm = new Promise((resolve, reject) => {
+        $dispatch('open-modal', { id: 'modalDialog', options: { header: 'Delete file', text: `Delete ${file}?`, variant: 'danger', resolve, reject } })
+      })
+      let res = await confirm
+      console.log(res)
+    }"
+    class="mx-auto block rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
+  >
+    Open promise modal dialog
+  </button>
+</div>
 
 <div x-data="modal()" id="modalDialog" x-cloak>
   <div
@@ -44,7 +60,7 @@
             <span x-text="options.header"></span>
           </div>
           <template x-if="closable">
-            <button @click="close()">
+            <button @click="options.resolve('cancel');close()">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -63,8 +79,8 @@
           <span x-text="options.text"></span>
         </main>
         <footer class="flex justify-end gap-x-10 px-10 py-6">
-          <button @click="options.callback('ok');close()" class="font-semibold" :class="{ 'dark:text-danger-600 !font-bold': options.variant === 'danger' }">OK</button>
-          <button @click="options.callback('cancel');close()" class="font-semibold">Close</button>
+          <button @click="options.resolve('ok');close()" class="font-semibold" :class="{ 'text-danger-500 dark:text-danger-600 !font-bold': options.variant === 'danger' }">OK</button>
+          <button @click="options.resolve('cancel');close()" class="font-semibold">Close</button>
         </footer>
       </div>
     </div>
