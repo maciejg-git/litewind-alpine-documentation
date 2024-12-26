@@ -42,13 +42,13 @@ props: [
         name: "adjacentMonths",
         type: ["Boolean"],
         default: "true",
-        description: "If true days from previous and next month are displayed. Classes for these days can be modified in the `class-adjacent` attribute in the template.",
+        description: "If true days from previous and next month are displayed. Classes for these days can be modified in the `class-adjacent` attribute in the template. Adjacent days are selectable.",
     },
     {
         name: "locale",
         type: ["String"],
         default: "en-GB",
-        description: "This prop is only used to display names of the months and weekdays and to format date in the components footer. It does not modify format of the `x-model` date which is always `YYYY-MM-DD`.",
+        description: "This prop is only used to set the names of the months and weekdays and to format date in the components footer. It does not modify format of the `x-model` date which is always `YYYY-MM-DD`.",
     },
 ]
 xModel: [

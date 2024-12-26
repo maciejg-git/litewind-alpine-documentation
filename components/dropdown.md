@@ -103,4 +103,6 @@ Props:
 
 ### Dropdown on hover
 
+To make dropdown menu open on hover set the `triggerEv` to `'hover'`. In hover mode there is short timeout before closing menu when the mouse leaves the trigger element.
+
 {% render "example.liquid" example: "examples/dropdown-hover.liquid", tabs: examples.dropdownHover %}

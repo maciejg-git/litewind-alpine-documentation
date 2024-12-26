@@ -10,6 +10,13 @@ examples: {
             language: "html",
         },
     ],
+    selectMultiple: [
+        {
+            label: "Template",
+            file: "examples/select-multiple.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -61,6 +68,14 @@ props: [
         description: "Sets the placeholder of the input element.",
     },
 ]
+xModel: [
+    {
+        name: "x-model",
+        type: ["Array"],
+        default: "[]",
+        description: "The type of the `x-model` is an `array` for single and multiple modes. The values in the `array` are the `value` fields of the selected options.",
+    },
+]
 ---
 ## Select
 
@@ -85,3 +100,11 @@ select({
 Props:
 
 {% render "reference.liquid" props: props %}
+
+#### x-model
+
+{% render "reference.liquid" props: xModel %}
+
+### Select multiple values
+
+{% render "example.liquid" example: "examples/select-multiple.liquid", tabs: examples.selectMultiple %}

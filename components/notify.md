@@ -107,12 +107,13 @@ Notify container does not have any classes by default apart from `fixed` positio
 - `w-*` class to set width of notifications,
 - `space-y-*` to optionally add some gaps between notifications,
 - `px-*` or `py-*` classes to optionally add padding to the container
+- `translate-x-*`, `translate-y-*` classes to optionally center container
 
 For example `bottom-4 md:right-10 w-full md:w-[350px] space-y-4` classes will make notifications appear in the bottom right corner of the screen (centered on small screens), notifications will be 350px wide (full width on small screens) and seperated with 1rem of space. 
 
 ### Showing new notifications
 
-To show new notification simply dispatch `show-notify` anywhere in your application. The text and all additional options of the notification is set in the data of the dispatched event. For the properties that are not included in the event data the defaults of the container are used.
+To show new notification simply dispatch `show-notify` event anywhere in your application. The text and all additional options of the notification is set in the data of the dispatched event. For the properties that are not included in the event data the defaults of the container are used.
 
 ```javascript
 $dispatch(
