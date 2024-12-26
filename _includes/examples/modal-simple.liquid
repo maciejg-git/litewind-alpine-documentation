@@ -15,11 +15,11 @@
         leave: ['opacity-100', 'transition ease-in duration-200', 'opacity-0'],
       }
     "
-    class="fixed inset-0 z-20 overflow-y-auto bg-black/50"
+    class="fixed inset-0 z-40 overflow-y-auto bg-black/50"
   ></div>
-  <div x-bind="container" class="fixed inset-0 z-20 overflow-y-auto">
+  <div x-bind="container" @click="closeNotStatic()" class="fixed inset-0 z-40 overflow-y-auto">
     <div
-      v-bind="positioner"
+      x-bind="positioner"
       class="relative mx-auto flex min-h-full items-center px-6 py-6 md:w-6/12 md:px-0"
     >
       <div
@@ -57,7 +57,7 @@
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
           standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
           make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. 
+          typesetting, remaining essentially unchanged.
         </main>
         <footer class="flex justify-end gap-x-6 px-10 py-6">
           <button @click="close()" class="font-semibold">OK</button>

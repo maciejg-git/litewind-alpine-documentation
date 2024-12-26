@@ -38,11 +38,11 @@
         leave: ['opacity-100', 'transition ease-in duration-200', 'opacity-0'],
       }
     "
-    class="fixed inset-0 z-20 overflow-y-auto bg-black/50"
+    class="fixed inset-0 z-40 overflow-y-auto bg-black/50"
   ></div>
-  <div x-bind="container" class="fixed inset-0 z-20 overflow-y-auto">
+  <div x-bind="container" @click="closeNotStatic()" class="fixed inset-0 z-40 overflow-y-auto">
     <div
-      v-bind="positioner"
+      x-bind="positioner"
       class="relative flex min-h-full"
       :class="options.position"
     >
