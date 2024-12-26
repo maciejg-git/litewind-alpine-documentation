@@ -30,3 +30,14 @@
   </li>
 {% endfor%}
 </ul>
+
+<div class="my-6 font-semibold dark:text-text-300">Directive</div>
+
+<ul>
+{% assign components = collections.directive | sort: "data.name" %}
+{% for component in components %}
+  <li class="my-2">
+    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-400{% endif %}">{{ component.data.name }}</a>
+  </li>
+{% endfor%}
+</ul>

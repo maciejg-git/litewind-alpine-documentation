@@ -31,7 +31,7 @@
     </ul>
       <div class="relative">
   {% for tab in tabs %}
-  <div data-tab="{{ tab.label }}" x-bind="content" class="w-full">
+    <div data-tab="{{ tab.label }}" x-bind="content" class="w-full" id="{{ tab.name | append: tab.label }}">
   
 ```{{ tab.language }}
 {% render tab.file %}
