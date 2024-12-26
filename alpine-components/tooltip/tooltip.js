@@ -1,5 +1,3 @@
-import { useFloating } from "../floating.js"
-
 document.addEventListener("alpine:init", () => {
   const correctPlacement = ["top", "bottom", "right", "left"]
     .map((i) => [i, i + "-start", i + "-end"])
@@ -75,7 +73,7 @@ document.addEventListener("alpine:init", () => {
       });
 
       el.innerHTML =
-        "<div class='rounded-md z-50 max-w-sm text-gray-100 bg-neutral-700'><div class='font-semibold p-1 px-3'></div></div>";
+        "<div class='tooltip'><div></div></div>";
 
       return el;
     }
