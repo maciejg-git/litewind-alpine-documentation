@@ -17,6 +17,13 @@ examples: {
             language: "html",
         },
     ],
+    selectServer: [
+        {
+            label: "Template",
+            file: "examples/select-server.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -43,30 +50,6 @@ props: [
         default: "false",
         description: "Allows selecting multiple values.",
     },
-    {
-        name: "clearable",
-        type: ["Boolean"],
-        default: "false",
-        description: "Adds an X button that resets model to the default value.",
-    },
-    {
-        name: "useLoader",
-        type: ["Boolean"],
-        default: "false",
-        description: "Enable or disable the spinner in the input.",
-    },
-    {
-        name: "isLoading",
-        type: ["Boolean"],
-        default: "false",
-        description: "If `true` displays a spinner in the input. Spinner should be first enabled in the `useLoader` prop.",
-    },
-    {
-        name: "placeholder",
-        type: ["String"],
-        default: "empty string",
-        description: "Sets the placeholder of the input element.",
-    },
 ]
 xModel: [
     {
@@ -91,10 +74,6 @@ select({
     itemText: String,
     itemValue: String,
     multiple: Boolean,
-    clearable: Boolean,
-    useLoader: Boolean,
-    isLoading: Boolean,
-    placeholder: String,
 })
 ```
 Props:
@@ -107,4 +86,10 @@ Props:
 
 ### Select multiple values
 
+The `multiple` prop allows selection of multiple values.
+
 {% render "example.liquid" example: "examples/select-multiple.liquid", tabs: examples.selectMultiple %}
+
+### Async items
+
+{% render "example.liquid" example: "examples/select-server.liquid", tabs: examples.selectServer %}

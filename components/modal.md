@@ -100,12 +100,12 @@ Check the offical plugin [documentation](https://alpinejs.dev/plugins/focus) for
 
 ### Modal dialogs
 
-The modals can be used for the dialogs. Here is an example of reusable dialog component. In the second example `Promise` is used to pause code execution and await user confirmation.
+You can use modals to show dialogs to the users. Here is an example of reusable dialog component. The event data is used to set the contents of the dialog and add callbacks for the users actions. In the second example dispatching event inside a `promise` allows to pause code execution and await for the user confirmation.
 
 {% render "example.liquid" example: "examples/modal-dialog.liquid", tabs: examples.modalDialog %}
 
 ### Modal image viewer
 
-Modals can be used to view fullscreen images. Here is an example.
+Another way to use modals is to view fullscreen images. Here is an example.
 
 {% render "example.liquid" example: "examples/modal-image.liquid", tabs: examples.modalImage %}

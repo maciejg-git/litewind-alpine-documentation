@@ -21,4 +21,7 @@ examples: {
 The data for the component is provided by the `tabs` function in the `x-data` directive.
 
 ```javascript
-tabs(activeTab: String, mixin: Object)
+tabs(activeTab: String)
+```
+
+The `activeTab` argument sets the default active tab.
