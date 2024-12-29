@@ -22,7 +22,7 @@
           data-tab="{{ tab.label }}"
           x-bind="label"
           class="p-2 px-6 rounded-t-xl bg-transparent"
-          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#242424]"
+          class-selected="!bg-neutral-100 font-semibold dark:!bg-[#212121]"
         >
           {{ tab.label }}
         </button>
@@ -42,7 +42,7 @@
       </div>
   </div>
   {% if collapse | default: true, allow_false: true %}
-  <div class="flex bg-neutral-100 dark:bg-[#242424]">
+  <div class="flex bg-neutral-100 dark:bg-[#212121]">
     <button @click="isOpen = !isOpen" class="ml-auto py-1 bg-neutral-200 rounded-tl-xl font-semibold flex items-center hover:bg-neutral-300 flex w-48 px-4 dark:bg-neutral-700">
       <span class="grow">
         Expand
