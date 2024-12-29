@@ -8,6 +8,41 @@
   .example {
     @apply rounded-lg border dark:border-neutral-700 dark:bg-[#171717] overflow-auto mt-6 mb-2
   }
+  .spinner-svg {
+    animation: loader-rotate 1s linear infinite;
+    transform-origin: center center;
+  }
+
+  .spinner-svg circle {
+    stroke: currentColor;
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+    animation: loader-dash 1s ease-in-out infinite;
+    stroke-linecap: round;
+  }
+
+  @keyframes loader-rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes loader-dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+    }
+
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+    }
+  }
 }
 
 .tooltip {
@@ -34,7 +69,7 @@
     @apply text-blue-400 underline
   }
   pre code {
-    @apply rounded-md bg-neutral-100 block p-4 overflow-auto dark:bg-[#242424]
+    @apply rounded-md bg-neutral-100 block p-4 overflow-auto dark:bg-[#212121]
   }
   code {
     @apply text-sm
