@@ -75,6 +75,16 @@ Props:
 
 {% render "reference.liquid" props: props %}
 
+### Trap focus
+
+The modal uses focus plugin (`x-trap` directive) to trap focus inside modal window. This plugin is optional. To use it add the following `script` tag:
+
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+```
+
+Check the offical plugin [documentation](https://alpinejs.dev/plugins/focus) for additional install options and features.
+
 ### Opening modal
 
 To show modal simply dispatch `open-modal` event anywhere in your application. The data in the dispatched event can be a `string` with the `id` of the modal or an `object` with following properties:
@@ -87,16 +97,6 @@ To show modal simply dispatch `open-modal` event anywhere in your application. T
 By default modal is centered and 50% wide. The placement and size of the modal can be changed by modifying tailwind classes on the `positioner` element. Here is an example of few possible placement and size options:
 
 {% render "example.liquid" example: "examples/modal-position.liquid", tabs: examples.modalPosition %}
-
-### Trap focus
-
-The modal uses focus plugin (`x-trap` directive) to trap focus inside modal window. This plugin is optional. To use it add the following `script` tag:
-
-```html
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
-```
-
-Check the offical plugin [documentation](https://alpinejs.dev/plugins/focus) for additional install options and features.
 
 ### Modal dialogs
 

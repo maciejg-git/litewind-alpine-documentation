@@ -24,13 +24,20 @@ examples: {
             language: "html",
         },
     ],
+    selectItems: [
+        {
+            label: "Template",
+            file: "examples/select-items.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
         name: "items",
         type: ["Array"],
         default: "[]",
-        description: "Array of items to select. This can be an `array` of `strings` or an `array` of `objects`. The objects should have at least two properties: a `text` that will be displayed in the menu and a `value`.",
+        description: "Array of items to select. This can be an `array` of `strings` or an `array` of `objects`. The objects should have at least two properties: a `text` that will be displayed in the menu and a `value`. This prop is optional, items can be assigned directly to the `items` property.",
     },
     {
         name: "itemText",
@@ -59,6 +66,18 @@ xModel: [
         description: "The type of the `x-model` is an `array` for single and multiple modes. The values in the `array` are the `value` fields of the selected options.",
     },
 ]
+events: [
+    {
+        name: "open-selectmenu",
+        type: [],
+        description: "Event dispatched after opening select menu.",
+    },
+    {
+        name: "scroll-to-bottom",
+        type: [],
+        description: "Event dispatched after menu is scrolled to the bottom.",
+    },
+]
 ---
 ## Select
 
@@ -84,6 +103,10 @@ Props:
 
 {% render "reference.liquid" props: xModel %}
 
+#### Events
+
+{% render "reference.liquid" props: events %}
+
 ### Select multiple values
 
 The `multiple` prop allows selection of multiple values.
@@ -92,4 +115,12 @@ The `multiple` prop allows selection of multiple values.
 
 ### Async items
 
+To load items from remote resource simply assign them to the `items` property. In the following example items are fetched after opening select menu. Additionally, the data is extended with the `isLoading` variable to track the loading progress.
+
 {% render "example.liquid" example: "examples/select-server.liquid", tabs: examples.selectServer %}
+
+### Custom items
+
+To access any additional fields on the item use the `origin` property.
+
+{% render "example.liquid" example: "examples/select-items.liquid", tabs: examples.selectItems %}

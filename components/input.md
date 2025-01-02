@@ -10,6 +10,13 @@ examples: {
             language: "html",
         },
     ],
+    inputProps: [
+        {
+            label: "Template",
+            file: "examples/input-props.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -57,3 +64,9 @@ input({
 Props:
 
 {% render "reference.liquid" props: props %}
+
+### Additional elements
+
+Input has few additional elements and props for commonly used features like icons or clear buttons. Here is a complete example with everything enabled. The elements for icons, prepending and appending content are marked with the respective `data` attributes.
+
+{% render "example.liquid" example: "examples/input-props.liquid", tabs: examples.inputProps %}

@@ -10,6 +10,13 @@ examples: {
             language: "html",
         },
     ],
+    progressIndetermnate: [
+        {
+            label: "Template",
+            file: "examples/progress-indeterminate.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -47,3 +54,7 @@ Props:
 #### x-model
 
 {% render "reference.liquid" props: xModel %}
+
+### Indeterminate progress
+
+{% render "example.liquid" example: "examples/progress-indeterminate.liquid", tabs: examples.progressIndetermnate, collapse: false %}

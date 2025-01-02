@@ -82,12 +82,15 @@ props: [
 
 ### Usage
 
+This component is simply a container for the notifications. With the container on the page you can display new notifications with the `show-notify` event.
+
 The data for the component is provided by the `notify` function in the `x-data` directive.
 
 ```javascript
 notify({
     order: String,
     stickyAt: String,
+    maxNotifications: Number,
     delay: Number,
     dismissable: Boolean,
     static: Boolean,
@@ -113,7 +116,7 @@ For example `bottom-4 md:right-10 w-full md:w-[350px] space-y-4` classes will ma
 
 ### Showing new notifications
 
-To show new notification simply dispatch `show-notify` event anywhere in your application. The text and all additional options of the notification is set in the data of the dispatched event. For the properties that are not included in the event data the defaults of the container are used.
+To show new notification simply dispatch `show-notify` event anywhere in your application. The text and all additional options of the notification are set in the data of the dispatched event. Default options of the container will be used for the properties that are not set.
 
 ```javascript
 $dispatch(
@@ -148,6 +151,6 @@ By default hovering over container pauses all timers and restarts them after poi
 
 ### Stacked notifications
 
-You can turn notification list into stacked notifications by adding `absolute` class to `li` element. The `transform` property can be used to add stacking effect.
+You can turn notification list into stacked notifications by adding `absolute` class to `li` element. To add a stacking effect `style` binding is used with a `transform` property.
 
 {% render "example.liquid" example: "examples/notify-stacked.liquid", tabs: examples.notifyStacked %}
