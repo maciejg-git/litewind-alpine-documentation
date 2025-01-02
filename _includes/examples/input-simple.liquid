@@ -1,6 +1,6 @@
 <div
-  x-data="input"
-  class="flex flex-1 items-center gap-x-2 rounded border border-secondary-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-secondary-400 focus-within:ring focus-within:ring-primary-200 focus:outline-none dark:border-dark-600 dark:bg-dark-800 dark:text-text-300 dark:focus-within:ring-primary-300"
+  x-data="input()"
+  class="flex flex-1 items-center gap-x-3 rounded border border-secondary-300 bg-white py-2 outline-none transition-shadow duration-200 focus-within:border-secondary-400 focus-within:ring focus-within:ring-primary-200 focus:outline-none dark:border-dark-600 dark:bg-dark-800 dark:text-text-300 dark:focus-within:ring-primary-300 px-3"
 >
   <div data-icon></div>
   <div data-prepend></div>
@@ -12,7 +12,7 @@
     />
   </div>
   <div data-append></div>
-  <div class="mr-2 flex items-center gap-x-2">
+  <div class="flex items-center gap-x-2">
     <div x-bind="loader">
       <svg viewBox="25 25 50 50" fill="none" class="spinner-svg h-5 w-5">
         <circle
