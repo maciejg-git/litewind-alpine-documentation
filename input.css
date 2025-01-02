@@ -43,6 +43,18 @@
       stroke-dashoffset: -124px;
     }
   }
+
+  @keyframes slide {
+    from, 15% {
+      left: 0%;
+      transform: translateX(-100%);
+    }
+
+    to {
+      left: 100%;
+      transform: scaleX(1)
+    }
+  }
 }
 
 .tooltip {
