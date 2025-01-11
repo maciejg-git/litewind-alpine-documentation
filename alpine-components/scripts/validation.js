@@ -17,11 +17,7 @@ let validationMessages = {
   sameAs: ""
 };
 
-export let setValidationMessage = (validator, message) => {
-  validationMessages[validator] = message
-}
-
-export let globalValidators = {
+let globalValidators = {
   required: (value, isRequired) => {
     if (typeof value === "boolean") return value
     if (Array.isArray(value)) return !!value.length || validationMessages.required;
@@ -99,36 +95,23 @@ export default function useValidation(inputs, globals) {
       form = globals?.form || null,
       name = "input",
       value,
-      getValue,
       rules = globals?.rules || [],
       options = globals?.options || {},
       externalState = globals?.externalState,
       onUpdate = globals?.onUpdate,
       onReset = globals?.onReset,
-      validation,
+      getValue,
       effect,
+      validation,
+      validateOn,
+      validateMode,
     } = input;
 
-    let status = Alpine.reactive({})
-    let messages = Alpine.reactive({})
-    let state = ""
-    // let status = { ...defaultStatus };
-    //
-    // let state = "";
-    //
-    // let messages = {};
-
-    let opts = {
-      validateOn: validOptions.validateOn.includes(options.validateOn)
-        ? options.validateOn
-        : "blur",
-      validateMode: validOptions.validateMode.includes(options.validateMode)
-        ? options.validateMode
-        : "silent",
-      stateDefaultValue: options.stateDefaultValue ?? "",
-      stateValidValue: options.stateValidValue ?? "valid",
-      stateInvalidValue: options.stateInvalidValue ?? "invalid",
-    };
+    validateOn = validOptions.validateOn.includes(validateOn) ? validateOn : "blur"
+    validateMode = validOptions.validateMode.includes(validateMode) ? validateMode : "silent"
+    let stateDefaultValue = ""
+    let stateValidValue = "valid"
+    let stateInvalidValue = "invalid"
 
     if (!isFunction(onUpdate)) {
       onUpdate = () => {};
@@ -143,13 +126,13 @@ export default function useValidation(inputs, globals) {
       );
     };
 
-    onUpdate(status, state, messages);
+    // onUpdate(status, state, messages);
 
     let validate = (value, event) => {
       let newStatus = {
-        touched: status.touched || event === "touch",
-        validated: status.validated || event === "formValidate",
-        dirty: status.dirty || !!(value && !!value.length),
+        touched: validation.status.touched || event === "touch",
+        validated: validation.status.validated || event === "formValidate",
+        dirty: validation.status.dirty || !!(value && !!value.length),
       };
 
       let newMessages = {};
@@ -183,82 +166,82 @@ export default function useValidation(inputs, globals) {
     let on = (event) => {
       let res = validate(value, event);
 
-      Object.assign(status, res.status)
-      messages = res.messages
-      state = updateState();
       validation.status = res.status
       validation.messages = res.messages
-      validation.state = state
+      validation.state = updateState()
 
-      onUpdate(status, state, messages);
+      // onUpdate(status, state, messages);
     }
 
     let updateState = () => {
-      let { dirty, touched, validated, optional, valid } = status;
+      let { dirty, touched, validated, optional, valid } = validation.status;
 
       // external state is set, return it
-      if (externalState && externalState !== null) {
-        return externalState;
+      if (externalState && externalState.value !== null) {
+        return externalState.value;
       }
 
       // optional input (not required and empty) cannot be valid or invalid,
       // return defalut state
       if (optional) {
-        return opts.stateDefaultValue;
+        return stateDefaultValue;
       }
 
       // input has not been yet interacted in any way, return current state
       if (!dirty && !touched && !validated) {
-        return state;
+        return validation.state;
       }
 
       // input is validated manually, return current state
-      if (opts.validateOn === "form" && !validated) {
-        return state;
+      if (validateOn === "form" && !validated) {
+        return validation.state;
       }
 
       // input is validated on blur, return current state
-      if (opts.validateOn === "blur" && !touched && !validated) {
-        return state;
+      if (validateOn === "blur" && !touched && !validated) {
+        return validation.state;
       }
 
       // input is validated immediately, has been touched or validated manually
       // and can change state
       // for invalid inputs always return invalid state
       if (!valid) {
-        return opts.stateInvalidValue;
+        return stateInvalidValue;
       }
 
       // for valid inputs return valid only in eager mode or when changing
       // from non default state
       if (
-        opts.validateMode === "eager" ||
-        state !== opts.stateDefaultValue
+        validateMode === "eager" ||
+        validation.state !== stateDefaultValue
       ) {
-        return opts.stateValidValue;
+        return stateValidValue;
       }
 
       // return default state
-      return state;
+      return validation.state;
     };
 
+    let lastValue = value
+
     effect(() => {
+      lastValue = value
       getValue((v) => {
-      console.log(value)
-      value = v
-      on("valueUpdate")
-        console.log(state,status)
+        value = v
+        if (value !== lastValue) {
+          on("valueUpdate")
+        }
       })
     })
 
     // reset
 
     let reset = () => {
-      status = { ...defaultStatus };
-      state = "";
-      messages = {};
+      validation.status = { ...defaultStatus };
+      validation.state = "";
+      validation.messages = {};
       isFunction(onReset) && onReset();
-      onUpdate(status, state, messages);
+      // onUpdate(status, state, messages);
     };
 
     return {
@@ -267,9 +250,6 @@ export default function useValidation(inputs, globals) {
         form,
         name,
         value,
-        status,
-        state,
-        messages,
         touch: () => on("touch"),
         formValidate: () => on("formValidate"),
         reset,
@@ -290,55 +270,71 @@ export default function useValidation(inputs, globals) {
   return (i.length === 1) ? validation[i[0]] : validation
 }
 
-document.addEventListener('alpine:init', () => {
-  Alpine.directive('validation', (el, { expression }, {evaluate, evaluateLater, Alpine, effect}) => {
-    // let validation = evaluate(expression)
-    Alpine.store("validation", {
-      inputs: {},
+document.addEventListener("alpine:init", () => {
+  Alpine.store("validation", {
+    inputs: {},
+  })
 
-      addInput(input) {
-        this[input.name] = input
-      }
-    })
-    let validation = {
+  Alpine.directive("validation", (el, {value, expression}, {Alpine, effect, evaluate, evaluateLater}) => {
+    let exp = JSON.parse(expression)
+    let validateValue = Alpine.$data(el).validateValue
+    let name = value ?? Alpine.bound(el, "name") ?? ""
+    let getValue = evaluateLater(validateValue)
+
+    Alpine.store("validation").inputs[name] = {
       status: {},
       messages: {},
       state: "",
+      getMessages() {
+        return this.state !== "" ? this.messages : {}
+      }
     }
 
-    let rules = evaluate(expression)
-    let getValue = evaluateLater("_value")
-    let v = useValidation({
-      getValue: getValue,
-      rules,
-      validation,
+    let validation = useValidation({
+      getValue,
+      rules: exp.rules,
+      validateOn: exp.validateOn,
+      validateMode: exp.validateMode,
       effect,
+      validation: Alpine.store("validation").inputs[name]
     })
-    Alpine.store("validation").addInput({
-      status: v.status,
-      messages: v.messages,
-      state: v.state,
-      name: v.name,
+
+    Alpine.addScopeToNode(el, {
+      touch: validation.touch,
     })
-    console.log(Alpine.store("validation"))
-    effect(() => {
-      getValue((value) => {
-      console.log(value)
-      console.log(Alpine.store("validation").input.status)
-        console.log(status)
-      })
-    })
-    effect(() => {
-      console.log(Alpine.store("validation").input.status)
-    })
-    let data = Alpine.$data(el)
-    data.onFocus = () => {
-      console.log('focus')
-    }
-    console.log(data)
   })
 
-  Alpine.magic("validation", () => {
-    return Alpine.store("validation")
+  Alpine.magic("validation", (el, {Alpine}) => input => {
+    return Alpine.store("validation").inputs[input]
+  })
+
+  Alpine.data("formText", () => {
+    return {
+      input: "",
+      validation: null,
+
+      init() {
+        this.$nextTick(() => {
+          this.input = Alpine.bound(this.$el, "data-input") ?? this.input
+          this.validation = Alpine.store("validation").inputs[this.input]
+        })
+      },
+      getMessages() {
+        return this.validation?.state === "invalid" ? this.validation.messages : []
+      },
+      message: {
+        ":class"() {
+          let classes = this.$el.attributes
+          let c = ""
+          if (this.validation.state === "valid") {
+            c = classes["class-valid"]?.textContent || ""
+          } else if (this.validation.state === "invalid") {
+            c = classes["class-invalid"]?.textContent || ""
+          }
+
+          return c
+        }
+      }
+    }
   })
 })

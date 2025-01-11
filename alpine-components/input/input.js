@@ -1,6 +1,14 @@
 document.addEventListener("alpine:init", () => {
-  Alpine.data("input", (props = {}) => {
+  Alpine.data("input", (dataExtend = {}) => {
     let isFunction = (f) => typeof f === "function";
+
+    let bind = {};
+    ["input", "loader", "clearButton"].forEach((i) => {
+      if (dataExtend[i]) {
+        bind[i] = dataExtend[i];
+        delete dataExtend[i];
+      }
+    });
 
     return {
       _value: "",
@@ -10,55 +18,74 @@ document.addEventListener("alpine:init", () => {
       clearable: false,
       isDirty: false,
       isTouched: false,
+      validateValue: "_value",
 
       init() {
-        Alpine.effect(() => {
-          this.placeholder = isFunction(props.placeholder)
-            ? props.placeholder()
-            : props.placeholder ?? this.placeholder;
+        this.$nextTick(() => {
+          Alpine.effect(() => {
+            this.clearable = JSON.parse(
+              Alpine.bound(this.$el, "data-clearable") ?? this.clearable,
+            );
+          });
+          Alpine.effect(() => {
+            this.useLoader = JSON.parse(
+              Alpine.bound(this.$el, "data-use-loader") ?? this.useLoader,
+            );
+          });
+          Alpine.effect(() => {
+            this.isLoading = JSON.parse(
+              Alpine.bound(this.$el, "data-is-loading") ?? false,
+            );
+          });
+          Alpine.effect(() => {
+            this.placeholder = Alpine.bound(this.$el, "data-placeholder") ?? "";
+          });
         });
-        Alpine.effect(() => {
-          this.useLoader = isFunction(props.useLoader) ? props.useLoader() : props.useLoader ?? this.useLoader
-        })
-        Alpine.effect(() => {
-          this.isLoading = isFunction(props.isLoading) ? props.isLoading() : props.isLoading ?? this.isLoading
-        })
-        Alpine.effect(() => {
-          this.clearable = isFunction(props.clearable) ? props.clearable() : props.clearable ?? this.clearable
-        })
         Alpine.bind(this.$el, {
           ["x-modelable"]: "_value",
           ["@mousedown.prevent"]() {
-            this.$refs.input.focus()
-          }
+            this.$refs.input.focus();
+          },
         });
         Alpine.effect(() => {
-          if (this._value.length) this.isDirty = true
-        })
+          if (this._value.length) this.isDirty = true;
+        });
       },
       clear() {
         this._value = "";
       },
       input: {
-        "x-model": "_value",
+        ":value"() {
+          return this._value
+        },
+        "@input"() {
+          this._value = this.$event.target.value
+        },
         "x-ref": "input",
         ":placeholder"() {
           return this.placeholder;
         },
         "@focus"() {
-          this.isTouched = true
-        }
+          this.isTouched = true;
+        },
+        "@blur"() {
+          if (isFunction(this.touch)) this.touch();
+        },
+        ...bind.input,
       },
       loader: {
         "x-show"() {
-          return this.useLoader && this.isLoading
-        }
+          return this.useLoader && this.isLoading;
+        },
+        ...bind.loader,
       },
       clearButton: {
         "x-show"() {
-          return this.clearable
-        }
-      }
+          return this.clearable;
+        },
+        ...bind.clearButton,
+      },
+      ...dataExtend,
     };
   });
 });

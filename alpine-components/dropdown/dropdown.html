@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.8"></script>
     <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.12"></script>
     <script defer type="module" src="/scripts/use-floating.js"></script>
-    <script defer src="/scripts/transition-plugin.js"></script>
+    <script defer src="/plugins/transition-plugin.js"></script>
     <script defer type="module" src="./dropdown.js"></script>
     <script
       defer
@@ -16,16 +16,16 @@
     ></script>
   </head>
   <body>
-    <div x-data="dropdown()">
+    <div x-data="dropdown">
       <button x-bind="trigger">dropdown</button>
       <div
         x-bind="menu"
         x-cloak
-        x-alt-transition="{
-              enter: ['opacity-0 scale-y-50', 'transition ease-out duration-100 origin-top', 'opacity-100'],
-              leave: ['opacity-100', 'transition ease-in duration-100 origin-top', 'opacity-0 scale-y-50'],
-            }"
-        class="z-30 w-[320px] rounded-md border border-secondary-200 bg-white shadow-md dark:border-dark-700 dark:bg-dark-800 dark:text-text-300"
+        x-alt-transition='{
+              "enter": ["opacity-0 scale-y-50", "transition ease-out duration-100 origin-top", "opacity-100"],
+              "leave": ["opacity-100", "transition ease-in duration-100 origin-top", "opacity-0 scale-y-50"]
+            }'
+        class="z-50 w-[320px] rounded-md border border-secondary-200 bg-white shadow-md dark:border-dark-700 dark:bg-dark-800 dark:text-text-300"
       >
         <a
           href="#"
