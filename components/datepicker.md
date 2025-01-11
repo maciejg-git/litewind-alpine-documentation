@@ -27,25 +27,25 @@ examples: {
 }
 props: [
     {
-        name: "range",
+        name: "data-range",
         type: ["Boolean"],
         default: "false",
         description: "Allows selection of date ranges. Changing this prop resets component.",
     },
     {
-        name: "mondayFirstWeekday",
+        name: "data-monday-first-weekday",
         type: ["Boolean"],
         default: "true",
         description: "Week starts on Monday",
     },
     {
-        name: "adjacentMonths",
+        name: "data-adjacent-months",
         type: ["Boolean"],
         default: "true",
         description: "If true days from previous and next month are displayed. Classes for these days can be modified in the `class-adjacent` attribute in the template. Adjacent days are selectable.",
     },
     {
-        name: "locale",
+        name: "data-locale",
         type: ["String"],
         default: "en-GB",
         description: "This prop is only used to set the names of the months and weekdays and to format date in the components footer. It does not modify format of the `x-model` date which is always `YYYY-MM-DD`.",
@@ -72,16 +72,8 @@ events: [
 
 ### Usage
 
-The data for the component is provided by the `datepicker` function in the `x-data` directive.
+The data for the component is provided by the `datepicker` function in the `x-data` directive and the props in the `data-*` attributes. 
 
-```javascript
-datepicker({
-    range: Boolean,
-    mondayFirstWeekday: Boolean,
-    adjacentMonths: Boolean,
-    locale: String,
-})
-```
 Props:
 
 {% render "reference.liquid" props: props %}
@@ -96,12 +88,12 @@ Props:
 
 ### Range mode
 
-Datepicker allows selection of date ranges when `range` prop is enabled. In range mode instead of single date `string` component emits `array` of two `strings`.
+Datepicker allows selection of date ranges when `data-range` prop is enabled. In range mode instead of single date `string` component emits `array` of two `strings`.
 
 {% render "example.liquid" example: "examples/datepicker-range.liquid", tabs: examples.datepickerRange %}
 
 ### Datepicker in dropdown
 
-By default datepicker is a standalone component. You can easy turn it into standard expandable picker for inputs by putting it inside dropdown component menu. The dropdown should have `autoClose` prop disabled. To close menu after selection `@datepicker-selection-complete` event can be used.
+By default datepicker is a standalone component. You can easy turn it into standard expandable picker for inputs by putting it inside dropdown component menu. The dropdown should have `data-auto-close` prop disabled. To close menu after selection `@datepicker-selection-complete` event can be used.
 
 {% render "example.liquid" example: "examples/datepicker-dropdown.liquid", tabs: examples.datepickerDropdown %}

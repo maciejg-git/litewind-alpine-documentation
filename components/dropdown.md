@@ -20,49 +20,49 @@ examples: {
 }
 props: [
     {
-        name: "triggerEv",
+        name: "data-trigger-event",
         type: ["String"],
         default: "click",
         description: "Event that triggers dropdown. Valid values are `click` or `hover`.",
     },
     {
-        name: "autoClose",
+        name: "data-auto-close",
         type: ["Boolean"],
         default: "true",
         description: "If `true` menu is closed after clicking on any element inside.",
     },
     {
-        name: "placement",
+        name: "data-placement",
         type: ["String"],
         default: "bottom-start",
         description: "Initial placement of dropdown content. FloatingUI option, see [documentation](https://floating-ui.com/docs/computePosition#placement) for examples and usage.",
     },
     {
-        name: "offsetX",
+        name: "data-offset-x",
         type: ["Number"],
         default: "0",
         description: "Offset of dropdown relative to reference element. FloatingUI option, see [documentation](https://floating-ui.com/docs/offset) for examples and usage.",
     },
     {
-        name: "offsetY",
+        name: "data-offset-y",
         type: ["Number"],
         default: "0",
         description: "Offset of dropdown relative to reference element. FloatingUI option, see [documentation](https://floating-ui.com/docs/offset) for examples and usage.",
     },
     {
-        name: "flip",
+        name: "data-flip",
         type: ["Boolean"],
         default: "false",
         description: "Allows fliping of the dropdown to the opposite placement if outside of current view. FloatingUI option, see [documentation](https://floating-ui.com/docs/flip) for examples and usage.",
     },
     {
-        name: "autoPlacement",
+        name: "data-auto-placement",
         type: ["Boolean"],
         default: "false",
         description: "Automatically calculates best placement for the floating element. FloatingUI option, see [documentation](https://floating-ui.com/docs/autoPlacement) for examples and usage.",
     },
     {
-        name: "inline",
+        name: "data-inline",
         type: ["Boolean"],
         default: "false",
         description: "",
@@ -83,26 +83,14 @@ Dropdown uses FloatingUI to position menu relative to triggering element. Before
 <script defer type="module" src="/scripts/use-floating.js"></script>
 ```
 
-The data for the component is provided by the `dropdown` function in the `x-data` directive.
+The data for the component is provided by the `dropdown` function in the `x-data` directive and the props in the `data-*` attributes.
 
-```javascript
-dropdown({
-    triggerEv: String,
-    autoClose: Boolean,
-    placement: String,
-    offsetX: Number,
-    offsetY: Number,
-    flip: Boolean,
-    autoPlacement: Boolean,
-    inline: Boolean,
-})
-```
 Props:
 
 {% render "reference.liquid" props: props %}
 
 ### Dropdown on hover
 
-To make dropdown menu open on hover set the `triggerEv` to `'hover'`. In hover mode there is short timeout before closing menu when the mouse leaves the trigger element.
+To make dropdown menu open on hover set the `data-trigger-event` to `'hover'`. In hover mode there is short timeout before closing menu when the mouse leaves the trigger element.
 
 {% render "example.liquid" example: "examples/dropdown-hover.liquid", tabs: examples.dropdownHover %}

@@ -13,19 +13,19 @@ examples: {
 }
 props: [
     {
-        name: "itemsCount",
+        name: "data-items-count",
         type: ["Number"],
         default: "0",
         description: "Total number of items. Pagination uses this value to compute the number of pages to render. It is usually provided by another component that uses pagination for navigation.",
     },
     {
-        name: "itemsPerPage",
+        name: "data-items-per-page",
         type: ["Number"],
         default: "10",
         description: "Number of items per page. Pagination uses this value to compute the number of pages to render. It is usually provided by another component that uses pagination for navigation. `0` disables pagination (displays only 1 page).",
     },
     {
-        name: "maxPages",
+        name: "data-max-pages",
         type: ["Number"],
         default: "7",
         description: "Maximum number of pages to display. This prop must have value of 3 or more.",
@@ -38,15 +38,8 @@ props: [
 
 ### Usage
 
-The data for the component is provided by the `pagination` function in the `x-data` directive.
+The data for the component is provided by the `pagination` function in the `x-data` directive and the props in the `data-*` attributes.
 
-```javascript
-pagination({
-    itemsCount: Number,
-    itemsPerPage: Number,
-    maxPages: Number,
-})
-```
 Props:
 
 {% render "reference.liquid" props: props %}

@@ -34,28 +34,52 @@ examples: {
 }
 props: [
     {
-        name: "items",
+        name: "data-items",
         type: ["Array"],
         default: "[]",
         description: "Array of items to select. This can be an `array` of `strings` or an `array` of `objects`. The objects should have at least two properties: a `text` that will be displayed in the menu and a `value`. This prop is optional, items can be assigned directly to the `items` property.",
     },
     {
-        name: "itemText",
+        name: "data-item-text",
         type: ["String"],
         default: "text",
         description: "Name of the property that holds the displayed text of the item.",
     },
     {
-        name: "itemValue",
+        name: "data-item-value",
         type: ["String"],
         default: "value",
         description: "Name of the property that holds the value of the item.",
     },
     {
-        name: "multiple",
+        name: "data-multiple",
         type: ["Boolean"],
         default: "false",
         description: "Allows selecting multiple values.",
+    },
+    {
+        name: "data-clearable",
+        type: ["Boolean"],
+        default: "false",
+        description: "Adds an X button that resets model to the default value.",
+    },
+    {
+        name: "data-use-loader",
+        type: ["Boolean"],
+        default: "false",
+        description: "Enable or disable the spinner in the input.",
+    },
+    {
+        name: "data-is-loading",
+        type: ["Boolean"],
+        default: "false",
+        description: "If `true` displays a spinner in the input. Spinner should be first enabled in the `data-use-loader` prop.",
+    },
+    {
+        name: "data-placeholder",
+        type: ["String"],
+        default: "empty string",
+        description: "Sets the placeholder of the input element.",
     },
 ]
 xModel: [
@@ -85,16 +109,8 @@ events: [
 
 ### Usage
 
-The data for the component is provided by the `select` function in the `x-data` directive.
+The data for the component is provided by the `select` function in the `x-data` directive and the props in the `data-*` attributes.
 
-```javascript
-select({
-    items: Array,
-    itemText: String,
-    itemValue: String,
-    multiple: Boolean,
-})
-```
 Props:
 
 {% render "reference.liquid" props: props %}

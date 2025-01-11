@@ -18,11 +18,7 @@ examples: {
 
 ### Usage
 
-The data for the component is provided by the `sidepanel` function in the `x-data` directive.
-
-```javascript
-sidepanel()
-```
+The data for the component is provided by the `sidepanel` function in the `x-data` directive and the props in the `data-*` attributes.
 
 ### Opening sidepanel
 

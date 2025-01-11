@@ -44,13 +44,13 @@ examples: {
 }
 props: [
     {
-        name: "static",
+        name: "data-static",
         type: ["Boolean"],
         default: "false",
         description: "Static modal cannot be closed by clicking outside of it.",
     },
     {
-        name: "closable",
+        name: "data-closable",
         type: ["Boolean"],
         default: "true",
         description: "Set to `false` to remove close button.",
@@ -63,14 +63,8 @@ props: [
 
 ### Usage
 
-The data for the component is provided by the `modal` function in the `x-data` directive.
+The data for the component is provided by the `modal` function in the `x-data` directive and the props in the `data-*` attributes.
 
-```javascript
-modal({
-    static: Boolean,
-    closable: Boolean,
-})
-```
 Props:
 
 {% render "reference.liquid" props: props %}

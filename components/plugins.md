@@ -15,10 +15,10 @@ The transition plugin add two directives `x-alt-transition` and `x-vue-transitio
 This directive adds more timeline like way of defining transitions.
 
 ```html
-<div x-alt-transition="{
-  enter: ['opacity-0 scale-y-50', 'transition ease-out duration-100 origin-top', 'opacity-100'],
-  leave: ['opacity-100', 'transition ease-in duration-100 origin-top', 'opacity-0 scale-y-50'],
-}"
+<div x-alt-transition='{
+  "enter": ["opacity-0 scale-y-50", "transition ease-out duration-100 origin-top", "opacity-100"],
+  "leave": ["opacity-100", "transition ease-in duration-100 origin-top", "opacity-0 scale-y-50"],
+}'
 ></div>
 ```
 

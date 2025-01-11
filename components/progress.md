@@ -20,7 +20,7 @@ examples: {
 }
 props: [
     {
-        name: "interactive",
+        name: "data-interactive",
         type: ["Boolean"],
         default: "false",
         description: "If this prop is enabled clicking on progress will dispatch `progress-clicked` event with the clicked position.",
@@ -40,13 +40,8 @@ xModel: [
 
 ### Usage
 
-The data for the component is provided by the `progress` function in the `x-data` directive.
+The data for the component is provided by the `progress` function in the `x-data` directive and the props in the `data-*` attributes.
 
-```javascript
-progress({
-    interactive: Boolean,
-})
-```
 Props:
 
 {% render "reference.liquid" props: props %}

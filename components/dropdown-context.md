@@ -20,43 +20,43 @@ examples: {
 }
 props: [
     {
-        name: "autoClose",
+        name: "data-auto-close",
         type: ["Boolean"],
         default: "true",
         description: "If `true` menu is closed after click on any element inside.",
     },
     {
-        name: "placement",
+        name: "data-placement",
         type: ["String"],
         default: "bottom-start",
         description: "Initial placement of dropdown content. FloatingUI option, see [documentation](https://floating-ui.com/docs/computePosition#placement) for examples and usage.",
     },
     {
-        name: "offsetX",
+        name: "data-offset-x",
         type: ["Number"],
         default: "0",
         description: "Offset of dropdown relative to reference element. FloatingUI option, see [documentation](https://floating-ui.com/docs/offset) for examples and usage.",
     },
     {
-        name: "offsetY",
+        name: "data-offset-y",
         type: ["Number"],
         default: "0",
         description: "Offset of dropdown relative to reference element. FloatingUI option, see [documentation](https://floating-ui.com/docs/offset) for examples and usage.",
     },
     {
-        name: "flip",
+        name: "data-flip",
         type: ["Boolean"],
         default: "false",
         description: "Allows fliping of the dropdown to the opposite placement if outside of current view. FloatingUI option, see [documentation](https://floating-ui.com/docs/flip) for examples and usage.",
     },
     {
-        name: "autoPlacement",
+        name: "data-auto-placement",
         type: ["Boolean"],
         default: "false",
         description: "Automatically calculates best placement for the floating element. FloatingUI option, see [documentation](https://floating-ui.com/docs/autoPlacement) for examples and usage.",
     },
     {
-        name: "inline",
+        name: "data-inline",
         type: ["Boolean"],
         default: "false",
         description: "",
@@ -77,19 +77,8 @@ Context dropdown uses FloatingUI to position menu relative to mouse position. Be
 <script defer type="module" src="/scripts/use-floating.js"></script>
 ```
 
-The data for the component is provided by the `dropdownContext` function in the `x-data` directive.
+The data for the component is provided by the `dropdownContext` function in the `x-data` directive and the props in the `data-*` attributes.
 
-```javascript
-dropdownContext({
-    autoClose: Boolean,
-    placement: String,
-    offsetX: Number,
-    offsetY: Number,
-    flip: Boolean,
-    autoPlacement: Boolean,
-    inline: Boolean,
-})
-```
 Props:
 
 {% render "reference.liquid" props: props %}
