@@ -1,12 +1,13 @@
 <div x-data="{ isOpen: false }">
   <div
-    x-data="tabs('{{ tabs[0].label }}', {
+    x-data="tabs({
       content: { 
         'x-alt-transition': {
           enter: ['opacity-0', 'transition ease-out duration-75 delay-100', 'opacity-100'],
           leave: ['opacity-100', 'transition ease-in duration-75 absolute top-0', 'opacity-0'],
       }
       }})"
+      data-selected-tab="Template"
       {%- if collapse | default: true, allow_false: true -%}
       x-show="isOpen"
       x-collapse.min.400px
