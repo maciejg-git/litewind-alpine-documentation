@@ -1,5 +1,8 @@
 <table
-  x-data="table($store.tableDefinition)"
+  x-data="table"
+  :data-items="$store.tableDefinition.data"
+  :data-definition="$store.tableDefinition.definition"
+  :data-primary-key="$store.tableDefinition.primaryKey"
   class="w-full table-auto border-collapse text-left text-[0.9rem]"
 >
   <thead>

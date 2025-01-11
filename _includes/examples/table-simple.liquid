@@ -1,5 +1,7 @@
 <table
-  x-data="table($store.table)"
+  x-data="table"
+  :data-items="$store.table.data"
+  :data-primary-key="$store.table.primaryKey"
   class="w-full table-auto border-collapse text-left text-[0.9rem]"
 >
   <thead>

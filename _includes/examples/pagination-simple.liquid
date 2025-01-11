@@ -1,13 +1,10 @@
 <div x-data="{ model: 1 }" class="flex flex-col items-center">
   <nav
-    x-data="
-      pagination({
-        itemsCount: 70,
-        maxPages: 7,
-        itemsPerPage: 8,
-      })
-    "
+    x-data="pagination"
     x-model="model"
+    data-items-count="70"
+    data-max-pages="7"
+    data-items-per-page="8"
     class="flex w-auto gap-x-2"
   >
     <a
