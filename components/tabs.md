@@ -10,7 +10,22 @@ examples: {
             language: "html",
         },
     ],
+    tabsStyle: [
+        {
+            label: "Template",
+            file: "examples/tabs-style.liquid",
+            language: "html",
+        },
+    ],
 }
+props: [
+    {
+        name: "data-selected-tab",
+        type: ["String"],
+        default: "empty string",
+        description: "The name of the selected tab.",
+    },
+]
 ---
 ## Tabs
 
@@ -18,10 +33,16 @@ examples: {
 
 ### Usage
 
-The data for the component is provided by the `tabs` function in the `x-data` directive.
+The data for the component is provided by the `tabs` function in the `x-data` directive and the props in the `data-*` attributes.
 
-```javascript
-tabs(activeTab: String)
-```
+Props:
 
-The `activeTab` argument sets the default active tab.
+{% render "reference.liquid" props: props %}
+
+### Tabs align
+
+Tabs can be aligned by modifying `justify-start` class on the `tabBar` element with the different `justify-*` class. The `justify-stretch` will make the tabs take up all available space on the tab bar.
+
+### Tabs style
+
+{% render "example.liquid" example: "examples/tabs-style.liquid", tabs: examples.tabsStyle %}
