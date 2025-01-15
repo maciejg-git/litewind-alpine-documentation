@@ -24,6 +24,13 @@ examples: {
             language: "html",
         },
     ],
+    tooltipOffset: [
+        {
+            label: "Template",
+            file: "examples/tooltip-offset.liquid",
+            language: "html",
+        },
+    ],
     tooltipFunction: [
         {
             label: "Template",
@@ -39,19 +46,23 @@ examples: {
 
 ### Usage
 
-The tooltip can be added to any element with the `x-tooltip` directive. The value for the directive is an `object` that sets the tooltips contents and a few additional options.
+The tooltip can be added to any element with the `x-tooltip` directive. You can set the text of the tooltip in the directive value and customize it with a directive modifiers.
 
-```javascript
-x-tooltip="{
-    text: String | Function,
-    placement: String,
-    delay: Number,
-    offsetX: Number,
-    offsetY: Number,
-    flip: Boolean,
-    autoPlacement: Boolean,
-}"
+```html
+<button x-data x-tooltip="tooltip">
+  Hover me
+</button>
 ```
+
+### Modifiers
+
+- `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, `bottom-end`, `right`, `right-start`, `right-end`, `left`, `left-start`, `left-end` - placement of the tooltip
+- `delay:x` - delay before showing and hiding tooltip, for example, `delay:300`
+- `offset-x:x` - right and left offset of the tooltip relative to the element, for example, `offset-x:5`
+- `offset-y:x` - top and bottom offset of the tooltip relative to the element, for example, `offset-y:5`
+- `flip` - allows flipping of the tooltip to the opposite placement if outside of current view
+- `auto-placement` - automatically calculates best placement for the tooltip
+- `func` - the value will be evaluated by Alpine. This can be useful for dynamic tooltips.
 
 ### Tooltip placement
 
@@ -60,6 +71,10 @@ x-tooltip="{
 ### Tooltip delay
 
 {% render "example.liquid" example: "examples/tooltip-delay.liquid", tabs: examples.tooltipDelay, collapse: false %}
+
+### Tooltip offset
+
+{% render "example.liquid" example: "examples/tooltip-offset.liquid", tabs: examples.tooltipOffset, collapse: false %}
 
 ### Function tooltip content
 
