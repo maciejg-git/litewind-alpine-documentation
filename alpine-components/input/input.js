@@ -40,6 +40,22 @@ document.addEventListener("alpine:init", () => {
           Alpine.effect(() => {
             this.placeholder = Alpine.bound(this.$el, "data-placeholder") ?? "";
           });
+
+          Alpine.bind(this.$el, {
+            ":class"() {
+              let classes = this.$el.attributes
+              let c = ""
+              if (this.validation?.state === "valid") {
+                c = classes["class-valid"]?.textContent || ""
+              } else if (this.validation?.state === "invalid") {
+                c = classes["class-invalid"]?.textContent || ""
+              } else {
+                c = classes["class-default"]?.textContent || ""
+              }
+
+              return c
+            }
+          })
         });
         Alpine.bind(this.$el, {
           ["x-modelable"]: "_value",
