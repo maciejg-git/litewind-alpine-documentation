@@ -1,7 +1,7 @@
 ---
 layout: "layouts/base.html"
 ---
-<div class="mt-16 text-text-800 dark:bg-[#191919] dark:text-[#c9cbd0] flex flex-col mx-auto">
+<div class="mt-16 text-text-800 dark:bg-[#191919] dark:text-[#c9cbd0] flex flex-col mx-auto min-h-[90vh]">
   <div class="justify-center flex flex-row flex-wrap w-auto">
     <div class="hidden basis-2/12 lg:block xl:px-6 flex-[0_0_0%] min-w-0">
       <div class="sticky top-16 ml-auto overflow-auto border-r px-10 pt-2 text-[0.9em] text-text-600 dark:border-dark-700 dark:text-text-300/70">
@@ -14,6 +14,18 @@ layout: "layouts/base.html"
       </div>
     </div>
     <div class="hidden basis-2/12 xl:block">
+      <div class="top-16 sticky">
+        <div class="mb-6 dark:text-text-300 font-semibold">Contents</div>
+        <div x-data="{ headings: [] }" x-init="headings = document.body.querySelectorAll('h3,h4')" class="text-[0.9em] text-text-600 dark:text-text-300/70">
+          <ul class="flex flex-col gap-y-2">
+            <template x-for="heading in headings">
+              <li :class="{'ml-4': heading.tagName[1] === '4'}">
+                <a href="" x-text="heading.textContent"></a>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
