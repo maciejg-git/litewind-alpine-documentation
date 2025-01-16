@@ -74,7 +74,7 @@ events: [
 
 The data for the component is provided by the `datepicker` function in the `x-data` directive and the props in the `data-*` attributes. 
 
-Props:
+#### Props
 
 {% render "reference.liquid" props: props %}
 

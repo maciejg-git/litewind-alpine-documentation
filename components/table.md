@@ -127,7 +127,7 @@ The table component is used to generate tables from arrays. Tables can be static
 
 The data for the component is provided by the `table` function in the `x-data` directive and the props in the `data-*` attributes.  Because of a lot of shared state (filter, pagination etc) it is recomended to set up data as a separate store.
 
-Props:
+#### Props
 
 {% render "reference.liquid" props: props %}
 

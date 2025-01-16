@@ -86,7 +86,7 @@ This component is simply a container for the notifications. With the container o
 
 The data for the component is provided by the `notify` function in the `x-data` directive and the props in the `data-*` attributes.
 
-Props:
+#### Props
 
 {% render "reference.liquid" props: props %}
 
