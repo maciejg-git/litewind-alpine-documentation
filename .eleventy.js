@@ -1,5 +1,6 @@
 const markdownIt = require("markdown-it");
 const hljs = require('highlight.js');
+const markdownItAnchor = require("markdown-it-anchor")
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("output.css")
@@ -15,5 +16,6 @@ module.exports = function(eleventyConfig) {
     }
 	};
 
+  eleventyConfig.amendLibrary("md", (markdownit) => markdownit.use(markdownItAnchor))
 	eleventyConfig.setLibrary("md", markdownIt(options));
 };
