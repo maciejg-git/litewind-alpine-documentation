@@ -16,11 +16,43 @@ layout: "layouts/base.html"
     <div class="hidden basis-2/12 xl:block">
       <div class="top-16 sticky">
         <div class="mb-6 dark:text-text-300 font-semibold">Contents</div>
-        <div x-data="{ headings: [] }" x-init="headings = document.body.querySelectorAll('h3,h4')" class="text-[0.9em] text-text-600 dark:text-text-300/70">
+        <div 
+          x-data="{ 
+            headings: [],
+            currentHeading: null,
+            isPartiallyInViewport(element, offsetBottom) {
+              const rect = element.getBoundingClientRect();
+              return (
+                rect.bottom - offsetBottom > 0 &&
+                rect.top <= document.documentElement.clientHeight
+              );
+            },
+            handleScroll() {
+              let visibleHeaders = [...this.headings].filter((i) => {
+                return this.isPartiallyInViewport(i.nextElementSibling, 200);
+              });
+              if (
+                window.scrollY + window.innerHeight >=
+                  document.documentElement.scrollHeight &&
+                visibleHeaders.length
+              ) {
+                this.currentHeading = visibleHeaders[visibleHeaders.length - 1];
+                return;
+              }
+              if (!visibleHeaders[0] || this.currentHeading === visibleHeaders[0]) {
+                return;
+              }
+              this.currentHeading = visibleHeaders[0];
+            }
+          }"
+          x-init="headings = document.body.querySelectorAll('h3,h4')"
+          @scroll.window="handleScroll"
+          class="text-[0.9em] text-text-600 dark:text-text-300/70"
+        >
           <ul class="flex flex-col gap-y-2">
             <template x-for="heading in headings">
-              <li :class="{'ml-4': heading.tagName[1] === '4'}">
-                <a href="" x-text="heading.textContent"></a>
+              <li :class="{'ml-4': heading.tagName[1] === '4', 'font-semibold text-text-800 dark:text-text-200': heading === currentHeading}">
+                <a :href="'#' + heading.id" x-text="heading.textContent"></a>
               </li>
             </template>
           </ul>
