@@ -63,13 +63,13 @@
 
 @layer base {
   h2 {
-    @apply text-3xl font-semibold mb-10
+    @apply text-3xl font-semibold mb-10 scroll-mt-20
   }
   h3 {
-    @apply text-2xl font-semibold mb-4 mt-10
+    @apply text-2xl font-semibold mb-4 mt-10 scroll-mt-20
   }
   h4 {
-    @apply text-lg font-semibold my-6
+    @apply text-lg font-semibold my-6 scroll-mt-20
   }
   .markdown-container > p {
     @apply my-6
@@ -81,7 +81,7 @@
     @apply text-blue-400 underline
   }
   pre code {
-    @apply rounded-md bg-neutral-100 block p-4 overflow-auto dark:bg-[#212121]
+    @apply bg-neutral-50 block p-4 overflow-auto dark:bg-[#212121]
   }
   code {
     @apply text-sm
