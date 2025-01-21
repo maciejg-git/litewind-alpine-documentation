@@ -131,7 +131,7 @@ The `multiple` prop allows selection of multiple values.
 
 ### Async items
 
-To load items from remote resource simply assign them to the `items` property. In the following example items are fetched after opening select menu. Additionally, the data is extended with the `isLoading` variable to track the loading progress.
+To load items from remote resource simply assign them to the `items` property. In the following example items are fetched after opening select menu.
 
 {% render "example.liquid" example: "examples/select-server.liquid", tabs: examples.selectServer %}
 
