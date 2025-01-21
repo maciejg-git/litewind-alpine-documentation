@@ -1,0 +1,80 @@
+<div x-data="accordion" class="flex flex-col gap-y-2">
+  <div x-data="collapse">
+    <button
+      x-bind="trigger"
+      class="block flex w-full items-center justify-between gap-x-2 rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
+    >
+      Toggle collapse
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 512 512"
+        class="h-4 w-4 rotate-180 transform duration-200"
+        :class="{ '!rotate-0': isOpen }"
+      >
+        <path
+          d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
+        />
+      </svg>
+    </button>
+    <div x-bind="content" x-collapse x-cloak>
+      <div class="py-4">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged.
+      </div>
+    </div>
+  </div>
+  <div x-data="collapse">
+    <button
+      x-bind="trigger"
+      class="block flex w-full items-center justify-between gap-x-2 rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
+    >
+      Toggle collapse
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 512 512"
+        class="h-4 w-4 rotate-180 transform duration-200"
+        :class="{ '!rotate-0': isOpen }"
+      >
+        <path
+          d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
+        />
+      </svg>
+    </button>
+    <div x-bind="content" x-collapse x-cloak>
+      <div class="py-4">
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+        its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like readable English.
+      </div>
+    </div>
+  </div>
+  <div x-data="collapse">
+    <button
+      x-bind="trigger"
+      class="block flex w-full items-center justify-between gap-x-2 rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
+    >
+      Toggle collapse
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 512 512"
+        class="h-4 w-4 rotate-180 transform duration-200"
+        :class="{ '!rotate-0': isOpen }"
+      >
+        <path
+          d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
+        />
+      </svg>
+    </button>
+    <div x-bind="content" x-collapse x-cloak>
+      <div class="py-4">
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old.
+      </div>
+    </div>
+  </div>
+</div>
