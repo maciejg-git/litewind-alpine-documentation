@@ -4,7 +4,7 @@
 {% assign components = collections.introduction | sort: "data.name" %}
 {% for component in components %}
   <li class="my-2">
-    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-400{% endif %}">{{ component.data.name }}</a>
+    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-500 font-semibold{% endif %}">{{ component.data.name }}</a>
   </li>
 {% endfor%}
 </ul>
@@ -15,7 +15,7 @@
 {% assign components = collections.component | sort: "data.name" %}
 {% for component in components %}
   <li class="my-2">
-    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-400{% endif %}">{{ component.data.name }}</a>
+    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-500 font-semibold{% endif %}">{{ component.data.name }}</a>
   </li>
 {% endfor%}
 </ul>
@@ -26,7 +26,7 @@
 {% assign components = collections.form | sort: "data.name" %}
 {% for component in components %}
   <li class="my-2">
-    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-400{% endif %}">{{ component.data.name }}</a>
+    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-500 font-semibold{% endif %}">{{ component.data.name }}</a>
   </li>
 {% endfor%}
 </ul>
@@ -37,7 +37,7 @@
 {% assign components = collections.directive | sort: "data.name" %}
 {% for component in components %}
   <li class="my-2">
-    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-400{% endif %}">{{ component.data.name }}</a>
+    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-500 font-semibold{% endif %}">{{ component.data.name }}</a>
   </li>
 {% endfor%}
 </ul>
