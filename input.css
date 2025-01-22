@@ -63,7 +63,7 @@
 
 @layer base {
   h2 {
-    @apply text-3xl font-semibold mb-10 scroll-mt-20
+    @apply text-3xl font-semibold scroll-mt-20
   }
   h3 {
     @apply text-2xl font-semibold mb-4 mt-10 scroll-mt-20
@@ -81,7 +81,7 @@
     @apply text-blue-400 underline
   }
   pre code {
-    @apply bg-neutral-50 block p-4 overflow-auto dark:bg-[#212121]
+    @apply bg-neutral-50 block p-4 overflow-y-auto overflow-x-hidden dark:bg-[#212121]
   }
   code {
     @apply text-sm
