@@ -68,6 +68,8 @@ events: [
 ---
 ## Datepicker
 
+{% render "github-link.liquid" component: "datepicker" %}
+
 {% render "example.liquid" example: "examples/datepicker-simple.liquid", tabs: examples.datepickerSimple %}
 
 ### Usage

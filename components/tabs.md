@@ -29,6 +29,8 @@ props: [
 ---
 ## Tabs
 
+{% render "github-link.liquid" component: "tabs" %}
+
 {% render "example.liquid" example: "examples/tabs-simple.liquid", tabs: examples.tabsSimple %}
 
 ### Usage

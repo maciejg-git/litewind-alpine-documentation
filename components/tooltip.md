@@ -42,6 +42,8 @@ examples: {
 ---
 ## Tooltip
 
+{% render "github-link.liquid" component: "tooltip" %}
+
 {% render "example.liquid" example: "examples/tooltip-simple.liquid", tabs: examples.tooltipSimple, collapse: false %}
 
 ### Usage

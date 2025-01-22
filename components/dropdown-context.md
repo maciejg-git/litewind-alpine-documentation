@@ -65,6 +65,8 @@ props: [
 ---
 ## Dropdown context
 
+{% render "github-link.liquid" component: "dropdown-context" %}
+
 {% render "example.liquid" example: "examples/dropdown-context-simple.liquid", tabs: examples.dropdownContextSimple %}
 
 ### Usage

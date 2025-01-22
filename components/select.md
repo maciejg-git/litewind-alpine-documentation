@@ -105,6 +105,8 @@ events: [
 ---
 ## Select
 
+{% render "github-link.liquid" component: "select" %}
+
 {% render "example.liquid" example: "examples/select-simple.liquid", tabs: examples.selectSimple %}
 
 ### Usage

@@ -14,6 +14,8 @@ examples: {
 ---
 ## Sidepanel
 
+{% render "github-link.liquid" component: "sidepanel" %}
+
 {% render "example.liquid" example: "examples/sidepanel-simple.liquid", tabs: examples.sidepanelSimple %}
 
 ### Usage

@@ -47,6 +47,8 @@ props: [
 ---
 ## Input
 
+{% render "github-link.liquid" component: "input" %}
+
 {% render "example.liquid" example: "examples/input-simple.liquid", tabs: examples.inputSimple %}
 
 ### Usage

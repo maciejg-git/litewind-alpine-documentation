@@ -78,6 +78,8 @@ props: [
 ---
 ## Notify
 
+{% render "github-link.liquid" component: "notify" %}
+
 {% render "example.liquid" example: "examples/notify-simple.liquid", tabs: examples.notifySimple %}
 
 ### Usage

@@ -71,6 +71,8 @@ props: [
 ---
 ## Dropdown
 
+{% render "github-link.liquid" component: "dropdown" %}
+
 {% render "example.liquid" example: "examples/dropdown-simple.liquid", tabs: examples.dropdownSimple %}
 
 ### Usage
@@ -91,6 +93,6 @@ The data for the component is provided by the `dropdown` function in the `x-data
 
 ### Dropdown on hover
 
-To make dropdown menu open on hover set the `data-trigger-event` to `'hover'`. In hover mode there is short timeout before closing menu when the mouse leaves the trigger element.
+To make dropdown menu open on hover set the `data-trigger-event` to `'hover'`. In hover mode there is short delay before closing menu when the mouse leaves the trigger element.
 
 {% render "example.liquid" example: "examples/dropdown-hover.liquid", tabs: examples.dropdownHover %}

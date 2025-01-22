@@ -34,6 +34,8 @@ props: [
 ---
 ## Pagination
 
+{% render "github-link.liquid" component: "pagination" %}
+
 {% render "example.liquid" example: "examples/pagination-simple.liquid", tabs: examples.paginationSimple %}
 
 ### Usage

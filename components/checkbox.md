@@ -14,4 +14,6 @@ examples: {
 ---
 ## Checkbox
 
+{% render "github-link.liquid" component: "checkbox" %}
+
 {% render "example.liquid" example: "examples/checkbox-simple.liquid", tabs: examples.checkboxSimple, collapse: false %}

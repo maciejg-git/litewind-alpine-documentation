@@ -21,6 +21,8 @@ examples: {
 ---
 ## Collapse
 
+{% render "github-link.liquid" component: "collapse" %}
+
 {% render "example.liquid" example: "examples/collapse-simple.liquid", tabs: examples.collapseSimple %}
 
 ### Usage

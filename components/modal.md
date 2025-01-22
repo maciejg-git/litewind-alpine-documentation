@@ -59,6 +59,8 @@ props: [
 ---
 ## Modal
 
+{% render "github-link.liquid" component: "modal" %}
+
 {% render "example.liquid" example: "examples/modal-simple.liquid", tabs: examples.modalSimple %}
 
 ### Usage
@@ -94,12 +96,12 @@ By default modal is centered and 50% wide. The placement and size of the modal c
 
 ### Modal dialogs
 
-You can use modals to show dialogs to the users. Here is an example of reusable dialog component. The event data is used to set the contents of the dialog and add callbacks for the users actions. In the second example dispatching event inside a `promise` allows to pause code execution and await for the user confirmation.
+Modals are often used for dialogs. Here is an example of reusable dialog component. The event data is used to set the contents of the dialog and add callbacks for the users actions. In the second example dispatching event inside a `promise` allows to pause code execution and await for the user confirmation.
 
 {% render "example.liquid" example: "examples/modal-dialog.liquid", tabs: examples.modalDialog %}
 
 ### Modal image viewer
 
-Another way to use modals is to view fullscreen images. Here is an example.
+Modals can also be used to make image viewers. Here is an example.
 
 {% render "example.liquid" example: "examples/modal-image.liquid", tabs: examples.modalImage %}

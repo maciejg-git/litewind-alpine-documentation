@@ -36,6 +36,8 @@ xModel: [
 ---
 ## Progress
 
+{% render "github-link.liquid" component: "progress" %}
+
 {% render "example.liquid" example: "examples/progress-simple.liquid", tabs: examples.progressSimple, collapse: false %}
 
 ### Usage

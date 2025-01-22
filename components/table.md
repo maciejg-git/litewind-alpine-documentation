@@ -119,6 +119,8 @@ definition: [
 ---
 ## Table
 
+{% render "github-link.liquid" component: "table" %}
+
 The table component is used to generate tables from arrays. Tables can be static or include features like filtering, sorting, pagination, reordering and others.
 
 {% render "example.liquid" example: "examples/table-simple.liquid", tabs: examples.tableSimple %}
