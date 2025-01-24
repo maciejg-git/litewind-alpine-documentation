@@ -81,7 +81,7 @@
     @apply text-blue-400 underline
   }
   pre code {
-    @apply bg-neutral-50 block p-4 overflow-y-auto overflow-x-hidden dark:bg-[#212121]
+    @apply bg-neutral-50 block p-4 overflow-auto dark:bg-[#212121] dark:[color-scheme:dark]
   }
   code {
     @apply text-sm
