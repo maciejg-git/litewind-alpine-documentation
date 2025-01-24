@@ -1,0 +1,12 @@
+<ul
+  x-data="breadcrumb"
+  :data-items="['item', 'item 2', 'item 4']"
+  class="flex gap-x-2"
+>
+  <template x-for="(item, index) in items">
+    <li class="flex gap-x-2">
+      <a href="" x-text="item"></a>
+      <span x-text="divider" x-show="index < items.length - 1"></span>
+    </li>
+  </template>
+</ul>
