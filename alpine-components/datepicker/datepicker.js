@@ -28,8 +28,6 @@ document.addEventListener("alpine:init", () => {
       }
     }
 
-    let isFunction = (f) => typeof f === "function";
-
     let rangeSelectionStates = {
       UNSELECTED: 0,
       FROM_SELECTED: 1,
@@ -231,6 +229,9 @@ document.addEventListener("alpine:init", () => {
       getDayKey() {
         return this.d.toISOString() + this.isAdjacent();
       },
+      getDayText() {
+        return this.d.getDate()
+      },
       isToday() {
         return (
           this.today.getDate() === this.d.getUTCDate() &&
@@ -332,7 +333,7 @@ document.addEventListener("alpine:init", () => {
             c += (classes["class-selected-range"]?.textContent || "") + " ";
           } else if (this.isPartiallySelected()) {
             c += (classes["class-partially-selected"]?.textContent || "") + " ";
-          } else if (isFunction(this.isDisabled) && this.isDisabled(this.d)) {
+          } else if (typeof this.isDisabled === "function" && this.isDisabled(this.d)) {
             c += (classes["class-disabled"]?.textContent || "") + " ";
           } else {
             c += (classes["class-default"]?.textContent || "") + " ";

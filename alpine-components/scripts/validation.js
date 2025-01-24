@@ -72,8 +72,6 @@ let globalValidators = {
   }
 };
 
-let isFunction = (v) => typeof v === "function";
-
 let validOptions = {
   validateOn: ["blur", "immediate", "form"],
   validateMode: ["silent", "eager"],
@@ -87,21 +85,13 @@ let defaultStatus = {
   validated: false,
 };
 
-export default function useValidation(inputs, globals) {
-  let localInputs = Array.isArray(inputs) ? inputs : [inputs];
-
-  let validation = localInputs.reduce((acc, input) => {
+export default function useValidation(input) {
     let {
-      form = globals?.form || null,
+      form = null,
       name = "input",
       value,
-      rules = globals?.rules || [],
-      options = globals?.options || {},
-      externalState = globals?.externalState,
-      onUpdate = globals?.onUpdate,
-      onReset = globals?.onReset,
-      getValue,
-      effect,
+      rules = [],
+      onReset,
       validation,
       validateOn,
       validateMode,
@@ -109,13 +99,6 @@ export default function useValidation(inputs, globals) {
 
     validateOn = validOptions.validateOn.includes(validateOn) ? validateOn : "blur"
     validateMode = validOptions.validateMode.includes(validateMode) ? validateMode : "silent"
-    let stateDefaultValue = ""
-    let stateValidValue = "valid"
-    let stateInvalidValue = "invalid"
-
-    if (!isFunction(onUpdate)) {
-      onUpdate = () => {};
-    }
 
     let isOptional = (value) => {
       return (
@@ -126,22 +109,15 @@ export default function useValidation(inputs, globals) {
       );
     };
 
-    // onUpdate(status, state, messages);
-
-    let validate = (value, event) => {
-      let newStatus = {
-        touched: validation.status.touched || event === "touch",
-        validated: validation.status.validated || event === "formValidate",
-        dirty: validation.status.dirty || !!(value && !!value.length),
-      };
-
+    let validate = (value) => {
+      let newStatus = {}
       let newMessages = {};
 
       newStatus.valid = rules.reduce((valid, rule) => {
         let [key, v] =
           typeof rule === "string" ? [rule, null] : Object.entries(rule)[0];
 
-        let validator = (isFunction(v) && v) || globalValidators[key];
+        let validator = (typeof v === "function" && v) || globalValidators[key];
 
         if (!validator) return valid;
 
@@ -163,28 +139,26 @@ export default function useValidation(inputs, globals) {
       return { status: newStatus, messages: newMessages }
     };
 
-    let on = (event) => {
-      let res = validate(value, event);
+    let on = (event, updatedValue) => {
+      value = updatedValue !== undefined ? updatedValue : value
+      let res = validate(value);
+
+      res.status.touched = validation.status.touched || event === "touch"
+      res.status.validated = validation.status.validated || event === "formValidate"
+      res.status.dirty = validation.status.dirty || !!(value && !!value.length)
 
       validation.status = res.status
       validation.messages = res.messages
       validation.state = updateState()
-
-      // onUpdate(status, state, messages);
     }
 
     let updateState = () => {
       let { dirty, touched, validated, optional, valid } = validation.status;
 
-      // external state is set, return it
-      if (externalState && externalState.value !== null) {
-        return externalState.value;
-      }
-
       // optional input (not required and empty) cannot be valid or invalid,
       // return defalut state
       if (optional) {
-        return stateDefaultValue;
+        return "";
       }
 
       // input has not been yet interacted in any way, return current state
@@ -206,33 +180,21 @@ export default function useValidation(inputs, globals) {
       // and can change state
       // for invalid inputs always return invalid state
       if (!valid) {
-        return stateInvalidValue;
+        return "invalid";
       }
 
       // for valid inputs return valid only in eager mode or when changing
       // from non default state
       if (
         validateMode === "eager" ||
-        validation.state !== stateDefaultValue
+        validation.state !== ""
       ) {
-        return stateValidValue;
+        return "valid";
       }
 
       // return default state
       return validation.state;
     };
-
-    let lastValue = value
-
-    effect(() => {
-      lastValue = value
-      getValue((v) => {
-        value = v
-        if (value !== lastValue) {
-          on("valueUpdate")
-        }
-      })
-    })
 
     // reset
 
@@ -240,101 +202,75 @@ export default function useValidation(inputs, globals) {
       validation.status = { ...defaultStatus };
       validation.state = "";
       validation.messages = {};
-      isFunction(onReset) && onReset();
-      // onUpdate(status, state, messages);
+      typeof onReset === "function" && onReset();
     };
 
     return {
-      ...acc,
-      [name]: {
         form,
         name,
         value,
         touch: () => on("touch"),
         formValidate: () => on("formValidate"),
+        updateValue: (value) => on("valueUpdate", value),
         reset,
-      },
     };
-  }, {});
-
-  // add inputs to form
-
-  Object.values(validation).forEach((i) => {
-    isFunction(i.form?.addToForm) && i.form.addToForm(i);
-  });
-
-  // return validation for single input
-
-  let i = Object.keys(validation);
-
-  return (i.length === 1) ? validation[i[0]] : validation
 }
 
 document.addEventListener("alpine:init", () => {
   Alpine.store("validation", {
-    inputs: {},
+    default: {}
   })
 
-  Alpine.directive("validation", (el, {value, expression}, {Alpine, effect, evaluate, evaluateLater}) => {
+  Alpine.data("form", () => {
+    return {
+      formName: "",
+
+      init() {
+        this.formName = Alpine.bound(this.$el, "data-form-name")
+        Alpine.store("validation")[this.formName] = {}
+      }
+    }
+  })
+
+  Alpine.directive("validation", (el, {value, expression}, {Alpine, effect, evaluate, evaluateLater, cleanup}) => {
     let exp = JSON.parse(expression)
+    let inputName = value ?? Alpine.bound(el, "name") ?? ""
+    let formName = Alpine.$data(el).formName ?? "default"
     let validateValue = Alpine.$data(el).validateValue
-    let name = value ?? Alpine.bound(el, "name") ?? ""
     let getValue = evaluateLater(validateValue)
 
-    Alpine.store("validation").inputs[name] = {
+    Alpine.store("validation")[formName][inputName] = {
       status: {},
       messages: {},
       state: "",
-      getMessages() {
-        return this.state !== "" ? this.messages : {}
-      }
     }
 
     let validation = useValidation({
-      getValue,
-      rules: exp.rules,
-      validateOn: exp.validateOn,
-      validateMode: exp.validateMode,
-      effect,
-      validation: Alpine.store("validation").inputs[name]
+      ...exp,
+      validation: Alpine.store("validation")[formName][inputName]
+    })
+
+    let getter = () => {
+      let value
+      getValue((v) => value = v)
+      return value
+    }
+
+    validation.updateValue(getter())
+
+    let watchValue = Alpine.watch(getter, (value) => {
+      validation.updateValue(value)
     })
 
     Alpine.addScopeToNode(el, {
       touch: validation.touch,
+      validation: Alpine.store("validation")[formName][inputName]
     })
+
+    cleanup(watchValue)
   })
 
-  Alpine.magic("validation", (el, {Alpine}) => input => {
-    return Alpine.store("validation").inputs[input]
-  })
-
-  Alpine.data("formText", () => {
-    return {
-      input: "",
-      validation: null,
-
-      init() {
-        this.$nextTick(() => {
-          this.input = Alpine.bound(this.$el, "data-input") ?? this.input
-          this.validation = Alpine.store("validation").inputs[this.input]
-        })
-      },
-      getMessages() {
-        return this.validation?.state === "invalid" ? this.validation.messages : []
-      },
-      message: {
-        ":class"() {
-          let classes = this.$el.attributes
-          let c = ""
-          if (this.validation.state === "valid") {
-            c = classes["class-valid"]?.textContent || ""
-          } else if (this.validation.state === "invalid") {
-            c = classes["class-invalid"]?.textContent || ""
-          }
-
-          return c
-        }
-      }
-    }
+  Alpine.magic("validation", (el, {Alpine}) => ( form, input ) => {
+    return Alpine.store("validation")[form][input]
   })
 })

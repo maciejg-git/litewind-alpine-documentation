@@ -1,6 +1,33 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("select", (dataExtend = {}) => {
-    let isFunction = (f) => typeof f === "function";
+    let aria = {
+      main: {
+        "x-id"() {
+          return ["select-aria"]
+        }
+      },
+      trigger: {
+        role: "combobox",
+        ":aria-expanded"() {
+          return this.isOpen
+        },
+        ":aria-controls"() {
+          return this.$id("select-aria")
+        }
+      },
+      menu: {
+        ":id"() {
+          return this.$id("select-aria")
+        },
+        role: "listbox",
+      },
+      option: {
+        role: "option",
+        ":aria-selected"() {
+          return this.selected.has(this.item.value) ? "true" : "false"
+        },
+      }
+    }
 
     let isElementOverflowingBottom = (el) => {
       return (
@@ -104,6 +131,9 @@ document.addEventListener("alpine:init", () => {
             }
           },
         });
+
+        Alpine.bind(this.$el, aria.main)
+
         this.$watch("_model", () => {
           this.selected.clear();
           this._model.forEach((value) => {
@@ -214,6 +244,7 @@ document.addEventListener("alpine:init", () => {
           return Alpine.bound(this.selectEl, "data-placeholder");
         },
         ...bind.trigger,
+        ...aria.trigger,
       },
       menu: {
         "x-ref": "menu",
@@ -237,6 +268,7 @@ document.addEventListener("alpine:init", () => {
           }
         },
         ...bind.menu,
+        ...aria.menu,
       },
       option: {
         "@click"() {
@@ -248,9 +280,8 @@ document.addEventListener("alpine:init", () => {
           let c = "";
           if (this.selected.has(this.item.value)) {
             c += (classes["class-selected"]?.textContent || "") + " ";
-          }
-          if (+this.$el.dataset.index === this.highlightedIndex) {
-            c += (classes["class-highlight"]?.textContent || "") + " ";
+          } else {
+            c += (classes["class-default"]?.textContent || "") + " "
           }
 
           return c;
@@ -262,6 +293,7 @@ document.addEventListener("alpine:init", () => {
           return this.index;
         },
         ...bind.option,
+        ...aria.option,
       },
       ...dataExtend,
     };
