@@ -1,12 +1,12 @@
 <button
   x-data
-  @click="$dispatch('open-sidepanel', { id: 'sidepanel' })"
+  @click="$dispatch('open-sidepanel', { id: 'sidepanelModal' })"
   class="mx-auto block rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
 >
-  Open sidepanel
+  Open modal sidepanel
 </button>
 
-<div x-data="sidepanel" id="sidepanel">
+<div x-data="sidepanel" data-modal="true" id="sidepanelModal">
   <template x-if="isModal">
     <div
       x-bind="backdrop"
