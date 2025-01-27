@@ -6,6 +6,7 @@
     "class-today",
     "class-adjacent",
     "class-selected-range",
-    "class-partially-selected"
+    "class-partially-selected",
+    "class-default"
   ]
 }
