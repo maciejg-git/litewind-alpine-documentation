@@ -12,7 +12,7 @@ The transition plugin add two directives `x-alt-transition` and `x-vue-transitio
 
 #### x-alt-transition
 
-This directive adds more timeline like way of defining transitions. To allow CSP builds of Alpine it is parsed as JSON.
+This directive adds more timeline like way of defining transitions. To allow CSP builds it is parsed as JSON.
 
 ```html
 <div x-alt-transition='{

@@ -17,6 +17,13 @@ examples: {
             language: "html",
         },
     ],
+    dropdownMenu: [
+        {
+            label: "Template",
+            file: "examples/dropdown-menu.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -67,6 +74,12 @@ props: [
         default: "false",
         description: "",
     },
+    {
+        name: "data-role",
+        type: ["String"],
+        default: "empty string",
+        description: "The dropdown is a generic component that can be used for all kinds of applications. If you are building something more well defined like a menu or listbox you can use this prop to automatically add aria attributes to the elements. Valid values are: `menu`, `listbox` and `dialog`. By default only ARIA attributes for expanding content are included.",
+    },
 ]
 ---
 ## Dropdown
@@ -96,3 +109,7 @@ The data for the component is provided by the `dropdown` function in the `x-data
 To make dropdown menu open on hover set the `data-trigger-event` to `'hover'`. In hover mode there is short delay before closing menu when the mouse leaves the trigger element.
 
 {% render "example.liquid" example: "examples/dropdown-hover.liquid", tabs: examples.dropdownHover %}
+
+### Dropdown menu
+
+{% render "example.liquid" example: "examples/dropdown-menu.liquid", tabs: examples.dropdownMenu %}
