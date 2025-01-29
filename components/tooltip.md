@@ -48,7 +48,7 @@ examples: {
 
 ### Usage
 
-The tooltip can be added to any element with the `x-tooltip` directive. You can set the text of the tooltip in the directive value and customize it with a directive modifiers.
+The tooltip can be added to any element with the `x-tooltip` directive. Use directive value to set the text of the tooltip and the modifiers to customize it.
 
 ```html
 <button x-data x-tooltip="tooltip">
