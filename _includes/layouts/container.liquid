@@ -74,7 +74,7 @@ layout: "layouts/base.html"
   </template>
   <aside
     x-bind="sidepanel"
-    class="fixed left-0 top-0 z-30 h-full w-[250px] bg-secondary-100 px-6 text-left shadow-lg shadow-black/40 dark:bg-dark-700 dark:text-text-300"
+    class="fixed left-0 top-0 z-30 h-full w-[250px] bg-secondary-100 px-6 text-left shadow-lg shadow-black/40 dark:bg-dark-700 dark:text-text-300 flex flex-col"
     x-alt-transition='{
             "enter": ["opacity-0 -translate-x-40", "transition ease-out duration-100", "opacity-100"],
             "leave": ["opacity-100", "transition ease-in duration-100", "opacity-0 -translate-x-40"]
