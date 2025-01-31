@@ -6,7 +6,7 @@ name: Plugins
 
 ## Plugins
 
-### Transition plugin
+### Transition directives
 
 The transition plugin add two directives `x-alt-transition` and `x-vue-transition`. Both directives add another way to define transitions. The new definition is simply transformed to a set of native Alpine transition directives.
 
@@ -29,3 +29,5 @@ This directive allows defining Vue like transitions:
 ```html
 <div x-vue-transition="fade"></div>
 ```
+
+### x-class directive
