@@ -1,6 +1,6 @@
 ---
 layout: "layouts/container.liquid"
-tags: directive
+tags: component
 name: Tooltip
 examples: {
     tooltipSimple: [

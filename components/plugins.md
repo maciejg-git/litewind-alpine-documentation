@@ -31,3 +31,11 @@ This directive allows defining Vue like transitions:
 ```
 
 ### x-class directive
+
+The x-class directive allows adding classes to the element depending on the state of the component. It can be used as an alternative to the native x-bind:class directive.
+
+Here is basic example with simple condition.
+
+```html
+<div x-class:is-selected="text-lg border"></div>
+```
