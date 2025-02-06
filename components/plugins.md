@@ -39,3 +39,17 @@ Here is basic example with simple condition.
 ```html
 <div x-class:is-selected="text-lg border"></div>
 ```
+
+The is-selected is a property or getter of the x-data.
+
+#### Modifiers
+
+The x-class allows three modifiers.
+
+The not modifier applies classes if the condition is false.
+
+```html
+<div x-class:is-selected.not="text-lg border"></div>
+```
+
+Use the else modifier on two or more x-class directives to apply classes from 
