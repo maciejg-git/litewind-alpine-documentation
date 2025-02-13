@@ -48,7 +48,9 @@ With Tailwind set up add the following to the main CSS file.
 
 ### How to use
 
-To use component in your application simply copy any example that is closest to your use case. For components that has `x-data` directive you need to include js file for that component. Some of the components may also require offical Alpine plugins.
+The data for each component is defined in the external js file.
+
+To use component in your application simply copy any example that is closest to your use case. 
 
 ### Components basics
 

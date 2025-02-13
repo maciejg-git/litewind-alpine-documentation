@@ -12,7 +12,7 @@ examples: {
         },
         {
             label: "Store",
-            file: "../alpine-components/table/table-store.js",
+            file: "../examples/table/table-store.js",
             language: "javascript",
             name: "tableSimple",
         },
@@ -26,7 +26,7 @@ examples: {
         },
         {
             label: "Store",
-            file: "../alpine-components/table/table-definition-store.js",
+            file: "../examples/table/table-definition-store.js",
             language: "javascript",
             name: "tableDefinition",
         },
@@ -40,7 +40,7 @@ examples: {
         },
         {
             label: "Store",
-            file: "../alpine-components/table/table-filter-pagination-store.js",
+            file: "../examples/table/table-filter-pagination-store.js",
             language: "javascript",
             name: "tableDefinition",
         },

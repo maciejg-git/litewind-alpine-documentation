@@ -51,5 +51,3 @@ The not modifier applies classes if the condition is false.
 ```html
 <div x-class:is-selected.not="text-lg border"></div>
 ```
-
-Use the else modifier on two or more x-class directives to apply classes from 
