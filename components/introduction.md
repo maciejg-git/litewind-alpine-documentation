@@ -48,7 +48,30 @@ With Tailwind set up add the following to the main CSS file.
 
 ### How to use
 
-The data for each component is defined in the external js file.
+The first step to use component is adding required js files. There is one main file for every component that defines object for the `x-data` directive. You can include this file directly from the CDN in the `script` tag.
+
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/dropdown/dist/cdn.min.js"></script>
+```
+
+You can also install npm package and include files locally.
+
+```powershell
+npm install litewind-alpine
+```
+
+<div class="mt-6">
+
+```javascript
+import Alpine from "alpinejs" 
+import dropdown from "litewind-alpine/dropdown.js"
+
+Alpine.plugin(dropdown)
+```
+
+</div>
+
+Some components may also require additional Alpine plugins.
 
 To use component in your application simply copy any example that is closest to your use case. 
 
@@ -56,9 +79,9 @@ To use component in your application simply copy any example that is closest to 
 
 Below is a basic overview of the features and structure of the component.
 
-- there is only one x-data for each component
-- the value of the x-data is always a function defined in the components js file
-- the props of the component are provided in the data-* attributes on the main element
-- the directives and attributes for other elements are bound with the x-bind directive
-- some directives are bound directly in the template to allow cutomization. These inlude, for example, x-text, x-for, x-transition etc.
-- some elements have class-* attributes to add styles depending on the variant of the element
+- there is only one `x-data` for each component
+- the value of the `x-data` is always a function defined in the components js file
+- the props of the component are provided in the `data-*` attributes on the main element
+- the directives and attributes for other elements are bound with the `x-bind` directive
+- some directives are bound directly in the template to allow cutomization. These inlude, for example, `x-text`, `x-for`, `x-transition` etc.
+- some elements have `class-*` attributes to add styles depending on the variant of the element. These classes are added with the Alpine `x-bind:class` directive

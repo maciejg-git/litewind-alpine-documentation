@@ -10,6 +10,8 @@ name: Plugins
 
 The transition plugin add two directives `x-alt-transition` and `x-vue-transition`. Both directives add another way to define transitions. The new definition is simply transformed to a set of native Alpine transition directives.
 
+Add transition plugin to your page with the CDN or as a npm package.
+
 #### x-alt-transition
 
 This directive adds more timeline like way of defining transitions. To allow CSP builds it is parsed as JSON.
