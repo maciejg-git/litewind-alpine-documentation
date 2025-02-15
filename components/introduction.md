@@ -48,7 +48,7 @@ With Tailwind set up add the following to the main CSS file.
 
 ### How to use
 
-The first step to use component is adding required js files. There is one main file for every component that defines object for the `x-data` directive. You can include this file directly from the CDN in the `script` tag.
+The first step to use component is adding required js files. There is one main file for every component that defines object for the `x-data` directive. You can include this file directly from the CDN in the `script` tag before main Alpine file.
 
 ```html
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/dropdown/dist/cdn.min.js"></script>
@@ -71,7 +71,7 @@ Alpine.plugin(dropdown)
 
 </div>
 
-Some components may also require additional Alpine plugins.
+Some components may also require additional Alpine plugins. Refer to the components documentation for any additional requirements.
 
 To use component in your application simply copy any example that is closest to your use case. 
 
