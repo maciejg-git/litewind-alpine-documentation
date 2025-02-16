@@ -9,6 +9,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images/**/*.jpg")
   eleventyConfig.addPassthroughCopy("node_modules/litewind-alpine")
   eleventyConfig.addPassthroughCopy("examples/**/*.js")
+  eleventyConfig.addPassthroughCopy("_redirects")
 
   let options = {
 		html: true,
