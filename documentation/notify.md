@@ -84,6 +84,10 @@ props: [
 
 ### Usage
 
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/notify/dist/cdn.min.js"></script>
+```
+
 This component is simply a container for the notifications. With the container on the page you can display new notifications with the `show-notify` event.
 
 The data for the component is provided by the `notify` function in the `x-data` directive and the props in the `data-*` attributes.

@@ -111,6 +111,11 @@ events: [
 
 ### Usage
 
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/plugins/use-floating/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/select/dist/cdn.min.js"></script>
+```
+
 The data for the component is provided by the `select` function in the `x-data` directive and the props in the `data-*` attributes.
 
 #### Props

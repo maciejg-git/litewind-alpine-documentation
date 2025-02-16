@@ -28,6 +28,10 @@ Form text can be used with a form components to display validation messages.
 
 ### Usage
 
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/form-text/dist/cdn.min.js"></script>
+```
+
 The data for the component is provided by the `formText` function in the `x-data` directive and the props in the `data-*` attributes.
 
 #### Props

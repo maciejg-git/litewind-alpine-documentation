@@ -74,6 +74,10 @@ events: [
 
 ### Usage
 
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/datepicker/dist/cdn.min.js"></script>
+```
+
 The data for the component is provided by the `datepicker` function in the `x-data` directive and the props in the `data-*` attributes. 
 
 #### Props

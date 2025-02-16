@@ -77,10 +77,9 @@ props: [
 
 ### Usage
 
-Context dropdown uses FloatingUI to position menu relative to mouse position. Before setting up dropdown make sure you have following scripts in your page.
-
 ```html
-<script defer type="module" src="/plugins/use-floating/dist/cdn.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/plugins/use-floating/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/dropdown-context/dist/cdn.min.js"></script>
 ```
 
 The data for the component is provided by the `dropdownContext` function in the `x-data` directive and the props in the `data-*` attributes.

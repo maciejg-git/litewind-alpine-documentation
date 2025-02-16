@@ -90,10 +90,9 @@ props: [
 
 ### Usage
 
-Dropdown uses FloatingUI to position menu relative to triggering element. Before setting up dropdown make sure you have following scripts in your page.
-
 ```html
-<script defer type="module" src="/plugins/use-floating/dist/cdn.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/plugins/use-floating/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/dropdown/dist/cdn.min.js"></script>
 ```
 
 The data for the component is provided by the `dropdown` function in the `x-data` directive and the props in the `data-*` attributes.
