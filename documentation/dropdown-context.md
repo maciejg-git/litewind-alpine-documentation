@@ -61,6 +61,12 @@ props: [
         default: "false",
         description: "",
     },
+    {
+        name: "data-role",
+        type: ["String"],
+        default: "empty string",
+        description: "The dropdown is a generic component that can be used for all kinds of applications. If you are building something more well defined like a menu or listbox you can use this prop to automatically add aria attributes to the elements. Valid values are: `menu`, `listbox` and `dialog`.",
+    },
 ]
 ---
 ## Dropdown context
