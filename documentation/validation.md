@@ -10,6 +10,20 @@ examples: {
             language: "html",
         },
     ],
+    validationMode: [
+        {
+            label: "Template",
+            file: "examples/validation-mode.liquid",
+            language: "html",
+        },
+    ],
+    validationResults: [
+        {
+            label: "Template",
+            file: "examples/validation-results.liquid",
+            language: "html",
+        },
+    ],
 }
 ---
 ## Validation
@@ -33,7 +47,8 @@ Form component is a container for validated inputs. The data for the component i
 
 The x-validation directive is used to set the rules and the mode of the validation. The value of the directive is in JSON format and has following properties:
 - `rules` - is an array of objects and strings. Simple rules use strings and rules that require argument use objects.
-- `mode` - is a string that defines when to validate input and how to update state depending on the validation results.
+- `mode` - is a string that defines when to validate input and how to update state depending on the validation results. If mode is not defined the default `"blur-silent"` is used.
+- `messages` - is an object containing validation messages. If messages are not defined the default global messages are used.
 
 #### Rules
 
@@ -66,6 +81,12 @@ Mode defines when to validate input and how to update state depending in the val
 - `"form-eager"` - validate manually after calling formValidate function. State is set for invalid and valid inputs.
 - `"immediate-eager"` - validate on each update of the input. State is set for invalid and valid inputs.
 
+{% render "example.liquid" example: "examples/validation-mode.liquid", tabs: examples.validationMode %}
+
+#### Messages
+
+Each rule has default generic validation message for the invalid value. You can customize these messages for the input by adding them to the messages property. The key is a rule name and the value is the new message.
+
 ### Validation results
 
 Validation results for each input are stored in the form component. This data is automatically used by inputs and other components to set validation related styles and validation messages. Validation results can also be accessed with the $validation magic function.
@@ -75,3 +96,7 @@ The validation result is an object with following propreties:
 - `status` - object containg the results of validation and the current state of the input (for example `touched`, `dirty` etc). It is updated once initially and then after each value change.
 - `state` - final validation state of input. This state is based on the current `status` and is updated only when conditions for the `mode` are fulfilled (for example input lost focus etc). By default it is empty string for initial state of input, `"valid"` for valid input and `"invalid"` for invalid input.
 - `messages` - object containing validation messages.
+
+See how these properties are updated depending on the input value in the next example.
+
+{% render "example.liquid" example: "examples/validation-results.liquid", tabs: examples.validationResults %}
