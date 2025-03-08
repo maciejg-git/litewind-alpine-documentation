@@ -83,6 +83,9 @@
   .markdown-container blockquote {
     @apply border-l-4 px-4 leading-8 border-secondary-200 dark:border-neutral-600
   }
+  .example hr {
+    @apply border-secondary-200 dark:border-dark-700
+  }
   pre code {
     @apply bg-neutral-50 block p-4 overflow-auto dark:bg-[#212121] dark:[color-scheme:dark]
   }
