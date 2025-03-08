@@ -85,7 +85,7 @@ Mode defines when to validate input and how to update state depending in the val
 
 #### Messages
 
-Each rule has default generic validation message for the invalid value. You can customize these messages for the input by adding them to the messages property. The key is a rule name and the value is the new message.
+Each rule has default generic validation message for the invalid value. You can customize these messages for the input by adding them to the messages property. The key is a rule name and the value is the new message. The message can contain special %d characters that are replaced with a rule value.
 
 ### Validation results
 
@@ -100,3 +100,15 @@ The validation result is an object with following propreties:
 See how these properties are updated depending on the input value in the next example.
 
 {% render "example.liquid" example: "examples/validation-results.liquid", tabs: examples.validationResults %}
+
+### Adding rules
+
+For the CDN build of the plugin, the default set of rules is available in the window.Litewind.globalValidators property. To add new rule simply create new property in the globalValidators object. The key is a rule name and the value is a validator function. This function takes validated value as an argument and should return true or a message.
+
+For the module build of the plugin you can simply import globalValidators from the plugin.
+
+### Customizing messages
+
+For the CDN build of the plugin, the default messages are available in the window.Litewind.validationMessages. The keys of this object are default rule names and the values are default messages.
+
+For the module build of the plugin import validationMessages from the plugin.
