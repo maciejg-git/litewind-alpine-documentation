@@ -37,7 +37,7 @@ examples: {
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/form-text/dist/cdn.min.js"></script>
 ```
 
-The main part of validation is the form component that is used to store validation data. The validation rules and other options are set seperately for each input in the form with the x-validation directive. Third part of validation is a form-text component that is used to display validation messages. The form-text component is optional and defined in a seperate file.
+The main part of validation is the `form` component that is used to store validation data. The validation rules and other options are set seperately for each input in the `form` with the `x-validation` directive. Third part of validation is a `form-text` component that is used to display validation messages. The `form-text` component is optional and defined in a seperate file.
 
 ### Form component
 
@@ -45,7 +45,7 @@ Form component is a container for validated inputs. The data for the component i
 
 ### x-validation directive
 
-The x-validation directive is used to set the rules and the mode of the validation. The value of the directive is in JSON format and has following properties:
+The `x-validation` directive is used to set the rules and the mode of the validation for the input in the `form`. The value of the directive is in JSON format and has following properties:
 - `rules` - is an array of objects and strings. Simple rules use strings and rules that require argument use objects.
 - `mode` - is a string that defines when to validate input and how to update state depending on the validation results. If mode is not defined the default `"blur-silent"` is used.
 - `messages` - is an object containing validation messages. If messages are not defined the default global messages are used.
@@ -89,7 +89,7 @@ Each rule has default generic validation message for the invalid value. You can 
 
 ### Validation results
 
-Validation results for each input are stored in the form component. This data is automatically used by inputs and other components to set validation related styles and validation messages. Validation results can also be accessed with the $validation magic function.
+Validation results for each input are stored in the `form` component. This data is automatically used by inputs and other components to set validation related styles and validation messages. Validation results can also be accessed with the `$validation` magic function.
 
 The validation result is an object with following propreties:
 
