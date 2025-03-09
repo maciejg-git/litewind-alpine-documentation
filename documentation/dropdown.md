@@ -109,4 +109,6 @@ To make dropdown menu open on hover set the `data-trigger-event` to `'hover'`. I
 
 ### Dropdown menu
 
+Dropdown is a generic component that can contain any kind of content. To build standard menu add `data-role="menu"` prop and `x-bind="menuItem"` to the menu item elements. These will set required ARIA attributes and enable keyboard navigation.
+
 {% render "example.liquid" example: "examples/dropdown-menu.liquid", tabs: examples.dropdownMenu %}

@@ -41,7 +41,7 @@ The main part of validation is the `form` component that is used to store valida
 
 ### Form component
 
-Form component is a container for validated inputs. The data for the component is provided in the validation plugin.
+Form component is a container for validated inputs that stores validation results and other validation related data. Form component has one required data-form-name prop. It also provides validateForm function that validates all inputs inside form and resetForm function that resets validation results to the default state.
 
 ### x-validation directive
 
@@ -85,7 +85,7 @@ Mode defines when to validate input and how to update state depending in the val
 
 #### Messages
 
-Each rule has default generic validation message for the invalid value. You can customize these messages for the input by adding them to the messages property. The key is a rule name and the value is the new message. The message can contain special %d characters that are replaced with a rule value.
+Each rule has default generic validation message for the invalid value. You can customize these messages for the input by adding them to the `messages` property. The key is a rule name and the value is the new message. The message can contain special `%d` characters that are replaced with a rule value.
 
 ### Validation results
 
@@ -103,12 +103,14 @@ See how these properties are updated depending on the input value in the next ex
 
 ### Adding rules
 
-For the CDN build of the plugin, the default set of rules is available in the window.Litewind.globalValidators property. To add new rule simply create new property in the globalValidators object. The key is a rule name and the value is a validator function. This function takes validated value as an argument and should return true or a message.
+For the CDN build of the plugin you can add new rules to the `window.Litewind.globalValidators` object. A rule is simply a function that takes tested value as an argument and returns `true` or a message.
 
-For the module build of the plugin you can simply import globalValidators from the plugin.
+For a module build of the plugin import `globalValidators` object from the plugin file.
 
 ### Customizing messages
 
-For the CDN build of the plugin, the default messages are available in the window.Litewind.validationMessages. The keys of this object are default rule names and the values are default messages.
+For the CDN build of the plugin you can modify default messages for the rules in the `window.Litewind.validationMessages` object.
 
-For the module build of the plugin import validationMessages from the plugin.
+For a module build of the plugin import `validationMessages` object from the plugin file.
+
+A message can contain `%d` charecters that are replaced with a rule value.
