@@ -80,8 +80,8 @@ To use component in your application simply copy any example that is closest to 
 Below is a basic overview of the features and structure of the component.
 
 - there is only one `x-data` for each component
-- the value of the `x-data` is always a function defined in the components js file
+- the value of the `x-data` is always a function defined with `Alpine.data`
 - the props of the component are provided in the `data-*` attributes on the main element
-- the directives and attributes for other elements are bound with the `x-bind` directive
-- some directives are bound directly in the template to allow cutomization. These inlude, for example, `x-text`, `x-for`, `x-transition` etc.
+- the directives and attributes for other elements inside component are bound with the `x-bind` directive
+- some directives are bound directly in the template to allow customization. These inlude, for example, `x-text`, `x-for`, `x-transition` etc.
 - some elements have `class-*` attributes to add styles depending on the variant of the element. These classes are added with the Alpine `x-bind:class` directive

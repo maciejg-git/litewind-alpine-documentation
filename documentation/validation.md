@@ -41,7 +41,7 @@ The main part of validation is the `form` component that is used to store valida
 
 ### Form component
 
-Form component is a container for validated inputs that stores validation results and other validation related data. Form component has one required data-form-name prop. It also provides validateForm function that validates all inputs inside form and resetForm function that resets validation results to the default state.
+Form component is a container for validated inputs that stores validation results and other validation related data. Form component has one required `data-form-name` prop. It also provides `validateForm` function that validates all inputs inside form and `resetForm` function that resets validation results to default state. If all inputs inside form are valid then `valid` property of the form component is set to true.
 
 ### x-validation directive
 
