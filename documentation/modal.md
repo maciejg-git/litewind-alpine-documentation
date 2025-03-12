@@ -94,7 +94,7 @@ To show modal simply dispatch `open-modal` event anywhere in your application. T
 
 ### Modal placement and size
 
-By default modal is centered and 50% wide. The placement and size of the modal can be changed by modifying tailwind classes on the `positioner` element. Here is an example of few possible placement and size options:
+By default modal is centered and 50% wide. The placement and size of the modal can be changed with Tailwind classes on the `positioner` element. Here is an example of few possible placement and size options:
 
 {% render "example.liquid" example: "examples/modal-position.liquid", tabs: examples.modalPosition %}
 

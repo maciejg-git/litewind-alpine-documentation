@@ -98,7 +98,7 @@ The data for the component is provided by the `notify` function in the `x-data` 
 
 ### Notify container position
 
-Notify container does not have any classes by default apart from `fixed` position. You should add few basic tailwind classes on the main element in order to set it up:
+In order to set up notify container you should add few basic Tailwind classes to the main element:
 
 - `top-*` , `bottom-*`, `left-*` or `right-*` to place it in desired position,
 - `w-*` class to set width of notifications,
