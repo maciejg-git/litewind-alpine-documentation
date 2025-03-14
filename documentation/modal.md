@@ -87,7 +87,7 @@ Check the offical plugin [documentation](https://alpinejs.dev/plugins/focus) for
 
 ### Opening modal
 
-To show modal simply dispatch `open-modal` event anywhere in your application. The data in the dispatched event can be a `string` with the `id` of the modal or an `object` with following properties:
+To show modal simply dispatch `open-modal` event anywhere in your application. The data of the event should be a `string` with the `id` of the modal or an `object` with following properties:
 
 - `id` - id of the modal,
 - `options` - additional custom options that can be referenced in the template. This can be useful for example to create reusable modal dialogs with customizable content, buttons etc.

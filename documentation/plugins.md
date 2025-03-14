@@ -34,7 +34,7 @@ This directive allows defining Vue like transitions:
 
 ### x-class plugin
 
-The x-class directive allows adding classes to the element depending on the state of the component. It can be used as an alternative to the native x-bind:class directive.
+The `x-class` directive allows adding classes to the element depending on the state of the component. It can be used as an alternative to the native `x-bind:class` directive.
 
 Here is basic example with simple condition.
 
@@ -42,16 +42,12 @@ Here is basic example with simple condition.
 <div x-class:is-selected="text-lg border"></div>
 ```
 
-The is-selected is a property or getter of the x-data.
+The `is-selected` is a property or getter of the x-data.
 
 #### Modifiers
 
-The x-class allows three modifiers.
-
-The not modifier applies classes if the condition is false.
+The `not` modifier applies classes if the condition is false.
 
 ```html
 <div x-class:is-selected.not="text-lg border"></div>
 ```
-
-The only modifier applies classes if the condition is true and then ignores any other x-class directives on the element.
