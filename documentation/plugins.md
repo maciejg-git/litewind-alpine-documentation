@@ -6,9 +6,9 @@ name: Plugins
 
 ## Plugins
 
-### Transition directives
+### Transition plugin
 
-The transition plugin add two directives `x-alt-transition` and `x-vue-transition`. Both directives add another way to define transitions. The new definition is simply transformed to a set of native Alpine transition directives.
+The transition plugin adds two directives `x-alt-transition` and `x-vue-transition`. Both directives add another way to define transitions. The new definition is simply transformed to a set of native Alpine transition directives.
 
 Add transition plugin to your page with the CDN or as a npm package.
 
@@ -32,7 +32,7 @@ This directive allows defining Vue like transitions:
 <div x-vue-transition="fade"></div>
 ```
 
-### x-class directive
+### x-class plugin
 
 The x-class directive allows adding classes to the element depending on the state of the component. It can be used as an alternative to the native x-bind:class directive.
 
@@ -53,3 +53,5 @@ The not modifier applies classes if the condition is false.
 ```html
 <div x-class:is-selected.not="text-lg border"></div>
 ```
+
+The only modifier applies classes if the condition is true and then ignores any other x-class directives on the element.
