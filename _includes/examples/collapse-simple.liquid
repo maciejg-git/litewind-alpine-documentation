@@ -1,14 +1,14 @@
 <div x-data="collapse">
   <button
     x-bind="trigger"
-    class="block flex items-center rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600 gap-x-2 mx-auto"
+    class="mx-auto block flex items-center gap-x-2 rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
   >
     Toggle collapse
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
       viewBox="0 0 512 512"
-      class="h-4 w-4 transform duration-200 rotate-180"
+      class="h-4 w-4 rotate-180 transform duration-200"
       :class="{ '!rotate-0': isOpen }"
     >
       <path
