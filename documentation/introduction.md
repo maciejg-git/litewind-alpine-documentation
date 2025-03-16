@@ -5,7 +5,7 @@ name: Introduction
 ---
 ## Introduction
 
-Litewind is a component framework for Alpine and Tailwind.
+Litewind is a component framework for Alpine and TailwindCSS.
 
 Here is a short description from the Alpine homepage.
 
@@ -17,7 +17,7 @@ Tailwind follows similar approach but for CSS.
 
 ### Installation
 
-To install Alpine and Tailwind follow the instructions in their offical documentation. Here are the simplest and fastest install options to get started.
+To install Alpine and Tailwind follow the instructions in their offical documentation ([Alpine](https://alpinejs.dev/essentials/installation), [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite)). Here are the simplest and fastest install options to get started.
 
 #### Alpine
 

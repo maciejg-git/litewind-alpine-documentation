@@ -10,6 +10,20 @@ examples: {
             language: "html",
         },
     ],
+    alertClosable: [
+        {
+            label: "Template",
+            file: "examples/alert-closable.liquid",
+            language: "html",
+        },
+    ],
+    alertStyle: [
+        {
+            label: "Template",
+            file: "examples/alert-style.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -24,9 +38,17 @@ props: [
         default: "false",
         description: "Adds close button to the alert.",
     },
+    {
+        name: "data-role",
+        type: ["String"],
+        default: "status",
+        description: "This prop sets the role of the alert. The default role is `'status'`.",
+    },
 ]
 ---
 ## Alert
+
+{% render "github-link.liquid" component: "alert" %}
 
 {% render "example.liquid" example: "examples/alert-simple.liquid", tabs: examples.alertSimple %}
 
@@ -41,3 +63,15 @@ The data for the component is provided by the `alert` function in the `x-data` d
 #### Props
 
 {% render "reference.liquid" props: props %}
+
+### Closable alert
+
+The `data-closable` prop adds button that closes alert.
+
+{% render "example.liquid" example: "examples/alert-closable.liquid", tabs: examples.alertClosable %}
+
+### Alert style
+
+Here is an example of alternative style alert.
+
+{% render "example.liquid" example: "examples/alert-style.liquid", tabs: examples.alertStyle %}
