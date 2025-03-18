@@ -37,10 +37,5 @@ document.addEventListener('alpine:init', () => {
     itemsPerPage: 10,
     primaryKey: 'id',
     filteredItemsCount: 0,
-    init() {
-      this.onFilter = () => (filteredData) => {
-        this.filteredItemsCount = filteredData.length
-      }
-    }
   })
 })
