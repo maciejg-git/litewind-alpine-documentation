@@ -53,8 +53,8 @@
     :data-items-per-page="$store.tableFilterPagination.itemsPerPage"
     :data-primary-key="$store.tableFilterPagination.primaryKey"
     :data-filter="$store.tableFilterPagination.filter"
-    :data-on-filter="$store.tableFilterPagination.onFilter"
     :data-page="$store.tableFilterPagination.page"
+    @update:items-filtered="() => $store.tableFilterPagination.filteredItemsCount = $event.detail.length"
     class="w-full table-auto border-collapse text-left text-[0.9rem]"
   >
     <thead>
