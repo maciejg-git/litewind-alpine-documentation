@@ -27,7 +27,7 @@ For the Alpine you can just include CDN link in the `script` tag:
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 ```
 
-Alpine can also be installed as a npm package, check the details in the documentation.
+Alpine can also be installed as a npm package, check the details in the [documentation](https://alpinejs.dev/essentials/installation#as-a-module).
 
 #### Tailwind
 
@@ -37,7 +37,7 @@ For the Tailwind the simplest install option is the Tailwind CLI tool.
 npm install tailwindcss @tailwindcss/cli
 ```
 
-Running Tailwind CLI requires importing Tailwind to the main CSS file and adding compiled CSS file to the HTML. Check the full description here.
+Running Tailwind CLI requires importing Tailwind to the main CSS file and adding compiled CSS file to the HTML. Check the full description [here](https://tailwindcss.com/docs/installation/tailwind-cli).
 
 With Tailwind set up add the following to the main CSS file.
 

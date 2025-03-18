@@ -50,6 +50,10 @@ The transition plugin adds two directives `x-alt-transition` and `x-vue-transiti
 
 Add transition plugin to your page with the CDN or as a npm package.
 
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/plugins/transition/dist/cdn.min.js"></script>
+```
+
 #### x-alt-transition
 
 This directive adds more timeline like way of defining transitions. To allow CSP builds it is parsed as JSON.
@@ -81,6 +85,12 @@ Here is basic example with simple condition.
 ```
 
 The `is-selected` is a property or getter of the x-data.
+
+Add x-class plugin to your page with the CDN or as a npm package.
+
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/plugins/class/dist/cdn.min.js"></script>
+```
 
 #### Modifiers
 

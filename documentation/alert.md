@@ -42,7 +42,7 @@ props: [
         name: "data-role",
         type: ["String"],
         default: "status",
-        description: "This prop sets the role of the alert. The default role is `'status'`.",
+        description: "This prop sets the role of the alert. Valid roles for an alert are: `'status'` or `'alert'`.",
     },
 ]
 ---
