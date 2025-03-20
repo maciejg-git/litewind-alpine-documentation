@@ -144,6 +144,6 @@ To load items from remote resource simply assign them to the `items` property. I
 
 ### Custom items
 
-To access any additional fields on the item use the `origin` property.
+To access any additional fields of the item use the `origin` property.
 
 {% render "example.liquid" example: "examples/select-items.liquid", tabs: examples.selectItems %}

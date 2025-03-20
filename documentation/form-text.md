@@ -24,7 +24,7 @@ props: [
 
 {% render "github-link.liquid" component: "form-text" %}
 
-Form text can be used with a form components to display validation messages.
+Form text can be used with a form components to display validation messages. Check the [validation](/documentation/validation) page for the examples.
 
 ### Usage
 

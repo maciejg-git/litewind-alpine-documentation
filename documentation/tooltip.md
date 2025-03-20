@@ -48,6 +48,11 @@ examples: {
 
 ### Usage
 
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/plugins/use-floating/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/tooltip/dist/cdn.min.js"></script>
+```
+
 The tooltip can be added to any element with the `x-tooltip` directive. Use directive value to set the text of the tooltip and the modifiers to customize it.
 
 ```html

@@ -82,7 +82,7 @@ props: [
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/dropdown-context/dist/cdn.min.js"></script>
 ```
 
-The data for the component is provided by the `dropdownContext` function in the `x-data` directive and the props in the `data-*` attributes.
+The data for the component is provided by the `dropdownContext` function in the `x-data` directive and the props in the `data-*` attributes. The dropdown-context also requires the `use-floating` plugin that uses [FloatingUI](https://floating-ui.com/) to calculate and update position of the menu.
 
 #### Props
 
@@ -93,6 +93,8 @@ The data for the component is provided by the `dropdownContext` function in the 
 To show context menu simply dispatch `open-contextmenu` event anywhere in your application. The data in the dispatched event is an `object` with following properties:
 - `id` of the context menu to show
 - context `data`
-- `$event` magic containg native `contextmenu` event to calculate menu position
+- `$event` property containg native `contextmenu` event to calculate menu position
+
+The context data is available in the `contextData` property in the menu template.
 
 {% render "example.liquid" example: "examples/dropdown-context-open.liquid", tabs: examples.dropdownContextOpen %}

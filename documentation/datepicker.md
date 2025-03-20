@@ -62,7 +62,7 @@ events: [
     {
         name: "datepicker-selection-complete",
         type: [],
-        description: "Event dispatched after selection has been completed.",
+        description: "Event dispatched after selection is completed. This can be useful, for example, for closing expandable datepicker in the dropdown.",
     },
 ]
 ---

@@ -16,7 +16,7 @@ examples: {
 
 {% render "github-link.liquid" component: "accordion" %}
 
-To make an accordion wrap multiple collapse components with the accordion component. In accordion mode only one collapse component can be open.
+To make an accordion wrap multiple [collapse components](/documentation/collapse) with the accordion component. In accordion mode only one collapse component can be open.
 
 {% render "example.liquid" example: "examples/collapse-accordion.liquid", tabs: examples.collapseAccordion %}
 

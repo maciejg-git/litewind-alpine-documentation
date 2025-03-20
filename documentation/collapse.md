@@ -35,7 +35,7 @@ The data for the component is provided by the `collapse` function in the `x-data
 
 ### Collapse plugin
 
-The collapse uses collapse plugin (`x-collapse` directive). To use it add the following `script` tag:
+The collapse uses collapse plugin (`x-collapse` directive). To use it add the following `script` tag before main Alpine file.
 
 ```html
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>

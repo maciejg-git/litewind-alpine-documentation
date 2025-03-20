@@ -95,7 +95,7 @@ props: [
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/dropdown/dist/cdn.min.js"></script>
 ```
 
-The data for the component is provided by the `dropdown` function in the `x-data` directive and the props in the `data-*` attributes.
+The data for the component is provided by the `dropdown` function in the `x-data` directive and the props in the `data-*` attributes. The dropdown also requires `use-floating` plugin that uses [FloatingUI](https://floating-ui.com/) to calculate and update position of the menu.
 
 #### Props
 

@@ -28,6 +28,8 @@ examples: {
 ---
 ## Validation
 
+Validation functionality can be enabled for all form components with the validation plugin. After including it with either CDN or as a module you can access `form` component and `x-validation` directive to validate inputs depending on a set of rules and display validation messages to the user.
+
 {% render "example.liquid" example: "examples/validation-username.liquid", tabs: examples.validationUsername %}
 
 ### Usage
@@ -89,7 +91,7 @@ Each rule has default generic validation message for the invalid value. You can 
 
 ### Validation results
 
-Validation results for each input are stored in the `form` component. This data is automatically used by inputs and other components to set validation related styles and validation messages. Validation results can also be accessed with the `$validation` magic function.
+Validation results for each input are stored in the `form` component. This data is automatically used by inputs and other components to set validation related styles and validation messages. Validation results can also be accessed with the `$validation` magic function that takes input name as and argument and returns validation results object.
 
 The validation result is an object with following propreties:
 
