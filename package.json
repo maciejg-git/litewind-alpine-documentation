@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "highlight.js": "^11.10.0",
-    "litewind-alpine": "^0.0.16",
+    "litewind-alpine": "^0.0.19",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0"
   }
