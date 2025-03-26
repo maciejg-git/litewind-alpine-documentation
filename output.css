@@ -873,11 +873,6 @@ p code:is(.dark *), li code:is(.dark *) {
   margin: 1rem;
 }
 
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -917,6 +912,10 @@ p code:is(.dark *), li code:is(.dark *) {
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
 }
 
 .mb-6 {
@@ -987,8 +986,8 @@ p code:is(.dark *), li code:is(.dark *) {
   margin-top: 1.5rem;
 }
 
-.mb-3 {
-  margin-bottom: 0.75rem;
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .block {
@@ -1346,6 +1345,10 @@ p code:is(.dark *), li code:is(.dark *) {
 
 .gap-y-4 {
   row-gap: 1rem;
+}
+
+.gap-y-10 {
+  row-gap: 2.5rem;
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
