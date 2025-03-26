@@ -72,7 +72,7 @@ props: [
         name: "data-inline",
         type: ["Boolean"],
         default: "false",
-        description: "",
+        description: "Improves positioning for inline reference elements that span over multiple lines. FloatingUI option, see [documentation](https://floating-ui.com/docs/inline) for examples and usage.",
     },
     {
         name: "data-role",

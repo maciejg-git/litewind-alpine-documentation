@@ -38,6 +38,13 @@ examples: {
             language: "html",
         },
     ],
+    tooltipAnimation: [
+        {
+            label: "Template",
+            file: "examples/tooltip-animation.liquid",
+            language: "html",
+        },
+    ],
 }
 ---
 ## Tooltip
@@ -70,6 +77,7 @@ The tooltip can be added to any element with the `x-tooltip` directive. Use dire
 - `flip` - allows flipping of the tooltip to the opposite placement if outside of current view (default `false`)
 - `auto-placement` - automatically calculates best placement for the tooltip (default `false`)
 - `func` - the value will be evaluated by Alpine. This can be useful for dynamic tooltips. (default `false`)
+- `fade` and `scale-fade` - animation modifiers
 
 ### Tooltip placement
 
@@ -86,3 +94,7 @@ The tooltip can be added to any element with the `x-tooltip` directive. Use dire
 ### Function tooltip content
 
 {% render "example.liquid" example: "examples/tooltip-function.liquid", tabs: examples.tooltipFunction, collapse: false %}
+
+### Tooltip animation
+
+{% render "example.liquid" example: "examples/tooltip-animation.liquid", tabs: examples.tooltipAnimation, collapse: false %}

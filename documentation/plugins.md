@@ -74,6 +74,8 @@ This directive allows defining Vue like transitions:
 <div x-vue-transition="fade"></div>
 ```
 
+You can read about Vue transitions in [Vue documentation](https://vuejs.org/guide/built-ins/transition.html).
+
 ### x-class plugin
 
 The `x-class` directive allows adding classes to the element depending on the state of the component. It can be used as an alternative to the native `x-bind:class` directive.
