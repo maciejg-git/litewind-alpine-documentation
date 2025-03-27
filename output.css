@@ -986,10 +986,6 @@ p code:is(.dark *), li code:is(.dark *) {
   margin-top: 1.5rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
-}
-
 .block {
   display: block;
 }
@@ -1345,10 +1341,6 @@ p code:is(.dark *), li code:is(.dark *) {
 
 .gap-y-4 {
   row-gap: 1rem;
-}
-
-.gap-y-10 {
-  row-gap: 2.5rem;
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {

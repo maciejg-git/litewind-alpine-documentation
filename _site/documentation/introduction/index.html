@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script defer src="/node_modules/litewind-alpine/components/table/dist/cdn.js"></script>
+    <script defer src="/node_modules/litewind-alpine/components/pagination/dist/cdn.js"></script>
+    <script defer src="/node_modules/litewind-alpine/components/datepicker/dist/cdn.js"></script>
+    <script defer src="/node_modules/litewind-alpine/components/progress/dist/cdn.js"></script>
+    <script defer src="/node_modules/litewind-alpine/components/input/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/dropdown-context/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/dropdown/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/notify/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/select/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/sidepanel/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/tooltip/dist/cdn.js"></script>
+    <script defer src="/node_modules/litewind-alpine/components/tabs/dist/cdn.js"></script>
+    <script defer src="/node_modules/litewind-alpine/components/modal/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/collapse/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/breadcrumb/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/textarea/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/alert/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/components/form-text/dist/cdn.js"></script>
+    <script defer type="module" src="/node_modules/litewind-alpine/plugins/use-floating/dist/cdn.js"></script>
+    <script defer src="/node_modules/litewind-alpine/plugins/transition/dist/cdn.js"></script>
+    <script defer src="/node_modules/litewind-alpine/plugins/validation/dist/cdn.js"></script>
+    <script defer src="/examples/table/table-store.js"></script>
+    <script defer src="/examples/table/table-filter-pagination-store.js"></script>
+    <script defer src="/examples/table/table-definition-store.js"></script>
+    <link href="/styles/googlecode.css" rel="stylesheet">
+    <link href="/styles/oceanicnext.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="/stores/documentation.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="dark:bg-[#191919]">
+    <nav class="flex w-full items-center border-b px-4 py-2 dark:border-neutral-700 dark:text-gray-300 fixed left-0 top-0 bg-gray-50 border-gray-300 dark:bg-dark-800 z-10">
+      <button x-data @click="$dispatch('open-sidepanel', { id: 'sidepanelComponents' })" class="lg:hidden mr-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
+      </button>
+      <span class="font-semibold text-lg">
+        <a href="/documentation/introduction">
+          Litewind-alpine
+        </a>
+      </span>
+      <div class="ml-auto flex gap-x-4">
+        <!-- <div class="mr-10"> -->
+        <!--   <a href="/components/introduction">Documentation</a> -->
+        <!-- </div> -->
+        <button x-data @click="Alpine.store('documentation').toggle()" x-cloak class="ml-auto">
+          <svg x-show="!Alpine.store('documentation').darkMode" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="w-6 h-6">
+            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
+          </svg>
+          <svg x-show="Alpine.store('documentation').darkMode" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="w-6 h-6">
+            <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div class="mt-16 text-text-800 dark:bg-[#191919] dark:text-[#c9cbd0] flex flex-col mx-auto min-h-[90vh]">
+  <div class="justify-center flex flex-row flex-wrap w-auto">
+    <div class="hidden basis-2/12 lg:block xl:px-6 flex-[0_0_0%] min-w-0">
+      <div class="sticky top-16 ml-auto overflow-auto border-r px-10 pt-2 text-[0.9em] text-text-600 dark:border-dark-700 dark:text-text-300/70 pb-10">
+        <div class="mb-6 font-semibold dark:text-text-300">Introduction</div>
+
+<ul>
+
+
+  <li class="my-2">
+    <a href="/documentation/introduction/" class="text-violet-500 font-semibold">Introduction</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/plugins/" class="">Plugins</a>
+  </li>
+
+</ul>
+
+<div class="my-6 font-semibold dark:text-text-300">Components</div>
+
+<ul>
+
+
+  <li class="my-2">
+    <a href="/documentation/accordion/" class="">Accordion</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/alert/" class="">Alert</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/breadcrumb/" class="">Breadcrumb</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/collapse/" class="">Collapse</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/datepicker/" class="">Datepicker</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/dropdown/" class="">Dropdown</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/dropdown-context/" class="">Dropdown context</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/modal/" class="">Modal</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/notify/" class="">Notify</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/pagination/" class="">Pagination</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/progress/" class="">Progress</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/sidepanel/" class="">Sidepanel</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/table/" class="">Table</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/tabs/" class="">Tabs</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/tooltip/" class="">Tooltip</a>
+  </li>
+
+</ul>
+
+<div class="my-6 font-semibold dark:text-text-300">Form</div>
+
+<ul>
+
+
+  <li class="my-2">
+    <a href="/documentation/form-text/" class="">Form text</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/input/" class="">Input</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/select/" class="">Select</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/switch/" class="">Switch</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/textarea/" class="">Textarea</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/validation/" class="">Validation</a>
+  </li>
+
+</ul>
+
+      </div>
+    </div>
+    <div class="mt-12 max-w-screen-lg grow px-4 py-3 lg:px-6 xl:px-20 flex-[0_0_0%] min-w-0">
+      <div class="markdown-container">
+        <h2 id="introduction" tabindex="-1">Introduction</h2>
+<p>Litewind is a component framework for Alpine and TailwindCSS.</p>
+<p>Here is a short description from the Alpine homepage.</p>
+<blockquote>
+<p>&quot;Alpine is a rugged, minimal tool for composing behavior directly in your markup. Think of it like jQuery for the modern web. Plop in a script tag and get going.&quot;</p>
+</blockquote>
+<p>Tailwind follows similar approach but for CSS.</p>
+<blockquote>
+<p>&quot;A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.&quot;</p>
+</blockquote>
+<h3 id="installation" tabindex="-1">Installation</h3>
+<p>To install Alpine and Tailwind follow the instructions in their offical documentation (<a href="https://alpinejs.dev/essentials/installation">Alpine</a>, <a href="https://tailwindcss.com/docs/installation/using-vite">Tailwind CSS</a>). Here are the simplest and fastest install options to get started.</p>
+<h4 id="alpine" tabindex="-1">Alpine</h4>
+<p>For the Alpine you can just include CDN link in the <code>script</code> tag:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>Alpine can also be installed as a npm package, check the details in the <a href="https://alpinejs.dev/essentials/installation#as-a-module">documentation</a>.</p>
+<h4 id="tailwind" tabindex="-1">Tailwind</h4>
+<p>For the Tailwind the simplest install option is the Tailwind CLI tool.</p>
+<pre><code class="language-powershell">npm install tailwindcss @tailwindcss/<span class="hljs-built_in">cli</span>
+</code></pre>
+<p>Running Tailwind CLI requires importing Tailwind to the main CSS file and adding compiled CSS file to the HTML. Check the full description <a href="https://tailwindcss.com/docs/installation/tailwind-cli">here</a>.</p>
+<p>With Tailwind set up add the following to the main CSS file.</p>
+<ul>
+<li>import CSS files for parts of the framework that cannot be styled in the template. These include, for example, tooltips, animations for the spinner etc</li>
+<li>extend colors definition. Litewind uses these colors to mantain consistent look of the components.</li>
+<li>add the style for the <code>x-cloak</code> directive of Alpine. Check details for the <code>x-cloak</code> in the documentation.</li>
+<li>optionally enable manual switching for a dark mode</li>
+</ul>
+<h3 id="how-to-use" tabindex="-1">How to use</h3>
+<p>The first step to use component is adding required js files. The components are just Alpine plugins that define object for the <code>x-data</code> directive. You can include plugin file directly from the CDN in the <code>script</code> tag before main Alpine file.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/dropdown/dist/cdn.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>You can also install npm package and include files locally.</p>
+<pre><code class="language-powershell">npm install litewind<span class="hljs-literal">-alpine</span>
+</code></pre>
+<div class="mt-6">
+<pre><code class="language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Alpine</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;alpinejs&quot;</span> 
+<span class="hljs-keyword">import</span> dropdown <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;litewind-alpine/dropdown.js&quot;</span>
+
+<span class="hljs-title class_">Alpine</span>.<span class="hljs-title function_">plugin</span>(dropdown)
+</code></pre>
+</div>
+<p>Some components may also require additional Alpine plugins. Refer to the components documentation for any additional requirements.</p>
+<p>To use component in your application simply copy any example that is closest to your use case.</p>
+<h3 id="components-basics" tabindex="-1">Components basics</h3>
+<p>Below is a basic overview of the features and structure of the component.</p>
+<ul>
+<li>there is only one <code>x-data</code> for each component</li>
+<li>the value of the <code>x-data</code> is always a function defined with <code>Alpine.data</code></li>
+<li>the props of the component are provided in the <code>data-*</code> attributes on the main element</li>
+<li>the directives and attributes for other elements inside component are bound with the <code>x-bind</code> directive</li>
+<li>some directives are bound directly in the template to allow customization. These inlude, for example, <code>x-text</code>, <code>x-for</code>, <code>x-transition</code> etc.</li>
+<li>some elements have <code>class-*</code> attributes to add styles depending on the variant of the element. These classes are added with the Alpine <code>x-bind:class</code> directive</li>
+</ul>
+
+      </div>
+      <div class="h-20 border-t mt-10 dark:border-dark-700 py-4 flex justify-between">
+        <div class="text-sm font-semibold">
+          Litewind-alpine 0.0.18
+        </div>
+        <div class="flex gap-x-4 items-start text-sm font-semibold">
+          <a href="https://github.com/maciejg-git/litewind-alpine" class="flex items-center gap-x-1 text-blue-500 dark:text-blue-400 underline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+            Components
+          </a>
+          <a href="https://github.com/maciejg-git/litewind-alpine-documentation" class="flex items-center gap-x-1 text-blue-500 dark:text-blue-400 underline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+            Documentation
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hidden basis-2/12 xl:block">
+      <div class="top-16 sticky">
+        <div class="mb-6 dark:text-text-300 font-semibold">Contents</div>
+        <div 
+          x-data="{ 
+            headings: [],
+            currentHeading: null,
+            isPartiallyInViewport(element, offsetBottom) {
+              const rect = element.getBoundingClientRect();
+              return (
+                rect.bottom - offsetBottom > 0 &&
+                rect.top <= document.documentElement.clientHeight
+              );
+            },
+            handleScroll() {
+              let visibleHeaders = [...this.headings].filter((i) => {
+                return this.isPartiallyInViewport(i.nextElementSibling, 200);
+              });
+              if (
+                window.scrollY + window.innerHeight >=
+                  document.documentElement.scrollHeight &&
+                visibleHeaders.length
+              ) {
+                this.currentHeading = visibleHeaders[visibleHeaders.length - 1];
+                return;
+              }
+              if (!visibleHeaders[0] || this.currentHeading === visibleHeaders[0]) {
+                return;
+              }
+              this.currentHeading = visibleHeaders[0];
+            }
+          }"
+          x-init="headings = document.body.querySelectorAll('h3,h4')"
+          @scroll.window="handleScroll"
+          class="text-[0.9em] text-text-600 dark:text-text-300/70"
+        >
+          <ul class="flex flex-col gap-y-2">
+            <template x-for="heading in headings">
+              <li :class="{'ml-4': heading.tagName[1] === '4', 'font-semibold text-text-800 dark:text-text-200': heading === currentHeading}">
+                <a :href="'#' + heading.id" x-text="heading.textContent"></a>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div x-data="sidepanel" id="sidepanelComponents" x-cloak>
+  <template x-if="isModal">
+    <div
+      x-bind="backdrop"
+      x-alt-transition='{
+        "enter": ["opacity-0", "transition ease-out duration-100", "opacity-100"],
+        "leave": ["opacity-100", "transition ease-in duration-100", "opacity-0"]
+      }'
+      class="fixed inset-0 z-30 overflow-y-auto bg-black/50"
+    ></div>
+  </template>
+  <aside
+    x-bind="sidepanel"
+    class="fixed left-0 top-0 z-30 h-full w-[250px] bg-secondary-100 px-6 text-left shadow-lg shadow-black/40 dark:bg-dark-700 dark:text-text-300 flex flex-col"
+    x-alt-transition='{
+            "enter": ["opacity-0 -translate-x-40", "transition ease-out duration-100", "opacity-100"],
+            "leave": ["opacity-100", "transition ease-in duration-100", "opacity-0 -translate-x-40"]
+          }'
+  >
+    <div class="flex w-full items-center justify-between">
+      <div class="my-4 text-lg font-semibold">Header</div>
+      <button @click="close()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="h-full overflow-y-auto">
+      <div class="mb-6 font-semibold dark:text-text-300">Introduction</div>
+
+<ul>
+
+
+  <li class="my-2">
+    <a href="/documentation/introduction/" class="text-violet-500 font-semibold">Introduction</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/plugins/" class="">Plugins</a>
+  </li>
+
+</ul>
+
+<div class="my-6 font-semibold dark:text-text-300">Components</div>
+
+<ul>
+
+
+  <li class="my-2">
+    <a href="/documentation/accordion/" class="">Accordion</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/alert/" class="">Alert</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/breadcrumb/" class="">Breadcrumb</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/collapse/" class="">Collapse</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/datepicker/" class="">Datepicker</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/dropdown/" class="">Dropdown</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/dropdown-context/" class="">Dropdown context</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/modal/" class="">Modal</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/notify/" class="">Notify</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/pagination/" class="">Pagination</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/progress/" class="">Progress</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/sidepanel/" class="">Sidepanel</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/table/" class="">Table</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/tabs/" class="">Tabs</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/tooltip/" class="">Tooltip</a>
+  </li>
+
+</ul>
+
+<div class="my-6 font-semibold dark:text-text-300">Form</div>
+
+<ul>
+
+
+  <li class="my-2">
+    <a href="/documentation/form-text/" class="">Form text</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/input/" class="">Input</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/select/" class="">Select</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/switch/" class="">Switch</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/textarea/" class="">Textarea</a>
+  </li>
+
+  <li class="my-2">
+    <a href="/documentation/validation/" class="">Validation</a>
+  </li>
+
+</ul>
+
+    </div>
+  </aside>
+</div>
+
+  </body>
+</html>
