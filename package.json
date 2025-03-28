@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./input.css -o ./output.css --watch",
+    "tailwind": "npx @tailwindcss/cli -i ./input.css -o ./output.css --watch",
     "dev": "npx @11ty/eleventy --serve --port=8081"
   },
   "devDependencies": {
@@ -8,9 +8,10 @@
     "@shopify/prettier-plugin-liquid": "^1.5.0",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^4.0.17"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.0.17",
     "highlight.js": "^11.10.0",
     "litewind-alpine": "^0.0.19",
     "markdown-it": "^14.1.0",

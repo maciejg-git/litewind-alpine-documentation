@@ -93,7 +93,7 @@
           <button
             @click="options.resolve('ok');close()"
             class="font-semibold"
-            :class="{ 'text-danger-500 dark:text-danger-600 !font-bold': options.variant === 'danger' }"
+            :class="{ 'text-danger-500 dark:text-danger-600 font-bold!': options.variant === 'danger' }"
           >
             OK
           </button>

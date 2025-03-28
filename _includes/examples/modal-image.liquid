@@ -18,7 +18,7 @@
           "leave": ["opacity-100", "transition ease-in duration-200", "opacity-0"]
         }
       '
-      class="fixed inset-0 z-40 overflow-y-auto bg-black/70 backdrop-blur-sm dark:bg-black/70"
+      class="fixed inset-0 z-40 overflow-y-auto bg-black/70 backdrop-blur-xs dark:bg-black/70"
     ></div>
     <div
       x-bind="container"
@@ -68,7 +68,7 @@
                   @click="currentImage = index"
                   :src="'/images/' + image"
                   alt=""
-                  class="h-20 cursor-pointer rounded opacity-0 shadow-md shadow-black/30 transition-opacity duration-300 hover:scale-105 group-hover:opacity-100"
+                  class="h-20 cursor-pointer rounded-sm opacity-0 shadow-md shadow-black/30 transition-opacity duration-300 hover:scale-105 group-hover:opacity-100"
                   :class="{'ring-4 ring-indigo-500' : image === images[currentImage]}"
                 >
               </template>
