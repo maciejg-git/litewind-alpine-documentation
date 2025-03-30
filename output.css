@@ -780,12 +780,6 @@
   .scale-\[0\.97\] {
     scale: 0.97;
   }
-  .\!rotate-0 {
-    rotate: 0deg !important;
-  }
-  .\!rotate-180 {
-    rotate: 180deg !important;
-  }
   .rotate-0 {
     rotate: 0deg;
   }
@@ -994,9 +988,6 @@
   .border-dark-300 {
     border-color: var(--color-dark-300);
   }
-  .border-gray-200 {
-    border-color: var(--color-gray-200);
-  }
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
@@ -1138,10 +1129,6 @@
   .bg-white {
     background-color: var(--color-white);
   }
-  .bg-gradient-to-r {
-    --tw-gradient-position: to right in oklab;
-    background-image: linear-gradient(var(--tw-gradient-stops));
-  }
   .bg-linear-to-r {
     --tw-gradient-position: to right in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
@@ -1277,10 +1264,6 @@
     --tw-leading: 1;
     line-height: 1;
   }
-  .\!font-bold {
-    --tw-font-weight: var(--font-weight-bold) !important;
-    font-weight: var(--font-weight-bold) !important;
-  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
@@ -1296,9 +1279,6 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
-  }
-  .overflow-ellipsis {
-    text-overflow: ellipsis;
   }
   .text-ellipsis {
     text-overflow: ellipsis;
@@ -1728,6 +1708,11 @@
       }
     }
   }
+  .focus\:min-w-0 {
+    &:focus {
+      min-width: calc(var(--spacing) * 0);
+    }
+  }
   .focus\:min-w-\[64px\] {
     &:focus {
       min-width: 64px;
@@ -1978,11 +1963,6 @@
       background-color: var(--color-neutral-700);
     }
   }
-  .dark\:bg-neutral-800 {
-    &:is(.dark *) {
-      background-color: var(--color-neutral-800);
-    }
-  }
   .dark\:bg-primary-500 {
     &:is(.dark *) {
       background-color: var(--color-primary-500);
@@ -1991,6 +1971,21 @@
   .dark\:bg-red-500 {
     &:is(.dark *) {
       background-color: var(--color-red-500);
+    }
+  }
+  .dark\:bg-red-600 {
+    &:is(.dark *) {
+      background-color: var(--color-red-600);
+    }
+  }
+  .dark\:bg-red-700 {
+    &:is(.dark *) {
+      background-color: var(--color-red-700);
+    }
+  }
+  .dark\:bg-red-800 {
+    &:is(.dark *) {
+      background-color: var(--color-red-800);
     }
   }
   .dark\:bg-success-500 {
@@ -2231,15 +2226,6 @@
       &:hover {
         @media (hover: hover) {
           background-color: var(--color-violet-600);
-        }
-      }
-    }
-  }
-  .hover\:dark\:bg-dark-700 {
-    &:hover {
-      @media (hover: hover) {
-        &:is(.dark *) {
-          background-color: var(--color-dark-700);
         }
       }
     }
