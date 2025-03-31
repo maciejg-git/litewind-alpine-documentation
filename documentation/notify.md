@@ -33,12 +33,6 @@ props: [
         description: "Order of the notifications. Valid values are: `default` or `reversed`. This prop can be useful when setting container position with the `top-*` or `bottom-*` classes.",
     },
     {
-        name: "data-sticky-at",
-        type: ["String"],
-        default: "end",
-        description: "Where to put sticky notifications. Valid values are: `start` for the start of the notification array or `end` for the end for the notification array. This props can be useful when setting container position with the `top-*` or `bottom-*` classes.",
-    },
-    {
         name: "data-max-notifications",
         type: ["Number"],
         default: "0",
@@ -131,7 +125,7 @@ Notification properties:
 
 - `header` and `text` - set content of the notification,
 - `delay`, `dismissable` and `static` - override respective props of the container for this notification,
-- `sticky` - sticky notifications are always displayed below or above normal notifications and ignore number set in `data-max-notifications` prop. Position depends on `data-order` and `data-sticky-at` props.
+- `sticky` - sticky notifications are always displayed below or above normal notifications and ignore number set in `data-max-notifications` prop. Position depends on the `data-order` prop.
 - `variant` - sets the variant of the notification,
 - `options` - additional custom options that can be referenced in the template. This is useful for creating customized notifications.
 
