@@ -102,24 +102,6 @@
   --color-text-950: var(--color-gray-950);
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
-
 @layer components {
   [x-cloak] {
     display: none !important;
@@ -174,7 +156,7 @@
 }
 
 @utility example {
-  @apply rounded-lg border dark:border-neutral-700 dark:bg-[#171717] overflow-auto mt-6 mb-2;
+  @apply rounded-lg border border-secondary-200 dark:border-neutral-700 dark:bg-[#171717] overflow-auto mt-6 mb-2;
 }
 
 @layer utilities {
@@ -201,7 +183,7 @@
     @apply my-6
   }
   .markdown-container > ul {
-    @apply list-disc list-inside
+    @apply list-disc list-inside my-6
   }
   .markdown-container p a {
     @apply text-blue-400 underline
