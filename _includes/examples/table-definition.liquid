@@ -10,7 +10,7 @@
       <template x-for="col in definition">
         <td
           x-bind="header"
-          class="border-b border-secondary-300 px-2 py-2 font-semibold text-text-800 dark:border-dark-600 dark:text-text-300"
+          class="border-b border-gray-300 px-2 py-2 font-semibold text-text-800 dark:border-dark-600 dark:text-text-300"
         >
           <div class="flex items-center">
             <span x-text="col.label"></span>
@@ -60,7 +60,7 @@
       <tr>
         <template x-for="col in definition">
           <td
-            class="border-t border-secondary-300 px-2 py-2 text-text-800 transition-colors duration-200 dark:border-dark-600 dark:text-text-300"
+            class="border-t border-gray-300 px-2 py-2 text-text-800 transition-colors duration-200 dark:border-dark-600 dark:text-text-300"
           >
             <span x-text="row[col.key]"></span>
             <template x-if="col.key === 'status'">
