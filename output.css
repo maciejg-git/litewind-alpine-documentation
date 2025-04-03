@@ -208,6 +208,9 @@
     --color-text-800: var(--color-gray-800);
     --color-text-900: var(--color-gray-900);
     --color-text-950: var(--color-gray-950);
+    --animate-spinner-rotate: spinner-rotate 1s linear infinite;
+    --animate-spinner-dash: spinner-dash 1s ease-in-out infinite;
+    --animate-progress: progress-slide 1.5s linear infinite;
   }
 }
 @layer base {
@@ -802,6 +805,12 @@
   .animate-\[slide_1\.5s_linear_infinite\] {
     animation: slide 1.5s linear infinite;
   }
+  .animate-spinner-dash {
+    animation: var(--animate-spinner-dash);
+  }
+  .animate-spinner-rotate {
+    animation: var(--animate-spinner-rotate);
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -1018,9 +1027,6 @@
   }
   .border-secondary-300 {
     border-color: var(--color-secondary-300);
-  }
-  .border-secondary-400 {
-    border-color: var(--color-secondary-400);
   }
   .border-success-300 {
     border-color: var(--color-success-300);
@@ -2264,46 +2270,6 @@
     font-weight: var(--font-weight-semibold);
     color: var(--color-gray-100);
   }
-  .spinner-svg {
-    animation: loader-rotate 1s linear infinite;
-    transform-origin: center center;
-    & circle {
-      stroke: currentColor;
-      stroke-dasharray: 89, 200;
-      stroke-dashoffset: -35px;
-      animation: loader-dash 1s ease-in-out infinite;
-      stroke-linecap: round;
-    }
-  }
-  @keyframes loader-rotate {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes loader-dash {
-    0% {
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
-    }
-    50% {
-      stroke-dasharray: 89, 200;
-      stroke-dashoffset: -35px;
-    }
-    100% {
-      stroke-dasharray: 89, 200;
-      stroke-dashoffset: -124px;
-    }
-  }
-  @keyframes slide {
-    from, 15% {
-      left: 0%;
-      transform: translateX(-100%);
-    }
-    to {
-      left: 100%;
-      transform: scaleX(1);
-    }
-  }
 }
 @layer utilities {
   .tooltip {
@@ -2672,4 +2638,33 @@
   syntax: "*";
   initial-value: "";
   inherits: false;
+}
+@keyframes spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+@keyframes progress-slide {
+  from, 15% {
+    left: 0%;
+    transform: translateX(-100%);
+  }
+  to {
+    left: 100%;
+    transform: scaleX(1);
+  }
 }
