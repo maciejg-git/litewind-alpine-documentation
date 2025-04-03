@@ -51,7 +51,7 @@ With Tailwind set up add the following to the main CSS file.
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
+@theme inline {
   --color-primary-50: var(--color-violet-50);
   --color-primary-100: var(--color-violet-100);
   --color-primary-200: var(--color-violet-200);
@@ -151,31 +151,16 @@ With Tailwind set up add the following to the main CSS file.
   --color-text-950: var(--color-gray-950);
 }
 
-@layer components {
-  [x-cloak] {
-    display: none !important;
-  }
-  .tooltip {
-    @apply rounded-md z-50 max-w-sm text-gray-100 bg-neutral-700 font-semibold p-1 px-3;
-  }
-  .spinner-svg {
-    animation: loader-rotate 1s linear infinite;
-    transform-origin: center center;
+@theme {
+  --animate-spinner-rotate: spinner-rotate 1s linear infinite;
+  --animate-spinner-dash: spinner-dash 1s ease-in-out infinite;
 
-    & circle {
-      stroke: currentColor;
-      stroke-dasharray: 89, 200;
-      stroke-dashoffset: -35px;
-      animation: loader-dash 1s ease-in-out infinite;
-      stroke-linecap: round;
-    }
-  }
-  @keyframes loader-rotate {
+  @keyframes spinner-rotate {
     100% {
       transform: rotate(360deg);
     }
   }
-  @keyframes loader-dash {
+  @keyframes spinner-dash {
     0% {
       stroke-dasharray: 1, 200;
       stroke-dashoffset: 0;
@@ -191,7 +176,10 @@ With Tailwind set up add the following to the main CSS file.
       stroke-dashoffset: -124px;
     }
   }
-  @keyframes slide {
+
+  --animate-progress: progress-slide 1.5s linear infinite;
+
+  @keyframes progress-slide {
     from, 15% {
       left: 0%;
       transform: translateX(-100%);
@@ -201,6 +189,15 @@ With Tailwind set up add the following to the main CSS file.
       left: 100%;
       transform: scaleX(1)
     }
+  }
+}
+
+@layer components {
+  [x-cloak] {
+    display: none !important;
+  }
+  .tooltip {
+    @apply rounded-md z-50 max-w-sm text-gray-100 bg-neutral-700 font-semibold p-1 px-3;
   }
 }
 ```
