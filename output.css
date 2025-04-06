@@ -805,6 +805,9 @@
   .animate-\[slide_1\.5s_linear_infinite\] {
     animation: slide 1.5s linear infinite;
   }
+  .animate-progress {
+    animation: var(--animate-progress);
+  }
   .animate-spinner-dash {
     animation: var(--animate-spinner-dash);
   }
@@ -2115,6 +2118,13 @@
   .dark\:ring-primary-200 {
     &:is(.dark *) {
       --tw-ring-color: var(--color-primary-200);
+    }
+  }
+  .dark\:group-has-checked\:bg-primary-400 {
+    &:is(.dark *) {
+      &:is(:where(.group):has(*:checked) *) {
+        background-color: var(--color-primary-400);
+      }
     }
   }
   .dark\:focus-within\:ring-danger-300 {
