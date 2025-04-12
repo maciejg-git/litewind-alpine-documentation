@@ -240,4 +240,4 @@ Below is a basic overview of the features and structure of the component.
 - the props of the component are provided in the `data-*` attributes on the main element
 - the directives and attributes for other elements inside component are bound with the `x-bind` directive
 - some directives are bound directly in the template to allow customization. These inlude, for example, `x-text`, `x-for`, `x-transition` etc.
-- some elements have `class-*` attributes to add styles depending on the variant of the element. These classes are added with the Alpine `x-bind:class` directive
+- some elements have `class-*` attributes to add styles depending on the variant of the element. These classes are added or removed from the element with the Alpine `x-bind:class` directive
