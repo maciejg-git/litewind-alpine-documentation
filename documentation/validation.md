@@ -39,7 +39,9 @@ Validation functionality can be enabled for all form components with the validat
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/form-text/dist/cdn.min.js"></script>
 ```
 
-The main part of validation is the `form` component that is used to store validation data. The validation rules and other options are set seperately for each input in the `form` with the `x-validation` directive. Third part of validation is a `form-text` component that is used to display validation messages. The `form-text` component is optional and defined in a seperate file.
+The main part of validation is the `form` component that is used to store validation data. The validation rules and other options are set seperately for each input in the `form` with the `x-validation` directive. Third part of the validation plugin is the `$validation` utility magic function.
+
+The `form-text` is a separate, optional component that can be used to display validation messages.
 
 ### Form component
 
