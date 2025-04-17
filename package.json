@@ -13,7 +13,7 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.0.17",
     "highlight.js": "^11.10.0",
-    "litewind-alpine": "^0.1.0",
+    "litewind-alpine": "^0.1.1",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0"
   }
