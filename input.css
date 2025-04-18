@@ -168,13 +168,13 @@
     font-optical-sizing: auto;
   }
   h2 {
-    @apply text-3xl font-semibold scroll-mt-20
+    @apply text-3xl font-semibold scroll-mt-20 dark:text-gray-200
   }
   h3 {
-    @apply text-2xl font-semibold mb-4 mt-16 scroll-mt-20
+    @apply text-2xl font-semibold mb-4 mt-16 scroll-mt-20 dark:text-gray-200
   }
   h4 {
-    @apply text-lg font-semibold my-6 mt-10 scroll-mt-20
+    @apply text-lg font-semibold my-6 mt-10 scroll-mt-20 dark:text-gray-200
   }
   .markdown-container > p {
     @apply my-6

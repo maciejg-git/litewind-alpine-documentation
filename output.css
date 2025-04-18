@@ -805,9 +805,6 @@
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
   }
-  .animate-\[slide_1\.5s_linear_infinite\] {
-    animation: slide 1.5s linear infinite;
-  }
   .animate-progress {
     animation: var(--animate-progress);
   }
@@ -1030,9 +1027,6 @@
   }
   .border-secondary-200 {
     border-color: var(--color-secondary-200);
-  }
-  .border-secondary-300 {
-    border-color: var(--color-secondary-300);
   }
   .border-success-300 {
     border-color: var(--color-success-300);
@@ -1592,11 +1586,6 @@
   .focus-within\:border-gray-400 {
     &:focus-within {
       border-color: var(--color-gray-400);
-    }
-  }
-  .focus-within\:border-secondary-400 {
-    &:focus-within {
-      border-color: var(--color-secondary-400);
     }
   }
   .focus-within\:ring-3 {
@@ -2277,6 +2266,9 @@
     line-height: var(--tw-leading, var(--text-3xl--line-height));
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+    &:is(.dark *) {
+      color: var(--color-gray-200);
+    }
   }
   h3 {
     margin-top: calc(var(--spacing) * 16);
@@ -2286,6 +2278,9 @@
     line-height: var(--tw-leading, var(--text-2xl--line-height));
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+    &:is(.dark *) {
+      color: var(--color-gray-200);
+    }
   }
   h4 {
     margin-block: calc(var(--spacing) * 6);
@@ -2295,6 +2290,9 @@
     line-height: var(--tw-leading, var(--text-lg--line-height));
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+    &:is(.dark *) {
+      color: var(--color-gray-200);
+    }
   }
   .markdown-container > p {
     margin-block: calc(var(--spacing) * 6);
