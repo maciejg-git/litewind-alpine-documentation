@@ -10,6 +10,13 @@ examples: {
             language: "html",
         },
     ],
+    autocompleteMultiple: [
+        {
+            label: "Template",
+            file: "examples/autocomplete-multiple.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -96,3 +103,7 @@ events: [
 ```
 
 The data for the component is provided by the `autocomplete` function in the `x-data` directive and the props in the `data-*` attributes.
+
+### Multiple values
+
+{% render "example.liquid" example: "examples/autocomplete-multiple.liquid", tabs: examples.autocompleteMultiple %}

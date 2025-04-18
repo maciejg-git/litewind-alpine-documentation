@@ -42,7 +42,7 @@ Running Tailwind CLI requires importing Tailwind to the main CSS file and adding
 With Tailwind set up add the following to the main CSS file.
 
 - styles for parts of the framework that cannot be styled in the template. These include, for example, tooltips, animations for the spinner etc
-- extend colors definition. Litewind uses these colors to mantain consistent look of the components.
+- extend colors definition. Litewind uses colors like primary, secondary etc. to mantain consistent look of the components.
 - add the style for the `x-cloak` directive of Alpine. Check details for the `x-cloak` in the documentation.
 - add variant for dark mode (optional)
 
