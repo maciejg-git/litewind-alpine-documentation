@@ -17,6 +17,13 @@ examples: {
             language: "html",
         },
     ],
+    autocompleteAsync: [
+        {
+            label: "Template",
+            file: "examples/autocomplete-async.liquid",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -104,6 +111,22 @@ events: [
 
 The data for the component is provided by the `autocomplete` function in the `x-data` directive and the props in the `data-*` attributes.
 
+#### Props
+
+{% render "reference.liquid" props: props %}
+
+#### x-model
+
+{% render "reference.liquid" props: xModel %}
+
+#### Events
+
+{% render "reference.liquid" props: events %}
+
 ### Multiple values
 
 {% render "example.liquid" example: "examples/autocomplete-multiple.liquid", tabs: examples.autocompleteMultiple %}
+
+### Autocomplete async
+
+{% render "example.liquid" example: "examples/autocomplete-async.liquid", tabs: examples.autocompleteAsync %}
