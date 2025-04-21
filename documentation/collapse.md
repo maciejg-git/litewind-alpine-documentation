@@ -6,14 +6,14 @@ examples: {
     collapseSimple: [
         {
             label: "Template",
-            file: "examples/collapse-simple.liquid",
+            file: "examples/collapse-simple.html",
             language: "html",
         },
     ],
     collapseAccordion: [
         {
             label: "Template",
-            file: "examples/collapse-accordion.liquid",
+            file: "examples/collapse-accordion.html",
             language: "html",
         },
     ],
@@ -23,7 +23,7 @@ examples: {
 
 {% render "github-link.liquid" component: "collapse" %}
 
-{% render "example.liquid" example: "examples/collapse-simple.liquid", tabs: examples.collapseSimple %}
+{% render "example.liquid" example: "examples/collapse-simple.html", tabs: examples.collapseSimple %}
 
 ### Usage
 
@@ -47,4 +47,4 @@ Check the official plugin [documentation](https://alpinejs.dev/plugins/collapse)
 
 To make an accordion wrap multiple collapse components with the accordion component. In accordion mode only one collapse component can be open.
 
-{% render "example.liquid" example: "examples/collapse-accordion.liquid", tabs: examples.collapseAccordion %}
+{% render "example.liquid" example: "examples/collapse-accordion.html", tabs: examples.collapseAccordion %}

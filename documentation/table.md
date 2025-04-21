@@ -6,7 +6,7 @@ examples: {
     tableSimple: [
         {
             label: "Template",
-            file: "examples/table-simple.liquid",
+            file: "examples/table-simple.html",
             language: "html",
             name: "tableSimple",
         },
@@ -20,7 +20,7 @@ examples: {
     tableDefinition: [
         {
             label: "Template",
-            file: "examples/table-definition.liquid",
+            file: "examples/table-definition.html",
             language: "html",
             name: "tableDefinition",
         },
@@ -34,7 +34,7 @@ examples: {
     tableFilterPagination: [
         {
             label: "Template",
-            file: "examples/table-filter-pagination.liquid",
+            file: "examples/table-filter-pagination.html",
             language: "html",
             name: "tableDefinition",
         },
@@ -124,7 +124,7 @@ events: [
 
 The table component is used to generate tables from arrays. Tables can be static or include features like filtering, sorting, pagination, reordering and others.
 
-{% render "example.liquid" example: "examples/table-simple.liquid", tabs: examples.tableSimple %}
+{% render "example.liquid" example: "examples/table-simple.html", tabs: examples.tableSimple %}
 
 ### Usage
 
@@ -150,7 +150,7 @@ If definition is not provided component makes one using the first record of the 
 
 {% render "reference.liquid" props: definition %}
 
-{% render "example.liquid" example: "examples/table-definition.liquid", tabs: examples.tableDefinition %}
+{% render "example.liquid" example: "examples/table-definition.html", tabs: examples.tableDefinition %}
 
 ### Pagination and filtering
 
@@ -158,4 +158,4 @@ To enable pagination set `data-items-per-page` to any number greater than `0`. C
 
 Filtering is enabled by default for all columns. Data is filtered depending on the `string` in the `data-filter` prop. The `update:items-filtered` event is used to update number of items for the pagination component.
 
-{% render "example.liquid" example: "examples/table-filter-pagination.liquid", tabs: examples.tableFilterPagination %}
+{% render "example.liquid" example: "examples/table-filter-pagination.html", tabs: examples.tableFilterPagination %}

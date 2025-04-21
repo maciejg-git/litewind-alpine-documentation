@@ -6,42 +6,42 @@ examples: {
     tooltipSimple: [
         {
             label: "Template",
-            file: "examples/tooltip-simple.liquid",
+            file: "examples/tooltip-simple.html",
             language: "html",
         },
     ],
     tooltipPlacement: [
         {
             label: "Template",
-            file: "examples/tooltip-placement.liquid",
+            file: "examples/tooltip-placement.html",
             language: "html",
         },
     ],
     tooltipDelay: [
         {
             label: "Template",
-            file: "examples/tooltip-delay.liquid",
+            file: "examples/tooltip-delay.html",
             language: "html",
         },
     ],
     tooltipOffset: [
         {
             label: "Template",
-            file: "examples/tooltip-offset.liquid",
+            file: "examples/tooltip-offset.html",
             language: "html",
         },
     ],
     tooltipFunction: [
         {
             label: "Template",
-            file: "examples/tooltip-function.liquid",
+            file: "examples/tooltip-function.html",
             language: "html",
         },
     ],
     tooltipAnimation: [
         {
             label: "Template",
-            file: "examples/tooltip-animation.liquid",
+            file: "examples/tooltip-animation.html",
             language: "html",
         },
     ],
@@ -51,7 +51,7 @@ examples: {
 
 {% render "github-link.liquid" component: "tooltip" %}
 
-{% render "example.liquid" example: "examples/tooltip-simple.liquid", tabs: examples.tooltipSimple, collapse: false %}
+{% render "example.liquid" example: "examples/tooltip-simple.html", tabs: examples.tooltipSimple, collapse: false %}
 
 ### Usage
 
@@ -81,20 +81,20 @@ The tooltip can be added to any element with the `x-tooltip` directive. Use dire
 
 ### Tooltip placement
 
-{% render "example.liquid" example: "examples/tooltip-placement.liquid", tabs: examples.tooltipPlacement, collapse: false %}
+{% render "example.liquid" example: "examples/tooltip-placement.html", tabs: examples.tooltipPlacement, collapse: false %}
 
 ### Tooltip delay
 
-{% render "example.liquid" example: "examples/tooltip-delay.liquid", tabs: examples.tooltipDelay, collapse: false %}
+{% render "example.liquid" example: "examples/tooltip-delay.html", tabs: examples.tooltipDelay, collapse: false %}
 
 ### Tooltip offset
 
-{% render "example.liquid" example: "examples/tooltip-offset.liquid", tabs: examples.tooltipOffset, collapse: false %}
+{% render "example.liquid" example: "examples/tooltip-offset.html", tabs: examples.tooltipOffset, collapse: false %}
 
 ### Function tooltip content
 
-{% render "example.liquid" example: "examples/tooltip-function.liquid", tabs: examples.tooltipFunction, collapse: false %}
+{% render "example.liquid" example: "examples/tooltip-function.html", tabs: examples.tooltipFunction, collapse: false %}
 
 ### Tooltip animation
 
-{% render "example.liquid" example: "examples/tooltip-animation.liquid", tabs: examples.tooltipAnimation, collapse: false %}
+{% render "example.liquid" example: "examples/tooltip-animation.html", tabs: examples.tooltipAnimation, collapse: false %}

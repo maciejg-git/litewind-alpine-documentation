@@ -6,21 +6,21 @@ examples: {
     autocompleteSimple: [
         {
             label: "Template",
-            file: "examples/autocomplete-simple.liquid",
+            file: "examples/autocomplete-simple.html",
             language: "html",
         },
     ],
     autocompleteMultiple: [
         {
             label: "Template",
-            file: "examples/autocomplete-multiple.liquid",
+            file: "examples/autocomplete-multiple.html",
             language: "html",
         },
     ],
     autocompleteAsync: [
         {
             label: "Template",
-            file: "examples/autocomplete-async.liquid",
+            file: "examples/autocomplete-async.html",
             language: "html",
         },
     ],
@@ -100,7 +100,7 @@ events: [
 
 {% render "github-link.liquid" component: "autocomplete" %}
 
-{% render "example.liquid" example: "examples/autocomplete-simple.liquid", tabs: examples.autocompleteSimple %}
+{% render "example.liquid" example: "examples/autocomplete-simple.html", tabs: examples.autocompleteSimple %}
 
 ### Usage
 
@@ -125,8 +125,8 @@ The data for the component is provided by the `autocomplete` function in the `x-
 
 ### Multiple values
 
-{% render "example.liquid" example: "examples/autocomplete-multiple.liquid", tabs: examples.autocompleteMultiple %}
+{% render "example.liquid" example: "examples/autocomplete-multiple.html", tabs: examples.autocompleteMultiple %}
 
 ### Autocomplete async
 
-{% render "example.liquid" example: "examples/autocomplete-async.liquid", tabs: examples.autocompleteAsync %}
+{% render "example.liquid" example: "examples/autocomplete-async.html", tabs: examples.autocompleteAsync %}

@@ -6,14 +6,14 @@ examples: {
     dropdownContextSimple: [
         {
             label: "Template",
-            file: "examples/dropdown-context-simple.liquid",
+            file: "examples/dropdown-context-simple.html",
             language: "html",
         },
     ],
     dropdownContextOpen: [
         {
             label: "Template",
-            file: "examples/dropdown-context-open.liquid",
+            file: "examples/dropdown-context-open.html",
             language: "html",
         },
     ],
@@ -73,7 +73,7 @@ props: [
 
 {% render "github-link.liquid" component: "dropdown-context" %}
 
-{% render "example.liquid" example: "examples/dropdown-context-simple.liquid", tabs: examples.dropdownContextSimple %}
+{% render "example.liquid" example: "examples/dropdown-context-simple.html", tabs: examples.dropdownContextSimple %}
 
 ### Usage
 
@@ -97,4 +97,4 @@ To show context menu simply dispatch `open-contextmenu` event anywhere in your a
 
 The context data is available in the `contextData` property in the menu template.
 
-{% render "example.liquid" example: "examples/dropdown-context-open.liquid", tabs: examples.dropdownContextOpen %}
+{% render "example.liquid" example: "examples/dropdown-context-open.html", tabs: examples.dropdownContextOpen %}

@@ -6,21 +6,21 @@ examples: {
     dropdownSimple: [
         {
             label: "Template",
-            file: "examples/dropdown-simple.liquid",
+            file: "examples/dropdown-simple.html",
             language: "html",
         },
     ],
     dropdownHover: [
         {
             label: "Template",
-            file: "examples/dropdown-hover.liquid",
+            file: "examples/dropdown-hover.html",
             language: "html",
         },
     ],
     dropdownMenu: [
         {
             label: "Template",
-            file: "examples/dropdown-menu.liquid",
+            file: "examples/dropdown-menu.html",
             language: "html",
         },
     ],
@@ -86,7 +86,7 @@ props: [
 
 {% render "github-link.liquid" component: "dropdown" %}
 
-{% render "example.liquid" example: "examples/dropdown-simple.liquid", tabs: examples.dropdownSimple %}
+{% render "example.liquid" example: "examples/dropdown-simple.html", tabs: examples.dropdownSimple %}
 
 ### Usage
 
@@ -105,10 +105,10 @@ The data for the component is provided by the `dropdown` function in the `x-data
 
 To make dropdown menu open on hover set the `data-trigger-event` to `'hover'`. In hover mode there is short delay before closing menu when the mouse leaves the trigger element.
 
-{% render "example.liquid" example: "examples/dropdown-hover.liquid", tabs: examples.dropdownHover %}
+{% render "example.liquid" example: "examples/dropdown-hover.html", tabs: examples.dropdownHover %}
 
 ### Dropdown menu
 
 Dropdown is a generic component that can contain any kind of content. To build standard menu add `data-role="menu"` prop and `x-bind="menuItem"` to the menu item elements. These will set required ARIA attributes and enable keyboard navigation.
 
-{% render "example.liquid" example: "examples/dropdown-menu.liquid", tabs: examples.dropdownMenu %}
+{% render "example.liquid" example: "examples/dropdown-menu.html", tabs: examples.dropdownMenu %}

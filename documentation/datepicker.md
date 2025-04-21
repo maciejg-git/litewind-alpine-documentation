@@ -6,21 +6,21 @@ examples: {
     datepickerSimple: [
         {
             label: "Template",
-            file: "examples/datepicker-simple.liquid",
+            file: "examples/datepicker-simple.html",
             language: "html",
         }
     ],
     datepickerRange: [
         {
             label: "Template",
-            file: "examples/datepicker-range.liquid",
+            file: "examples/datepicker-range.html",
             language: "html",
         }
     ],
     datepickerDropdown: [
         {
             label: "Template",
-            file: "examples/datepicker-dropdown.liquid",
+            file: "examples/datepicker-dropdown.html",
             language: "html",
         }
     ],
@@ -70,7 +70,7 @@ events: [
 
 {% render "github-link.liquid" component: "datepicker" %}
 
-{% render "example.liquid" example: "examples/datepicker-simple.liquid", tabs: examples.datepickerSimple %}
+{% render "example.liquid" example: "examples/datepicker-simple.html", tabs: examples.datepickerSimple %}
 
 ### Usage
 
@@ -96,10 +96,10 @@ The data for the component is provided by the `datepicker` function in the `x-da
 
 Datepicker allows selection of date ranges when `data-range` prop is enabled. In range mode instead of single date `string` component emits `array` of two `strings`.
 
-{% render "example.liquid" example: "examples/datepicker-range.liquid", tabs: examples.datepickerRange %}
+{% render "example.liquid" example: "examples/datepicker-range.html", tabs: examples.datepickerRange %}
 
 ### Datepicker in dropdown
 
 By default datepicker is a standalone component. You can easy turn it into standard expandable picker for inputs by putting it inside dropdown component menu. The dropdown should have `data-auto-close` prop disabled. To close menu after selection `@datepicker-selection-complete` event can be used.
 
-{% render "example.liquid" example: "examples/datepicker-dropdown.liquid", tabs: examples.datepickerDropdown %}
+{% render "example.liquid" example: "examples/datepicker-dropdown.html", tabs: examples.datepickerDropdown %}

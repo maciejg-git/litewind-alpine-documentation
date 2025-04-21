@@ -6,14 +6,14 @@ examples: {
     inputSimple: [
         {
             label: "Template",
-            file: "examples/input-simple.liquid",
+            file: "examples/input-simple.html",
             language: "html",
         },
     ],
     inputProps: [
         {
             label: "Template",
-            file: "examples/input-props.liquid",
+            file: "examples/input-props.html",
             language: "html",
         },
     ],
@@ -49,7 +49,7 @@ props: [
 
 {% render "github-link.liquid" component: "input" %}
 
-{% render "example.liquid" example: "examples/input-simple.liquid", tabs: examples.inputSimple %}
+{% render "example.liquid" example: "examples/input-simple.html", tabs: examples.inputSimple %}
 
 ### Usage
 
@@ -67,4 +67,4 @@ The data for the component is provided by the `input` function in the `x-data` d
 
 Input has few additional elements and props for commonly used features like icons or clear buttons. Here is a complete example with everything enabled. The elements for icons, prepending and appending content are marked with the respective `data` attributes.
 
-{% render "example.liquid" example: "examples/input-props.liquid", tabs: examples.inputProps %}
+{% render "example.liquid" example: "examples/input-props.html", tabs: examples.inputProps %}

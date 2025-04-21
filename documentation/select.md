@@ -6,28 +6,28 @@ examples: {
     selectSimple: [
         {
             label: "Template",
-            file: "examples/select-simple.liquid",
+            file: "examples/select-simple.html",
             language: "html",
         },
     ],
     selectMultiple: [
         {
             label: "Template",
-            file: "examples/select-multiple.liquid",
+            file: "examples/select-multiple.html",
             language: "html",
         },
     ],
     selectServer: [
         {
             label: "Template",
-            file: "examples/select-server.liquid",
+            file: "examples/select-server.html",
             language: "html",
         },
     ],
     selectItems: [
         {
             label: "Template",
-            file: "examples/select-items.liquid",
+            file: "examples/select-items.html",
             language: "html",
         },
     ],
@@ -107,7 +107,7 @@ events: [
 
 {% render "github-link.liquid" component: "select" %}
 
-{% render "example.liquid" example: "examples/select-simple.liquid", tabs: examples.selectSimple %}
+{% render "example.liquid" example: "examples/select-simple.html", tabs: examples.selectSimple %}
 
 ### Usage
 
@@ -134,16 +134,16 @@ The data for the component is provided by the `select` function in the `x-data` 
 
 The `multiple` prop allows selection of multiple values.
 
-{% render "example.liquid" example: "examples/select-multiple.liquid", tabs: examples.selectMultiple %}
+{% render "example.liquid" example: "examples/select-multiple.html", tabs: examples.selectMultiple %}
 
 ### Async items
 
 To load items from remote resource simply assign them to the `items` property. In the following example items are fetched after opening select menu.
 
-{% render "example.liquid" example: "examples/select-server.liquid", tabs: examples.selectServer %}
+{% render "example.liquid" example: "examples/select-server.html", tabs: examples.selectServer %}
 
 ### Custom items
 
 To access any additional fields of the item use the `origin` property.
 
-{% render "example.liquid" example: "examples/select-items.liquid", tabs: examples.selectItems %}
+{% render "example.liquid" example: "examples/select-items.html", tabs: examples.selectItems %}

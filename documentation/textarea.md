@@ -6,7 +6,7 @@ examples: {
     textareaSimple: [
         {
             label: "Template",
-            file: "examples/textarea-simple.liquid",
+            file: "examples/textarea-simple.html",
             language: "html",
         },
     ],
@@ -24,7 +24,7 @@ props: [
 
 {% render "github-link.liquid" component: "textarea" %}
 
-{% render "example.liquid" example: "examples/textarea-simple.liquid", tabs: examples.textareaSimple, collapse: false %}
+{% render "example.liquid" example: "examples/textarea-simple.html", tabs: examples.textareaSimple, collapse: false %}
 
 ### Usage
 

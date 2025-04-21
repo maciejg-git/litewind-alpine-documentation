@@ -6,14 +6,14 @@ examples: {
     tabsSimple: [
         {
             label: "Template",
-            file: "examples/tabs-simple.liquid",
+            file: "examples/tabs-simple.html",
             language: "html",
         },
     ],
     tabsStyle: [
         {
             label: "Template",
-            file: "examples/tabs-style.liquid",
+            file: "examples/tabs-style.html",
             language: "html",
         },
     ],
@@ -31,7 +31,7 @@ props: [
 
 {% render "github-link.liquid" component: "tabs" %}
 
-{% render "example.liquid" example: "examples/tabs-simple.liquid", tabs: examples.tabsSimple %}
+{% render "example.liquid" example: "examples/tabs-simple.html", tabs: examples.tabsSimple %}
 
 ### Usage
 
@@ -51,4 +51,4 @@ Tabs can be aligned by modifying `justify-start` class on the `tabBar` element w
 
 ### Tabs style
 
-{% render "example.liquid" example: "examples/tabs-style.liquid", tabs: examples.tabsStyle %}
+{% render "example.liquid" example: "examples/tabs-style.html", tabs: examples.tabsStyle %}

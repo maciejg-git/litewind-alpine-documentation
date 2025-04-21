@@ -6,7 +6,7 @@ examples: {
     breadcrumbSimple: [
         {
             label: "Template",
-            file: "examples/breadcrumb-simple.liquid",
+            file: "examples/breadcrumb-simple.html",
             language: "html",
         },
     ],
@@ -30,7 +30,7 @@ props: [
 
 {% render "github-link.liquid" component: "breadcrumb" %}
 
-{% render "example.liquid" example: "examples/breadcrumb-simple.liquid", tabs: examples.breadcrumbSimple, collapse: false %}
+{% render "example.liquid" example: "examples/breadcrumb-simple.html", tabs: examples.breadcrumbSimple, collapse: false %}
 
 ### Usage
 

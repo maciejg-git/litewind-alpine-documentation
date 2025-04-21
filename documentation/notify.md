@@ -6,21 +6,21 @@ examples: {
     notifySimple: [
         {
             label: "Template",
-            file: "examples/notify-simple.liquid",
+            file: "examples/notify-simple.html",
             language: "html",
         },
     ],
     notifyNewNotification: [
         {
             label: "Template",
-            file: "examples/notify-new-notification.liquid",
+            file: "examples/notify-new-notification.html",
             language: "html",
         },
     ],
     notifyStacked: [
         {
             label: "Template",
-            file: "examples/notify-stacked.liquid",
+            file: "examples/notify-stacked.html",
             language: "html",
         },
     ],
@@ -74,7 +74,7 @@ props: [
 
 {% render "github-link.liquid" component: "notify" %}
 
-{% render "example.liquid" example: "examples/notify-simple.liquid", tabs: examples.notifySimple %}
+{% render "example.liquid" example: "examples/notify-simple.html", tabs: examples.notifySimple %}
 
 ### Usage
 
@@ -129,7 +129,7 @@ Notification properties:
 - `variant` - sets the variant of the notification,
 - `options` - additional custom options that can be referenced in the template. This is useful for creating customized notifications.
 
-{% render "example.liquid" example: "examples/notify-new-notification.liquid", tabs: examples.notifyNewNotification %}
+{% render "example.liquid" example: "examples/notify-new-notification.html", tabs: examples.notifyNewNotification %}
 
 ### Pause timers on hover
 
@@ -139,4 +139,4 @@ By default hovering over container pauses all timers and restarts them after poi
 
 You can turn notification list into stacked notifications by adding `absolute` class to `li` element. To add a stacking effect `style` binding is used with a `transform` property.
 
-{% render "example.liquid" example: "examples/notify-stacked.liquid", tabs: examples.notifyStacked %}
+{% render "example.liquid" example: "examples/notify-stacked.html", tabs: examples.notifyStacked %}

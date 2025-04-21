@@ -6,14 +6,14 @@ examples: {
     progressSimple: [
         {
             label: "Template",
-            file: "examples/progress-simple.liquid",
+            file: "examples/progress-simple.html",
             language: "html",
         },
     ],
     progressIndetermnate: [
         {
             label: "Template",
-            file: "examples/progress-indeterminate.liquid",
+            file: "examples/progress-indeterminate.html",
             language: "html",
         },
     ],
@@ -38,7 +38,7 @@ xModel: [
 
 {% render "github-link.liquid" component: "progress" %}
 
-{% render "example.liquid" example: "examples/progress-simple.liquid", tabs: examples.progressSimple, collapse: false %}
+{% render "example.liquid" example: "examples/progress-simple.html", tabs: examples.progressSimple, collapse: false %}
 
 ### Usage
 
@@ -58,4 +58,4 @@ The data for the component is provided by the `progress` function in the `x-data
 
 ### Indeterminate progress
 
-{% render "example.liquid" example: "examples/progress-indeterminate.liquid", tabs: examples.progressIndetermnate, collapse: false %}
+{% render "example.liquid" example: "examples/progress-indeterminate.html", tabs: examples.progressIndetermnate, collapse: false %}

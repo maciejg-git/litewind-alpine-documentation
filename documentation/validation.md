@@ -6,21 +6,21 @@ examples: {
     validationUsername: [
         {
             label: "Template",
-            file: "examples/validation-username.liquid",
+            file: "examples/validation-username.html",
             language: "html",
         },
     ],
     validationMode: [
         {
             label: "Template",
-            file: "examples/validation-mode.liquid",
+            file: "examples/validation-mode.html",
             language: "html",
         },
     ],
     validationResults: [
         {
             label: "Template",
-            file: "examples/validation-results.liquid",
+            file: "examples/validation-results.html",
             language: "html",
         },
     ],
@@ -30,7 +30,7 @@ examples: {
 
 Validation functionality can be enabled for all form components with the validation plugin. After including it with either CDN or as a module you can access `form` component and `x-validation` directive to validate inputs depending on a set of rules and display validation messages to the user.
 
-{% render "example.liquid" example: "examples/validation-username.liquid", tabs: examples.validationUsername %}
+{% render "example.liquid" example: "examples/validation-username.html", tabs: examples.validationUsername %}
 
 ### Usage
 
@@ -85,7 +85,7 @@ Mode defines when to validate input and how to update state depending in the val
 - `"form-eager"` - validate manually after calling formValidate function. State is set for invalid and valid inputs.
 - `"immediate-eager"` - validate on each update of the input. State is set for invalid and valid inputs.
 
-{% render "example.liquid" example: "examples/validation-mode.liquid", tabs: examples.validationMode %}
+{% render "example.liquid" example: "examples/validation-mode.html", tabs: examples.validationMode %}
 
 #### Messages
 
@@ -103,7 +103,7 @@ The validation result is an object with following propreties:
 
 See how these properties are updated depending on the input value in the next example.
 
-{% render "example.liquid" example: "examples/validation-results.liquid", tabs: examples.validationResults %}
+{% render "example.liquid" example: "examples/validation-results.html", tabs: examples.validationResults %}
 
 ### Adding rules
 

@@ -6,21 +6,21 @@ examples: {
     alertSimple: [
         {
             label: "Template",
-            file: "examples/alert-simple.liquid",
+            file: "examples/alert-simple.html",
             language: "html",
         },
     ],
     alertClosable: [
         {
             label: "Template",
-            file: "examples/alert-closable.liquid",
+            file: "examples/alert-closable.html",
             language: "html",
         },
     ],
     alertStyle: [
         {
             label: "Template",
-            file: "examples/alert-style.liquid",
+            file: "examples/alert-style.html",
             language: "html",
         },
     ],
@@ -50,7 +50,7 @@ props: [
 
 {% render "github-link.liquid" component: "alert" %}
 
-{% render "example.liquid" example: "examples/alert-simple.liquid", tabs: examples.alertSimple %}
+{% render "example.liquid" example: "examples/alert-simple.html", tabs: examples.alertSimple %}
 
 ### Usage
 
@@ -68,10 +68,10 @@ The data for the component is provided by the `alert` function in the `x-data` d
 
 The `data-closable` prop adds button that closes alert.
 
-{% render "example.liquid" example: "examples/alert-closable.liquid", tabs: examples.alertClosable %}
+{% render "example.liquid" example: "examples/alert-closable.html", tabs: examples.alertClosable %}
 
 ### Alert style
 
 Here is an example of alternative style alert.
 
-{% render "example.liquid" example: "examples/alert-style.liquid", tabs: examples.alertStyle %}
+{% render "example.liquid" example: "examples/alert-style.html", tabs: examples.alertStyle %}

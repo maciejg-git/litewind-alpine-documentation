@@ -6,14 +6,14 @@ examples: {
     sidepanelSimple: [
         {
             label: "Template",
-            file: "examples/sidepanel-simple.liquid",
+            file: "examples/sidepanel-simple.html",
             language: "html",
         },
     ],
     sidepanelModal: [
         {
             label: "Template",
-            file: "examples/sidepanel-modal.liquid",
+            file: "examples/sidepanel-modal.html",
             language: "html",
         },
     ],
@@ -31,7 +31,7 @@ props: [
 
 {% render "github-link.liquid" component: "sidepanel" %}
 
-{% render "example.liquid" example: "examples/sidepanel-simple.liquid", tabs: examples.sidepanelSimple %}
+{% render "example.liquid" example: "examples/sidepanel-simple.html", tabs: examples.sidepanelSimple %}
 
 ### Usage
 
@@ -59,4 +59,4 @@ By default sidepanel opens on the right. To swap it to the left side:
 
 To make sidepanel with a backdrop add the `data-modal` prop. Backdrop can be clicked to close the sidepanel.
 
-{% render "example.liquid" example: "examples/sidepanel-modal.liquid", tabs: examples.sidepanelModal %}
+{% render "example.liquid" example: "examples/sidepanel-modal.html", tabs: examples.sidepanelModal %}

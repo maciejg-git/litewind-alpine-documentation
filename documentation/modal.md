@@ -16,28 +16,28 @@ examples: {
     modalSimple: [
         {
             label: "Template",
-            file: "examples/modal-simple.liquid",
+            file: "examples/modal-simple.html",
             language: "html",
         },
     ],
     modalPosition: [
         {
             label: "Template",
-            file: "examples/modal-position.liquid",
+            file: "examples/modal-position.html",
             language: "html",
         },
     ],
     modalImage: [
         {
             label: "Template",
-            file: "examples/modal-image.liquid",
+            file: "examples/modal-image.html",
             language: "html",
         },
     ],
     modalDialog: [
         {
             label: "Template",
-            file: "examples/modal-dialog.liquid",
+            file: "examples/modal-dialog.html",
             language: "html",
         },
     ],
@@ -61,7 +61,7 @@ props: [
 
 {% render "github-link.liquid" component: "modal" %}
 
-{% render "example.liquid" example: "examples/modal-simple.liquid", tabs: examples.modalSimple %}
+{% render "example.liquid" example: "examples/modal-simple.html", tabs: examples.modalSimple %}
 
 ### Usage
 
@@ -96,16 +96,16 @@ To show modal simply dispatch `open-modal` event anywhere in your application. T
 
 By default modal is centered and 50% wide. The placement and size of the modal can be changed with Tailwind classes on the `positioner` element. Here is an example of few possible placement and size options:
 
-{% render "example.liquid" example: "examples/modal-position.liquid", tabs: examples.modalPosition %}
+{% render "example.liquid" example: "examples/modal-position.html", tabs: examples.modalPosition %}
 
 ### Modal dialogs
 
 Modals are often used for dialogs. Here is an example of reusable dialog component. The event data is used to set the contents of the dialog and add callbacks for the users actions. In the second example dispatching event inside a `promise` allows to pause code execution and await for the user confirmation.
 
-{% render "example.liquid" example: "examples/modal-dialog.liquid", tabs: examples.modalDialog %}
+{% render "example.liquid" example: "examples/modal-dialog.html", tabs: examples.modalDialog %}
 
 ### Modal image viewer
 
 Modals can also be used to make image viewers. Here is an example.
 
-{% render "example.liquid" example: "examples/modal-image.liquid", tabs: examples.modalImage %}
+{% render "example.liquid" example: "examples/modal-image.html", tabs: examples.modalImage %}

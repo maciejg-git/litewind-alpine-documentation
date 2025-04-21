@@ -6,7 +6,7 @@ examples: {
     paginationSimple: [
         {
             label: "Template",
-            file: "examples/pagination-simple.liquid",
+            file: "examples/pagination-simple.html",
             language: "html",
         },
     ],
@@ -36,7 +36,7 @@ props: [
 
 {% render "github-link.liquid" component: "pagination" %}
 
-{% render "example.liquid" example: "examples/pagination-simple.liquid", tabs: examples.paginationSimple %}
+{% render "example.liquid" example: "examples/pagination-simple.html", tabs: examples.paginationSimple %}
 
 ### Usage
 
