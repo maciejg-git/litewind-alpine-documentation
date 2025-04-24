@@ -14,12 +14,10 @@
   <template x-for="(notify, index) in getNotifications" :key="notify.notifyId">
     <li
       x-bind="notification"
-      x-alt-transition='
-        {
-          "enter": ["opacity-0 scale-[0.92]", "transition ease-out duration-200 origin-top", "opacity-100"],
-          "leave": ["opacity-100", "transition ease-in duration-200 origin-top", "opacity-0 scale-[0.92]"]
-        }
-      '
+      x-alt-transition='{
+        "enter": ["opacity-0 scale-[0.92]", "transition ease-out duration-200 origin-top", "opacity-100"],
+        "leave": ["opacity-100", "transition ease-in duration-200 origin-top", "opacity-0 scale-[0.92]"]
+      }'
       class="absolute bottom-0 right-0"
       :style="`transform: translateY(${index * -10}px)`"
     >
