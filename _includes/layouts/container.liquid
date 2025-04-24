@@ -5,13 +5,13 @@ layout: "layouts/base.html"
 <div class="text-text-800 mx-auto mt-16 flex min-h-[90vh] flex-col dark:bg-[#191919] dark:text-[#c9cbd0]">
   <!-- row -->
   <div class="flex w-auto flex-row flex-wrap justify-center">
-    <!-- col 1 -->
+    <!-- col 1 navigation -->
     <div class="hidden min-w-0 flex-[0_0_0%] basis-2/12 lg:block xl:px-6">
       <div class="text-text-600 border-secondary-200 dark:border-dark-700 dark:text-text-300/70 sticky top-16 ml-auto h-[calc(100vh-4rem)] overflow-auto border-r px-10 pt-2 pb-10 text-[0.9em]">
         {% render 'nav-components.liquid', collections: collections, page: page %}
       </div>
     </div>
-    <!-- col 2 -->
+    <!-- col 2 main content -->
     <div class="mt-12 max-w-(--breakpoint-lg) min-w-0 flex-[0_0_0%] grow px-4 py-3 lg:px-6 xl:px-20">
       <div class="markdown-container">
         {{ content }}
@@ -54,7 +54,7 @@ layout: "layouts/base.html"
         </div>
       </div>
     </div>
-    <!-- col 3 -->
+    <!-- col 3 content navigation -->
     <div class="hidden basis-2/12 xl:block">
       <div class="sticky top-16">
         <div class="dark:text-text-300 mb-6 font-semibold">Contents</div>
@@ -105,6 +105,7 @@ layout: "layouts/base.html"
     </div>
   </div>
 </div>
+<!-- small screen expandable navigation -->
 <div x-data="sidepanel" id="sidepanelComponents" x-cloak>
   <template x-if="isModal">
     <div
