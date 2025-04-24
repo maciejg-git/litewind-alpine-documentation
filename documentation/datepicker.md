@@ -100,6 +100,6 @@ Datepicker allows selection of date ranges when `data-range` prop is enabled. In
 
 ### Datepicker in dropdown
 
-By default datepicker is a standalone component. You can easy turn it into standard expandable picker for inputs by putting it inside dropdown component menu. The dropdown should have `data-auto-close` prop disabled. To close menu after selection `@datepicker-selection-complete` event can be used.
+By default datepicker is a standalone component. You can easy turn it into standard expandable picker for inputs by putting it inside dropdown component menu. The dropdown have `data-auto-close` prop disabled. To close menu after selection `@datepicker-selection-complete` event can be used.
 
 {% render "example.liquid" example: "examples/datepicker-dropdown.html", tabs: examples.datepickerDropdown %}
