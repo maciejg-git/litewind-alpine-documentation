@@ -7,6 +7,8 @@
     "class-adjacent",
     "class-selected-range",
     "class-partially-selected",
-    "class-default"
+    "class-default",
+    "class-valid",
+    "class-invalid"
   ]
 }
