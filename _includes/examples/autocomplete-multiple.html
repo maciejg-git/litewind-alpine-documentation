@@ -17,7 +17,7 @@
       { text: 'finnish', value: 'finnish' },
       { text: 'thai', value: 'thai' },
     ]"
-    data-multiple="true"
+    data-multiple
     x-model="model"
     class="w-[340px]"
   >
@@ -31,8 +31,8 @@
     >
       <div data-icon class="mr-3 empty:hidden"></div>
       <div data-prepend class="mr-3 empty:hidden"></div>
-      <div class="mr-3 flex flex-1 flex-wrap relative">
-        <div x-bind="selectedItems" class="contents">
+      <div class="mr-3 flex flex-1 flex-wrap">
+        <div x-bind="selectedItems">
           <template x-for="selectedItem in getSelected()">
             <span
               x-text="selectedItem.text"
@@ -76,7 +76,7 @@
             width="16"
             height="16"
             fill="currentColor"
-            class="h-5 w-5 opacity-70 pointer-events-none"
+            class="pointer-events-none h-5 w-5 opacity-70"
             viewBox="0 0 16 16"
           >
             <path
@@ -84,7 +84,7 @@
             />
           </svg>
         </button>
-        <button>
+        <button x-bind="indicator">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
