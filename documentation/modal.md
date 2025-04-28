@@ -77,7 +77,7 @@ The data for the component is provided by the `modal` function in the `x-data` d
 
 ### Trap focus
 
-The modal uses focus plugin (`x-trap` directive) to trap focus inside modal window. This plugin is optional. To use it add the following `script` tag:
+The modal uses focus plugin (`x-trap` directive) to trap focus inside modal window. While this plugin is optional, it is recommended for better accessibility and better overall usability. Add it with the following `script` tag:
 
 ```html
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
