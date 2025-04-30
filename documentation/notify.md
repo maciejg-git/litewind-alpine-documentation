@@ -100,7 +100,7 @@ In order to set up notify container you should add few basic Tailwind classes to
 - `px-*` or `py-*` classes to optionally add padding to the container
 - `translate-x-*`, `translate-y-*` classes to optionally center container
 
-For example `bottom-4 md:right-10 w-full md:w-[350px] space-y-4` classes will make notifications appear in the bottom right corner of the screen (centered on small screens), notifications will be 350px wide (full width on small screens) and seperated with 1rem of space. 
+For example `bottom-4 md:right-4 w-full md:w-[350px] space-y-4` classes will make notifications appear in the bottom right corner of the screen (centered on small screens), notifications will be 350px wide (full width on small screens) and seperated with 1rem of space. 
 
 ### Showing new notifications
 

@@ -45,6 +45,20 @@ examples: {
             name: "tableDefinition",
         },
     ],
+    tableFilterPaginationHighlight: [
+        {
+            label: "Template",
+            file: "examples/table-filter-pagination-highlight.html",
+            language: "html",
+            name: "tableDefinition",
+        },
+        {
+            label: "Store",
+            file: "../examples/table/table-filter-pagination-store.js",
+            language: "javascript",
+            name: "tableDefinition",
+        },
+    ],
 }
 props: [
     {
@@ -159,3 +173,7 @@ To enable pagination set `data-items-per-page` to any number greater than `0`. C
 Filtering is enabled by default for all columns. Data is filtered depending on the `string` in the `data-filter` prop. The `update:items-filtered` event is used to update number of items for the pagination component.
 
 {% render "example.liquid" example: "examples/table-filter-pagination.html", tabs: examples.tableFilterPagination %}
+
+### Filter highlight
+
+{% render "example.liquid" example: "examples/table-filter-pagination-highlight.html", tabs: examples.tableFilterPaginationHighlight %}

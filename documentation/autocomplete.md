@@ -51,6 +51,12 @@ props: [
         description: "Allows selecting multiple values.",
     },
     {
+        name: "data-no-filter",
+        type: ["Boolean"],
+        default: "false",
+        description: "Disables internal filtering. This is useful when data is filtered on the server.",
+    },
+    {
         name: "data-clearable",
         type: ["Boolean"],
         default: "false",
