@@ -174,6 +174,12 @@ Filtering is enabled by default for all columns. Data is filtered depending on t
 
 {% render "example.liquid" example: "examples/table-filter-pagination.html", tabs: examples.tableFilterPagination %}
 
-### Filter highlight
+### Cell highlight
+
+By default, the filtered portion of the cell contents is not highlighted as it requires `x-html` directive. You can enable it by simply replacing `x-text` with `x-html` in the `td` element.
+
+```html
+<td x-html="getHighlightedCellContent"></td>
+```
 
 {% render "example.liquid" example: "examples/table-filter-pagination-highlight.html", tabs: examples.tableFilterPaginationHighlight %}

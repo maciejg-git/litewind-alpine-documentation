@@ -24,6 +24,13 @@ examples: {
             language: "html",
         },
     ],
+    autocompleteHighlight: [
+        {
+            label: "Template",
+            file: "examples/autocomplete-highlight.html",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -136,3 +143,13 @@ The data for the component is provided by the `autocomplete` function in the `x-
 ### Autocomplete async
 
 {% render "example.liquid" example: "examples/autocomplete-async.html", tabs: examples.autocompleteAsync %}
+
+### Option highlight
+
+By default, the filtered portion of the option text is not highlighted as it requires `x-html` directive. You can enable it by simply replacing `x-text` with `x-html` in the `span` element of the option.
+
+```html
+<span x-html="getHighlightedItemText"></span>
+```
+
+{% render "example.liquid" example: "examples/autocomplete-highlight.html", tabs: examples.autocompleteHighlight %}

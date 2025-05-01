@@ -23,7 +23,7 @@ props: [
         name: "data-interactive",
         type: ["Boolean"],
         default: "false",
-        description: "If this prop is enabled clicking on progress will dispatch `progress-clicked` event with the clicked position.",
+        description: "If this prop is enabled, clicking on progress will dispatch `progress-clicked` event with the clicked position as a value from `0` to `1`.",
     },
 ]
 xModel: [
