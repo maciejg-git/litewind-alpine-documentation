@@ -971,6 +971,10 @@
     border-style: var(--tw-border-style);
     border-width: 0px;
   }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
   .border-t {
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
@@ -1144,9 +1148,6 @@
   }
   .bg-white {
     background-color: var(--color-white);
-  }
-  .bg-yellow-400 {
-    background-color: var(--color-yellow-400);
   }
   .bg-linear-to-r {
     --tw-gradient-position: to right in oklab;
@@ -1433,6 +1434,9 @@
   .ring-primary-200 {
     --tw-ring-color: var(--color-primary-200);
   }
+  .ring-primary-400 {
+    --tw-ring-color: var(--color-primary-400);
+  }
   .ring-secondary-400 {
     --tw-ring-color: var(--color-secondary-400);
   }
@@ -1535,6 +1539,11 @@
   .ring-inset {
     --tw-ring-inset: inset;
   }
+  .group-focus-within\:opacity-100 {
+    &:is(:where(.group):focus-within *) {
+      opacity: 100%;
+    }
+  }
   .group-hover\:opacity-80 {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
@@ -1547,6 +1556,16 @@
       @media (hover: hover) {
         opacity: 100%;
       }
+    }
+  }
+  .group-focus\:\!opacity-100 {
+    &:is(:where(.group):focus *) {
+      opacity: 100% !important;
+    }
+  }
+  .group-focus\:opacity-100 {
+    &:is(:where(.group):focus *) {
+      opacity: 100%;
     }
   }
   .group-has-checked\:translate-x-full {
