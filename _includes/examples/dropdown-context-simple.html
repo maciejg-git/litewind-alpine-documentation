@@ -1,14 +1,16 @@
 <div
   x-data="{ 
-    languages: ['english', 'swedish', 'korean', 'german', 'icelandic', 'japanese']
+    languages: ['english', 'swedish', 'korean', 'german', 'icelandic', 'japanese'],
+    currentLanguage: '',
   }"
   class="flex justify-center"
 >
   <template x-for="(language, index) in languages">
     <div
       x-text="language"
-      @contextmenu.prevent="$dispatch('open-contextmenu', {id: 'contextMenuLanguages', data: { index, language, languages }, $event })"
+      @contextmenu.prevent="$dispatch('open-contextmenu', {id: 'contextMenuLanguages', data: { index, language, languages, $data }, $event })"
       class="mr-4 cursor-pointer border border-gray-300 p-2 hover:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-700"
+      :class="{ 'ring-4 ring-primary-400': language === currentLanguage }"
     ></div>
   </template>
 </div>
@@ -22,6 +24,7 @@
     <a
       x-bind="menuItem"
       x-text="'Set ' + contextData?.language"
+      @click="contextData.$data.currentLanguage = contextData.language"
       href="#"
       class="text-text-800 hover:bg-secondary-100 focus:bg-primary-500 dark:text-text-300 dark:hover:bg-dark-700 dark:focus:bg-primary-500 my-1 block w-full px-6 py-3 pr-4 text-left text-sm focus:text-white focus:outline-hidden dark:focus:text-white"
     >
