@@ -65,6 +65,6 @@ The data for the component is provided by the `input` function in the `x-data` d
 
 ### Additional elements
 
-Input has few additional elements and props for commonly used features like icons or clear buttons. Here is a complete example with everything enabled. The elements for icons, prepending and appending content are marked with the respective `data` attributes.
+The input includes several additional elements and props for common features like icons and clear buttons. Below is a complete example with all options enabled. Elements for icons, prepended and appended content are marked using the appropriate `data-*` attributes.
 
 {% render "example.liquid" example: "examples/input-props.html", tabs: examples.inputProps %}
