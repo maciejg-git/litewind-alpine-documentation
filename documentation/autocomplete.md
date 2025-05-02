@@ -64,6 +64,12 @@ props: [
         description: "Disables internal filtering. This is useful when data is filtered on the server.",
     },
     {
+        name: "data-no-empty-open",
+        type: ["Boolean"],
+        default: "false",
+        description: "Prevents the select menu from opening when the items array is empty. Useful for autocomplete components that filter data on the server side.",
+    },
+    {
         name: "data-clearable",
         type: ["Boolean"],
         default: "false",
