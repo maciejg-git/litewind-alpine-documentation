@@ -28,7 +28,7 @@ examples: {
 ---
 ## Validation
 
-Validation functionality can be enabled for all form components with the validation plugin. After including it with either CDN or as a module you can access `form` component and `x-validation` directive to validate inputs depending on a set of rules and display validation messages to the user.
+Validation functionality can be enabled for all form components using the validation plugin. Once included, from CDN or as a module, you can use the `form` component and `x-validation` directive to validate inputs based on a set of rules and display validation messages to users.
 
 {% render "example.liquid" example: "examples/validation-username.html", tabs: examples.validationUsername %}
 

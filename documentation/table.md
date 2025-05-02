@@ -176,7 +176,7 @@ Filtering is enabled by default for all columns. Data is filtered depending on t
 
 ### Cell highlight
 
-By default, the filtered portion of the cell contents is not highlighted as it requires `x-html` directive. You can enable it by simply replacing `x-text` with `x-html` in the `td` element.
+By default, the filtered portion of the cell content is not highlighted, as this requires the `x-html` directive. You can enable it by simply replacing `x-text` with `x-html` in the `td` element.
 
 ```html
 <td x-html="getHighlightedCellContent"></td>

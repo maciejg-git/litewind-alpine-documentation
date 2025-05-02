@@ -132,7 +132,7 @@ The data for the component is provided by the `select` function in the `x-data` 
 
 ### Select multiple values
 
-The `multiple` prop allows selection of multiple values.
+The `data-multiple` prop allows selection of multiple values.
 
 {% render "example.liquid" example: "examples/select-multiple.html", tabs: examples.selectMultiple %}
 

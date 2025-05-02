@@ -199,6 +199,9 @@ With Tailwind set up add the following to the main CSS file.
   .tooltip {
     @apply rounded-md z-50 max-w-sm text-gray-100 bg-neutral-700 font-semibold p-1 px-3;
   }
+  .match {
+    @apply bg-gray-200 dark:bg-gray-600
+  }
 }
 ```
 
@@ -241,3 +244,9 @@ Below is a basic overview of the features and structure of the component.
 - the directives and attributes for other elements inside component are bound with the `x-bind` directive
 - some directives are bound directly in the template to allow customization. These include, for example, `x-text`, `x-for`, `x-transition` etc.
 - some elements have `class-*` attributes to add styles depending on the variant of the element. These classes are added or removed from the element with the Alpine `x-bind:class` directive
+
+### Alpine CSP build
+
+Most components should reliably work on CSP build of Alpine however there are few limitations:
+
+- some examples may contain javascript in the template on the elements that do not belong to the component to make them more clear and concise

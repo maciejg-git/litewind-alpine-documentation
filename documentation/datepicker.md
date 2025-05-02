@@ -42,7 +42,7 @@ props: [
         name: "data-adjacent-months",
         type: ["Boolean"],
         default: "true",
-        description: "If true days from previous and next month are displayed. Classes for these days can be modified in the `class-adjacent` attribute in the template. Adjacent days are selectable.",
+        description: "If true, days from the previous and next month are displayed. Classes for these days can be customized using the `class-adjacent` attribute in the template. Adjacent days are selectable.",
     },
     {
         name: "data-locale",
@@ -62,7 +62,7 @@ events: [
     {
         name: "datepicker-selection-complete",
         type: [],
-        description: "Event dispatched after selection is completed. This can be useful, for example, for closing expandable datepicker in the dropdown.",
+        description: "Event dispatched after a selection is completed. This can be useful, for example, for closing an expandable datepicker in a dropdown.",
     },
 ]
 ---
@@ -94,12 +94,12 @@ The data for the component is provided by the `datepicker` function in the `x-da
 
 ### Range mode
 
-Datepicker allows selection of date ranges when `data-range` prop is enabled. In range mode instead of single date `string` component emits `array` of two `strings`.
+The datepicker allows selecting date ranges when the `data-range` prop is enabled. In range mode, instead of a single date `string`, the component emits an `array` of two `strings`.
 
 {% render "example.liquid" example: "examples/datepicker-range.html", tabs: examples.datepickerRange %}
 
 ### Datepicker in dropdown
 
-By default datepicker is a standalone component. You can easy turn it into standard expandable picker for inputs by putting it inside dropdown component menu. The dropdown have `data-auto-close` prop disabled. To close menu after selection `@datepicker-selection-complete` event can be used.
+By default, datepicker is a standalone component. You can easy turn it into a standard expandable picker for inputs by placing it inside a dropdown component menu. The dropdown should have the `data-auto-close` prop disabled to prevent menu from closing. To close the menu after selection, use the `@datepicker-selection-complete` event.
 
 {% render "example.liquid" example: "examples/datepicker-dropdown.html", tabs: examples.datepickerDropdown %}

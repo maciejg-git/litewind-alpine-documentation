@@ -29,37 +29,37 @@ props: [
         name: "data-placement",
         type: ["String"],
         default: "bottom-start",
-        description: "Initial placement of dropdown content. FloatingUI option, see [documentation](https://floating-ui.com/docs/computePosition#placement) for examples and usage.",
+        description: "Initial placement of the dropdown content. This is a FloatingUI option, see [documentation](https://floating-ui.com/docs/computePosition#placement) for examples and usage.",
     },
     {
         name: "data-offset-x",
         type: ["Number"],
         default: "0",
-        description: "Offset of dropdown relative to reference element. FloatingUI option, see [documentation](https://floating-ui.com/docs/offset) for examples and usage.",
+        description: "Offset of the dropdown relative to the reference element. This is a FloatingUI option, see [documentation](https://floating-ui.com/docs/offset) for examples and usage.",
     },
     {
         name: "data-offset-y",
         type: ["Number"],
         default: "0",
-        description: "Offset of dropdown relative to reference element. FloatingUI option, see [documentation](https://floating-ui.com/docs/offset) for examples and usage.",
+        description: "Offset of the dropdown relative to the reference element. This is a FloatingUI option, see [documentation](https://floating-ui.com/docs/offset) for examples and usage.",
     },
     {
         name: "data-flip",
         type: ["Boolean"],
         default: "false",
-        description: "Allows fliping of the dropdown to the opposite placement if outside of current view. FloatingUI option, see [documentation](https://floating-ui.com/docs/flip) for examples and usage.",
+        description: "Allows flipping of the dropdown to the opposite placement if it is outside the current view. This is a FloatingUI option, see [documentation](https://floating-ui.com/docs/flip) for examples and usage.",
     },
     {
         name: "data-auto-placement",
         type: ["Boolean"],
         default: "false",
-        description: "Automatically calculates best placement for the floating element. FloatingUI option, see [documentation](https://floating-ui.com/docs/autoPlacement) for examples and usage.",
+        description: "Automatically calculates the best placement for the floating element. This is a FloatingUI option, see [documentation](https://floating-ui.com/docs/autoPlacement) for examples and usage.",
     },
     {
         name: "data-inline",
         type: ["Boolean"],
         default: "false",
-        description: "Improves positioning for inline reference elements that span over multiple lines. FloatingUI option, see [documentation]https://floating-ui.com/docs/inline) for examples and usage.",
+        description: "Improves positioning for inline reference elements that span multiple lines. This is a FloatingUI option, see [documentation](https://floating-ui.com/docs/inline) for examples and usage.",
     },
     {
         name: "data-role",
@@ -90,10 +90,10 @@ The data for the component is provided by the `dropdownContext` function in the 
 
 ### Opening menu
 
-To show context menu simply dispatch `open-contextmenu` event anywhere in your application. The data in the dispatched event is an `object` with following properties:
-- `id` of the context menu to show
-- context `data`
-- `$event` property containg native `contextmenu` event to calculate menu position
+To show the context menu simply dispatch the `open-contextmenu` event anywhere in your application. The event's data should be an `object` with the following properties:
+- `id`: the ID of the context menu to show
+- `data`: context data
+- `$event`: the native `contextmenu` event used to calculate the menu position
 
 The context data is available in the `contextData` property in the menu template.
 
