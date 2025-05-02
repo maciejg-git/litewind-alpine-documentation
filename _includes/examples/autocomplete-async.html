@@ -26,6 +26,7 @@
     data-item-value="pageid"
     data-use-loader
     :data-is-loading="isLoading"
+    data-no-empty-open
     x-model="model"
     class="w-[340px]"
   >
@@ -39,7 +40,7 @@
     >
       <div data-icon class="mr-3 empty:hidden"></div>
       <div data-prepend class="mr-3 empty:hidden"></div>
-      <div class="mr-3 flex flex-1 flex-wrap">
+      <div class="mr-3 flex flex-1 flex-wrap relative overflow-hidden">
         <div x-bind="selectedItems">
           <template x-for="selectedItem in getSelected()">
             <span
