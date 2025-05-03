@@ -17,6 +17,13 @@ examples: {
             language: "html",
         },
     ],
+    inputStyle: [
+        {
+            label: "Template",
+            file: "examples/input-style.html",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -67,4 +74,10 @@ The data for the component is provided by the `input` function in the `x-data` d
 
 The input includes several additional elements and props for common features like icons and clear buttons. Below is a complete example with all options enabled. Elements for icons, prepended and appended content are marked using the appropriate `data-*` attributes.
 
+If you want to hide these elements initially and then show them based on the state of the input element add the `group` class to the main element, and use `group-*` variants to style target element. See the Tailwind [documentation](https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-parent-state) for details.
+
 {% render "example.liquid" example: "examples/input-props.html", tabs: examples.inputProps %}
+
+### Input style
+
+{% render "example.liquid" example: "examples/input-style.html", tabs: examples.inputStyle %}
