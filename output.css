@@ -921,9 +921,6 @@
   .self-center {
     align-self: center;
   }
-  .self-start {
-    align-self: flex-start;
-  }
   .overflow-auto {
     overflow: auto;
   }
@@ -1546,11 +1543,6 @@
   }
   .ring-inset {
     --tw-ring-inset: inset;
-  }
-  .group-focus-within\:opacity-100 {
-    &:is(:where(.group):focus-within *) {
-      opacity: 100%;
-    }
   }
   .group-hover\:opacity-80 {
     &:is(:where(.group):hover *) {
