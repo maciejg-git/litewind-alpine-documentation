@@ -87,20 +87,20 @@ Check the offical plugin [documentation](https://alpinejs.dev/plugins/focus) for
 
 ### Opening modal
 
-To show modal simply dispatch `open-modal` event anywhere in your application. The data of the event should be a `string` with the `id` of the modal or an `object` with following properties:
+To show a modal, simply dispatch `open-modal` event anywhere in your application. The event data should be either a string representing the ID of the modal, or an `object` with the following properties:
 
-- `id` - id of the modal,
-- `options` - additional custom options that can be referenced in the template. This can be useful for example to create reusable modal dialogs with customizable content, buttons etc.
+- `id` - the id of the modal,
+- `options` - additional custom options that can be referenced in the template. This is useful, for example, for creating reusable modal dialogs with customizable content, buttons etc.
 
 ### Modal placement and size
 
-By default modal is centered and 50% wide. The placement and size of the modal can be changed with Tailwind classes on the `positioner` element. Here is an example of few possible placement and size options:
+By default, the modal is centered and 50% wide. You can change its placement and size using Tailwind classes on the `positioner` element. Below is an example showing several possible placement and size options:
 
 {% render "example.liquid" example: "examples/modal-position.html", tabs: examples.modalPosition %}
 
 ### Modal dialogs
 
-Modals are often used for dialogs. Here is an example of reusable dialog component. The event data is used to set the contents of the dialog and add callbacks for the users actions. In the second example dispatching event inside a `promise` allows to pause code execution and await for the user confirmation.
+Modals are often used for dialogs. Below is an example of a reusable dialog component. The event data is used to set the dialog's content and define callbacks for the user's actions. In the second example, dispatching the event inside a `promise` allows you to pause code execution and await for user confirmation.
 
 {% render "example.liquid" example: "examples/modal-dialog.html", tabs: examples.modalDialog %}
 

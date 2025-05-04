@@ -144,13 +144,13 @@ The data for the component is provided by the `autocomplete` function in the `x-
 
 ### Multiple values
 
-The `data-multiple` prop allows selection of multiple values.
+The `data-multiple` prop enables the selection of multiple values.
 
 {% render "example.liquid" example: "examples/autocomplete-multiple.html", tabs: examples.autocompleteMultiple %}
 
 ### Autocomplete async
 
-The `data-no-filter` disables internal filtering. This can be useful when data is filtered on the server side. In the example below, the server response replaces the `items` array with filered results after each query.
+The `data-no-filter` disables internal filtering. This can be useful when data is filtered on the server side. In the example below, the server response replaces the `items` array with the filtered results after each query. The `data-no-empty-open` prop prevents opening the menu when the items array is empty.
 
 {% render "example.liquid" example: "examples/autocomplete-async.html", tabs: examples.autocompleteAsync %}
 

@@ -42,7 +42,7 @@ props: [
         name: "data-adjacent-months",
         type: ["Boolean"],
         default: "true",
-        description: "If true, days from the previous and next month are displayed. Classes for these days can be customized using the `class-adjacent` attribute in the template. Adjacent days are selectable.",
+        description: "If true, days from the previous and next months are displayed. Classes for these days can be customized using the `class-adjacent` attribute in the template. Adjacent days are selectable.",
     },
     {
         name: "data-locale",

@@ -7,11 +7,11 @@ name: Introduction
 
 Litewind is a component framework for Alpine and TailwindCSS.
 
-Here is a short description from the Alpine homepage.
+Here's a short description from the Alpine homepage.
 
 > "Alpine is a rugged, minimal tool for composing behavior directly in your markup. Think of it like jQuery for the modern web. Plop in a script tag and get going."
 
-Tailwind follows similar approach but for CSS.
+Tailwind takes a similar approach, but for CSS.
 
 > "A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup."
 
@@ -37,14 +37,14 @@ For the Tailwind the simplest install option is the Tailwind CLI tool.
 npm install tailwindcss @tailwindcss/cli
 ```
 
-Running Tailwind CLI requires importing Tailwind to the main CSS file and adding compiled CSS file to the HTML. Check the full description [here](https://tailwindcss.com/docs/installation/tailwind-cli).
+Running Tailwind CLI requires importing Tailwind into your main CSS file and including the compiled CSS in your HTML. Check the full setup instructions [here](https://tailwindcss.com/docs/installation/tailwind-cli).
 
-With Tailwind set up add the following to the main CSS file.
+Once Tailwind is set up, add the following to your main CSS file.
 
-- styles for parts of the framework that cannot be styled in the template. These include, for example, tooltips, animations for the spinner etc
-- extend colors definition. Litewind uses colors like primary, secondary etc. to mantain consistent look of the components.
-- add the style for the `x-cloak` directive of Alpine. Check details for the `x-cloak` in the documentation.
-- add variant for dark mode (optional)
+- styles for framework elements that can't be styled directly in the templates, such as tooltips, spinner animations, etc.
+- extended color definitions. Litewind uses colors like primary, secondary, etc., to mantain a consistent appearance across components.
+- a style for the `x-cloak` directive used by Alpine. See the Alpine documentation for details on how `x-cloak` works.
+- a dark mode variant (optional)
 
 ```css
 @import 'tailwindcss';
@@ -207,7 +207,7 @@ With Tailwind set up add the following to the main CSS file.
 
 ### How to use
 
-The first step to use component is adding required js files. The components are just Alpine plugins that define object for the `x-data` directive. You can include plugin file directly from the CDN in the `script` tag before main Alpine file.
+The first step to using a component is adding the required JavaScript files. Components are simply Alpine plugins that define the object used in the `x-data` directive. You can include a plugin file directly from a CDN using a `script` tag placed before the main Alpine script.
 
 ```html
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/dropdown/dist/cdn.min.js"></script>
@@ -230,9 +230,9 @@ Alpine.plugin(dropdown)
 
 </div>
 
-Some components may also require additional Alpine plugins. Refer to the components documentation for any additional requirements.
+Some components may also require additional Alpine plugins. Refer to the component's documentation for any additional requirements.
 
-To use component in your application simply copy any example that is closest to your use case. 
+To use a component in your application, simply copy any example that is closest to your use case. 
 
 ### Components basics
 

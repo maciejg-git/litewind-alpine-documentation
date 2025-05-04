@@ -60,7 +60,7 @@ examples: {
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/tooltip/dist/cdn.min.js"></script>
 ```
 
-The tooltip can be added to any element with the `x-tooltip` directive. Use directive value to set the text of the tooltip and the modifiers to customize it.
+The tooltip can be added to any element using the `x-tooltip` directive. Use the directive's value to set the tooltip text and modifiers to customize it. If the element is not part of another Alpine component, you should also add `x-data` directive to it.
 
 ```html
 <button x-data x-tooltip="tooltip">

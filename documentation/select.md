@@ -132,13 +132,13 @@ The data for the component is provided by the `select` function in the `x-data` 
 
 ### Select multiple values
 
-The `data-multiple` prop allows selection of multiple values.
+The `data-multiple` prop enables the selection of multiple values.
 
 {% render "example.liquid" example: "examples/select-multiple.html", tabs: examples.selectMultiple %}
 
 ### Async items
 
-To load items from remote resource simply assign them to the `items` property. In the following example items are fetched after opening select menu.
+To load items from a remote resource, simply assign them to the `items` property. In the example below, the items are fetched when the select menu is opened.
 
 {% render "example.liquid" example: "examples/select-server.html", tabs: examples.selectServer %}
 

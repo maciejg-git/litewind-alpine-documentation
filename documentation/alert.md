@@ -72,6 +72,6 @@ The `data-closable` prop adds button that closes alert.
 
 ### Alert style
 
-Here is an example of alternative style alert.
+Here is an example of an alternative alert style.
 
 {% render "example.liquid" example: "examples/alert-style.html", tabs: examples.alertStyle %}
