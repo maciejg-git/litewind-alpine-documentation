@@ -47,8 +47,8 @@ The data for the component is provided by the `tabs` function in the `x-data` di
 
 ### Tabs align
 
-Tabs can be aligned by modifying `justify-start` class on the `tabBar` element with the different `justify-*` class. The `justify-stretch` will make the tabs take up all available space on the tab bar.
+Tabs can be aligned by replacing `justify-start` class on the `tabBar` element with a different `justify-*` class. Using `justify-stretch` will make the tabs take up all available space on the tab bar.
 
-### Tabs style
+### Alternative tabs style
 
 {% render "example.liquid" example: "examples/tabs-style.html", tabs: examples.tabsStyle %}

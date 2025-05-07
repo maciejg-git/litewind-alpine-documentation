@@ -146,7 +146,7 @@ The table component is used to generate tables from arrays. Tables can be static
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/table/dist/cdn.min.js"></script>
 ```
 
-The data for the component is provided by the `table` function in the `x-data` directive and the props in the `data-*` attributes. Because of a lot of shared state (filter, pagination etc) it is recommended to set up data as a separate store and then use `$store` magic to set table props.
+The data for the component is provided by the `table` function in the `x-data` directive and the props in the `data-*` attributes. Due to shared state such as filter, pagination, and more, it's  recommended to set up the data as a separate store and use the `$store` magic to bind props to the table.
 
 #### Props
 
@@ -158,9 +158,9 @@ The data for the component is provided by the `table` function in the `x-data` d
 
 ### Definition
 
-Table definition is an optional `array` of `objects` that defines columns of the table. Each object has one required, unique `key` property and number of optional properties. The `key` defines which property of the record object will be rendered in the column. If key is not found empty column is added.
+The table definition is an optional array of objects that defines table's columns. Each object must include a unique `key` property, along with a number of optional properties. The `key` determines which property of the record object is rendered in the column. If key is not found, an empty column is added.
 
-If definition is not provided component makes one using the first record of the data. All additional properties are set to default values. This may be enough for simple tables however to use features like sorting, filtering etc you need to provide definition array.
+If definition is not provided, the component generates one using the first record in the data array. All additional properties are then set to default values. While this is sufficient for simple tables, using features like sorting or filtering requires providing a custom definition array.
 
 {% render "reference.liquid" props: definition %}
 
@@ -168,9 +168,9 @@ If definition is not provided component makes one using the first record of the 
 
 ### Pagination and filtering
 
-To enable pagination set `data-items-per-page` to any number greater than `0`. Current page can be changed with the `page` prop. In the following example current page of the table is controlled by the pagination component.
+To enable pagination, set the `data-items-per-page` to any number greater than `0`. The current page can be controlled with the `page` prop. In the example below, the table's current page is managed by the pagination component.
 
-Filtering is enabled by default for all columns. Data is filtered depending on the `string` in the `data-filter` prop. The `update:items-filtered` event is used to update number of items for the pagination component.
+Filtering is enabled by default for all columns. The table data is filtered based on the string provided in the `data-filter` prop. The `update:items-filtered` event is used to update the item count for the pagination component.
 
 {% render "example.liquid" example: "examples/table-filter-pagination.html", tabs: examples.tableFilterPagination %}
 
