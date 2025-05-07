@@ -17,6 +17,13 @@ examples: {
             language: "html",
         },
     ],
+    tabsAlign: [
+        {
+            label: "Template",
+            file: "examples/tabs-align.html",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -48,6 +55,8 @@ The data for the component is provided by the `tabs` function in the `x-data` di
 ### Tabs align
 
 Tabs can be aligned by replacing `justify-start` class on the `tabBar` element with a different `justify-*` class. Using `justify-stretch` will make the tabs take up all available space on the tab bar.
+
+{% render "example.liquid" example: "examples/tabs-align.html", tabs: examples.tabsAlign %}
 
 ### Alternative tabs style
 
