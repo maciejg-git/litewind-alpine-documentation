@@ -1,4 +1,8 @@
-<div x-data="form" data-form-name="validation-mode" class="flex flex-col gap-y-4">
+<div
+  x-data="form"
+  data-form-name="validation-mode"
+  class="flex flex-col gap-y-4"
+>
   <div>
     <span class="font-mono font-semibold"> Mode: "blur-silent" </span>
     <div
@@ -7,8 +11,8 @@
       x-validation:input-blur-silent='{ "rules": [{ "minLength": 3 }, { "maxLength": 12 }, "required", "alphanumeric" ], "mode": "blur-silent"}'
       class="mt-2 flex flex-1 items-center rounded-sm border px-3 py-2 outline-hidden transition-shadow duration-200 focus-within:ring-3 focus:outline-hidden"
       class-default="border-gray-300 bg-white focus-within:border-gray-400 focus-within:ring-primary-200 dark:border-dark-600 dark:bg-dark-800 dark:text-text-300 dark:focus-within:ring-primary-300"
-      class-valid="text-success-600 dark:text-success-600 border-success-300 dark:border-success-400 focus-within:ring-success-200 dark:focus-within:ring-success-300"
-      class-invalid="text-danger-600 dark:text-danger-600 border-danger-300 dark:border-danger-400 focus-within:ring-danger-200 dark:focus-within:ring-danger-300"
+      class-valid="border-success-300 bg-white text-success-600 focus-within:ring-success-200 dark:border-success-400 dark:bg-dark-800 dark:text-success-600 dark:focus-within:ring-success-300"
+      class-invalid="border-danger-300 bg-white text-danger-600 focus-within:ring-danger-200 dark:border-danger-400 dark:bg-dark-800 dark:text-danger-600 dark:focus-within:ring-danger-300"
     >
       <div data-icon class="mr-3 empty:hidden"></div>
       <div data-prepend class="mr-3 empty:hidden"></div>
@@ -17,12 +21,16 @@
           x-bind="input"
           type="text"
           class="w-full min-w-0 flex-1 border-0 bg-transparent p-0 outline-hidden focus:min-w-[64px] focus:outline-hidden"
-        >
+        />
       </div>
       <div data-append class="mr-3 empty:hidden"></div>
       <div class="flex items-center gap-x-2">
         <div x-bind="loader">
-          <svg viewBox="25 25 50 50" fill="none" class="animate-spinner-rotate h-5 w-5">
+          <svg
+            viewBox="25 25 50 50"
+            fill="none"
+            class="h-5 w-5 animate-spinner-rotate"
+          >
             <circle
               cx="50"
               cy="50"
@@ -35,11 +43,7 @@
             />
           </svg>
         </div>
-        <button
-          x-bind="clearButton"
-          @click="clear()"
-          class="flex items-center"
-        >
+        <button x-bind="clearButton" @click="clear()" class="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -67,7 +71,7 @@
       </template>
     </div>
   </div>
-  <hr class="my-6">
+  <hr class="my-6" />
   <div>
     <span class="font-mono font-semibold"> Mode: "blur-eager" </span>
     <div
@@ -76,8 +80,8 @@
       x-validation:input-blur-eager='{ "rules": [{ "minLength": 3 }, { "maxLength": 12 }, "required", "alphanumeric" ], "mode": "blur-eager"}'
       class="mt-2 flex flex-1 items-center rounded-sm border px-3 py-2 outline-hidden transition-shadow duration-200 focus-within:ring-3 focus:outline-hidden"
       class-default="border-gray-300 bg-white focus-within:border-gray-400 focus-within:ring-primary-200 dark:border-dark-600 dark:bg-dark-800 dark:text-text-300 dark:focus-within:ring-primary-300"
-      class-valid="text-success-600 dark:text-success-600 border-success-300 dark:border-success-400 focus-within:ring-success-200 dark:focus-within:ring-success-300"
-      class-invalid="text-danger-600 dark:text-danger-600 border-danger-300 dark:border-danger-400 focus-within:ring-danger-200 dark:focus-within:ring-danger-300"
+      class-valid="border-success-300 bg-white text-success-600 focus-within:ring-success-200 dark:border-success-400 dark:bg-dark-800 dark:text-success-600 dark:focus-within:ring-success-300"
+      class-invalid="border-danger-300 bg-white text-danger-600 focus-within:ring-danger-200 dark:border-danger-400 dark:bg-dark-800 dark:text-danger-600 dark:focus-within:ring-danger-300"
     >
       <div data-icon class="mr-3 empty:hidden"></div>
       <div data-prepend class="mr-3 empty:hidden"></div>
@@ -86,12 +90,16 @@
           x-bind="input"
           type="text"
           class="w-full min-w-0 flex-1 border-0 bg-transparent p-0 outline-hidden focus:min-w-[64px] focus:outline-hidden"
-        >
+        />
       </div>
       <div data-append class="mr-3 empty:hidden"></div>
       <div class="flex items-center gap-x-2">
         <div x-bind="loader">
-          <svg viewBox="25 25 50 50" fill="none" class="animate-spinner-rotate h-5 w-5">
+          <svg
+            viewBox="25 25 50 50"
+            fill="none"
+            class="h-5 w-5 animate-spinner-rotate"
+          >
             <circle
               cx="50"
               cy="50"
@@ -104,11 +112,7 @@
             />
           </svg>
         </div>
-        <button
-          x-bind="clearButton"
-          @click="clear()"
-          class="flex items-center"
-        >
+        <button x-bind="clearButton" @click="clear()" class="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -136,7 +140,7 @@
       </template>
     </div>
   </div>
-  <hr class="my-6">
+  <hr class="my-6" />
   <div>
     <span class="font-mono font-semibold"> Mode: "immediate-eager" </span>
     <div
@@ -145,8 +149,8 @@
       x-validation:input-immediate-eager='{ "rules": [{ "minLength": 3 }, { "maxLength": 12 }, "required", "alphanumeric" ], "mode": "immediate-eager"}'
       class="mt-2 flex flex-1 items-center rounded-sm border px-3 py-2 outline-hidden transition-shadow duration-200 focus-within:ring-3 focus:outline-hidden"
       class-default="border-gray-300 bg-white focus-within:border-gray-400 focus-within:ring-primary-200 dark:border-dark-600 dark:bg-dark-800 dark:text-text-300 dark:focus-within:ring-primary-300"
-      class-valid="text-success-600 dark:text-success-600 border-success-300 dark:border-success-400 focus-within:ring-success-200 dark:focus-within:ring-success-300"
-      class-invalid="text-danger-600 dark:text-danger-600 border-danger-300 dark:border-danger-400 focus-within:ring-danger-200 dark:focus-within:ring-danger-300"
+      class-valid="border-success-300 bg-white text-success-600 focus-within:ring-success-200 dark:border-success-400 dark:bg-dark-800 dark:text-success-600 dark:focus-within:ring-success-300"
+      class-invalid="border-danger-300 bg-white text-danger-600 focus-within:ring-danger-200 dark:border-danger-400 dark:bg-dark-800 dark:text-danger-600 dark:focus-within:ring-danger-300"
     >
       <div data-icon class="mr-3 empty:hidden"></div>
       <div data-prepend class="mr-3 empty:hidden"></div>
@@ -155,12 +159,16 @@
           x-bind="input"
           type="text"
           class="w-full min-w-0 flex-1 border-0 bg-transparent p-0 outline-hidden focus:min-w-[64px] focus:outline-hidden"
-        >
+        />
       </div>
       <div data-append class="mr-3 empty:hidden"></div>
       <div class="flex items-center gap-x-2">
         <div x-bind="loader">
-          <svg viewBox="25 25 50 50" fill="none" class="animate-spinner-rotate h-5 w-5">
+          <svg
+            viewBox="25 25 50 50"
+            fill="none"
+            class="h-5 w-5 animate-spinner-rotate"
+          >
             <circle
               cx="50"
               cy="50"
@@ -173,11 +181,7 @@
             />
           </svg>
         </div>
-        <button
-          x-bind="clearButton"
-          @click="clear()"
-          class="flex items-center"
-        >
+        <button x-bind="clearButton" @click="clear()" class="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -193,7 +197,11 @@
         </button>
       </div>
     </div>
-    <div x-data="formText" data-input="input-immediate-eager" class="flex flex-col">
+    <div
+      x-data="formText"
+      data-input="input-immediate-eager"
+      class="flex flex-col"
+    >
       <template x-for="m in getMessages()">
         <div
           x-bind="message"
@@ -205,7 +213,7 @@
       </template>
     </div>
   </div>
-  <hr class="my-6">
+  <hr class="my-6" />
   <div>
     <span class="font-mono font-semibold"> Mode: "form-silent" </span>
     <div
@@ -214,8 +222,8 @@
       x-validation:input-form-silent='{ "rules": [{ "minLength": 3 }, { "maxLength": 12 }, "required", "alphanumeric" ], "mode": "form-silent"}'
       class="mt-2 flex flex-1 items-center rounded-sm border px-3 py-2 outline-hidden transition-shadow duration-200 focus-within:ring-3 focus:outline-hidden"
       class-default="border-gray-300 bg-white focus-within:border-gray-400 focus-within:ring-primary-200 dark:border-dark-600 dark:bg-dark-800 dark:text-text-300 dark:focus-within:ring-primary-300"
-      class-valid="text-success-600 dark:text-success-600 border-success-300 dark:border-success-400 focus-within:ring-success-200 dark:focus-within:ring-success-300"
-      class-invalid="text-danger-600 dark:text-danger-600 border-danger-300 dark:border-danger-400 focus-within:ring-danger-200 dark:focus-within:ring-danger-300"
+      class-valid="border-success-300 bg-white text-success-600 focus-within:ring-success-200 dark:border-success-400 dark:bg-dark-800 dark:text-success-600 dark:focus-within:ring-success-300"
+      class-invalid="border-danger-300 bg-white text-danger-600 focus-within:ring-danger-200 dark:border-danger-400 dark:bg-dark-800 dark:text-danger-600 dark:focus-within:ring-danger-300"
     >
       <div data-icon class="mr-3 empty:hidden"></div>
       <div data-prepend class="mr-3 empty:hidden"></div>
@@ -224,12 +232,16 @@
           x-bind="input"
           type="text"
           class="w-full min-w-0 flex-1 border-0 bg-transparent p-0 outline-hidden focus:min-w-[64px] focus:outline-hidden"
-        >
+        />
       </div>
       <div data-append class="mr-3 empty:hidden"></div>
       <div class="flex items-center gap-x-2">
         <div x-bind="loader">
-          <svg viewBox="25 25 50 50" fill="none" class="animate-spinner-rotate h-5 w-5">
+          <svg
+            viewBox="25 25 50 50"
+            fill="none"
+            class="h-5 w-5 animate-spinner-rotate"
+          >
             <circle
               cx="50"
               cy="50"
@@ -242,11 +254,7 @@
             />
           </svg>
         </div>
-        <button
-          x-bind="clearButton"
-          @click="clear()"
-          class="flex items-center"
-        >
+        <button x-bind="clearButton" @click="clear()" class="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -275,12 +283,12 @@
     </div>
     <button
       @click="$validation('input-form-silent').formValidate()"
-      class="ml-auto mt-4 block flex items-center rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
+      class="mt-4 ml-auto block flex items-center rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
     >
       Validate
     </button>
   </div>
-  <hr class="my-6">
+  <hr class="my-6" />
   <div>
     <span class="font-mono font-semibold"> Mode: "form-eager" </span>
     <div
@@ -289,8 +297,8 @@
       x-validation:input-form-eager='{ "rules": [{ "minLength": 3 }, { "maxLength": 12 }, "required", "alphanumeric" ], "mode": "form-eager"}'
       class="mt-2 flex flex-1 items-center rounded-sm border px-3 py-2 outline-hidden transition-shadow duration-200 focus-within:ring-3 focus:outline-hidden"
       class-default="border-gray-300 bg-white focus-within:border-gray-400 focus-within:ring-primary-200 dark:border-dark-600 dark:bg-dark-800 dark:text-text-300 dark:focus-within:ring-primary-300"
-      class-valid="text-success-600 dark:text-success-600 border-success-300 dark:border-success-400 focus-within:ring-success-200 dark:focus-within:ring-success-300"
-      class-invalid="text-danger-600 dark:text-danger-600 border-danger-300 dark:border-danger-400 focus-within:ring-danger-200 dark:focus-within:ring-danger-300"
+      class-valid="border-success-300 bg-white text-success-600 focus-within:ring-success-200 dark:border-success-400 dark:bg-dark-800 dark:text-success-600 dark:focus-within:ring-success-300"
+      class-invalid="border-danger-300 bg-white text-danger-600 focus-within:ring-danger-200 dark:border-danger-400 dark:bg-dark-800 dark:text-danger-600 dark:focus-within:ring-danger-300"
     >
       <div data-icon class="mr-3 empty:hidden"></div>
       <div data-prepend class="mr-3 empty:hidden"></div>
@@ -299,12 +307,16 @@
           x-bind="input"
           type="text"
           class="w-full min-w-0 flex-1 border-0 bg-transparent p-0 outline-hidden focus:min-w-[64px] focus:outline-hidden"
-        >
+        />
       </div>
       <div data-append class="mr-3 empty:hidden"></div>
       <div class="flex items-center gap-x-2">
         <div x-bind="loader">
-          <svg viewBox="25 25 50 50" fill="none" class="animate-spinner-rotate h-5 w-5">
+          <svg
+            viewBox="25 25 50 50"
+            fill="none"
+            class="h-5 w-5 animate-spinner-rotate"
+          >
             <circle
               cx="50"
               cy="50"
@@ -317,11 +329,7 @@
             />
           </svg>
         </div>
-        <button
-          x-bind="clearButton"
-          @click="clear()"
-          class="flex items-center"
-        >
+        <button x-bind="clearButton" @click="clear()" class="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -350,7 +358,7 @@
     </div>
     <button
       @click="$validation('input-form-eager').formValidate()"
-      class="ml-auto mt-4 block flex items-center rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
+      class="mt-4 ml-auto block flex items-center rounded-md border-violet-700 bg-violet-500 px-4 py-2 font-medium text-gray-100 hover:bg-violet-600 focus:ring-violet-200 dark:bg-violet-500 dark:hover:bg-violet-600"
     >
       Validate
     </button>
