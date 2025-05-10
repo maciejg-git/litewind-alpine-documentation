@@ -77,13 +77,13 @@ Available rules include following:
 
 #### Mode
 
-Mode defines when to validate input and how to update state depending in the validation results. Here are available modes:
+The mode defines when to validate input and how to update the state based on the validation results. Available modes are:
 
-- `"blur-silent"` - validate after input loses focus. State is set only for invalid inputs.
-- `"blur-eager"` - validate after input loses focus. State is set for invalid and valid inputs.
-- `"form-silent"` - validate manually after calling formValidate function. State is set only for invalid inputs.
-- `"form-eager"` - validate manually after calling formValidate function. State is set for invalid and valid inputs.
-- `"immediate-eager"` - validate on each update of the input. State is set for invalid and valid inputs.
+- `"blur-silent"` - validates when the input loses focus; updates state only for invalid inputs.
+- `"blur-eager"` - validates when the input loses focus; updates state for both valid and invalid inputs.
+- `"form-silent"` - validates when the `formValidate` function is called; updates state only for invalid inputs.
+- `"form-eager"` - validates when the `formValidate` function is called; update state for both valid and invalid inputs.
+- `"immediate-eager"` - validate on each input update; updates state for both valid and invalid inputs.
 
 {% render "example.liquid" example: "examples/validation-mode.html", tabs: examples.validationMode %}
 

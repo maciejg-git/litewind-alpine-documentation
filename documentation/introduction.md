@@ -45,6 +45,7 @@ Once Tailwind is set up, add the following to your main CSS file.
 - extended color definitions. Litewind uses colors like primary, secondary, etc., to mantain a consistent appearance across components.
 - a style for the `x-cloak` directive used by Alpine. See the Alpine documentation for details on how `x-cloak` works.
 - a dark mode variant (optional)
+- include "Inter" in the default font list (optional)
 
 ```css
 @import 'tailwindcss';
@@ -152,6 +153,8 @@ Once Tailwind is set up, add the following to your main CSS file.
 }
 
 @theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    
   --animate-spinner-rotate: spinner-rotate 1s linear infinite;
   --animate-spinner-dash: spinner-dash 1s ease-in-out infinite;
 
@@ -244,6 +247,7 @@ Below is a basic overview of the features and structure of the component.
 - directives and attributes for internal elements are bound using the `x-bind` directive
 - some directives (e.g., `x-text`, `x-for`, `x-transition`) are bound directly in the template to allow customization
 - some elements use `class-*` attributes to add styles based on their variant. These classes are conditionally added or removed using Alpine `x-bind:class` directive
+- classes for transitions are defined using the `x-alt-transition` directive, which is part of the transition plugin. You can read more about it here.
 
 ### Alpine CSP build
 

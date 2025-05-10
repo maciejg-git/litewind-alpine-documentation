@@ -130,6 +130,8 @@ events: [
 
 The data for the component is provided by the `autocomplete` function in the `x-data` directive and the props in the `data-*` attributes.
 
+The autocomplete component is based on the input component, so you can use any of its props or additional elements such as a clear button, icon, loader, and more. See the documentation for the input component here.
+
 #### Props
 
 {% render "reference.liquid" props: props %}

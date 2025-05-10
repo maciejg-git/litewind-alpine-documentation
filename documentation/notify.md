@@ -92,15 +92,15 @@ The data for the component is provided by the `notify` function in the `x-data` 
 
 ### Notify container position
 
-In order to set up notify container you should add few basic Tailwind classes to the main element:
+To set up the notify container, add a few basic Tailwind classes to the main element:
 
-- `top-*` , `bottom-*`, `left-*` or `right-*` to place it in desired position,
-- `w-*` class to set width of notifications,
-- `space-y-*` to optionally add some gaps between notifications,
-- `px-*` or `py-*` classes to optionally add padding to the container
-- `translate-x-*`, `translate-y-*` classes to optionally center container
+- `top-*` , `bottom-*`, `left-*` or `right-*` to set the container position
+- `w-*` to set notification width
+- `space-y-*` to optionally add spacing between notifications
+- `px-*` or `py-*` to optionally add padding to the container
+- `translate-x-*`, `translate-y-*` to optionally center container
 
-For example `bottom-4 md:right-4 w-full md:w-[350px] space-y-4` classes will make notifications appear in the bottom right corner of the screen (centered on small screens), notifications will be 350px wide (full width on small screens) and seperated with 1rem of space. 
+For example, the classes `bottom-4 md:right-4 w-full md:w-[350px] space-y-4` will position notifications in the bottom-right corner of the screen (centered on small screens). Notifications will be 350px wide on medium screens and up (full width on small screens), and spaced 1rem apart. 
 
 ### Showing new notifications
 

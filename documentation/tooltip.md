@@ -77,6 +77,7 @@ The tooltip can be added to any element using the `x-tooltip` directive. Use the
 - `flip` - allows flipping of the tooltip to the opposite placement if outside of current view (default `false`)
 - `auto-placement` - automatically calculates best placement for the tooltip (default `false`)
 - `func` - the value will be evaluated by Alpine. This can be useful for dynamic tooltips. (default `false`)
+- `html` - allows html in the value
 - `fade` and `scale-fade` - animation modifiers
 
 ### Tooltip placement
