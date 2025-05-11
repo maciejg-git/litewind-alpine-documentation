@@ -1,6 +1,6 @@
 ---
 layout: "layouts/container.liquid"
-tags: component
+tags: alpineComponent
 name: Tooltip
 examples: {
     tooltipSimple: [
@@ -42,6 +42,13 @@ examples: {
         {
             label: "Template",
             file: "examples/tooltip-animation.html",
+            language: "html",
+        },
+    ],
+    tooltipHtml: [
+        {
+            label: "Template",
+            file: "examples/tooltip-html.html",
             language: "html",
         },
     ],
@@ -99,3 +106,7 @@ The tooltip can be added to any element using the `x-tooltip` directive. Use the
 ### Tooltip animation
 
 {% render "example.liquid" example: "examples/tooltip-animation.html", tabs: examples.tooltipAnimation, collapse: false %}
+
+### HTML tooltip
+
+{% render "example.liquid" example: "examples/tooltip-html.html", tabs: examples.tooltipHtml, collapse: false %}

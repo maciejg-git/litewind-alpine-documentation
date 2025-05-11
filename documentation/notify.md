@@ -1,6 +1,6 @@
 ---
 layout: "layouts/container.liquid"
-tags: component
+tags: alpineComponent
 name: Notify
 examples: {
     notifySimple: [

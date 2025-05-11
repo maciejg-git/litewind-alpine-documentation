@@ -8,7 +8,7 @@ name: Plugins
 
 ### Transition plugin
 
-The transition plugin adds two directives `x-alt-transition` and `x-vue-transition`. Both directives add another way to define transitions. The new definition is simply transformed to a set of native Alpine transition directives.
+The transition plugin adds two directives `x-alt-transition` and `x-vue-transition`. Both directives add another way to define transitions. The new definition is simply transformed to a set of native Alpine transition directives that are then bind to the element.
 
 <div
   x-data="alert"
