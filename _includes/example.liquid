@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="overflow-x-hidden p-6">
+    <div class="overflow-x-hidden p-6{% if centerFlexRow %} flex justify-center{% elsif centerFlexCol %} flex flex-col items-center{% endif %}">
       {% render example %}
     </div>
   </div>

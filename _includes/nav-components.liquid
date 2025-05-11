@@ -9,6 +9,17 @@
 {% endfor%}
 </ul>
 
+<div class="my-6 font-semibold dark:text-text-300">Alpine components</div>
+
+<ul>
+{% assign components = collections.alpineComponent | sort: "data.name" %}
+{% for component in components %}
+  <li class="my-2">
+    <a href="{{ component.url }}" class="{% if component.url == page.url %}text-violet-500 font-semibold{% endif %}">{{ component.data.name }}</a>
+  </li>
+{% endfor%}
+</ul>
+
 <div class="my-6 font-semibold dark:text-text-300">Components</div>
 
 <ul>
