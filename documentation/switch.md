@@ -27,6 +27,6 @@ examples: {
 
 ### Labels inside switch
 
-You can add labels or icons inside switch using two span elements. For longer labels, you may need to adjust the switch width using `w-*` classes.
+You can add labels or icons inside switch using two additional span elements. For longer labels, you may need to adjust the switch width using `w-*` classes.
 
 {% render "example.liquid" example: "examples/switch-label.html", tabs: examples.switchLabel, collapse: false, centerFlexCol: true %}
