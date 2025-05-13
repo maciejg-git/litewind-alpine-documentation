@@ -110,6 +110,7 @@ To show a new notification, simply dispatch the `show-notify` event anywhere in 
 $dispatch(
     "add-notify",
     {
+        id: String,
         header: String,
         text: String,
         delay: Number,
@@ -123,6 +124,7 @@ $dispatch(
 ```
 Notification properties:
 
+- `id` - defines the container to display notification. id is optional when there is only one container on the page,
 - `header` and `text` - set content of the notification,
 - `delay`, `dismissable` and `static` - override respective props of the container for this notification,
 - `sticky` - sticky notifications are always displayed below or above normal notifications and ignore number set in `data-max-notifications` prop. Position depends on the `data-order` prop.

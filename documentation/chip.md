@@ -16,4 +16,4 @@ examples: {
 
 {% render "github-link.liquid" component: "chip" %}
 
-{% render "example.liquid" example: "examples/chip-simple.html", tabs: examples.chipSimple, collapse: false %}
+{% render "example.liquid" example: "examples/chip-simple.html", tabs: examples.chipSimple, collapse: false, centerFlexRow: true %}

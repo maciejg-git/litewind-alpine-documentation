@@ -59,6 +59,20 @@ examples: {
             name: "tableDefinition",
         },
     ],
+    tableLoading: [
+        {
+            label: "Template",
+            file: "examples/table-loading.html",
+            language: "html",
+            name: "tableSimple",
+        },
+        {
+            label: "Store",
+            file: "../examples/table/table-store.js",
+            language: "javascript",
+            name: "tableSimple",
+        },
+    ],
 }
 props: [
     {
@@ -96,6 +110,12 @@ props: [
         type: ["Number"],
         default: "0",
         description: "Number of records (rows) on the single page. Setting it to the `0` disables pagination.",
+    },
+    {
+        name: "data-is-loading",
+        type: ["Boolean"],
+        default: "false",
+        description: "If true, adds classes from the `class-loading` attribute to the table. This can be useful, for example, when loading table data.",
     },
 ]
 definition: [
@@ -173,6 +193,12 @@ To enable pagination, set the `data-items-per-page` to any number greater than `
 Filtering is enabled by default for all columns. The table data is filtered based on the string provided in the `data-filter` prop. The `update:items-filtered` event is used to update the item count for the pagination component.
 
 {% render "example.liquid" example: "examples/table-filter-pagination.html", tabs: examples.tableFilterPagination %}
+
+### Table loading
+
+The `data-is-loading` prop can be used, for example, when loading table data. Based on its value, the classes from the `class-loading` attribute are added to or removed from the table. By default, the `opacity-50` and `pointer-events-none` classes are applied.
+
+{% render "example.liquid" example: "examples/table-loading.html", tabs: examples.tableLoading %}
 
 ### Cell highlight
 

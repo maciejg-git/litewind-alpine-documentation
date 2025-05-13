@@ -24,6 +24,13 @@ examples: {
             language: "html",
         },
     ],
+    tabsTransition: [
+        {
+            label: "Template",
+            file: "examples/tabs-transition.html",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -31,6 +38,12 @@ props: [
         type: ["String"],
         default: "empty string",
         description: "The name of the selected tab.",
+    },
+    {
+        name: "data-transition",
+        type: ["String"],
+        default: "empty string",
+        description: "The transition that will be applied to each tab.",
     },
 ]
 ---
@@ -61,3 +74,9 @@ Tabs can be aligned by replacing `justify-start` class on the `tabBar` element w
 ### Alternative tabs style
 
 {% render "example.liquid" example: "examples/tabs-style.html", tabs: examples.tabsStyle %}
+
+### Tabs transition
+
+To apply the same transition to every tab use the `data-transition` prop.
+
+{% render "example.liquid" example: "examples/tabs-transition.html", tabs: examples.tabsTransition %}

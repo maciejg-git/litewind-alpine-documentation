@@ -16,4 +16,4 @@ examples: {
 
 {% render "github-link.liquid" component: "spinner" %}
 
-{% render "example.liquid" example: "examples/spinner-simple.html", tabs: examples.spinnerSimple, collapse: false %}
+{% render "example.liquid" example: "examples/spinner-simple.html", tabs: examples.spinnerSimple, collapse: false, centerFlexRow: true %}

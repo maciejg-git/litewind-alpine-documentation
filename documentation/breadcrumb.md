@@ -30,7 +30,7 @@ props: [
 
 {% render "github-link.liquid" component: "breadcrumb" %}
 
-{% render "example.liquid" example: "examples/breadcrumb-simple.html", tabs: examples.breadcrumbSimple, collapse: false %}
+{% render "example.liquid" example: "examples/breadcrumb-simple.html", tabs: examples.breadcrumbSimple, collapse: false, centerFlexRow: true %}
 
 ### Usage
 
