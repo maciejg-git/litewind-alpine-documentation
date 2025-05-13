@@ -105,7 +105,6 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
@@ -537,9 +536,6 @@
   .mr-10 {
     margin-right: calc(var(--spacing) * 10);
   }
-  .mr-auto {
-    margin-right: auto;
-  }
   .-mb-px {
     margin-bottom: -1px;
   }
@@ -548,6 +544,9 @@
   }
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
   }
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
@@ -611,9 +610,6 @@
   }
   .h-6 {
     height: calc(var(--spacing) * 6);
-  }
-  .h-7 {
-    height: calc(var(--spacing) * 7);
   }
   .h-8 {
     height: calc(var(--spacing) * 8);
@@ -687,14 +683,8 @@
   .w-17 {
     width: calc(var(--spacing) * 17);
   }
-  .w-19 {
-    width: calc(var(--spacing) * 19);
-  }
   .w-20 {
     width: calc(var(--spacing) * 20);
-  }
-  .w-21 {
-    width: calc(var(--spacing) * 21);
   }
   .w-41 {
     width: calc(var(--spacing) * 41);
@@ -787,8 +777,16 @@
     --tw-translate-x: calc(var(--spacing) * -40);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .translate-x-10 {
+    --tw-translate-x: calc(var(--spacing) * 10);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .translate-x-40 {
     --tw-translate-x: calc(var(--spacing) * 40);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-x-\[50px\] {
+    --tw-translate-x: 50px;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1 {
@@ -824,9 +822,6 @@
   }
   .rotate-180 {
     rotate: 180deg;
-  }
-  .rotate-\[0\.2\] {
-    rotate: 0.2;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -1351,10 +1346,6 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
-  .font-normal {
-    --tw-font-weight: var(--font-weight-normal);
-    font-weight: var(--font-weight-normal);
-  }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
@@ -1439,6 +1430,9 @@
   }
   .opacity-30 {
     opacity: 30%;
+  }
+  .opacity-50 {
+    opacity: 50%;
   }
   .opacity-70 {
     opacity: 70%;
@@ -1554,9 +1548,6 @@
   }
   .delay-200 {
     transition-delay: 200ms;
-  }
-  .delay-500 {
-    transition-delay: 500ms;
   }
   .duration-75 {
     --tw-duration: 75ms;
