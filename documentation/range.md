@@ -17,6 +17,27 @@ examples: {
             language: "html",
         },
     ],
+    rangeMinMaxStep: [
+        {
+            label: "Template",
+            file: "examples/range-min-max-step.html",
+            language: "html",
+        },
+    ],
+    rangeShowSteps: [
+        {
+            label: "Template",
+            file: "examples/range-show-steps.html",
+            language: "html",
+        },
+    ],
+    rangeShowLabels: [
+        {
+            label: "Template",
+            file: "examples/range-show-labels.html",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -53,11 +74,13 @@ props: [
         name: "show-labels",
         type: ["Boolean"],
         default: "false",
-        description: "If true, displays value labels avove the sliders",
+        description: "If true, displays value labels above the sliders",
     },
 ]
 ---
 ## Range
+
+{% render "github-link.liquid" component: "range" %}
 
 {% render "example.liquid" example: "examples/range-simple.html", tabs: examples.rangeSimple  %}
 
@@ -76,3 +99,15 @@ The data for the component is provided by the `range` function in the `x-data` d
 ### Fixed minimal value
 
 {% render "example.liquid" example: "examples/range-fixed-min.html", tabs: examples.rangeFixedMin  %}
+
+### Min, max and step
+
+{% render "example.liquid" example: "examples/range-min-max-step.html", tabs: examples.rangeMinMaxStep  %}
+
+### Step ticks
+
+{% render "example.liquid" example: "examples/range-show-steps.html", tabs: examples.rangeShowSteps  %}
+
+### Slider labels
+
+{% render "example.liquid" example: "examples/range-show-labels.html", tabs: examples.rangeShowLabels  %}
