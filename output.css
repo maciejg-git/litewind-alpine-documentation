@@ -497,6 +497,9 @@
   .my-6 {
     margin-block: calc(var(--spacing) * 6);
   }
+  .my-10 {
+    margin-block: calc(var(--spacing) * 10);
+  }
   .example {
     margin-top: calc(var(--spacing) * 6);
     margin-bottom: calc(var(--spacing) * 2);
