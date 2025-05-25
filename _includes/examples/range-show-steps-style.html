@@ -1,0 +1,47 @@
+<div
+  x-data="range"
+  data-step="10"
+  data-show-steps
+  class="relative flex h-5 w-full items-center"
+>
+  <div
+    class="flex h-2 w-full items-center overflow-hidden rounded-full bg-secondary-300 dark:bg-dark-700"
+  >
+    <div
+      class="relative h-full bg-gray-500 dark:bg-gray-300"
+      x-bind="trackFill"
+    ></div>
+    <template x-if="_showSteps">
+      <template x-for="(s, index) in getSteps">
+        <div
+          class="absolute h-2 w-px top-3.5 rounded-full"
+          class-filled="bg-gray-600 dark:bg-gray-400"
+          class-default="bg-gray-600 dark:bg-gray-400"
+          x-bind="step"
+        ></div>
+      </template>
+    </template>
+  </div>
+  <div
+    class="absolute h-5 w-5 rounded-full bg-gray-500 shadow-md ring-primary-400/50 outline-hidden focus:ring-4 dark:bg-gray-300"
+    x-bind="slider1"
+    tabindex="0"
+  >
+    <div
+      class="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-md bg-gray-500 px-2 py-0.5 text-sm text-white"
+      x-bind="label1"
+      x-cloak
+    ></div>
+  </div>
+  <div
+    class="absolute h-5 w-5 rounded-full bg-gray-500 shadow-md ring-primary-400/50 outline-hidden focus:ring-4 dark:bg-gray-300"
+    x-bind="slider2"
+    tabindex="0"
+  >
+    <div
+      class="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-md bg-gray-500 px-2 py-0.5 text-sm text-white"
+      x-bind="label2"
+      x-cloak
+    ></div>
+  </div>
+</div>
