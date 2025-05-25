@@ -407,6 +407,12 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
+  .top-3 {
+    top: calc(var(--spacing) * 3);
+  }
+  .top-3\.5 {
+    top: calc(var(--spacing) * 3.5);
+  }
   .top-6 {
     top: calc(var(--spacing) * 6);
   }
@@ -496,9 +502,6 @@
   }
   .my-6 {
     margin-block: calc(var(--spacing) * 6);
-  }
-  .my-10 {
-    margin-block: calc(var(--spacing) * 10);
   }
   .example {
     margin-top: calc(var(--spacing) * 6);
@@ -733,6 +736,9 @@
   }
   .w-max {
     width: max-content;
+  }
+  .w-px {
+    width: 1px;
   }
   .max-w-\(--breakpoint-lg\) {
     max-width: var(--breakpoint-lg);
