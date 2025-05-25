@@ -38,6 +38,13 @@ examples: {
             language: "html",
         },
     ],
+    rangeShowStepsStyle: [
+        {
+            label: "Template",
+            file: "examples/range-show-steps-style.html",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -98,16 +105,26 @@ The data for the component is provided by the `range` function in the `x-data` d
 
 ### Fixed minimal value
 
+The `data-fixed-min` makes the minimal value fixed.
+
 {% render "example.liquid" example: "examples/range-fixed-min.html", tabs: examples.rangeFixedMin  %}
 
 ### Min, max and step
+
+The `data-min`, `data-max` and `data-step` define minimal, maximal, and step values of the slider.
 
 {% render "example.liquid" example: "examples/range-min-max-step.html", tabs: examples.rangeMinMaxStep  %}
 
 ### Step ticks
 
+The `data-show-steps` shows ticks for each step. Below are examples of ticks with different styles.
+
 {% render "example.liquid" example: "examples/range-show-steps.html", tabs: examples.rangeShowSteps  %}
 
+{% render "example.liquid" example: "examples/range-show-steps-style.html", tabs: examples.rangeShowStepsStyle  %}
+
 ### Slider labels
+
+The `data-show-labels` displays value labels for each slider.
 
 {% render "example.liquid" example: "examples/range-show-labels.html", tabs: examples.rangeShowLabels  %}
