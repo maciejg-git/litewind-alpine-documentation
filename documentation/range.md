@@ -84,6 +84,14 @@ props: [
         description: "If true, displays value labels above the sliders",
     },
 ]
+xModel: [
+    {
+        name: "x-model",
+        type: ["Array"],
+        default: "[]",
+        description: "The x-model is an array containing minimal and maximal slider values.",
+    },
+]
 ---
 ## Range
 
@@ -102,6 +110,10 @@ The data for the component is provided by the `range` function in the `x-data` d
 #### Props
 
 {% render "reference.liquid" props: props %}
+
+#### x-model
+
+{% render "reference.liquid" props: xModel %}
 
 ### Fixed minimal value
 
