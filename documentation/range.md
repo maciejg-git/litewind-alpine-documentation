@@ -69,19 +69,19 @@ props: [
         name: "data-fixed-min",
         type: ["Boolean"],
         default: "false",
-        description: "The minimal value is fixed. If true, only one slider for max value is used",
+        description: "If true, the minimal value will be fixed and only the slider for maximal value will be used",
     },
     {
         name: "data-show-steps",
         type: ["Boolean"],
         default: "false",
-        description: "If true, displays ticks in the slider",
+        description: "If true, step ticks are displayed",
     },
     {
         name: "show-labels",
         type: ["Boolean"],
         default: "false",
-        description: "If true, displays value labels above the sliders",
+        description: "If true, the value labels are displayed above the sliders",
     },
 ]
 xModel: [
