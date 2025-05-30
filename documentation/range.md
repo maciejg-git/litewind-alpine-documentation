@@ -129,7 +129,7 @@ The `data-min`, `data-max` and `data-step` define minimal, maximal, and step val
 
 ### Step ticks
 
-The `data-show-steps` shows ticks for each step. Below are examples of ticks with different styles.
+The `data-show-steps` displays a tick for each step. Below are examples showing different tick styles.
 
 {% render "example.liquid" example: "examples/range-show-steps.html", tabs: examples.rangeShowSteps  %}
 
