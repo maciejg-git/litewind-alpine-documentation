@@ -2177,10 +2177,38 @@
       --tw-ring-color: var(--color-primary-200);
     }
   }
+  .not-group-has-checked\:dark\:text-text-300 {
+    &:not(*:is(:where(.group):has(*:checked) *)) {
+      &:is(.dark *) {
+        color: var(--color-text-300);
+      }
+    }
+  }
+  .not-group-has-checked\:dark\:text-text-800 {
+    &:not(*:is(:where(.group):has(*:checked) *)) {
+      &:is(.dark *) {
+        color: var(--color-text-800);
+      }
+    }
+  }
   .dark\:group-has-checked\:bg-primary-400 {
     &:is(.dark *) {
       &:is(:where(.group):has(*:checked) *) {
         background-color: var(--color-primary-400);
+      }
+    }
+  }
+  .group-has-checked\:dark\:text-text-300 {
+    &:is(:where(.group):has(*:checked) *) {
+      &:is(.dark *) {
+        color: var(--color-text-300);
+      }
+    }
+  }
+  .group-has-checked\:dark\:text-text-800 {
+    &:is(:where(.group):has(*:checked) *) {
+      &:is(.dark *) {
+        color: var(--color-text-800);
       }
     }
   }
