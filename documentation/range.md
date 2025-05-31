@@ -78,10 +78,10 @@ props: [
         description: "If true, step ticks are displayed",
     },
     {
-        name: "show-labels",
-        type: ["Boolean"],
+        name: "data-show-labels",
+        type: ["Boolean", "String"],
         default: "false",
-        description: "If true, the value labels are displayed above the sliders",
+        description: "If true, the value labels are displayed above the sliders. You can also set this prop to `focus` to display the labels when the slider is focused.",
     },
 ]
 xModel: [
