@@ -137,6 +137,6 @@ The `data-show-steps` displays a tick for each step. Below are examples showing 
 
 ### Slider labels
 
-The `data-show-labels` displays value labels for each slider.
+The `data-show-labels` displays value labels for each slider. To show labels when the component is focused, set `data-show-labels` to `"focus"`.
 
 {% render "example.liquid" example: "examples/range-show-labels.html", tabs: examples.rangeShowLabels  %}
