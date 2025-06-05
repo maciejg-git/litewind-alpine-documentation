@@ -185,7 +185,7 @@
   .markdown-container > ul {
     @apply list-disc list-inside my-6
   }
-  .markdown-container p a {
+  .markdown-container p a, .markdown-container li a {
     @apply text-blue-400 underline
   }
   .markdown-container blockquote {

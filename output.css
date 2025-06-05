@@ -509,9 +509,6 @@
       background-color: #171717;
     }
   }
-  .mt-1 {
-    margin-top: calc(var(--spacing) * 1);
-  }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
@@ -2443,7 +2440,7 @@
     list-style-position: inside;
     list-style-type: disc;
   }
-  .markdown-container p a {
+  .markdown-container p a, .markdown-container li a {
     color: var(--color-blue-400);
     text-decoration-line: underline;
   }
