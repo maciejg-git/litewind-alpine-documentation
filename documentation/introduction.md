@@ -247,4 +247,4 @@ Below is a basic overview of the features and structure of the component.
 - directives and attributes for internal elements are bound using the `x-bind` directive
 - some directives (e.g., `x-text`, `x-for`, `x-transition`) are bound directly in the template to allow customization
 - some elements use `class-*` attributes to add styles based on their variant. These classes are conditionally added or removed using Alpine `x-bind:class` directive
-- classes for transitions are defined using the `x-alt-transition` directive, which is part of the transition plugin. You can read more about it here.
+- classes for transitions are defined using the `x-alt-transition` directive, which is part of the transition plugin. You can read more about transition plugin [here](/documentation/plugins).
