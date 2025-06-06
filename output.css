@@ -1675,6 +1675,20 @@
       }
     }
   }
+  .hover\:bg-gray-200 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-200);
+      }
+    }
+  }
+  .hover\:bg-gray-300 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-300);
+      }
+    }
+  }
   .hover\:bg-neutral-300 {
     &:hover {
       @media (hover: hover) {
@@ -2247,6 +2261,15 @@
     &:is(.dark *) {
       &:focus-within {
         --tw-ring-color: var(--color-success-300);
+      }
+    }
+  }
+  .dark\:hover\:bg-dark-500 {
+    &:is(.dark *) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-dark-500);
+        }
       }
     }
   }
