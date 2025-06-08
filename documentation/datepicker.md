@@ -94,7 +94,7 @@ The data for the component is provided by the `datepicker` function in the `x-da
 
 ### Range mode
 
-The datepicker allows selecting date ranges when the `data-range` prop is enabled. In range mode, instead of a single date `string`, the component emits an `array` of two `strings`.
+The datepicker allows selecting date ranges when the `data-range` prop is enabled. In range mode, instead of a single date string, the component emits an array of two strings.
 
 {% render "example.liquid" example: "examples/datepicker-range.html", tabs: examples.datepickerRange %}
 

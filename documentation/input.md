@@ -80,4 +80,6 @@ If you want to hide these elements initially and then show them based on the sta
 
 ### Input style
 
+For the different input styles check the following examples.
+
 {% render "example.liquid" example: "examples/input-style.html", tabs: examples.inputStyle %}
