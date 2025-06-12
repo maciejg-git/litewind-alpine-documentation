@@ -200,7 +200,7 @@
   code {
     @apply text-sm
   }
-  p code, li code {
+  p code, li code, .code-word {
     @apply text-red-600 dark:text-yellow-600 font-semibold text-sm
   }
 }
