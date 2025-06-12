@@ -103,7 +103,7 @@ To apply the same transition to every tab use the `data-transition` prop.
     </svg>
   </div>
   <div>
-  Note that tab transitions use <span class="code-word">absolute top-0</span> classes on the leaving element during the transition to prevent layout problems when both elements are present in the DOM.
+  Note that tab transitions use <span class="code-word">absolute top-0</span> classes on the leaving element during the transition to prevent layout problems when both elements are visible.
   </div>
   <button x-bind="closeButton" class="ml-auto">
     <svg
