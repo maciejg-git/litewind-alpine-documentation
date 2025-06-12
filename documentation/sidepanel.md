@@ -20,6 +20,12 @@ examples: {
 }
 props: [
     {
+        name: "data-left",
+        type: ["Boolean"],
+        default: "false",
+        description: "If true, the sidepanel is placed on the left side.",
+    },
+    {
         name: "data-modal",
         type: ["Boolean"],
         default: "false",
@@ -48,12 +54,6 @@ The data for the component is provided by the `sidepanel` function in the `x-dat
 ### Opening sidepanel
 
 To open sidepanel simply dispatch `open-sidepanel` event anywhere in your application. The data in the event is the `id` of the sidepanel to open.
-
-### Sidepanel position
-
-By default sidepanel opens on the right. To swap it to the left side:
-- change the `right-0` to the `left-0` class on the main element
-- change the `translate` to the negative `-translate` class on the transition directive
 
 ### Modal sidepanel
 
