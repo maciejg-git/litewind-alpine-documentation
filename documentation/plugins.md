@@ -56,7 +56,7 @@ Add transition plugin to your page with the CDN or as a npm package.
 
 #### x-alt-transition
 
-This directive adds more timeline like way of defining transitions. To allow CSP builds it is parsed as JSON.
+This directive adds more timeline like way of defining transitions.
 
 ```html
 <div x-alt-transition='{
@@ -65,6 +65,10 @@ This directive adds more timeline like way of defining transitions. To allow CSP
 }'
 ></div>
 ```
+
+The directive allows the following modifiers:
+
+- `json` - the directive value is parsed as JSON. This can be useful for CSP builds of Alpine.
 
 #### x-vue-transition
 
