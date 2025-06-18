@@ -10,13 +10,6 @@ examples: {
             language: "html",
         },
     ],
-    carouselAutoPlay: [
-        {
-            label: "Template",
-            file: "examples/carousel-auto-play.html",
-            language: "html",
-        },
-    ],
 }
 props: [
     {
@@ -50,7 +43,3 @@ The data for the component is provided by the `carousel` function in the `x-data
 #### Props
 
 {% render "reference.liquid" props: props %}
-
-### Auto play
-
-{% render "example.liquid" example: "examples/carousel-auto-play.html", tabs: examples.carouselAutoPlay, centerFlexRow: true %}
