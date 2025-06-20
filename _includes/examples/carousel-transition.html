@@ -7,8 +7,8 @@
     <div
       x-bind="item"
       x-alt-transition='{
-        "enter": ["opacity-0", "transition ease-in-out duration-500", "opacity-100"],
-        "leave": ["opacity-100", "transition ease-in-out duration-500 absolute top-0", "opacity-0"]
+        "enter": ["data-prev:-translate-x-full data-next:translate-x-full", "transition ease-in-out duration-300", ""],
+        "leave": ["", "transition ease-in-out duration-300 absolute top-0", "data-prev:translate-x-full data-next:-translate-x-full"]
       }'
     >
       <img :src="'/images/' + i" alt="" />
