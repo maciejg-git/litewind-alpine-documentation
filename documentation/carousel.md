@@ -17,6 +17,13 @@ examples: {
             language: "html",
         },
     ],
+    carouselTransition: [
+        {
+            label: "Template",
+            file: "examples/carousel-transition.html",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -56,3 +63,7 @@ The data for the component is provided by the `carousel` function in the `x-data
 Add the `data-auto-play` prop to automatically transition to the next slide after 5 seconds. You can set the props's value to change the default time interval.
 
 {% render "example.liquid" example: "examples/carousel-auto-play.html", tabs: examples.carouselAutoPlay, centerFlexRow: true %}
+
+### Transition
+
+{% render "example.liquid" example: "examples/carousel-transition.html", tabs: examples.carouselTransition, centerFlexRow: true %}
