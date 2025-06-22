@@ -1,14 +1,15 @@
 <div
   x-data="carousel"
   :data-items="['mononoke033.jpg', 'mononoke035.jpg', 'mononoke032.jpg']"
+  data-no-first-and-last-button
   class="relative flex items-center justify-center overflow-hidden"
 >
   <template x-for="(i, index) in getItems" :key="i">
     <div
       x-bind="item"
       x-alt-transition='{
-        "enter": ["transition-none data-prev:-translate-x-full data-next:translate-x-full", "motion-reduce:transition-none transition ease-in-out duration-300", ""],
-        "leave": ["transition-none", "motion-reduce:transition-none transition ease-in-out duration-300 absolute top-0", "data-prev:translate-x-full data-next:-translate-x-full"]
+        "enter": ["opacity-0", "transition ease-in-out duration-300", "opacity-100"],
+        "leave": ["opacity-100", "transition ease-in-out duration-300 absolute top-0", "opacity-0"]
       }'
     >
       <img :src="'/images/' + i" alt="" />
