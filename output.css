@@ -440,6 +440,9 @@
   .bottom-6 {
     bottom: calc(var(--spacing) * 6);
   }
+  .bottom-14 {
+    bottom: calc(var(--spacing) * 14);
+  }
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
@@ -821,10 +824,6 @@
   }
   .translate-x-40 {
     --tw-translate-x: calc(var(--spacing) * 40);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .translate-x-full {
-    --tw-translate-x: 100%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1 {
@@ -1611,6 +1610,9 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .transition-none {
+    transition-property: none;
+  }
   .delay-100 {
     transition-delay: 100ms;
   }
@@ -1629,10 +1631,6 @@
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
-  }
-  .duration-500 {
-    --tw-duration: 500ms;
-    transition-duration: 500ms;
   }
   .ease-in {
     --tw-ease: var(--ease-in);
@@ -1943,6 +1941,11 @@
     &[data-prev] {
       --tw-translate-x: 100%;
       translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .motion-reduce\:transition-none {
+    @media (prefers-reduced-motion: reduce) {
+      transition-property: none;
     }
   }
   .md\:right-4 {
@@ -2597,6 +2600,10 @@
   .markdown-container p a, .markdown-container li a {
     color: var(--color-blue-400);
     text-decoration-line: underline;
+  }
+  .markdown-container .example p a, .markdown-container .example li a {
+    color: inherit;
+    text-decoration-line: none;
   }
   .markdown-container blockquote {
     border-left-style: var(--tw-border-style);

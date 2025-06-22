@@ -188,6 +188,9 @@
   .markdown-container p a, .markdown-container li a {
     @apply text-blue-400 underline
   }
+  .markdown-container .example p a, .markdown-container .example li a {
+    @apply text-inherit no-underline
+  }
   .markdown-container blockquote {
     @apply border-l-4 px-4 leading-8 border-secondary-200 dark:border-neutral-600
   }
