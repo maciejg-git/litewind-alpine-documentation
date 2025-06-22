@@ -24,6 +24,13 @@ examples: {
             language: "html",
         },
     ],
+    carouselHideControls: [
+        {
+            label: "Template",
+            file: "examples/carousel-hide-controls.html",
+            language: "html",
+        },
+    ],
 }
 props: [
     {
@@ -37,6 +44,12 @@ props: [
         type: ["Boolean", "Number"],
         default: "false",
         description: "If true, automatically plays items every 5 seconds. This prop also accepts a number (milliseconds) to change the default time interval.",
+    },
+    {
+        name: "data-no-first-and-last-button",
+        type: ["Boolean"],
+        default: "[]",
+        description: "Hides the previous button on the first slide and the next button on the last slide.",
     },
 ]
 ---
@@ -67,3 +80,7 @@ Add the `data-auto-play` prop to automatically transition to the next slide afte
 ### Transition
 
 {% render "example.liquid" example: "examples/carousel-transition.html", tabs: examples.carouselTransition, centerFlexRow: true %}
+
+### Hide controls
+
+{% render "example.liquid" example: "examples/carousel-hide-controls.html", tabs: examples.carouselHideControls, centerFlexRow: true %}
