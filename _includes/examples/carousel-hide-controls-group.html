@@ -1,8 +1,7 @@
 <div
   x-data="carousel"
   :data-items="['mononoke033.jpg', 'mononoke035.jpg', 'mononoke032.jpg']"
-  data-auto-play="5000"
-  class="relative flex items-center justify-center overflow-hidden"
+  class="relative flex items-center justify-center overflow-hidden group"
 >
   <template x-for="(i, index) in getItems">
     <div
@@ -20,7 +19,7 @@
     </div>
   </template>
   <button
-    class="absolute top-1/2 left-4 -translate-y-1/2 rounded-full bg-gray-200/80 p-3 text-black hover:bg-gray-200"
+    class="absolute top-1/2 left-4 -translate-y-1/2 rounded-full bg-gray-200/80 p-3 text-black hover:bg-gray-200 transition duration-200 opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-0"
     x-bind="prevButton"
   >
     <svg
@@ -35,7 +34,7 @@
     </svg>
   </button>
   <button
-    class="absolute top-1/2 right-4 -translate-y-1/2 rounded-full bg-gray-200/80 p-3 text-black hover:bg-gray-200"
+    class="absolute top-1/2 right-4 -translate-y-1/2 rounded-full bg-gray-200/80 p-3 text-black hover:bg-gray-200 transition duration-200 opacity-0 group-hover:opacity-100 translate-x-full group-hover:-translate-x-0"
     x-bind="nextButton"
   >
     <svg
