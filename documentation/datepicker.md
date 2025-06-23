@@ -39,7 +39,7 @@ props: [
         description: "Week starts on Monday",
     },
     {
-        name: "data-adjacent-months",
+        name: "data-adjacent-months-days",
         type: ["Boolean"],
         default: "true",
         description: "If true, days from the previous and next months are displayed. Classes for these days can be customized using the `class-adjacent` attribute in the template. Adjacent days are selectable.",

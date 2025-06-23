@@ -24,10 +24,17 @@ examples: {
             language: "html",
         },
     ],
-    carouselHideControls: [
+    carouselHideControlsProp: [
         {
             label: "Template",
-            file: "examples/carousel-hide-controls.html",
+            file: "examples/carousel-hide-controls-prop.html",
+            language: "html",
+        },
+    ],
+    carouselHideControlsGroup: [
+        {
+            label: "Template",
+            file: "examples/carousel-hide-controls-group.html",
             language: "html",
         },
     ],
@@ -41,14 +48,14 @@ props: [
     },
     {
         name: "data-auto-play",
-        type: ["Boolean", "Number"],
-        default: "false",
-        description: "If true, automatically plays items every 5 seconds. This prop also accepts a number (milliseconds) to change the default time interval.",
+        type: ["Number"],
+        default: "0",
+        description: "This prop enables automatic playing of slides. The value is a time interval in miliseconds.",
     },
     {
         name: "data-no-first-and-last-button",
         type: ["Boolean"],
-        default: "[]",
+        default: "false",
         description: "Hides the previous button on the first slide and the next button on the last slide.",
     },
 ]
@@ -83,4 +90,14 @@ Add the `data-auto-play` prop to automatically transition to the next slide afte
 
 ### Hide controls
 
-{% render "example.liquid" example: "examples/carousel-hide-controls.html", tabs: examples.carouselHideControls, centerFlexRow: true %}
+If you need to permanently hide navigation controls, simply delete them from the template.
+
+To hide them selectively or based on user actions, check the following two examples.
+
+You can use `data-no-first-and-last-button` prop to hide the "previous" button of the first slide and the "next" button of the last slide.
+
+{% render "example.liquid" example: "examples/carousel-hide-controls-prop.html", tabs: examples.carouselHideControlsProp, centerFlexRow: true %}
+
+To hide navigation controls based on the user actions, you can use Tailwind's `group` class. In the next example, the buttons are displayed when the pointer hovers over the carousel.
+
+{% render "example.liquid" example: "examples/carousel-hide-controls-group.html", tabs: examples.carouselHideControlsGroup, centerFlexRow: true %}
