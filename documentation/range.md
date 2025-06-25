@@ -81,7 +81,7 @@ props: [
         name: "data-show-labels",
         type: ["Boolean", "String"],
         default: "false",
-        description: "If true, the value labels are displayed above the sliders. You can also set this prop to `focus` to display the labels when the slider is focused.",
+        description: "If set to true or `'always'` the value labels are displayed above the sliders. You can also set this prop to `'focus'` to display the labels when the slider is focused.",
     },
 ]
 xModel: [
