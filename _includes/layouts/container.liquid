@@ -107,7 +107,7 @@ layout: "layouts/base.html"
 </div>
 <!-- small screen expandable navigation -->
 <div x-data="sidepanel" id="sidepanelComponents" x-cloak>
-  <template x-if="isModal">
+  <template x-if="_isModal">
     <div
       x-bind="backdrop"
       x-alt-transition='
