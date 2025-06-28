@@ -88,7 +88,7 @@ Add the `data-auto-play` prop to automatically transition to the next slide. The
 
 The next example shows how you can customize the carousel transition. This transition is slightly more advanced than the default one:
 - the `transition-none` class is added in the first frames to cancel the previous transition and prevent glitches when switching slides too quickly.
-- the `data-prev` and `data-next` variants are used to move slides left or right based on the direction
+- the `data-prev` and `data-next` variants are used to move slides left or right based on the direction.
 - the `motion-reduce` variant is used to prevent transition from playing if the user has [prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) enabled. To add a fallback transition, such as opacity, you can use the [motion-safe](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion) variant.
 
 {% render "example.liquid" example: "examples/carousel-transition.html", tabs: examples.carouselTransition, centerFlexRow: true %}
