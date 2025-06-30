@@ -37,7 +37,7 @@ props: [
         name: "data-items",
         type: ["Array"],
         default: "[]",
-        description: "Array of items to select. This can be an `array` of `strings` or an `array` of `objects`. The objects should have at least two properties: a `text` that will be displayed in the menu and a `value`. This prop is optional, items can be assigned directly to the `items` property.",
+        description: "Array of items to select. This can be an `array` of `strings` or an `array` of `objects`. The objects should have at least two properties: a `text` that will be displayed in the menu and a `value`. This prop is optional, items can be assigned directly to the `_items` property.",
     },
     {
         name: "data-item-text",
