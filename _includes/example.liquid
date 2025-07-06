@@ -19,7 +19,7 @@
             @click="
               () => {
                 let text = document.querySelector('#{{ tabs[0].name | append: tabs[0].label }}').textContent
-                navigator.clipboard.writeText(text)
+                navigator.clipboard.writeText(text.trim())
                 copy = true
                 setTimeout(() => copy = false, 1500)
               }
