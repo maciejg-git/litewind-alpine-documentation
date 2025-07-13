@@ -146,7 +146,7 @@ definition: [
 ]
 events: [
     {
-        name: "update:items-filtered",
+        name: "update:items",
         type: ["Array"],
         description: "Event dispatched after each filtering of the items. This can be useful, for example to update pagination component.",
     },
