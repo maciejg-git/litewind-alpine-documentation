@@ -248,3 +248,26 @@ Below is a basic overview of the features and structure of the component.
 - some directives (e.g., `x-text`, `x-for`, `x-transition`) are bound directly in the template to allow customization
 - some elements use `class-*` attributes to add styles based on their variant. These classes are conditionally added or removed using Alpine `x-bind:class` directive
 - classes for transitions are defined using the `x-alt-transition` directive, which is part of the transition plugin. You can read more about transition plugin [here](/documentation/plugins).
+
+### Props
+
+Props are the `data-*` attributes, set on the main element, that allow changing default component settings without modifying the template. Props can be bound just like other attributes, and some of them are reactive so they will change the component state when the bound value is modified.
+
+#### Props type
+
+Each prop has a type. However, because `data-*` attributes are always strings, there are some exceptions.
+
+For example, for boolean values, all of the following are considered true:
+
+```html
+// the "true" or "false" strings are allowed for boolean props
+<div data-prop="true"></div>
+
+// bound data evaluates to true or false
+<div :data-prop="true"></div>
+
+// Alpine returns true for data attributes without a value
+<div data-prop"></div>
+```
+
+Similalry, the props of number type can also be assigned as strings.
