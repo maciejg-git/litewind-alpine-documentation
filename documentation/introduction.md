@@ -251,23 +251,23 @@ Below is a basic overview of the features and structure of the component.
 
 ### Props
 
-Props are the `data-*` attributes, set on the main element, that allow changing default component settings without modifying the template. Props can be bound just like other attributes, and some of them are reactive so they will change the component state when the bound value is modified.
+Props are the `data-*` attributes set on the main element that allow you to change the default component settings without modifying the template. Props can be bound like other attributes, and some are reactive - meaning the component’s state will update when the bound value changes..
 
 #### Props type
 
-Each prop has a type. However, because `data-*` attributes are always strings, there are some exceptions.
+Each prop has a type. However, since `data-*` attributes are always strings, there are some exceptions.
 
-For example, for boolean values, all of the following are considered true:
+For example, with boolean values, all of the following are considered true:
 
 ```html
-// the "true" or "false" strings are allowed for boolean props
+<!-- the "true" or "false" strings are allowed for boolean props -->
 <div data-prop="true"></div>
 
-// bound data evaluates to true or false
+<!-- bound data evaluates to true or false -->
 <div :data-prop="true"></div>
 
-// Alpine returns true for data attributes without a value
+<!-- Alpine treats data attributes without a value as true -->
 <div data-prop"></div>
 ```
 
-Similalry, the props of number type can also be assigned as strings.
+Similalry, props of number type can also be assigned as strings.
