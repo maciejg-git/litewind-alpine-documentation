@@ -242,12 +242,12 @@ To use a component in your application, simply copy any example that is closest 
 Below is a basic overview of the features and structure of the component.
 
 - each component has only one `x-data` directive
-- the value of the `x-data` is always a function defined using `Alpine.data`
+- the value of the `x-data` is always a function defined using `Alpine.data()`
 - component props are passed via `data-*` attributes on the main element
 - directives and attributes for internal elements are bound using the `x-bind` directive
 - some directives (e.g., `x-text`, `x-for`, `x-transition`) are bound directly in the template to allow customization
 - some elements use `class-*` attributes to add styles based on their variant. These classes are conditionally added or removed using Alpine `x-bind:class` directive
-- classes for transitions are defined using the `x-alt-transition` directive, which is part of the transition plugin. You can read more about transition plugin [here](/documentation/plugins).
+- classes for transitions are defined using the `x-alt-transition` directive, which is part of the transition plugin. This is optional, you can use Alpine native `x-transition` instead. You can read more about transition plugin [here](/documentation/plugins).
 
 ### Props
 
