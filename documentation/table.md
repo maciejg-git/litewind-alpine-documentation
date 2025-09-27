@@ -166,7 +166,7 @@ The table component is used to generate tables from arrays. Tables can be static
 <script defer src="https://cdn.jsdelivr.net/npm/litewind-alpine@0.x.x/components/table/dist/cdn.min.js"></script>
 ```
 
-The data for the component is provided by the `table` function in the `x-data` directive and the props in the `data-*` attributes. Due to shared state such as filter, pagination, and more, it's  recommended to set up the data as a separate store and use the `$store` magic to bind props to the table.
+The data for the component is provided by the `table` function in the `x-data` directive and the props in the `data-*` attributes. Because tables often share state with other components such as pagination or input, it's  recommended to set up the data as a separate store and use the `$store` magic to bind props to the table.
 
 #### Props
 

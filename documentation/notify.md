@@ -48,7 +48,7 @@ props: [
         name: "data-dismissable",
         type: ["Boolean"],
         default: "true",
-        description: "Makes all notifications in this container dismissable by default. Dismissable notifications display close button and allows users to close them.",
+        description: "Makes all notifications in this container dismissable by default. Dismissable notifications display close button and allow users to close them.",
     },
     {
         name: "data-static",
@@ -92,7 +92,7 @@ The data for the component is provided by the `notify` function in the `x-data` 
 
 ### Notify container position
 
-To set up the notify container, add a few basic Tailwind classes to the main element:
+The component does not provide a prop to set the notifications position on the screen. Instead, to keep it flexible and responsive, you can configure the notify container by adding a few basic Tailwind classes to the main element:
 
 - `top-*` , `bottom-*`, `left-*` or `right-*` to set the container position
 - `w-*` to set notification width
