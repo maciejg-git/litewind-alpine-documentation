@@ -156,7 +156,7 @@ events: [
 
 {% render "github-link.liquid" component: "table" %}
 
-The table component is used to generate tables from arrays. Tables can be static or include features like filtering, sorting, pagination, reordering and others.
+The table component is used to generate tables from arrays. Tables can be static or can include features such as filtering, sorting, pagination, reordering and more.
 
 {% render "example.liquid" example: "examples/table-simple.html", tabs: examples.tableSimple %}
 
