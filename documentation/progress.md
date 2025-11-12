@@ -18,14 +18,6 @@ examples: {
         },
     ],
 }
-props: [
-    {
-        name: "data-interactive",
-        type: ["Boolean"],
-        default: "false",
-        description: "If this prop is enabled, clicking on progress will dispatch `progress-clicked` event with the clicked position as a value from `0` to `1`.",
-    },
-]
 xModel: [
     {
         name: "x-model",
@@ -47,10 +39,6 @@ xModel: [
 ```
 
 The data for the component is provided by the `progress` function in the `x-data` directive and the props in the `data-*` attributes.
-
-#### Props
-
-{% render "reference.liquid" props: props %}
 
 #### x-model
 
